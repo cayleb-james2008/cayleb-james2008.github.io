@@ -1,0 +1,76 @@
+/* Built and tested: Ergon featured, its checklist beside it; then the index of the other four. Each row shows
+   its own real screenshot (or, for Asmodeus, its checklist). From 1024px, with the script, the rows stand on
+   the left and one preview frame on the right follows the row you point at or tab to (site/js/home/work.js). */
+
+.built { padding-block: var(--section); border-top: 1px solid var(--line); }
+.sec-head { max-width: 46rem; margin-bottom: clamp(32px, 4vw, 56px); }
+
+.count { font-weight: 640; }
+
+/* Checklists: Ergon's features and Asmodeus's rules. Plain rows, no rules between them. */
+.checks { display: grid; gap: 12px; }
+.checks li { display: flex; align-items: flex-start; gap: 12px; font-size: var(--step-0); line-height: 1.4; }
+.checks .icon { width: 22px; height: 22px; padding: 4px; border-radius: 50%; background: var(--ok-wash); color: var(--ok); }
+
+/* --- Ergon, featured ----------------------------------------------------------- */
+.feature {
+  display: grid; gap: 28px; padding: clamp(22px, 3vw, 40px);
+  border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface);
+}
+.feature-cat, .row-cat { font-size: var(--step--1); color: var(--fg-2); }
+.feature-h { margin-top: 6px; font-size: var(--step-3); font-stretch: var(--wide); font-weight: 640; letter-spacing: -0.03em; }
+.feature-p { margin-top: 12px; max-width: 46ch; font-size: var(--step-1); line-height: 1.45; color: var(--fg-2); }
+.feature .status { margin-top: 20px; }
+.feature-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 24px; }
+.checks--feature { align-content: start; padding: clamp(20px, 2.4vw, 28px); border-radius: calc(var(--radius) - 4px); background: var(--sunk); }
+@media (min-width: 900px) { .feature { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: start; gap: 48px; } }
+
+/* --- The index ------------------------------------------------------------------- */
+.index { margin-top: clamp(40px, 5vw, 72px); }
+.index-rows { display: grid; gap: 56px; }
+.row-in { display: flex; flex-direction: column; gap: 20px; }
+.row-shot {
+  order: -1; aspect-ratio: 16 / 10; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--sunk);
+}
+.row-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+.row-shot--checks { display: flex; align-items: center; padding: clamp(24px, 4vw, 48px); }
+.row-h { font-size: var(--step-2); font-stretch: var(--wide); font-weight: 640; letter-spacing: -0.025em; }
+.row-cat { margin-top: 4px; }
+.row-p { margin-top: 10px; max-width: 48ch; color: var(--fg-2); }
+.row-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-top: 14px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tags li { padding: 3px 10px; border-radius: var(--radius-pill); background: var(--sunk); font-size: var(--step--1); color: var(--fg-2); }
+.row-code {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-top: 4px;
+  font-size: var(--step--1); font-weight: 580; color: var(--accent);
+}
+.row-code .icon { width: 14px; height: 14px; }
+.feature-h a, .row-link { text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 2px; text-underline-offset: 0.18em; transition: text-decoration-color var(--ui) ease; }
+
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  .index-rows { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 28px; }
+}
+
+/* Wide screens, scripted: list and preview. */
+.index--preview { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; align-items: start; }
+.index--preview .index-rows { gap: 4px; }
+.index:not(.index--preview) > .index-preview { display: none; }
+/* The row keeps its own picture (with its description, or Asmodeus's checklist) for assistive technology; only the
+   frame shows. */
+.index--preview .row-in > .row-shot {
+  position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+.index--preview .row-in { position: relative; }
+.index--preview .row-in { padding: 22px 24px; border-radius: var(--radius); transition: background-color var(--ui) ease, box-shadow var(--ui) ease; }
+.index--preview .row.on .row-in { background: var(--surface); box-shadow: 0 0 0 1px var(--line); }
+.index-preview {
+  position: sticky; top: calc(var(--masthead-h) + 24px); aspect-ratio: 16 / 10; overflow: hidden;
+  border: 1px solid var(--line); border-radius: var(--radius); background: var(--sunk); box-shadow: var(--shadow);
+}
+.index-preview .pane { position: absolute; inset: 0; display: flex; aspect-ratio: auto; border: 0; border-radius: 0; background: var(--sunk); }
+.index-preview .pane img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+
+@media (hover: hover) and (pointer: fine) {
+  .feature-h a:hover, .row-link:hover { text-decoration-color: currentColor; }
+  .row-code:hover span { text-decoration: underline; text-underline-offset: 0.18em; }
+}
