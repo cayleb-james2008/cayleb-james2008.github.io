@@ -1,0 +1,50 @@
+/* The composer: a panel over a dimmed page. It writes an email for you to send; it never claims to send one. */
+
+.modal {
+  position: fixed; inset: 0; z-index: var(--z-overlay); display: flex; align-items: flex-end; justify-content: center;
+  padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  background: rgb(18 26 43 / 0.42); transition: opacity var(--ui) ease;
+}
+@media (min-width: 640px) { .modal { align-items: center; } }
+.js:not(.reveal-failsafe) .modal:not(.open) { opacity: 0; }
+.md-panel {
+  position: relative; width: 100%; max-width: 32rem; max-height: 100%; overflow: auto; overscroll-behavior: contain;
+  padding: clamp(20px, 3vw, 32px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface);
+  box-shadow: 0 24px 64px -16px rgb(18 26 43 / 0.4);
+  transition: transform var(--ui) var(--ease-out);
+}
+.modal:not(.open) .md-panel { transform: translateY(16px) scale(0.98); }
+.md-x {
+  position: absolute; right: 12px; top: 12px; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+  color: var(--fg-2); transition: background-color var(--ui) ease, color var(--ui) ease;
+}
+.md-x .icon { width: 16px; height: 16px; }
+.md-head { display: flex; flex-direction: column; gap: 6px; margin-bottom: 24px; padding-right: 44px; }
+.md-eb { font-size: var(--step--1); font-weight: 560; color: var(--fg-2); }
+.md-head h2 { font-size: var(--step-2); font-stretch: var(--wide); font-weight: 640; line-height: 1.15; letter-spacing: -0.02em; }
+.md-form { display: flex; flex-direction: column; gap: 16px; }
+.md-form label { display: flex; flex-direction: column; gap: 6px; font-size: var(--step--1); font-weight: 560; }
+.md-form input, .md-form textarea {
+  width: 100%; padding: 12px 16px; border: 1px solid var(--line-strong); border-radius: 12px; outline: none;
+  background: var(--bg); color: var(--fg); font-size: max(16px, var(--step-0)); font-weight: 400;
+  transition: border-color var(--ui) ease, box-shadow var(--ui) ease;
+}
+.md-form input::placeholder, .md-form textarea::placeholder { color: var(--fg-2); opacity: 1; }
+.md-form textarea { resize: vertical; min-height: 6.5rem; line-height: 1.5; }
+.md-form input:focus, .md-form textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-wash); }
+.md-form [aria-invalid="true"] { border-color: var(--warn); }
+.md-err { font-size: var(--step--1); font-weight: 520; color: var(--warn); }
+.md-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 8px; }
+.md-note { font-size: var(--step--1); color: var(--fg-2); }
+.md-done { display: flex; flex-direction: column; align-items: center; gap: 16px; padding-block: 24px; text-align: center; }
+.md-badge { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--ok-wash); color: var(--ok); }
+.md-badge .icon { width: 24px; height: 24px; }
+.md-done h2 { font-size: var(--step-2); font-weight: 640; }
+.md-done p { max-width: 34ch; font-size: var(--step--1); color: var(--fg-2); }
+.md-done .sel { user-select: all; overflow-wrap: anywhere; font-weight: 620; color: var(--fg); }
+.md-acts { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px; }
+.md-raw {
+  width: 100%; padding: 12px 16px; border: 1px solid var(--line-strong); border-radius: 12px; resize: none;
+  background: var(--bg); color: var(--fg); font: 400 var(--step--1)/1.55 var(--font); text-align: left;
+}
+@media (hover: hover) and (pointer: fine) { .md-x:hover { background: var(--sunk); color: var(--fg); } }
