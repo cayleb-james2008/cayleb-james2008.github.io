@@ -18,5 +18,30 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      /* Initial-hash jump for the static project pages that link into this résumé:
+         the SPA mounts after load, so wait for the target and keep the scroll. */
+      (() => {
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        let timer = null;
+        const jump = () => {
+          if (!location.hash) return;
+          let id = location.hash.slice(1);
+          try { id = decodeURIComponent(id); } catch (e) {}
+          const el = document.getElementById(id);
+          if (el) el.scrollIntoView({ block: 'start' });
+        };
+        const start = () => {
+          if (timer) clearInterval(timer);
+          let n = 0;
+          jump();
+          timer = setInterval(() => { jump(); if (++n > 50) clearInterval(timer); }, 120);
+        };
+        window.addEventListener('load', start);
+        window.addEventListener('hashchange', start);
+        if (document.readyState !== 'loading') start();
+        else document.addEventListener('DOMContentLoaded', start);
+      })();
+    </script>
   </body>
 </html>
