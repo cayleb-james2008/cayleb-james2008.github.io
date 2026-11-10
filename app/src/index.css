@@ -1,0 +1,51 @@
+@import "tailwindcss";
+/* The single token source for the house frontend. Everything the libraries read
+   (--background, --primary, --muted, --info ...) is mapped inside this file. */
+@import "./tokens.css";
+
+/* Geist (text) and Geist Mono (ids, model names, times, counts): the owner's fonts.
+   Files and their SIL Open Font Licence texts are in public/fonts/. TTF is kept as received;
+   convert to woff2 before shipping an app (smaller, same look). */
+@font-face { font-family: "Geist"; font-weight: 400; font-style: normal; font-display: swap; src: url("/fonts/Geist-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Geist"; font-weight: 500; font-style: normal; font-display: swap; src: url("/fonts/Geist-Medium.ttf") format("truetype"); }
+@font-face { font-family: "Geist"; font-weight: 600; font-style: normal; font-display: swap; src: url("/fonts/Geist-SemiBold.ttf") format("truetype"); }
+@font-face { font-family: "Geist Mono"; font-weight: 400; font-style: normal; font-display: swap; src: url("/fonts/GeistMono-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Geist Mono"; font-weight: 700; font-style: normal; font-display: swap; src: url("/fonts/GeistMono-Bold.ttf") format("truetype"); }
+
+/* Tremor Raw animation block (documented install step: paste its @theme into globals.css).
+   Only the hover-card/tooltip entries that Tracker uses are kept. */
+@theme {
+  --animate-slide-down-and-fade: slideDownAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-up-and-fade: slideUpAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-left-and-fade: slideLeftAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-right-and-fade: slideRightAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  @keyframes slideDownAndFade {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideUpAndFade {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideLeftAndFade {
+    from { opacity: 0; transform: translateX(6px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slideRightAndFade {
+    from { opacity: 0; transform: translateX(-6px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+}
+
+/* Vaul ignores prefers-reduced-motion: its sheet and overlay travel with CSS *animations* (slideFromBottom,
+   slideToBottom, fadeIn, fadeOut) and a transform transition. The earlier override here (until 2026-11-10)
+   matched [vaul-drawer], an attribute vaul 1.x does not set (it sets data-vaul-drawer), and cut only the
+   transition, so the 500 ms slide kept running. Both durations are cut on the real attributes. */
+@media (prefers-reduced-motion: reduce) {
+  [data-vaul-drawer], [data-vaul-overlay] { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* The ledger bars lead to the project list: each row answers hover, press and focus from the tokens. */
+.ledger-chart .group:hover { background-color: var(--board); }
+.ledger-chart .group:active { background-color: var(--track); }
