@@ -128,6 +128,18 @@ body{background:var(--c-base);color:var(--c-text-1);font-family:var(--font-sans)
   .node .n-face{transition:none}
   [data-motion="morph"]{transition:none}
 }
+
+@media (max-width:720px){
+  .hdr{flex:0 0 auto;height:auto;flex-wrap:wrap;gap:10px 16px;padding:10px var(--sp-gutter)}
+  .hdr-stats{width:100%;justify-content:flex-start;gap:14px}
+  .body{flex-direction:column}
+  .stage{flex:0 0 auto;min-height:58vh;overflow-x:auto}
+  .stage-cap::after{content:" — swipe the graph sideways to pan";text-transform:none;letter-spacing:0;font-family:var(--font-mono)}
+  .graph-wrap{justify-content:flex-start;align-items:flex-start}
+  #graph{width:1120px !important;height:756px !important;max-width:none !important;max-height:none !important;flex:0 0 auto}
+  .side{flex:0 0 auto;width:100%;max-height:none;border-left:0;border-top:1px solid var(--c-line)}
+  .legend-strip .hint{display:none}
+}
 </style>
 </head>
 <body data-selected="harness">
