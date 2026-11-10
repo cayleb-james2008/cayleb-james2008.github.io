@@ -41,7 +41,7 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
         <Tabs value={tab} onValueChange={(v) => onTab(String(v))}>
           <TabsList aria-label="Live demos" className="max-w-full flex-wrap">
             {liveDemos.map((d, i) => (
-              <TabsTab key={d.key} value={d.key} className="gap-2 whitespace-nowrap">
+              <TabsTab key={d.key} value={d.key} className="gap-2 whitespace-nowrap max-sm:min-h-11">
                 <span className="font-mono text-xs text-ink-2">{String(i + 1).padStart(2, "0")}</span>
                 {d.key}
                 <span className="font-mono text-xs text-ink-2">{tab === d.key ? demoWords.running : demoWords.idle}</span>
@@ -49,7 +49,7 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
             ))}
           </TabsList>
           {liveDemos.map((d) => (
-            <TabsPanel key={d.key} value={d.key} className="pt-4">
+            <TabsPanel key={d.key} value={d.key} className="rounded-[14px] pt-4 focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2">
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={reveal} className="grid gap-4">
                 <p className="flex flex-wrap items-center gap-x-3 font-mono text-xs text-ink-2">
                   <span>{d.tag}</span>

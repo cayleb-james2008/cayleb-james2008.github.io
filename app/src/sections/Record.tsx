@@ -28,7 +28,7 @@ function ExperienceEntry({ e }: { e: (typeof experience)[number] }) {
     <Expandable expanded={open} onToggle={() => setOpen((v) => !v)} transitionDuration={dur.enter} className="grid gap-3">
       <ExpandableTrigger
         aria-label={`${open ? "Fold" : "Open"} ${e.org}`}
-        className="flex items-start justify-between gap-4 rounded-[9px] text-left outline-none focus-visible:ring-2 focus-visible:ring-blue"
+        className="flex min-h-11 items-start justify-between gap-4 rounded-[9px] text-left outline-none focus-visible:ring-2 focus-visible:ring-blue"
       >
         <span className="grid gap-1">
           <span className="font-mono text-xs text-ink-2">{e.date}</span>

@@ -73,3 +73,6 @@
 /* The ledger bars lead to the project list: each row answers hover, press and focus from the tokens. */
 .ledger-chart .group:hover { background-color: var(--board); }
 .ledger-chart .group:active { background-color: var(--track); }
+
+/* On a phone the filter field is a 44 px target (the part's own height is 34 px there). */
+@media (max-width: 639px) { [data-slot="input"] { height: 2.75rem; line-height: 2.75rem; } }
