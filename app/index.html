@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <!-- No icon, no mark: the identity is the typographic wordmark. A transparent data-URI icon stops the browser's
+         default /favicon.ico request without adding a mark. (Carried from the live page.) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" />
+    <meta
+      name="description"
+      content="Cayleb Alvarez-James, AI Agent Systems Engineer. Autonomous agents, agent harnesses and self-improving infrastructure. The plain PDF is the submission copy."
+    />
+    <title>Cayleb Alvarez-James · AI Agent Systems Engineer</title>
+    <script>
+      // Set the theme before first paint: light by default; dark follows the system scheme (chrome/theme.tsx).
+      try {
+        var t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      /* Initial-hash jump for the static project pages that link into this résumé.
+         The SPA mounts after load, so wait briefly for the target; any real user
+         input cancels the retry so the script can never fight a scroll. (Carried verbatim from the live page.) */
+      (() => {
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        let timer = null;
+        const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+        const jump = () => {
+          if (!location.hash) return;
+          let id = location.hash.slice(1);
+          try { id = decodeURIComponent(id); } catch (e) {}
+          const el = document.getElementById(id);
+          if (el) el.scrollIntoView({ block: 'start' });
+        };
+        const start = () => {
+          stop();
+          let n = 0;
+          jump();
+          timer = setInterval(() => { jump(); if (++n >= 20) stop(); }, 150);
+        };
+        ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach((ev) =>
+          window.addEventListener(ev, stop, { passive: true }));
+        window.addEventListener('load', start);
+        window.addEventListener('hashchange', start);
+        if (document.readyState !== 'loading') start();
+        else document.addEventListener('DOMContentLoaded', start);
+      })();
+    </script>
+  </body>
+</html>

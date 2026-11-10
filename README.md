@@ -17,10 +17,14 @@ This is the interactive edition of Cayleb Alvarez-James's résumé. The plain PD
     interactions run in the browser.
   - `demos/openbell/` — OpenBell watchtower, sample data labelled DEMO/STALE by the
     app itself.
-- Vendored parts with provenance: Motion Primitives (MIT), Recharts (MIT), Geist fonts (OFL).
-  Kitchen patterns are original re-implementations (upstream has no licence file). Square UI is a grammar reference only; no Square UI bytes ship. Full manifest: `plan/GATE1-SOURCING.md` in the mission record.
+- Vendored parts, their sources and licences: `app/STACK.lock.md` and `app/THIRD-PARTY-LICENSES/`; fonts: Geist and
+  Geist Mono (SIL OFL), in `app/public/fonts/`. Square UI is a grammar reference only; no Square UI artwork ships.
 
 ## Build
 
-Vite + React 19 + TypeScript; built 2026-11-09. Every asset is static; there are no network calls
-at runtime and no analytics.
+The apex page (`index.html` and `assets/index-*`) is built from `app/`: Vite 8, React 19, TypeScript and Tailwind 4,
+made with the house-frontend method. `app/JOB.md` says what the page is for, `app/ROLE-COVERAGE.md` which library part
+serves each need, and `app/ALIVE.md` what answers each control. To rebuild: `cd app && npm ci && npm run build`, then copy
+`dist/index.html` to the repo root and `dist/assets/index-*` to `assets/` (Pages serves this root). `node
+scripts/render-check.mjs` in `app/` is the closing check. Every asset is static; there are no network calls at runtime and
+no analytics.
