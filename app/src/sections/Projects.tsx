@@ -67,7 +67,7 @@ function StatedNumbers({ chart }: { chart: Chart }) {
 function ProjectCard({ p, onOpenDemo }: { p: Project; onOpenDemo: (key: string) => void }) {
   const flagship = Boolean(p.capture);
   return (
-    <article className={cn("grid content-start gap-x-8 gap-y-4 rounded-[9px] border border-hairline bg-surface p-5", flagship && "md:col-span-2 md:grid-cols-[1fr_1.05fr]")}>
+    <article className={cn("grid content-start gap-x-8 gap-y-4 rounded-[9px] border border-hairline bg-surface p-5", flagship && "md:col-span-2 md:flow-root")}>
       <div className="flex flex-col gap-3">
         <div className="grid gap-1">
           <h3 className="text-ui font-medium text-ink">
@@ -102,14 +102,14 @@ function ProjectCard({ p, onOpenDemo }: { p: Project; onOpenDemo: (key: string) 
         ) : null}
       </div>
       {p.capture ? (
-        <div className="md:col-start-2 md:row-start-1">
+        <div className="md:float-right md:mb-4 md:ml-8 md:mt-4 md:w-[376px]">
           <CaptureFigure c={p.capture} onOpenDemo={() => p.demo && onOpenDemo(p.demo)} />
         </div>
       ) : p.chart ? (
         <StatedNumbers chart={p.chart} />
       ) : null}
-      <div className={cn("flex flex-col gap-3", flagship && "md:col-span-2")}>
-        <ul className={cn("flex list-disc flex-col gap-2 pl-5 text-sm leading-relaxed text-ink-2 marker:text-ink-2", flagship && "md:max-w-[68ch]")}>
+      <div className={cn("flex flex-col gap-3", flagship && "md:mt-4 md:block md:space-y-3")}>
+        <ul className={cn("flex list-disc flex-col gap-2 pl-5 text-sm leading-relaxed text-ink-2 marker:text-ink-2", flagship && "md:block md:max-w-[68ch] md:space-y-2")}>
           {p.bullets.map((b) => (
             <li key={b.slice(0, 40)}>{b}</li>
           ))}
