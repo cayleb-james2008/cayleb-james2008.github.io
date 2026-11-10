@@ -67,7 +67,7 @@ function StatedNumbers({ chart }: { chart: Chart }) {
 function ProjectCard({ p, onOpenDemo }: { p: Project; onOpenDemo: (key: string) => void }) {
   const flagship = Boolean(p.capture);
   return (
-    <article className={cn("grid content-start gap-x-8 gap-y-4 rounded-[9px] border border-hairline bg-surface p-5", flagship && "md:col-span-2 md:flow-root")}>
+    <article data-project={p.name} className={cn("scroll-mt-6 grid content-start gap-x-8 gap-y-4 rounded-[9px] border border-hairline bg-surface p-5", flagship && "md:col-span-2 md:flow-root")}>
       <div className="flex flex-col gap-3">
         <div className="grid gap-1">
           <h3 className="text-ui font-medium text-ink">

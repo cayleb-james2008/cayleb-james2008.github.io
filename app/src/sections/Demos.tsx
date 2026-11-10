@@ -1,5 +1,7 @@
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/ui/tabs";
 import { InView } from "@/components/ui/in-view";
 import { demoWords, liveDemos } from "@/content";
@@ -29,7 +31,16 @@ function DemoFrame({ title, src }: { title: string; src: string }) {
 }
 
 // Region G: the three real app builds, each running in its own frame, with what runs, what is fixture and why it is here.
+// The Ergon demo keeps what a visitor decided in this browser (one localStorage key); the reset clears it and loads the frame again.
+const ERGON_STATE = "ergon.frontend.v1";
+
 export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => void }) {
+  const [ergonRuns, setErgonRuns] = useState(0);
+  const resetErgon = () => {
+    try { localStorage.removeItem(ERGON_STATE); } catch { /* storage blocked: the frame still loads again */ }
+    setErgonRuns((n) => n + 1);
+    toast("The Ergon demo is reset: its approval waits for you again.");
+  };
   return (
     <InView>
       <section id="live-demos" aria-labelledby="demos-label" className="scroll-mt-6 grid gap-6 border-t border-hairline py-12 grid-cols-1 md:grid-cols-[12rem_1fr] md:gap-10">
@@ -59,7 +70,7 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
                   <h3 className="text-ui font-medium text-ink">{d.title}</h3>
                   <p className="max-w-[68ch] text-sm text-ink-2">{d.blurb}</p>
                 </div>
-                <DemoFrame title={d.title} src={d.url} />
+                <DemoFrame key={d.key === "Ergon" ? ergonRuns : 0} title={d.title} src={d.url} />
                 {d.hint ? <p className="font-mono text-xs text-ink-2">{d.hint}</p> : null}
                 <p className="max-w-[68ch] text-sm text-ink-2">
                   <span className="font-mono text-xs text-ink">{demoWords.tryIt}</span> {d.action}
@@ -77,14 +88,21 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
                     </p>
                   ))}
                 </div>
-                <a
-                  className={`${tapTarget} w-fit rounded-[4px] font-mono text-xs text-ink-2 underline-offset-4 outline-none hover:text-ink hover:underline active:text-blue focus-visible:ring-2 focus-visible:ring-blue`}
-                  href={d.url}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  Open the full demo ↗
-                </a>
+                <div className="flex flex-wrap items-center gap-x-6">
+                  <a
+                    className={`${tapTarget} w-fit rounded-[4px] font-mono text-xs text-ink-2 underline-offset-4 outline-none hover:text-ink hover:underline active:text-blue focus-visible:ring-2 focus-visible:ring-blue`}
+                    href={d.url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    Open the full demo ↗
+                  </a>
+                  {d.key === "Ergon" ? (
+                    <Button variant="ghost" size="sm" onClick={resetErgon} className="font-mono text-xs text-ink-2 max-sm:min-h-11">
+                      reset the demo
+                    </Button>
+                  ) : null}
+                </div>
               </motion.div>
             </TabsPanel>
           ))}
