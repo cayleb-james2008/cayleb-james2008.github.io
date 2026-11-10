@@ -24,3 +24,9 @@ Could not reach the clipboard. The address is caylebalvarezjames@gmail.com.
 
 Names for assistive technology (attributes, not text on the page): "Copy email address …", "Switch to the dark theme" / "Switch to the
 light theme", "Close", "Fold …" / "Open …" (an experience entry), "Contents", "Live demos", "<project>, how it works".
+
+Added after the UX quality review (m-0256):
+
+Close
+reset the demo
+The Ergon demo is reset: its approval waits for you again.

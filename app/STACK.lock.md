@@ -144,3 +144,5 @@ Every command below ran with `npm_config_ignore_scripts=true` exported, from `sk
 - `references/tokens.css`: `--success-foreground` from `#087d58` to `#067a54` (4.49 to 4.68 on the success badge fill).
 - `src/parts.tsx`: the `Person`, `TagKey` and `Tone` types moved in from the deleted `src/data/common.ts`; `PhasePill` takes a `tone` instead of reading a table of the deleted study's status words.
 - `src/bench/install.ts` repeats install lines from this file; `scripts/check-commands.py` fails if one is not recorded here.
+
+- 2026-11-10 (m-0256): `src/components/ui/morphing-dialog.tsx`, local edit: `MorphingDialogTrigger` takes the context's `triggerRef` when none is passed, so the dialog's own close effect gives focus back to the trigger (a keyboard user was dropped on the page body after Escape).

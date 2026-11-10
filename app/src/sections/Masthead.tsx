@@ -15,9 +15,9 @@ export function Masthead() {
   const copyEmail = async () => {
     try {
       await navigator.clipboard.writeText(identity.email);
-      toast.success(`Copied ${identity.email} to the clipboard.`);
+      toast.success(`Copied ${identity.email} to the clipboard.`, { id: "copy-email" });
     } catch {
-      toast(`Could not reach the clipboard. The address is ${identity.email}.`);
+      toast(`Could not reach the clipboard. The address is ${identity.email}.`, { id: "copy-email" });
     }
   };
   return (
@@ -62,7 +62,7 @@ export function Masthead() {
           <Button variant="outline" size="sm" className="h-12 text-sm md:h-11" onClick={toggle} aria-label={theme === "dark" ? "Switch to the light theme" : "Switch to the dark theme"}>
             {theme === "dark" ? "Light" : "Dark"}
           </Button>
-          <Drawer.Root>
+          <Drawer.Root autoFocus>
             <Drawer.Trigger asChild>
               <Button variant="outline" size="sm" className="h-12 text-sm sm:hidden">
                 Contact
@@ -89,6 +89,11 @@ export function Masthead() {
                     </li>
                   ))}
                 </ul>
+                <Drawer.Close asChild>
+                  <Button variant="outline" size="sm" className="mt-4 h-12 w-full text-sm">
+                    Close
+                  </Button>
+                </Drawer.Close>
               </Drawer.Content>
             </Drawer.Portal>
           </Drawer.Root>

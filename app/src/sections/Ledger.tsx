@@ -1,11 +1,17 @@
 import { BarList } from "@/components/BarList/BarList";
 import { InView } from "@/components/ui/in-view";
-import { ledger } from "@/content";
+import { ledger, projects } from "@/content";
 
 // Region B2: the defining object. The résumé's own stated test counts, drawn as bars, full width.
 // Bar length is the stated count; the label is the stated figure. Nothing is derived or rounded.
 const display = new Map(ledger.bars.map((b) => [b.value, b.display]));
 const data = ledger.bars.map((b) => ({ name: b.name, value: b.value }));
+// A bar leads to its own project card (a bar is named for its project); the section top when no card matches.
+const toProject = (barName: string) => {
+  const p = projects.find((x) => barName.startsWith(x.name));
+  const target = (p && document.querySelector(`[data-project="${p.name}"]`)) || document.getElementById("projects");
+  target?.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+};
 
 export function Ledger() {
   return (
@@ -21,7 +27,7 @@ export function Ledger() {
           <BarList
             data={data}
             valueFormatter={(v) => display.get(v) ?? String(v)}
-            onValueChange={() => document.getElementById("projects")?.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" })}
+            onValueChange={(b) => toProject(b.name)}
             className="ledger-chart hidden md:flex"
             role="group"
             aria-label="Stated test counts: 4,000+ automated tests across five shipped systems; Ergon 622 tests; Sophos 1,224 interface tests; Asmodeus 1,111 Rust tests; dotz 828+ core tests; Industry AI Suite 382 Python tests. GitHub contributions in the last year: 1,200+, shown beside the chart because they are not tests."

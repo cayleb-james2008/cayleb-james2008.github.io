@@ -106,7 +106,8 @@ function MorphingDialogTrigger({
   blocked,
   thing,
 }: MorphingDialogTriggerProps) {
-  const { setIsOpen, isOpen, uniqueId } = useMorphingDialog();
+  // Local edit (m-0256): without a ref passed in, the trigger takes the context's, so the dialog's close effect can give focus back to it.
+  const { setIsOpen, isOpen, uniqueId, triggerRef: contextRef } = useMorphingDialog();
 
   const handleClick = useCallback(() => {
     if (blocked) return;
@@ -126,7 +127,7 @@ function MorphingDialogTrigger({
 
   return (
     <motion.button
-      ref={triggerRef}
+      ref={triggerRef ?? contextRef}
       layoutId={`dialog-${uniqueId}`}
       className={cn('relative cursor-pointer', className)}
       onClick={handleClick}
