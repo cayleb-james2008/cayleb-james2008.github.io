@@ -33,7 +33,7 @@ export function Masthead() {
             <a className={`${tapTarget} font-mono text-xs text-ink-2 underline-offset-4 hover:text-ink hover:underline active:text-blue`} href={`mailto:${identity.email}`}>
               {identity.email}
             </a>
-            <Button variant="outline" size="icon-sm" onClick={copyEmail} aria-label={`Copy email address ${identity.email}`}>
+            <Button variant="outline" size="icon-sm" className="max-sm:size-11" onClick={copyEmail} aria-label={`Copy email address ${identity.email}`}>
               <Copy className="size-3.5" strokeWidth={1.5} aria-hidden />
             </Button>
           </li>
@@ -49,7 +49,7 @@ export function Masthead() {
 
       <div className="flex shrink-0 flex-col gap-3 md:w-[20rem] md:pt-1">
         <div className="flex flex-wrap items-center gap-3">
-          <TextureButton asChild variant="primary" data-answers="2" className="min-h-11 min-w-40 flex-1">
+          <TextureButton asChild variant="primary" data-answers="2" className="min-h-12 min-w-40 flex-1 md:min-h-11">
             {/* The link fills the whole slab (the part's own padding is cancelled), so the press target is the button, not the word. */}
             <a
               href={PDF.href}
@@ -59,12 +59,12 @@ export function Masthead() {
               Download PDF
             </a>
           </TextureButton>
-          <Button variant="outline" size="sm" className="h-11 text-sm" onClick={toggle} aria-label={theme === "dark" ? "Switch to the light theme" : "Switch to the dark theme"}>
+          <Button variant="outline" size="sm" className="h-12 text-sm md:h-11" onClick={toggle} aria-label={theme === "dark" ? "Switch to the light theme" : "Switch to the dark theme"}>
             {theme === "dark" ? "Light" : "Dark"}
           </Button>
           <Drawer.Root>
             <Drawer.Trigger asChild>
-              <Button variant="outline" size="sm" className="h-11 text-sm sm:hidden">
+              <Button variant="outline" size="sm" className="h-12 text-sm sm:hidden">
                 Contact
               </Button>
             </Drawer.Trigger>
@@ -77,7 +77,7 @@ export function Masthead() {
                     <a className={`${tapTarget} font-mono text-xs text-ink-2 underline-offset-4 hover:underline`} href={`mailto:${identity.email}`}>
                       {identity.email}
                     </a>
-                    <Button variant="outline" size="icon-sm" onClick={copyEmail} aria-label={`Copy email address ${identity.email}`}>
+                    <Button variant="outline" size="icon-sm" className="max-sm:size-11" onClick={copyEmail} aria-label={`Copy email address ${identity.email}`}>
                       <Copy className="size-3.5" strokeWidth={1.5} aria-hidden />
                     </Button>
                   </li>

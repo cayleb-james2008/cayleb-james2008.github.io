@@ -115,7 +115,7 @@ function ProjectCard({ p, onOpenDemo }: { p: Project; onOpenDemo: (key: string) 
           ))}
         </ul>
         <MorphingDialog transition={open}>
-          <MorphingDialogTrigger className="mt-auto flex w-fit items-center rounded-[10px] border border-hairline bg-surface px-3 py-2 text-sm text-ink-2 hover:bg-board hover:text-ink active:bg-track focus-visible:ring-2 focus-visible:ring-blue">
+          <MorphingDialogTrigger className="mt-auto flex w-fit items-center max-sm:min-h-11 rounded-[10px] border border-hairline bg-surface px-3 py-2 text-sm text-ink-2 hover:bg-board hover:text-ink active:bg-track focus-visible:ring-2 focus-visible:ring-blue">
             how it works <span className="ml-2 font-mono text-xs text-ink-2">{p.steps.length} steps</span>
           </MorphingDialogTrigger>
           <MorphingDialogContainer>
