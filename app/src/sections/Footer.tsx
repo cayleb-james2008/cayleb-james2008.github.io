@@ -10,7 +10,7 @@ export function Footer() {
           {identity.email} · github.com/cayleb-james2008
         </p>
       </div>
-      <Button variant="outline" size="sm" render={<a href={PDF.href} download={PDF.name} />}>
+      <Button variant="outline" size="sm" className="max-sm:h-11" render={<a href={PDF.href} download={PDF.name} />}>
         Download PDF
       </Button>
     </footer>

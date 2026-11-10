@@ -12,7 +12,7 @@ export function Summary() {
     <InView>
       <section id="summary" aria-labelledby="summary-label" className="scroll-mt-6 grid gap-4 border-t border-hairline py-12 grid-cols-1 md:grid-cols-[12rem_1fr] md:gap-10">
         <h2 id="summary-label" className="font-mono text-xs uppercase tracking-wider text-ink-2">summary</h2>
-        <div className="max-w-[68ch] space-y-4 text-[1.0625rem] leading-relaxed text-ink">
+        <div className="max-w-[68ch] space-y-4 text-base leading-relaxed text-ink">
           <p>{summary[0]}</p>
           <p className="text-ink-2">{summary[1]}</p>
         </div>

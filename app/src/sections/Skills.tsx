@@ -27,7 +27,7 @@ export function Skills() {
             className="max-w-[18rem]"
           />
           <p className="flex items-center gap-2 font-mono text-xs text-ink-2">
-            <span className="inline-flex items-center rounded-[6px] bg-track px-2 py-1 text-sm text-ink-2 tabular-nums">{shown} of {total}</span> shown
+            <span className="inline-flex items-center rounded-[6px] bg-track px-2 py-1 text-xs text-ink-2 tabular-nums">{shown} of {total}</span> shown
           </p>
         </div>
         <div className="grid gap-8 grid-cols-1 md:grid-cols-3">
