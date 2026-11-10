@@ -69,8 +69,8 @@ export function Masthead() {
               </Button>
             </Drawer.Trigger>
             <Drawer.Portal>
-              <Drawer.Overlay className="bg-ink/20" style={{ position: "fixed", inset: 0 }} />
-              <Drawer.Content className="inset-x-0 bottom-0 rounded-t-[20px] bg-surface p-5 text-ink" style={{ position: "fixed" }}>
+              <Drawer.Overlay className="z-40 bg-ink/20" style={{ position: "fixed", inset: 0 }} />
+              <Drawer.Content className="z-50 inset-x-0 bottom-0 rounded-t-[20px] bg-surface p-5 text-ink" style={{ position: "fixed" }}>
                 <Drawer.Title className="text-ui font-medium">Contact</Drawer.Title>
                 <ul className="mt-3 flex flex-col gap-3 text-sm">
                   <li className="flex items-center gap-2">
