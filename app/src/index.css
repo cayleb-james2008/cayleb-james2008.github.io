@@ -15,6 +15,10 @@
 /* Tremor Raw animation block (documented install step: paste its @theme into globals.css).
    Only the hover-card/tooltip entries that Tracker uses are kept. */
 @theme {
+  /* Every Tailwind transition that sets no time of its own runs on the house timing (motion.md section 4), so the whole page eases alike. */
+  --default-transition-duration: var(--dur-press);
+  --default-transition-timing-function: var(--ease-house);
+
   --animate-slide-down-and-fade: slideDownAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1);
   --animate-slide-up-and-fade: slideUpAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1);
   --animate-slide-left-and-fade: slideLeftAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -45,6 +49,26 @@
 @media (prefers-reduced-motion: reduce) {
   [data-vaul-drawer], [data-vaul-overlay] { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* A control that sets no transition of its own still eases its colour, surface, border and ring on the house timing (a utility class on the
+   control outranks this: it sits in the base layer). Below the fold the links and buttons otherwise flip with no easing at all. */
+@layer base {
+  a, button, [role="tab"], [role="button"], input, summary {
+    transition: color var(--dur-press) var(--ease-house), background-color var(--dur-press) var(--ease-house), border-color var(--dur-press) var(--ease-house), box-shadow var(--dur-press) var(--ease-house);
+  }
+}
+
+/* The theme switch cross-fades the whole page (View Transitions; theme.tsx skips it under reduced motion), on the swap timing. */
+::view-transition-group(root) { animation-duration: var(--dur-swap); animation-timing-function: var(--ease-house); }
+
+/* The demo picker's gliding indicator uses the same timing as everything else. */
+[data-slot="tab-indicator"] { transition-duration: var(--dur-swap); transition-timing-function: var(--ease-house); }
+
+/* The ledger's rows are buttons: as blocks with the part's own 6 px gap they stack at the same pitch as the value column beside them
+   (inline-block rows drifted 1 px per row; the part's -m-0! also removes its space-y gap, so the gap is put back here). */
+.ledger-chart .group { display: block; }
+/* Important declarations of an earlier layer beat those of a later one, so the gap goes in the base layer to outrank the utility's -m-0!. */
+@layer base { .ledger-chart .group:not(:last-child) { margin-bottom: 0.375rem !important; } }
 
 /* The ledger bars lead to the project list: each row answers hover, press and focus from the tokens. */
 .ledger-chart .group:hover { background-color: var(--board); }
