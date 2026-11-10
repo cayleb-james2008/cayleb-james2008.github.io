@@ -7,7 +7,7 @@ import { glide } from "@/motion";
 export function Index() {
   const [current, setCurrent] = useState("summary");
   return (
-    <nav aria-label="Contents" className="sticky-none flex justify-start overflow-x-auto">
+    <nav aria-label="Contents" className="flex flex-wrap justify-start gap-0.5">
       <AnimatedBackground
         defaultValue="summary"
         onValueChange={(id) => id && setCurrent(id)}
@@ -24,7 +24,7 @@ export function Index() {
             // for open-in-new-tab and for the project pages' own links. AnimatedBackground's click moves the highlight.
             onClickCapture={(e) => { e.preventDefault(); document.getElementById(n.id)?.scrollIntoView({ block: "start" }); }}
             data-answers-via={n.via}
-            className="inline-flex h-10 min-w-[84px] items-center justify-center rounded-[10px] px-3 text-sm font-medium text-ink-2 outline-none transition-colors duration-(--dur-press) hover:text-ink active:bg-track focus-visible:ring-2 focus-visible:ring-blue data-[checked=true]:text-ink"
+            className="inline-flex h-11 items-center rounded-[10px] px-3 text-sm sm:h-10 font-medium text-ink-2 outline-none transition-colors duration-(--dur-press) hover:text-ink active:bg-track focus-visible:ring-2 focus-visible:ring-blue data-[checked=true]:text-ink"
           >
             {n.label}
           </a>
