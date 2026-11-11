@@ -1,11 +1,12 @@
-/* The theme of the static pages, the same rule as the résumé page (app/src/chrome/theme.tsx): light by default, dark when the
-   system asks, and a press on the switch decides for this load only (a reload starts from the system scheme again). Loaded as a
-   blocking script in <head>, so the page is painted in its theme the first time. */
+/* The theme of the static pages, the same rule as the résumé page (app/src/chrome/theme.tsx) and the house skill's theme toggle: light by
+   default, dark when the system asks until the person chooses, and the choice is kept in localStorage (key "theme", guarded) so every page
+   of the site opens in it. Loaded as a blocking script in <head>, so the page is painted in its theme the first time. */
 (function () {
   var root = document.documentElement;
   var reduced = function () { try { return matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } };
   var system = function () { try { return matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } catch (e) { return "light"; } };
-  root.setAttribute("data-theme", system());
+  var stored = function () { try { var t = localStorage.getItem("theme"); return t === "dark" || t === "light" ? t : null; } catch (e) { return null; } };
+  root.setAttribute("data-theme", stored() || system());
 
   function mount() {
     var bar = document.querySelector(".sub-masthead");
@@ -20,7 +21,7 @@
     };
     button.addEventListener("click", function () {
       var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      var swap = function () { root.setAttribute("data-theme", next); paint(); };
+      var swap = function () { root.setAttribute("data-theme", next); paint(); try { localStorage.setItem("theme", next); } catch (e) { /* private mode: the choice is just not remembered */ } };
       // a cross-fade of the whole page (View Transitions); without the API, or under reduced motion, it simply swaps
       if (document.startViewTransition && !reduced()) document.startViewTransition(swap); else swap();
     });
