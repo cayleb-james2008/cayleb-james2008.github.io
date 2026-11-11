@@ -76,3 +76,7 @@
 
 /* On a phone the filter field is a 44 px target (the part's own height is 34 px there). */
 @media (max-width: 639px) { [data-slot="input"] { height: 2.75rem; line-height: 2.75rem; } }
+
+/* UX review Y8: the skills filter is a search field and shows the browser's own clear mark again (the COSS Input part switches it off for every search field):
+   on a phone the person had to delete the text by hand in the empty state. */
+#skills input[type="search"]::-webkit-search-cancel-button { appearance: auto; cursor: pointer; }
