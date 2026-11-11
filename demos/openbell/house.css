@@ -35,7 +35,10 @@ table.data td,
 
 /* the charts' own text: Recharts draws it with a font-size attribute of 10; the stylesheet wins over an attribute */
 .recharts-text, .recharts-text tspan, .recharts-legend-item-text { font-size: 12px; }
-/* the y axis is a fixed 56 px wide in the app's script: at 12 px the tick numbers reach the rotated caption, so the ticks sit 4 px closer to the plot,
-   and the drawing may overflow its box a little on the left (the card's own padding holds the caption) instead of cutting it */
-.recharts-yAxis .recharts-cartesian-axis-tick-value { translate: 4px 0; }
+/* the y axis is a fixed 56 px wide in the app's script: at 12 px the tick numbers ("$50.2k") reach the rotated caption, so the caption moves 8 px left
+   (the drawing may overflow its box a little on the left instead of cutting it; the card's own padding holds it), and the x labels and their caption drop
+   4 px so the first x label clears the last y tick. Recharts puts the labels in g.recharts-*-tick-labels, not in g.recharts-yAxis (an earlier rule
+   written for the old structure matched nothing and moved nothing). */
 svg.recharts-surface { overflow: visible; }
+text.recharts-label[transform] { translate: -8px 0; }
+text.recharts-label:not([transform]), .recharts-xAxis-tick-labels .recharts-cartesian-axis-tick-value { translate: 0 4px; }
