@@ -28,9 +28,9 @@ function DemoFrame({ title, src }: { title: string; src: string }) {
     <div
       ref={box}
       style={{ "--frame-w": "max(calc(100% + 14.5rem), min(1280px, calc(100vw - 3rem)))" } as CSSProperties}
-      className="relative h-[560px] w-full overflow-hidden rounded-[14px] border border-hairline bg-surface min-[1100px]:ml-[calc((100%-var(--frame-w)-14.5rem)/2)] min-[1100px]:aspect-[16/10] min-[1100px]:h-auto min-[1100px]:w-[var(--frame-w)]"
+      className="relative h-[680px] w-full overflow-hidden rounded-[14px] border border-hairline bg-surface min-[1100px]:ml-[calc((100%-var(--frame-w)-14.5rem)/2)] min-[1100px]:aspect-[16/10] min-[1100px]:h-auto min-[1100px]:w-[var(--frame-w)]"
     >
-      <iframe title={title} src={src} loading="lazy" className="size-full min-[1100px]:h-[800px] min-[1100px]:w-[1280px] min-[1100px]:origin-top-left min-[1100px]:[transform:scale(var(--fit))]" />
+      <iframe title={title} src={src} className="size-full min-[1100px]:h-[800px] min-[1100px]:w-[1280px] min-[1100px]:origin-top-left min-[1100px]:[transform:scale(var(--fit))]" />
     </div>
   );
 }
