@@ -72,7 +72,9 @@
 .chart { width: 100%; height: 232px; margin-top: 12px; }
 .chart svg { display: block; overflow: visible; }
 .chart .recharts-cartesian-grid line { stroke: var(--hairline); }
-.chart .recharts-rectangle { fill: var(--blue); }
+.chart .recharts-bar-rectangle .recharts-rectangle { fill: var(--blue); }
+/* the hover band behind a bar is a quiet track tint, not the bar's blue */
+.chart .recharts-tooltip-cursor { fill: var(--track); fill-opacity: 0.8; stroke: none; }
 .chart .recharts-line-curve { stroke: var(--blue); }
 .chart .recharts-dot { fill: var(--blue); }
 .chart .recharts-cartesian-axis-tick-value { fill: var(--ink-2); font-size: 12px; font-family: var(--font-mono); }
