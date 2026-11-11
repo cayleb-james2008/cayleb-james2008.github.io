@@ -1,0 +1,184 @@
+/* House tokens for the static pages (the 17 project pages, the projects index, the lab).
+   The same values as the résumé page (app/src/tokens.css), under the same names, so the whole site is one look:
+   light by default, dark a full second theme chosen by <html data-theme> (site/house/theme.js sets it before first
+   paint from the system scheme; a press on the switch decides for that load only). Geist for text, Geist Mono for
+   ids, numbers, times and counts. Hairlines carry separation; the one accent is the blue. Raw values appear only here. */
+
+@font-face { font-family: "Geist"; font-weight: 400; font-style: normal; font-display: swap; src: url("../../fonts/Geist-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Geist"; font-weight: 500; font-style: normal; font-display: swap; src: url("../../fonts/Geist-Medium.ttf") format("truetype"); }
+@font-face { font-family: "Geist"; font-weight: 600; font-style: normal; font-display: swap; src: url("../../fonts/Geist-SemiBold.ttf") format("truetype"); }
+@font-face { font-family: "Geist Mono"; font-weight: 400; font-style: normal; font-display: swap; src: url("../../fonts/GeistMono-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Geist Mono"; font-weight: 700; font-style: normal; font-display: swap; src: url("../../fonts/GeistMono-Bold.ttf") format("truetype"); }
+
+:root {
+  color-scheme: light;
+
+  /* surfaces: canvas behind, board for tints, surface for cards */
+  --canvas: #f0f2f5;
+  --board: #f5f7fa;
+  --surface: #ffffff;
+  --hairline: #e3e7eb;
+  --line-strong: #c9cfd9;   /* a hairline that must read as a line: flow rails, check marks (derived: ink at 22% on the hairline) */
+  --track: #eceff5;
+
+  /* text */
+  --ink: #13151a;
+  --ink-2: #616a81;         /* 4.8 to 1 on the canvas, 5.9 to 1 on a card */
+
+  /* the one accent */
+  --blue: #1562fc;
+  --blue-fg: #ffffff;
+  --blue-hover: #0f52d6;
+  --blue-soft: #e8f0ff;
+  --ink-button: #14161b;
+  --ink-button-fg: #ffffff;
+
+  /* state, never decoration */
+  --dot-green: #4dc296;
+  --dot-amber: #f5a524;
+  --dot-red: #bd411d;
+
+  /* derived roles for the product apps (the three demos) and any text that sits on a tint: each reaches 4.5 to 1 on every surface it sits on
+     (white, board, canvas, track), checked by tools/gate-demos.mjs; the dots above are fills and never carry text on light */
+  --ink-subtle: var(--ink-2);   /* no room for a lighter third grey on the track and the canvas: 4.5 to 1 is the floor */
+  --field-line: #7b849a;        /* a control's own border: 3 to 1 on white (3.7) and on the canvas (3.3) */
+  --ok-ink: #0b6b46;
+  --warn-ink: #8a5a00;
+  --danger-ink: #b42318;
+  --ok-fill: var(--dot-green);   --on-ok: #13151a;
+  --warn-fill: var(--dot-amber); --on-warn: #13151a;
+  --danger-fill: var(--dot-red); --on-danger: #ffffff;
+  --ok-wash: rgb(77 194 150 / 0.18);
+  --warn-wash: rgb(245 165 36 / 0.2);
+  --danger-wash: rgb(189 65 29 / 0.12);
+  --scrim: rgb(16 24 40 / 0.45);
+  --shadow-ink: rgb(16 24 40 / 0.18);
+  --shadow-float: 0 12px 32px -12px rgb(16 24 40 / 0.28), 0 1px 2px rgb(16 24 40 / 0.08);
+
+  /* the texture slab of the primary action (the Cult UI Texture Button, as the résumé page has it) */
+  --slab-top: #262626;
+  --slab-bottom: #000000;
+  --slab-ring: rgb(0 0 0 / 0.1);
+  --slab-fg: rgb(255 255 255 / 0.9);
+  --slab-hover: rgb(255 255 255 / 0.12);
+  --slab-press: rgb(0 0 0 / 0.25);
+
+  /* type */
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --text-xs: 12px;     --text-xs-lh: 16px;     /* labels, notes, ids, counts */
+  --text-sm: 14px;     --text-sm-lh: 20px;     /* rows, captions, lists, controls */
+  --text-ui: 15px;     --text-ui-lh: 24px;     /* reading text, card titles */
+  --text-base: 16px;   --text-base-lh: 24px;   /* leads */
+  --text-title: 20px;  --text-title-lh: 28px;  /* figure titles */
+  --text-display: clamp(36px, 5vw, 56px);      /* the page title (the résumé page's name size) */
+
+  /* shape and space (4 px steps) */
+  --radius-control: 10px;
+  --radius-card: 14px;
+  --radius-chip: 6px;
+  --shell: 1040px;          /* the content column: the résumé page's 1120 px container less its 40 px gutters */
+  --gutter: 40px;
+  --target: 24px;           /* smallest press target beside a pointer; 44 px on a phone (see base.css) */
+
+  /* motion: the house timings and the one easing (motion.md section 4) */
+  --dur-press: 120ms;
+  --dur-reveal: 150ms;
+  --dur-swap: 200ms;
+  --dur-enter: 250ms;
+  --ease-house: cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* colours handed to the Recharts bundle at runtime (site/js/charts.js reads these once, when it mounts the chart; the
+     rules in project.css restyle the drawn chart from the live theme variables, so a press on the switch re-colours it) */
+  --chart-bar: var(--blue);
+  --chart-line: var(--blue);
+  --chart-grid: var(--hairline);
+  --chart-axis: var(--ink-2);
+  --chart-plate: var(--surface);
+  --rj-ink: var(--ink);
+  --rj-ink-muted: var(--ink-2);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --canvas: #0e1013;
+  --board: #12151a;
+  --surface: #181b21;
+  --hairline: #272b34;
+  --line-strong: #3a4050;
+  --track: #20242c;
+  --ink: #eceef2;
+  --ink-2: #9aa1b2;
+  --blue: #4a86ff;
+  --blue-fg: #0b1220;
+  --blue-hover: #6b9bff;
+  --blue-soft: rgba(74, 134, 255, 0.14);
+  --ink-button: #eceef2;
+  --ink-button-fg: #14161b;
+  --slab-top: #e5e5e5;
+  --slab-bottom: #fafafa;
+  --slab-ring: rgb(0 0 0 / 0.9);
+  --slab-fg: rgb(0 0 0 / 0.8);
+  --slab-hover: rgb(0 0 0 / 0.06);
+  --slab-press: rgb(0 0 0 / 0.14);
+
+  --ink-subtle: #8a92a4;
+  --field-line: #6a7285;
+  --ok-ink: #4dc296;
+  --warn-ink: #f5a524;
+  --danger-ink: #ff7a6b;
+  --ok-fill: var(--dot-green);   --on-ok: #13151a;
+  --warn-fill: var(--dot-amber); --on-warn: #13151a;
+  --danger-fill: #e0603a;        --on-danger: #13151a;
+  --ok-wash: rgb(77 194 150 / 0.16);
+  --warn-wash: rgb(245 165 36 / 0.16);
+  --danger-wash: rgb(255 122 107 / 0.16);
+  --scrim: rgb(0 0 0 / 0.6);
+  --shadow-ink: rgb(0 0 0 / 0.55);
+  --shadow-float: 0 12px 32px -12px rgb(0 0 0 / 0.6);
+}
+
+/* With no script at all the system scheme still decides. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --canvas: #0e1013;
+    --board: #12151a;
+    --surface: #181b21;
+    --hairline: #272b34;
+    --line-strong: #3a4050;
+    --track: #20242c;
+    --ink: #eceef2;
+    --ink-2: #9aa1b2;
+    --blue: #4a86ff;
+    --blue-fg: #0b1220;
+    --blue-hover: #6b9bff;
+    --blue-soft: rgba(74, 134, 255, 0.14);
+    --ink-button: #eceef2;
+    --ink-button-fg: #14161b;
+    --slab-top: #e5e5e5;
+    --slab-bottom: #fafafa;
+    --slab-ring: rgb(0 0 0 / 0.9);
+    --slab-fg: rgb(0 0 0 / 0.8);
+    --slab-hover: rgb(0 0 0 / 0.06);
+    --slab-press: rgb(0 0 0 / 0.14);
+    --ink-subtle: #8a92a4;
+    --field-line: #6a7285;
+    --ok-ink: #4dc296;
+    --warn-ink: #f5a524;
+    --danger-ink: #ff7a6b;
+    --ok-fill: var(--dot-green);   --on-ok: #13151a;
+    --warn-fill: var(--dot-amber); --on-warn: #13151a;
+    --danger-fill: #e0603a;        --on-danger: #13151a;
+    --ok-wash: rgb(77 194 150 / 0.16);
+    --warn-wash: rgb(245 165 36 / 0.16);
+    --danger-wash: rgb(255 122 107 / 0.16);
+    --scrim: rgb(0 0 0 / 0.6);
+    --shadow-ink: rgb(0 0 0 / 0.55);
+    --shadow-float: 0 12px 32px -12px rgb(0 0 0 / 0.6);
+  }
+}
+
+@media (max-width: 639px) {
+  :root { --gutter: 20px; --target: 44px; }
+}

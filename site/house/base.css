@@ -1,0 +1,110 @@
+/* The shared layer of the static pages: reset, type, focus, the masthead and footer, the theme switch and the primary
+   action, and the motion rules. Reads tokens.css only; no colour or size literal below except where a comment says why. */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--canvas); scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font: 400 var(--text-sm)/var(--text-sm-lh) var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img, svg { max-width: 100%; }
+h1, h2, h3, p, ul, ol, dl, dd, figure, blockquote { margin: 0; }
+ul, ol { padding: 0; }
+button, input, select, textarea { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+[id] { scroll-margin-top: 16px; }
+::selection { background: var(--blue-soft); color: var(--ink); }
+
+a { color: inherit; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 4px; }
+:focus:not(:focus-visible) { outline: none; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.skip-link { position: absolute; left: 16px; top: 16px; z-index: 50; transform: translateY(-200%); padding: 8px 12px; border-radius: 9px; background: var(--surface); color: var(--ink); font-size: var(--text-sm); }
+.skip-link:focus { transform: none; }
+
+/* every control eases on the house timing (the résumé page does the same) */
+a, button, summary, [role="button"], input, select, textarea {
+  transition: color var(--dur-press) var(--ease-house), background-color var(--dur-press) var(--ease-house), border-color var(--dur-press) var(--ease-house), box-shadow var(--dur-press) var(--ease-house), filter var(--dur-press) var(--ease-house);
+}
+
+/* the page content width: the résumé page's 1040 px column inside 40 px gutters */
+.wrap { width: 100%; max-width: calc(var(--shell) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
+
+/* a press target: 24 px beside a pointer, 44 px on a phone (gates.md section 2); used by every standalone link */
+.target { display: inline-flex; align-items: center; min-height: var(--target); }
+
+/* ---------- the masthead ---------- */
+.sub-masthead {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  grid-template-areas: "mark nav theme pdf";
+  align-items: center;
+  column-gap: 8px;
+  row-gap: 4px;
+  padding: 12px max(var(--gutter), calc((100% - var(--shell)) / 2));
+  border-bottom: 1px solid var(--hairline);
+  background: var(--surface);
+}
+.sub-wordmark { grid-area: mark; display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); font: 600 16px/24px var(--font-sans); letter-spacing: -0.01em; text-decoration: none; }
+.wm-dot { color: var(--blue); }
+.sub-masthead nav { grid-area: nav; justify-self: start; margin-left: 16px; }
+.sub-masthead nav ul { display: flex; flex-wrap: wrap; gap: 2px; margin: 0; padding: 0; list-style: none; }
+.sub-masthead nav a {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 0 12px; border-radius: var(--radius-control);
+  color: var(--ink-2); font: 500 var(--text-sm)/1 var(--font-sans); text-decoration: none;
+}
+.sub-masthead nav a:hover { color: var(--ink); background: var(--track); }
+.sub-masthead nav a:active { background: var(--hairline); }
+
+/* the theme switch: an outline button, one height with the primary action beside it */
+.theme-switch {
+  grid-area: theme; appearance: none; min-height: 44px; padding: 0 16px; cursor: pointer;
+  border: 1px solid var(--hairline); border-radius: var(--radius-control); background: var(--surface); color: var(--ink);
+  font: 500 var(--text-sm)/1 var(--font-sans); box-shadow: 0 1px 2px rgb(16 24 40 / 0.05);
+}
+.theme-switch:hover { background: var(--board); }
+.theme-switch:active { background: var(--track); box-shadow: none; }
+
+/* the primary action: the texture slab (black in light, white in dark), the résumé page's one primary control */
+.sub-resume {
+  grid-area: pdf; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px;
+  border: 1px solid var(--slab-ring); border-radius: var(--radius-control);
+  background: linear-gradient(to bottom, var(--slab-top), var(--slab-bottom)); color: var(--slab-fg);
+  font: 400 var(--text-sm)/1 var(--font-sans); text-decoration: none; white-space: nowrap;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.08);
+}
+.sub-resume:hover { box-shadow: inset 0 0 0 100px var(--slab-hover); }
+.sub-resume:active { box-shadow: inset 0 0 0 100px var(--slab-press); transform: scale(0.98); }
+
+/* ---------- the footer ---------- */
+.sub-footer {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px;
+  margin-top: 64px; padding: 32px max(var(--gutter), calc((100% - var(--shell)) / 2));
+  border-top: 1px solid var(--hairline); color: var(--ink-2); font-size: var(--text-sm);
+}
+.sub-footer ul { display: flex; flex-wrap: wrap; gap: 0 24px; margin: 0; padding: 0; list-style: none; }
+.sub-footer a { display: inline-flex; align-items: center; min-height: var(--target); color: var(--ink-2); font: 400 var(--text-xs)/var(--text-xs-lh) var(--font-mono); text-underline-offset: 4px; }
+.sub-footer a:hover { color: var(--ink); text-decoration: underline; }
+.sub-footer a:active { color: var(--blue); }
+
+/* ---------- the phone ---------- */
+@media (max-width: 899px) {
+  .sub-masthead { grid-template-columns: minmax(0, 1fr) auto auto; grid-template-areas: "mark theme pdf" "nav nav nav"; }
+  .sub-masthead nav { margin-left: -8px; justify-self: stretch; }
+}
+@media (max-width: 639px) {
+  .sub-masthead nav a { min-height: 44px; padding: 0 8px; }
+  .theme-switch { padding: 0 14px; }
+  .sub-resume { padding: 0 16px; }
+}
+
+/* ---------- motion ---------- */
+::view-transition-group(root) { animation-duration: var(--dur-swap); animation-timing-function: var(--ease-house); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

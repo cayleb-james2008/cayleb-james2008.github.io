@@ -1,0 +1,29 @@
+/* DSH Fleet dashboard: the captured page keeps its markup and script; this file maps the colours it carries as attributes and inline
+   styles (the graph's state pills, edges, depth lips and the legend swatches) to the house state colours, on top of site/house/apps.css.
+   Running and working are green, checking is green outlined, parked is dotted grey, idle and queued are grey, warnings amber, critical red. */
+
+/* the node's depth lip: darker than its face in both themes */
+.n-depth { fill: color-mix(in srgb, var(--surface) 80%, black); }
+.node.is-selected .n-depth { fill: color-mix(in srgb, var(--surface) 55%, black); }
+/* edges must read as lines on the canvas */
+.e, .e-bus, .e-arrow { stroke: var(--line-strong); }
+
+/* the SVG state pills carry their colours as attributes */
+rect.p-solid[fill="#9E8E3E"] { fill: var(--ok-fill); }
+text.p-text[fill="#171717"] { fill: var(--on-ok); }
+rect.p-line[stroke="#9E8E3E"] { stroke: var(--ok-ink); }
+text.p-text[fill="#DDDDDD"] { fill: var(--ink); }
+text.p-text[fill="#A4A4A4"] { fill: var(--ink-2); }
+rect.p-line[stroke="#323232"], rect.n-tag[stroke="#323232"], rect.p-line[stroke="#3E3E3E"] { stroke: var(--line-strong); }
+
+/* the side panel's pills read dark ink on a solid fill in both themes */
+.pill.live { color: var(--on-ok); }
+.pill.warn { color: var(--on-warn); }
+.pill.crit { color: var(--on-danger); }
+.pill.chain { border-color: var(--ok-ink); }
+
+/* the legend swatches are inline styles in the page */
+.swatch[style*="background:#9E8E3E"] { background: var(--ok-fill) !important; }
+.swatch[style*="2px solid #9E8E3E"] { border-color: var(--ok-ink) !important; }
+.swatch[style*="dotted #3E3E3E"] { border-color: var(--line-strong) !important; }
+.swatch[style*="1px solid #323232"] { border-color: var(--line-strong) !important; }
