@@ -1,7 +1,8 @@
 /* Small behaviours of two supporting pages, loaded with defer after the page's own script.
    Lab: a pick rises its journey in once (150 ms, none under reduced motion); on a screen under 1024 px the journey opens below the rail, so its
    heading is brought to the top of the screen and takes focus, and the tap shows its result where the finger is.
-   Projects index: each card's "repo · checked date" line keeps the date whole, so a wrap falls before "checked" and never leaves "2026" alone. */
+   Projects index: each card's "repo · checked date" line keeps the date whole (its spaces become no-break spaces, in the same text node), so a wrap falls
+   before "checked" and never leaves "2026" alone. */
 (function () {
   var reduced = function () { try { return matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } };
   var ws = document.getElementById("workflow");
@@ -17,12 +18,7 @@
     });
   }
   Array.prototype.forEach.call(document.querySelectorAll(".pp-card__meta > span:last-child"), function (s) {
-    var m = /^([\s\S]*?)(checked [\s\S]+)$/.exec(s.textContent);
-    if (!m) return;
-    var date = document.createElement("span");
-    date.className = "nw";
-    date.textContent = m[2];
-    s.textContent = m[1];
-    s.appendChild(date);
+    var t = s.firstChild;
+    if (t && t.nodeType === 3) t.nodeValue = t.nodeValue.replace(/(checked) (\d+) (\w+) (\d{4})\s*$/, "$1\u00a0$2\u00a0$3\u00a0$4");
   });
 })();
