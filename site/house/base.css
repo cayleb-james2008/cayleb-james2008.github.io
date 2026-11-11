@@ -102,8 +102,19 @@ a, button, summary, [role="button"], input, select, textarea {
   .theme-switch { padding: 0 14px; }
   .sub-resume { padding: 0 16px; }
 }
+@media (max-width: 359px) {
+  .sub-masthead nav ul { gap: 0; }
+  .sub-masthead nav a { padding: 0 3px; }
+}
 
 /* ---------- motion ---------- */
+@keyframes house-rise { from { opacity: 0; transform: translateY(8px); } }
+@media (prefers-reduced-motion: no-preference) {
+  .project-hero__main, .project-top, .figure-grid > .viz, .pp-grid > .pp-card { animation: house-rise var(--dur-enter) var(--ease-house) backwards; }
+  .figure-grid > .viz:nth-child(2), .pp-grid > .pp-card:nth-child(n+2) { animation-delay: 40ms; }
+  .figure-grid > .viz:nth-child(3), .pp-grid > .pp-card:nth-child(n+4) { animation-delay: 80ms; }
+  .pp-grid > .pp-card:nth-child(n+6) { animation-delay: 120ms; }
+}
 ::view-transition-group(root) { animation-duration: var(--dur-swap); animation-timing-function: var(--ease-house); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
