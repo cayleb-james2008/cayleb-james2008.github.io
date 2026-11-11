@@ -13,9 +13,12 @@
     />
     <title>Cayleb Alvarez-James · AI Agent Systems Engineer</title>
     <script>
-      // Set the theme before first paint: light by default; dark follows the system scheme (chrome/theme.tsx).
+      // Set the theme before first paint: light by default; dark follows the system scheme until the person chooses,
+      // and the choice is kept in localStorage, key "theme" (chrome/theme.tsx, the static pages and the demo apps read it too).
       try {
-        var t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        var t = null;
+        try { t = localStorage.getItem("theme"); } catch (e) {}
+        if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
         document.documentElement.setAttribute("data-theme", t);
       } catch (e) {}
     </script>
