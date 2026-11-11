@@ -80,7 +80,6 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
                     <span className="text-ink">{demoWords.provenance}</span>
                     <span>{demoWords.noCalls}</span>
                   </p>
-                  <p className="font-mono text-xs">{d.build}</p>
                   {d.provenance.map((l) => (
                     <p key={l.label} className="max-w-[68ch]">
                       <span className="font-medium text-ink">{`${l.label} `}</span>
@@ -98,7 +97,12 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
                     Open the full demo ↗
                   </a>
                   {d.key === "Ergon" ? (
-                    <Button variant="ghost" size="sm" onClick={resetErgon} className="font-mono text-xs text-ink-2 max-sm:min-h-11">
+                    <Button
+                      variant="link"
+                      size="xs"
+                      onClick={resetErgon}
+                      className="h-6 w-fit px-0 font-mono text-xs font-normal text-ink-2 hover:text-ink active:text-blue max-sm:h-11"
+                    >
                       reset the demo
                     </Button>
                   ) : null}
