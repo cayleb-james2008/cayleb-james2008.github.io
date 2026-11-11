@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import { motion } from "motion/react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -8,9 +8,10 @@ import { demoWords, liveDemos } from "@/content";
 import { tapTarget } from "@/lib/utils";
 import { reveal } from "@/motion";
 
-// A live frame runs its app at the desktop viewport its capture was taken at (1280 x 800) and is scaled to the width the page gives it
-// (the full width of the page content from 1100 px up), so the app lays out the way its own capture shows it. Below 1100 px the frame is
-// the column's own width and the app answers to that.
+// A live frame runs its app at the desktop viewport its capture was taken at (1280 x 800), so the app lays out the way its own capture shows it
+// (squeezed into the 1038 px column it stacks a word per line). From 1100 px up the frame is as wide as the app's own 1280 px where the window
+// allows it (24 px from each edge), centred on the page content, so a 12 px label is drawn at 12 px on a 1328 px window and wider; narrower
+// windows scale it down by the least they must. Below 1100 px the frame is the column's own width and the app answers to that.
 const NATIVE_W = 1280;
 function DemoFrame({ title, src }: { title: string; src: string }) {
   const box = useRef<HTMLDivElement>(null);
@@ -24,7 +25,11 @@ function DemoFrame({ title, src }: { title: string; src: string }) {
     return () => ro.disconnect();
   }, []);
   return (
-    <div ref={box} className="relative h-[560px] w-full overflow-hidden rounded-[14px] border border-hairline bg-surface min-[1100px]:-ml-[14.5rem] min-[1100px]:aspect-[16/10] min-[1100px]:h-auto min-[1100px]:w-[calc(100%+14.5rem)]">
+    <div
+      ref={box}
+      style={{ "--frame-w": "max(calc(100% + 14.5rem), min(1280px, calc(100vw - 3rem)))" } as CSSProperties}
+      className="relative h-[560px] w-full overflow-hidden rounded-[14px] border border-hairline bg-surface min-[1100px]:ml-[calc((100%-var(--frame-w)-14.5rem)/2)] min-[1100px]:aspect-[16/10] min-[1100px]:h-auto min-[1100px]:w-[var(--frame-w)]"
+    >
       <iframe title={title} src={src} loading="lazy" className="size-full min-[1100px]:h-[800px] min-[1100px]:w-[1280px] min-[1100px]:origin-top-left min-[1100px]:[transform:scale(var(--fit))]" />
     </div>
   );
