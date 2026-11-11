@@ -289,6 +289,7 @@ function MorphingDialogTitle({
       className={className}
       style={style}
       layout
+      id={`motion-ui-morphing-dialog-title-${uniqueId}`} /* Local edit (m-0256, UX review Y7): the dialog's aria-labelledby points here and the part never set the id */
     >
       {children}
     </motion.div>
@@ -351,7 +352,7 @@ function MorphingDialogDescription({
       initial='initial'
       animate='animate'
       exit='exit'
-      id={`dialog-description-${uniqueId}`}
+      id={`motion-ui-morphing-dialog-description-${uniqueId}`} /* Local edit (m-0256, UX review Y7): the dialog's aria-describedby points here; the part set a different id */
     >
       {children}
     </motion.div>
