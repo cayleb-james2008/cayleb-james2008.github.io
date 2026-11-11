@@ -300,7 +300,6 @@ export type LiveDemo = {
   url: string;
   hint?: string; // only the fleet frame has one
   action: string;
-  build: string;
   provenance: { label: string; text: string }[];
 };
 
@@ -315,7 +314,6 @@ export const liveDemos: LiveDemo[] = [
     blurb: "The real Ergon app, running in the frame: the morning brief speaks first, the approval card holds to commit, the Decisions inbox keeps the result, and apps open beside the thread.",
     url: "/demos/ergon/",
     action: "Hold \u201cHold to approve\u201d for ~0.9 s, then open Decisions \u2014 the decision is recorded in the app\u2019s own state.",
-    build: "index 65f5929d\u2026 \u00b7 js ad89de27\u2026 \u00b7 css f9c7d06f\u2026",
     provenance: [
       { label: "What runs:", text: "the real build served at /demos/ergon/, the same bytes in this frame and in the standalone tab." },
       { label: "What is fixture:", text: "The app names its own fixture reply engine in the footer: \u201cfixture reply engine \u2014 no live agent runtime\u201d." },
@@ -330,7 +328,6 @@ export const liveDemos: LiveDemo[] = [
     url: "/demos/fleet/",
     hint: "desktop-width dashboard \u2014 swipe or scroll the frame sideways to pan",
     action: "Click any node in the graph (or Tab to it and press Enter) to drill into its state; on a phone, swipe the frame sideways to pan the desktop-width dashboard.",
-    build: "dashboard.html e6081699\u2026 \u00b7 self-contained, no network calls",
     provenance: [
       { label: "What runs:", text: "the real build served at /demos/fleet/, the same bytes in this frame and in the standalone tab." },
       { label: "What is fixture:", text: "The dashboard is a captured snapshot (02:35 UTC, embedded in the page); the header says \u201ccaptured 02:35:16Z\u201d. It is not a live fleet feed." },
@@ -344,7 +341,6 @@ export const liveDemos: LiveDemo[] = [
     blurb: "The real watchtower build: three lanes, each desk one level down, tooltips with the exact figures, a stale reading labelled STALE, and a lane detail with the desk\u2019s account figures.",
     url: "/demos/openbell/",
     action: "Open \u201cDetails\u201d on a lane for its account figures, hover a point for its exact value, then use \u201cAll three lanes\u201d to go back.",
-    build: "index 41d413c5\u2026 \u00b7 js d6fa2f20\u2026 \u00b7 css 9e78fdd4\u2026",
     provenance: [
       { label: "What runs:", text: "the real build served at /demos/openbell/, the same bytes in this frame and in the standalone tab." },
       { label: "What is fixture:", text: "The app labels its sample series \u201cDEMO\u201d and \u201cSTALE \u2014 DEMO snapshot\u201d itself; no source answered, so it shows sample data honestly. Its own subtitle says \u201cevery chart read from the desk\u2019s own live source\u201d while the banner and the STALE tag say DEMO \u2014 the banner and tag are the operative honesty labels, and Refresh re-asks a launcher this static host does not run, so the labelled sample data stays." },

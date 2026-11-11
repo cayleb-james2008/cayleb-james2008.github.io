@@ -10,10 +10,13 @@ import { Demos } from "@/sections/Demos";
 import { Skills } from "@/sections/Skills";
 import { Footer } from "@/sections/Footer";
 import { liveDemos } from "@/content";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 
 // The apex page. Regions in reading order (DESIGN-PLAN.md): B1 name row, B2 test ledger, C index, D..J the record.
 function Shell() {
   const { theme } = useTheme();
+  // On a phone the notices sit at the top: at the bottom they cover the Contact sheet's Close button for the few seconds a notice stays.
+  const phone = useMediaQuery("(max-width: 639px)");
   // "open the live demo" on a project card selects that project's demo and goes to the demos; the address stays as it was.
   const [demo, setDemo] = useState(liveDemos[0].key);
   const openDemo = (key: string) => { setDemo(key); document.getElementById("live-demos")?.scrollIntoView({ block: "start" }); };
@@ -38,7 +41,7 @@ function Shell() {
         </main>
         <Footer />
       </div>
-      <Toaster position="bottom-right" theme={theme} />
+      <Toaster position={phone ? "top-center" : "bottom-right"} theme={theme} />
     </>
   );
 }
