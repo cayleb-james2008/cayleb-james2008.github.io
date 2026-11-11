@@ -475,7 +475,7 @@ const ExpandableTrigger = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ children, className, ...props }, ref) => {
-  const { toggleExpand } = useExpandable()
+  const { toggleExpand, isExpanded } = useExpandable()
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" || e.key === " ") {
@@ -492,6 +492,7 @@ const ExpandableTrigger = React.forwardRef<
       role="button"
       tabIndex={0}
       aria-label="Toggle expand"
+      aria-expanded={isExpanded} /* Local edit (m-0256, UX review Y14): the trigger says whether it is open; set in the part so a screen never hand-wires a disclosure */
       className={cn("cursor-pointer", className)}
       {...props}
     >
