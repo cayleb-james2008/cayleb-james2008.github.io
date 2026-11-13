@@ -1,5 +1,5 @@
 {
- "generated_at_utc": "2026-11-13T10:59:55Z",
+ "generated_at_utc": "2026-11-13T11:04:37Z",
  "goal": "Make it all happen within the next week or two \u2014 retire Cayleb and Kaylee, travel, live well, give back \u2014 through a crazy-compounding, never-before-discovered system with a strong baseline that recursively self-improves from its own forward-collected data. Ridiculous amounts of compounding profit. OpenBell is Kalshi only.",
  "day": "2026-11-13",
  "venue": {
@@ -3720,17 +3720,21 @@
   {
    "ts": "2026-11-13T10:45:50Z",
    "balance": 295.8401
+  },
+  {
+   "ts": "2026-11-13T11:00:28Z",
+   "balance": 295.8401
   }
  ],
  "today": {
-  "entry_signals": 219,
+  "entry_signals": 222,
   "submitted": 32,
   "takeprofit_exits": 19,
   "cutloss_exits": 16,
   "refusals": [
    {
     "reason": "entry-refused-crater-band",
-    "count": 125
+    "count": 128
    },
    {
     "reason": "entry-capped-depth",
