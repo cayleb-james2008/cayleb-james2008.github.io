@@ -71,7 +71,7 @@ h1.display .dim{color:var(--fg-3)}
 
 /* ---- equity curve ---- */
 svg.chart{width:100%;height:auto;display:block}
-.daterow{display:flex;justify-content:space-between;margin-top:8px;font-size:12px;color:var(--fg-3)}
+.daterow{display:flex;justify-content:space-between;margin-top:auto;padding-top:8px;font-size:12px;color:var(--fg-3)}
 
 /* ---- per-slot P&L bars: real bars, zero axis, value + full state ---- */
 .sbars{flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
@@ -87,7 +87,7 @@ svg.chart{width:100%;height:auto;display:block}
 .axisrow{display:flex;justify-content:space-between;margin-top:10px;font-size:11.5px;color:var(--fg-3)}
 
 /* ---- today stats ---- */
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-content:start}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;flex:1;align-content:center}
 .stat .n{font-size:26px;font-weight:600;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
 .stat .l{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg-3);margin-top:4px}
 
@@ -264,7 +264,7 @@ function chart(pts,anchor){
   const first=pts[0], last=pts[pts.length-1], col=last.balance>=first.balance?"#2fbf71":"#e5534b";
   const area=line+` L${X(new Date(last.ts).getTime()).toFixed(1)},${h-pb} L${X(new Date(first.ts).getTime()).toFixed(1)},${h-pb} Z`;
   const anch=(anchor>y0&&anchor<y1)?`<line x1="${pl}" x2="${w-pr}" y1="${Y(anchor)}" y2="${Y(anchor)}" stroke="#71717a" stroke-width="1" stroke-dasharray="4 4"/>
-    <text x="${w-pr}" y="${Y(anchor)-6}" text-anchor="end" fill="#71717a" font-size="11.5" font-family="Geist Mono,monospace">anchor ${fmt$(anchor)}</text>`:"";
+    <text x="${pl}" y="${Y(anchor)-6}" fill="#71717a" font-size="11.5" font-family="Geist Mono,monospace">anchor ${fmt$(anchor)}</text>`:"";
   return `<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="Equity curve">
   <path d="${area}" fill="${col}" fill-opacity="0.13"/>
   <path d="${line}" fill="none" stroke="${col}" stroke-width="2.2" stroke-linejoin="round"/>
