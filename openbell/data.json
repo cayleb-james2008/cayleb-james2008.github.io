@@ -1,5 +1,5 @@
 {
- "generated_at_utc": "2026-11-13T11:14:35Z",
+ "generated_at_utc": "2026-11-13T11:16:12Z",
  "goal": "Make it all happen within the next week or two \u2014 retire Cayleb and Kaylee, travel, live well, give back \u2014 through a crazy-compounding, never-before-discovered system with a strong baseline that recursively self-improves from its own forward-collected data. Ridiculous amounts of compounding profit. OpenBell is Kalshi only.",
  "day": "2026-11-13",
  "venue": {
@@ -10,7 +10,7 @@
   "day_pnl_pct": -1.88,
   "hard_stopped": false
  },
- "slots_updated_utc": "2026-11-13T11:06:29Z",
+ "slots_updated_utc": "2026-11-13T11:15:38Z",
  "slots": [
   {
    "slot": 5,
@@ -18,7 +18,7 @@
    "version": "kalshi-s5-i3",
    "iteration": 3,
    "day_pnl_usd": 0.0,
-   "budget_usd": 33.9295,
+   "budget_usd": 32.8711,
    "strikes": 2,
    "window_fills": 0,
    "last_fill_ts": "2026-11-13T02:05:57.147090+00:00"
@@ -84,7 +84,7 @@
    "version": "kalshi-s11-i3",
    "iteration": 3,
    "day_pnl_usd": 0.0,
-   "budget_usd": 33.5024,
+   "budget_usd": 32.8711,
    "strikes": 2,
    "window_fills": 0,
    "last_fill_ts": "2026-11-13T06:05:58.297658+00:00"
@@ -3728,17 +3728,21 @@
   {
    "ts": "2026-11-13T11:06:24Z",
    "balance": 295.8401
+  },
+  {
+   "ts": "2026-11-13T11:15:34Z",
+   "balance": 295.8401
   }
  ],
  "today": {
-  "entry_signals": 223,
+  "entry_signals": 225,
   "submitted": 32,
   "takeprofit_exits": 19,
   "cutloss_exits": 16,
   "refusals": [
    {
     "reason": "entry-refused-crater-band",
-    "count": 128
+    "count": 130
    },
    {
     "reason": "entry-capped-depth",

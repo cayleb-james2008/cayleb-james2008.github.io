@@ -54,8 +54,8 @@ body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:14px
 .head{padding:26px 0 20px}
 .head .eyebrow{margin-bottom:8px}
 h1.display{font-size:40px;font-weight:600;letter-spacing:-.03em;line-height:1.02}
-h1.display .dim{color:var(--fg-3)}
-.goalline{margin-top:10px;font-size:13px;color:var(--fg-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+h1.display .dim{color:var(--fg-2)}
+.goalline{margin-top:10px;font-size:13.5px;color:var(--fg-2);line-height:1.55;max-width:78ch;cursor:pointer}
 .goalline .gtag{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg-3);margin-right:8px}
 
 /* ---- bento (PACK §2), dark tiles ---- */
@@ -85,6 +85,7 @@ svg.chart{width:100%;height:auto;display:block}
 .track i{position:absolute;top:0;bottom:0;border-radius:99px}
 .track .axis{position:absolute;top:-2px;bottom:-2px;width:1px;background:var(--border-strong)}
 .axisrow{display:flex;justify-content:space-between;margin-top:10px;font-size:11.5px;color:var(--fg-3)}
+.tnote{margin-top:12px;font-size:12.5px;color:var(--fg-2);line-height:1.55}
 
 /* ---- today stats ---- */
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;flex:1;align-content:center}
@@ -190,7 +191,7 @@ footer{margin-top:22px;color:var(--fg-3);font-size:12px;line-height:1.7}
 <section class="head">
   <div class="eyebrow">The desk — today</div>
   <h1 class="display" id="headline">Reading the desk…</h1>
-  <p class="goalline"><span class="gtag">Goal</span><span id="goal"></span></p>
+  <p class="goalline" id="goalline"><span class="gtag">Goal</span><span id="goal"></span></p>
 </section>
 
 <main class="bento">
@@ -216,6 +217,7 @@ footer{margin-top:22px;color:var(--fg-3);font-size:12px;line-height:1.7}
     <div class="eyebrow">Day P&amp;L by slot</div>
     <div class="sbars" id="slotbars"></div>
     <div class="axisrow"><span>Losses</span><span>0</span><span>Gains</span></div>
+    <p class="tnote">Bars are per current iteration — the 06:00 ET re-seat restarted four slots, and a restarted slot starts again from $0 here. The headline is the whole desk against today's starting balance at Kalshi.</p>
   </section>
 
   <section class="tile t2">
@@ -233,7 +235,7 @@ footer{margin-top:22px;color:var(--fg-3);font-size:12px;line-height:1.7}
     <div class="tablewrap"><table>
       <thead><tr>
         <th>Slot</th><th>State</th><th class="hide-md">Version</th><th>Share</th>
-        <th>Day P&amp;L</th><th>Strikes</th><th>Fills today</th><th class="hide-md">Last fill (UTC)</th>
+        <th>Day P&amp;L</th><th>Strikes</th><th>Fills today</th><th>Last fill (UTC)</th>
       </tr></thead>
       <tbody id="slots"></tbody>
     </table></div>
@@ -277,8 +279,12 @@ function chart(pts,anchor){
 
 async function load(){
   const d=await (await fetch("data.json?_="+Date.now())).json();
-  $("goal").textContent=d.goal;
-  document.querySelector(".goalline").title=d.goal;
+  const GOAL_SHORT="ridiculous compounding profit within the next week or two — retire Cayleb and Kaylee, travel, live well, give back.";
+  let goalFull=false;
+  $("goal").textContent=GOAL_SHORT;
+  const gl=$("goalline");
+  gl.title=d.goal+" (tap to expand)";
+  gl.onclick=()=>{goalFull=!goalFull; $("goal").textContent=goalFull?d.goal:GOAL_SHORT;};
 
   const age=Math.round((Date.now()-new Date(d.generated_at_utc))/60000);
   $("fresh").innerHTML=`<span>Snapshot <b>${et(d.generated_at_utc)}</b></span>`+
@@ -315,10 +321,11 @@ async function load(){
     stat(t.takeprofit_exits,"Take-profit exits")+stat(t.cutloss_exits,"Cut-loss exits");
 
   const rmax=Math.max(...d.today.refusals.map(r=>r.count),1);
-  $("refusals").innerHTML=d.today.refusals.map(r=>`<div class="rrow">
+  $("refusals").innerHTML=d.today.refusals.map(r=>{const pct=r.count/rmax*100;
+    return `<div class="rrow">
     <span class="reason">${r.reason}</span>
-    <span class="rtrack"><i style="width:${(r.count/rmax*100).toFixed(1)}%"></i></span>
-    <span class="rcount num">${r.count}</span></div>`).join("")||"<p class='empty'>None.</p>";
+    <span class="rtrack">${pct>=3?`<i style="width:${pct.toFixed(1)}%"></i>`:""}</span>
+    <span class="rcount num">${r.count}</span></div>`}).join("")||"<p class='empty'>None.</p>";
 
   $("slots").innerHTML=d.slots.map(s=>`<tr>
     <td class="slotname" data-label="">Slot ${s.slot}</td>
@@ -328,7 +335,7 @@ async function load(){
     <td data-label="Day P&amp;L"><span class="${(s.day_pnl_usd||0)>=0?"up":"down"}">${fmt$(s.day_pnl_usd||0)}</span></td>
     <td data-label="Strikes">${s.strikes??"—"} / 3</td>
     <td data-label="Fills today">${s.window_fills??"—"}</td>
-    <td class="hide-md" data-label="Last fill (UTC)"><span class="num">${s.last_fill_ts?s.last_fill_ts.slice(11,19):"—"}</span></td></tr>`).join("");
+    <td data-label="Last fill (UTC)"><span class="num">${s.last_fill_ts?s.last_fill_ts.slice(11,19):"—"}</span></td></tr>`).join("");
 
   const tag=e=>e.event==="submitted"?["buy","ENTRY"]:e.event.startsWith("takeprofit")?["tp","TAKE PROFIT"]:e.event.startsWith("cutloss")?["cl","CUT LOSS"]:["oth",e.event.toUpperCase()];
   $("feed").innerHTML=d.today.recent.map(r=>{const[c,l]=tag(r);
