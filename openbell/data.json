@@ -1,5 +1,5 @@
 {
- "generated_at_utc": "2026-11-13T11:04:37Z",
+ "generated_at_utc": "2026-11-13T11:09:39Z",
  "goal": "Make it all happen within the next week or two \u2014 retire Cayleb and Kaylee, travel, live well, give back \u2014 through a crazy-compounding, never-before-discovered system with a strong baseline that recursively self-improves from its own forward-collected data. Ridiculous amounts of compounding profit. OpenBell is Kalshi only.",
  "day": "2026-11-13",
  "venue": {
@@ -10,14 +10,14 @@
   "day_pnl_pct": -1.88,
   "hard_stopped": false
  },
- "slots_updated_utc": "2026-11-13T10:30:36Z",
+ "slots_updated_utc": "2026-11-13T11:06:29Z",
  "slots": [
   {
    "slot": 5,
-   "state": "stopped-awaiting-analysis",
-   "version": "kalshi-s5-i2",
-   "iteration": 2,
-   "day_pnl_usd": -10.2774,
+   "state": "live",
+   "version": "kalshi-s5-i3",
+   "iteration": 3,
+   "day_pnl_usd": 0.0,
    "budget_usd": 33.9295,
    "strikes": 2,
    "window_fills": 0,
@@ -25,11 +25,11 @@
   },
   {
    "slot": 6,
-   "state": "stopped-awaiting-analysis",
+   "state": "live",
    "version": "kalshi-s6-i3",
    "iteration": 3,
-   "day_pnl_usd": -7.3737,
-   "budget_usd": 33.9295,
+   "day_pnl_usd": 0.0,
+   "budget_usd": 32.8711,
    "strikes": 2,
    "window_fills": 2,
    "last_fill_ts": "2026-11-13T02:05:57.147090+00:00"
@@ -47,11 +47,11 @@
   },
   {
    "slot": 8,
-   "state": "stopped-awaiting-analysis",
+   "state": "live",
    "version": "kalshi-s8-i3",
    "iteration": 3,
-   "day_pnl_usd": -8.8828,
-   "budget_usd": 32.9425,
+   "day_pnl_usd": 0.0,
+   "budget_usd": 32.8711,
    "strikes": 0,
    "window_fills": 1,
    "last_fill_ts": "2026-11-13T03:08:04.419152+00:00"
@@ -61,11 +61,11 @@
    "state": "live",
    "version": "kalshi-s9-i2",
    "iteration": 2,
-   "day_pnl_usd": 13.6992,
+   "day_pnl_usd": 5.8738,
    "budget_usd": 32.8711,
    "strikes": 1,
-   "window_fills": 21,
-   "last_fill_ts": "2026-11-13T10:06:51.904977+00:00"
+   "window_fills": 22,
+   "last_fill_ts": "2026-11-13T11:06:28.786570+00:00"
   },
   {
    "slot": 10,
@@ -80,10 +80,10 @@
   },
   {
    "slot": 11,
-   "state": "stopped-awaiting-analysis",
-   "version": "kalshi-s11-i2",
-   "iteration": 2,
-   "day_pnl_usd": -23.2433,
+   "state": "live",
+   "version": "kalshi-s11-i3",
+   "iteration": 3,
+   "day_pnl_usd": 0.0,
    "budget_usd": 33.5024,
    "strikes": 2,
    "window_fills": 0,
@@ -105,11 +105,11 @@
    "state": "live",
    "version": "kalshi-s13-i3",
    "iteration": 3,
-   "day_pnl_usd": 0.8817,
+   "day_pnl_usd": -3.2265,
    "budget_usd": 32.8711,
    "strikes": 0,
-   "window_fills": 1,
-   "last_fill_ts": "2026-11-13T10:06:51.904977+00:00"
+   "window_fills": 2,
+   "last_fill_ts": "2026-11-13T11:06:28.786570+00:00"
   }
  ],
  "equity_curve": [
@@ -3724,10 +3724,14 @@
   {
    "ts": "2026-11-13T11:00:28Z",
    "balance": 295.8401
+  },
+  {
+   "ts": "2026-11-13T11:06:24Z",
+   "balance": 295.8401
   }
  ],
  "today": {
-  "entry_signals": 222,
+  "entry_signals": 223,
   "submitted": 32,
   "takeprofit_exits": 19,
   "cutloss_exits": 16,
@@ -3750,7 +3754,7 @@
    },
    {
     "reason": "store-adoption-refused",
-    "count": 1
+    "count": 2
    },
    {
     "reason": "allowance-reentry-blocked",
