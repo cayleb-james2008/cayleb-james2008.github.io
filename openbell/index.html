@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>OpenBell — Kalshi Desk</title>
+<style>
+:root{--bg:#07090d;--panel:#0e1219;--panel2:#121826;--edge:rgba(255,255,255,.08);
+--t1:#f2f5fa;--t2:#a7b2c4;--t3:#6d788e;--gain:#3ddc97;--loss:#ff6b6b;--amber:#ffb454;--accent:#7cc4ff;
+--disp:"Avenir Next","Segoe UI",system-ui,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--t1);font-family:var(--disp);padding:28px 22px 48px;max-width:1180px;margin:0 auto}
+.eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{font-size:clamp(38px,6vw,64px);font-weight:800;letter-spacing:-.02em;line-height:.98;margin:8px 0 6px}
+h1 .thin{font-weight:200;color:var(--t2)}
+.goal{color:var(--t2);font-size:15px;line-height:1.55;max-width:760px}
+.fresh{margin:18px 0 22px;padding:10px 14px;border:1px solid var(--edge);border-radius:10px;background:var(--panel);
+font-family:var(--mono);font-size:12.5px;color:var(--t2);display:flex;gap:18px;flex-wrap:wrap}
+.fresh b{color:var(--t1)} .fresh .stale{color:var(--loss);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--edge);border-radius:16px;padding:20px}
+.lbl{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--t3);font-weight:700;margin-bottom:10px}
+.big{font-size:clamp(40px,5vw,58px);font-weight:800;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.sub{font-family:var(--mono);font-size:12.5px;color:var(--t2);margin-top:10px;line-height:1.7}
+.up{color:var(--gain)} .down{color:var(--loss)}
+.c4{grid-column:span 4}.c8{grid-column:span 8}.c6{grid-column:span 6}.c12{grid-column:span 12}
+@media(max-width:820px){.c4,.c6,.c8{grid-column:span 12}}
+svg{width:100%;height:auto;display:block}
+.slotbars{display:flex;flex-direction:column;gap:9px}
+.srow{display:grid;grid-template-columns:86px 1fr 92px;align-items:center;gap:12px;font-size:13px}
+.srow .nm{font-weight:700;white-space:nowrap}.srow .nm span{display:block;font-weight:400;color:var(--t3);font-size:11px;font-family:var(--mono)}
+.bar{height:12px;background:rgba(255,255,255,.05);border-radius:6px;position:relative;overflow:hidden}
+.bar i{position:absolute;top:0;bottom:0;border-radius:6px}
+.srow .val{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);text-align:left;padding:8px 10px;border-bottom:1px solid var(--edge)}
+td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.04);font-variant-numeric:tabular-nums}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;white-space:nowrap}
+.live{background:rgba(61,220,151,.14);color:var(--gain)} .stop{background:rgba(255,107,107,.13);color:var(--loss)}
+.wait{background:rgba(255,180,84,.13);color:var(--amber)} .mono{font-family:var(--mono);font-size:12.5px}
+.feed{display:flex;flex-direction:column;gap:0}
+.frow{display:flex;gap:12px;padding:8px 2px;border-bottom:1px solid rgba(255,255,255,.04);font-size:13px;align-items:baseline}
+.frow .t{font-family:var(--mono);color:var(--t3);font-size:12px;white-space:nowrap}
+.tag{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.buy{background:rgba(124,196,255,.15);color:var(--accent)} .tp{background:rgba(61,220,151,.15);color:var(--gain)}
+.cl{background:rgba(255,107,107,.15);color:var(--loss)} .oth{background:rgba(255,255,255,.08);color:var(--t2)}
+footer{margin-top:26px;color:var(--t3);font-size:12px;line-height:1.7;font-family:var(--mono)}
+</style>
+</head>
+<body>
+<div class="eyebrow">OpenBell · Kalshi only</div>
+<h1>The desk, <span class="thin">live.</span></h1>
+<p class="goal" id="goal"></p>
+<div class="fresh" id="fresh">Reading snapshot…</div>
+
+<div class="grid">
+  <div class="card c4"><div class="lbl">Venue balance — Kalshi</div><div class="big" id="bal">—</div><div class="sub" id="balSub"></div></div>
+  <div class="card c4"><div class="lbl">Day P&amp;L vs anchor</div><div class="big" id="pnl">—</div><div class="sub" id="pnlSub"></div></div>
+  <div class="card c4"><div class="lbl">Today on the desk</div><div class="sub" id="today" style="font-size:13.5px;margin-top:2px"></div></div>
+  <div class="card c8"><div class="lbl">Equity curve — balance, last 14 days (desk snapshots)</div><div id="curve"></div></div>
+  <div class="card c4"><div class="lbl">Day P&amp;L by slot</div><div class="slotbars" id="slotbars"></div></div>
+  <div class="card c12"><div class="lbl">Slots</div><div style="overflow-x:auto"><table><thead><tr>
+    <th>Slot</th><th>State</th><th>Version</th><th>Share</th><th>Day P&amp;L</th><th>Strikes</th><th>Fills today</th><th>Last fill (UTC)</th>
+  </tr></thead><tbody id="slots"></tbody></table></div></div>
+  <div class="card c6"><div class="lbl">Recent desk activity</div><div class="feed" id="feed"></div></div>
+  <div class="card c6"><div class="lbl">Why the desk said no — refusals today</div><div class="feed" id="refusals"></div></div>
+</div>
+<footer>Read-only watchtower. Figures come from the Kalshi venue balance + the desk's own state files, snapshotted by a publisher that runs every 5 minutes. It never places or cancels orders. If the snapshot time above is old, treat every figure as stale, not live.</footer>
+
+<script>
+const $=id=>document.getElementById(id), fmt$=v=>(v<0?"−$":"$")+Math.abs(v).toFixed(2);
+const et=ts=>new Date(ts).toLocaleString("en-US",{timeZone:"America/New_York",hour12:false,month:"short",day:"numeric",hour:"2-digit",minute:"2-digit",second:"2-digit"})+" ET";
+function lineChart(pts){
+  if(pts.length<2) return "<p class='sub'>Not enough snapshots yet.</p>";
+  const w=760,h=230,p=34, xs=pts.map(p=>new Date(p.ts).getTime()), ys=pts.map(p=>p.balance);
+  const x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys),yr=(y1-y0)||1;
+  const X=t=>p+(t-x0)/((x1-x0)||1)*(w-2*p), Y=v=>h-p-(v-y0)/yr*(h-2*p);
+  const d=pts.map((p,i)=>(i?"L":"M")+X(new Date(p.ts).getTime()).toFixed(1)+","+Y(p.balance).toFixed(1)).join(" ");
+  const last=pts[pts.length-1], col=last.balance>=pts[0].balance?"var(--gain)":"var(--loss)";
+  return `<svg viewBox="0 0 ${w} ${h}"><path d="${d}" fill="none" stroke="${col}" stroke-width="2.2"/>
+  <circle cx="${X(new Date(last.ts).getTime())}" cy="${Y(last.balance)}" r="4" fill="${col}"/>
+  <text x="${p}" y="18" fill="#6d788e" font-size="12" font-family="monospace">high ${fmt$(y1)}</text>
+  <text x="${p}" y="${h-8}" fill="#6d788e" font-size="12" font-family="monospace">low ${fmt$(y0)} · now ${fmt$(last.balance)}</text></svg>`;
+}
+async function load(){
+  const d=await (await fetch("data.json?_="+Date.now())).json();
+  $("goal").textContent=d.goal;
+  const age=Math.round((Date.now()-new Date(d.generated_at_utc))/60000);
+  $("fresh").innerHTML=`<span>Snapshot <b>${et(d.generated_at_utc)}</b></span><span>Age <b>${age} min</b></span>`+
+    (age>10?`<span class="stale">STALE — figures are not current</span>`:`<span>Publisher runs every 5 min</span>`)+
+    `<span>Slot state as of <b>${et(d.slots_updated_utc)}</b></span>`+(d.venue.hard_stopped?`<span class="stale">DESK HARD STOP ACTIVE</span>`:"");
+  $("bal").textContent=fmt$(d.venue.balance_usd);
+  $("balSub").innerHTML=`Open positions value $${(d.venue.portfolio_value_cents/100).toFixed(2)}<br>Read fresh from the venue at snapshot time`;
+  const p=d.venue.day_pnl_usd; $("pnl").innerHTML=`<span class="${p>=0?"up":"down"}">${fmt$(p)}</span>`;
+  $("pnlSub").innerHTML=`${d.venue.day_pnl_pct>=0?"+":""}${d.venue.day_pnl_pct}% on the day<br>Day anchor ${fmt$(d.venue.anchor_usd)} (${d.day})`;
+  const t=d.today; $("today").innerHTML=
+    `<b>${t.entry_signals}</b> entry signals<br><b>${t.submitted}</b> orders submitted<br><b>${t.takeprofit_exits}</b> take-profit exits · <b>${t.cutloss_exits}</b> cut-loss exits<br><span style="color:var(--t3)">Slot P&amp;L below is desk bookkeeping; the venue balance is the money truth.</span>`;
+  $("curve").innerHTML=lineChart(d.equity_curve);
+  const mx=Math.max(...d.slots.map(s=>Math.abs(s.day_pnl_usd||0)),1);
+  $("slotbars").innerHTML=d.slots.map(s=>{const v=s.day_pnl_usd||0,w=Math.abs(v)/mx*50;
+    return `<div class="srow"><div class="nm">Slot ${s.slot}<span>${s.state}</span></div>
+    <div class="bar"><i style="${v>=0?`left:50%;width:${w}%`:`right:50%;width:${w}%`};background:${v>=0?"var(--gain)":"var(--loss)"}"></i></div>
+    <div class="val ${v>=0?"up":"down"}">${fmt$(v)}</div></div>`}).join("");
+  $("slots").innerHTML=d.slots.map(s=>`<tr><td><b>Slot ${s.slot}</b></td>
+    <td><span class="pill ${s.state==="live"?"live":s.state==="stopped-slot"?"stop":"wait"}">${s.state}</span></td>
+    <td class="mono">${s.version||"—"}</td><td>${fmt$(s.budget_usd||0)}</td>
+    <td class="${(s.day_pnl_usd||0)>=0?"up":"down"}">${fmt$(s.day_pnl_usd||0)}</td>
+    <td>${s.strikes??"—"} / 3</td><td>${s.window_fills??"—"}</td><td class="mono">${s.last_fill_ts?s.last_fill_ts.slice(11,19):"—"}</td></tr>`).join("");
+  const tag=e=>e.event==="submitted"?["buy","ENTRY"]:e.event.startsWith("takeprofit")?["tp","TAKE PROFIT"]:e.event.startsWith("cutloss")?["cl","CUT LOSS"]:["oth",e.event.toUpperCase()];
+  $("feed").innerHTML=d.today.recent.map(r=>{const[c,l]=tag(r);
+    return `<div class="frow"><span class="t">${r.ts.slice(11,19)}</span><span class="tag ${c}">${l}</span>
+    <span>Slot ${r.slot} · <span class="mono">${r.ticker}</span>${r.side?" · "+r.side.toUpperCase():""}${r.price_cents?" @ "+r.price_cents+"¢":""}${r.cost_usd?" · "+fmt$(r.cost_usd):""}</span></div>`}).join("")||"<p class='sub'>No trades yet today.</p>";
+  $("refusals").innerHTML=d.today.refusals.map(r=>`<div class="frow"><span class="tag oth">${r.count}</span><span class="mono">${r.reason}</span></div>`).join("")||"<p class='sub'>None.</p>";
+}
+load(); setInterval(load,60000);
+</script>
+</body>
+</html>
