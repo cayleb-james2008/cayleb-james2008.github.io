@@ -1,5 +1,5 @@
 {
- "generated_at_utc": "2026-11-13T11:24:32Z",
+ "generated_at_utc": "2026-11-13T11:29:53Z",
  "goal": "Make it all happen within the next week or two \u2014 retire Cayleb and Kaylee, travel, live well, give back \u2014 through a crazy-compounding, never-before-discovered system with a strong baseline that recursively self-improves from its own forward-collected data. Ridiculous amounts of compounding profit. OpenBell is Kalshi only.",
  "day": "2026-11-13",
  "venue": {
@@ -3735,8 +3735,8 @@
   }
  ],
  "today": {
-  "entry_signals": 226,
-  "submitted": 32,
+  "entry_signals": 228,
+  "submitted": 33,
   "takeprofit_exits": 19,
   "cutloss_exits": 16,
   "refusals": [
@@ -3746,11 +3746,11 @@
    },
    {
     "reason": "entry-capped-depth",
-    "count": 20
+    "count": 21
    },
    {
     "reason": "entry-refused-thin-book",
-    "count": 19
+    "count": 20
    },
    {
     "reason": "rotation-yield-refused",
@@ -3766,6 +3766,16 @@
    }
   ],
   "recent": [
+   {
+    "ts": "2026-11-13T11:28:35Z",
+    "event": "submitted",
+    "slot": 7,
+    "ticker": "KXSOL15M-26NOV130630-30",
+    "side": "yes",
+    "price_cents": 79,
+    "cost_usd": 19.75,
+    "count": 25
+   },
    {
     "ts": "2026-11-13T10:56:19Z",
     "event": "submitted",
@@ -3893,16 +3903,6 @@
     "ticker": "KXBNB15M-26NOV130500-00",
     "side": "no",
     "price_cents": 60,
-    "cost_usd": null,
-    "count": 38.0
-   },
-   {
-    "ts": "2026-11-13T09:53:12Z",
-    "event": "cutloss-exit-chase",
-    "slot": 13,
-    "ticker": "KXBNB15M-26NOV130500-00",
-    "side": "no",
-    "price_cents": 63,
     "cost_usd": null,
     "count": 38.0
    }
