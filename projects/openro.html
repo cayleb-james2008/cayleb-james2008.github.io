@@ -199,6 +199,118 @@ table.record{width:100%; border-collapse:collapse; font-size:1rem}
   .step{opacity:1}
 }
 
+/* ============ product window: live demo / built-in component ============ */
+.demo-sec{padding:7vh 0 8vh; border-bottom:1px solid var(--rule)}
+.demo-head{display:flex; align-items:baseline; gap:1.4rem; flex-wrap:wrap; margin-bottom:1.2rem}
+.demo-head .sec-label{margin-bottom:0}
+.demo-head .hint{font-family:var(--mono); font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--faint)}
+.pwin{border:1px solid var(--rule-dark); background:#fff; box-shadow:0 24px 60px -30px rgba(26,22,16,.35)}
+.pwin-bar{display:flex; align-items:center; gap:.8rem; padding:.6rem 1rem; border-bottom:1px solid var(--rule-dark); background:var(--paper2)}
+.pwin-bar .dots3{display:flex; gap:.42rem}
+.pwin-bar .dots3 i{width:11px; height:11px; border-radius:50%; border:1px solid var(--rule-dark); display:block}
+.pwin-bar .dots3 i:first-child{background:var(--accent)}
+.pwin-bar .ptitle{font-family:var(--mono); font-size:.8rem; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.pwin-bar .ptag{margin-left:auto; font-family:var(--mono); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); border:1px solid var(--accent); padding:.22rem .6rem; border-radius:99px; white-space:nowrap}
+.pwin-bar .pfull{font-family:var(--mono); font-size:.74rem; color:var(--muted); text-decoration:none; white-space:nowrap}
+.pwin-bar .pfull:hover{color:var(--accent)}
+.pwin iframe{display:block; width:100%; height:780px; border:0; background:#fff}
+@media (max-width:700px){ .pwin iframe{height:620px} .pwin-bar .pfull{display:none} }
+.demo-cap{margin-top:1rem; font-size:.92rem; color:var(--muted); max-width:78ch}
+.demo-cap b{color:var(--ink)}
+
+/* ============ custom components ============ */
+.xsec{padding:8vh 0; border-bottom:1px solid var(--rule)}
+.xcard{border:1px solid var(--rule-dark); background:#fff; padding:clamp(1.2rem,3vw,2rem); box-shadow:0 24px 60px -34px rgba(26,22,16,.35)}
+.xkick{font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:.9rem; display:flex; flex-wrap:wrap; gap:.6rem 1.2rem; align-items:center}
+.xpill{font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; border:1px solid var(--rule-dark); padding:.24rem .65rem; border-radius:99px; color:var(--ink)}
+.xpill.ok{background:var(--accent); border-color:var(--accent); color:#fff}
+.xpill.bad{background:#a3271e; border-color:#a3271e; color:#fff}
+.xbtn{display:inline-flex; align-items:center; min-height:46px; padding:0 1.25rem; border-radius:99px; border:1px solid var(--rule-dark); background:var(--ink); color:var(--paper); font-family:var(--sans); font-weight:600; font-size:.92rem; cursor:pointer}
+.xbtn:hover{opacity:.88}
+.xbtn[disabled]{opacity:.35; cursor:not-allowed}
+.xbtn.ghost{background:transparent; color:var(--ink)}
+.xbtn.ghost:hover{border-color:var(--accent); color:var(--accent); opacity:1}
+.xbtn.small{min-height:38px; padding:0 .95rem; font-size:.85rem}
+.xnote{font-size:.88rem; color:var(--muted); margin-top:1.1rem; max-width:78ch}
+.xnote b{color:var(--ink)}
+.xlog{list-style:none; border-top:2px solid var(--rule-dark); margin-top:1.4rem}
+.xlog li{font-family:var(--mono); font-size:.8rem; padding:.6rem 0; border-bottom:1px solid var(--rule); color:#373126; display:flex; flex-wrap:wrap; gap:.4rem 1.2rem}
+.xlog li .h{color:var(--accent)}
+.xlog-empty{font-family:var(--mono); font-size:.8rem; color:var(--faint); padding:.6rem 0; border-bottom:1px solid var(--rule)}
+
+/* gate component (Ergon) */
+.gate-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:2rem}
+@media (max-width:860px){ .gate-grid{grid-template-columns:1fr} }
+.gate-pay h4, .gate-side h4{font-family:var(--serif); font-weight:640; font-size:1.3rem; margin-bottom:.8rem}
+.gate-pay ul{list-style:none; border-top:2px solid var(--rule-dark)}
+.gate-pay li{padding:.7rem 0; border-bottom:1px solid var(--rule); font-size:.98rem; display:flex; justify-content:space-between; gap:1rem}
+.gate-pay li span{font-family:var(--mono); font-size:.76rem; color:var(--muted); text-align:right}
+.checks{list-style:none; display:grid; gap:.55rem; margin-bottom:1.2rem}
+.checks li{font-size:.94rem; padding-left:1.7rem; position:relative; color:#373126}
+.checks li::before{position:absolute; left:0; font-family:var(--mono); font-weight:600}
+.checks li.ok::before{content:"✓"; color:var(--accent)}
+.checks li.fail{color:#7c1d16}
+.checks li.fail::before{content:"✗"; color:#a3271e}
+.checks li .why{display:block; font-size:.84rem; color:var(--muted)}
+.gate-actions{display:flex; flex-wrap:wrap; gap:.6rem; align-items:center}
+.gate-attach{display:flex; gap:.55rem; align-items:flex-start; font-size:.88rem; color:#373126; margin-bottom:1.2rem; cursor:pointer; max-width:44ch}
+.gate-attach input{margin-top:.25rem; accent-color:var(--accent); width:17px; height:17px; flex:none}
+
+/* slot board (OpenBell) */
+.slot-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:.7rem; margin-bottom:1.3rem}
+@media (max-width:700px){ .slot-grid{grid-template-columns:repeat(2,1fr)} }
+.slot-btn{border:1px solid var(--rule-dark); background:var(--paper); padding:.85rem 1rem; text-align:left; cursor:pointer; font-family:var(--sans)}
+.slot-btn:hover{border-color:var(--accent)}
+.slot-btn.on{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.slot-btn .sm{font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--faint); display:block}
+.slot-btn .sv{font-family:var(--serif); font-weight:900; font-size:1.5rem; line-height:1.1}
+.slot-btn .bar{height:5px; background:var(--rule); margin-top:.5rem; position:relative}
+.slot-btn .bar i{position:absolute; top:0; bottom:0; display:block}
+.pos{color:#0c6b4a} .neg{color:#a3271e}
+.slot-btn.on .pos{color:#6fd598} .slot-btn.on .neg{color:#f0937a}
+.slot-detail{border-top:2px solid var(--rule-dark); padding-top:1.1rem; display:grid; grid-template-columns:.8fr 1.2fr; gap:2rem}
+@media (max-width:760px){ .slot-detail{grid-template-columns:1fr} }
+.slot-detail h4{font-family:var(--serif); font-weight:640; font-size:1.5rem}
+.slot-detail .big{font-family:var(--serif); font-weight:900; font-size:2.4rem; line-height:1}
+.slot-detail p{font-size:.95rem; color:#373126}
+
+/* swarm builder (Fleet) */
+.swarm-pick{display:flex; flex-wrap:wrap; gap:.6rem; margin-bottom:1.4rem}
+.swarm-stage{display:flex; flex-wrap:wrap; gap:.7rem; margin-bottom:1.3rem; min-height:86px}
+.swarm-node{border:1px solid var(--rule-dark); background:var(--paper); padding:.8rem 1rem; min-width:150px}
+.swarm-node .r{font-family:var(--serif); font-weight:640; font-size:1.1rem}
+.swarm-node .m{font-family:var(--mono); font-size:.72rem; color:var(--muted); display:block; margin-top:.2rem}
+.swarm-node.lead{border-top:4px solid var(--accent)}
+.swarm-node.check{border-top:4px solid var(--ink)}
+.admit{display:flex; flex-wrap:wrap; gap:1rem; align-items:center; border-top:2px solid var(--rule-dark); padding-top:1.1rem}
+.admit .meter{display:flex; gap:.35rem}
+.admit .meter i{width:30px; height:10px; background:var(--rule); display:block}
+.admit .meter i.on{background:var(--accent)}
+.admit .verdict{font-weight:600; font-size:.95rem}
+
+/* proposal component (OpenRO) — lives inside .pwin */
+.prop{background:#f4f1ea; padding:clamp(1rem,2.6vw,1.8rem); color:#1c1a15; font-size:.98rem}
+.prop .ask{background:#e9e6f5; border-left:3px solid #4a3aff; padding:.9rem 1.1rem; margin-bottom:.8rem}
+.prop .ask .who, .prop .reply .who{font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:#6b675a; display:block; margin-bottom:.3rem}
+.prop .reply{padding:.4rem 0 1rem; color:#37342b}
+.gatecard{background:#191a17; color:#e8e6df; border-radius:14px; padding:1.2rem 1.3rem; margin-top:.6rem}
+.gatecard .gk{font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:#e8a34c; margin-bottom:.5rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap}
+.gatecard h4{font-family:var(--sans); font-weight:600; font-size:1.15rem; line-height:1.3; margin-bottom:.4rem}
+.gatecard .gsub{color:#a9a699; font-size:.88rem; margin-bottom:.9rem}
+.diffbox{font-family:var(--mono); font-size:.78rem; line-height:1.55; background:#101110; border:1px solid #33342f; border-radius:8px; padding:.8rem .9rem; overflow-x:auto; white-space:pre; margin-bottom:.9rem}
+.diffbox .add{color:#7fd08c} .diffbox .del{color:#e08a80} .diffbox .ctx{color:#8f8d84}
+.gatecard .gfile{font-family:var(--mono); font-size:.76rem; color:#a9a699; margin-bottom:.9rem}
+.gatecard .gactions{display:flex; gap:.6rem; flex-wrap:wrap}
+.gbtn{min-height:44px; padding:0 1.2rem; border-radius:8px; border:1px solid #45463f; background:transparent; color:#e8e6df; font-family:var(--sans); font-weight:600; font-size:.9rem; cursor:pointer}
+.gbtn:hover{border-color:#e8a34c}
+.gbtn.primary{background:#2f3fe0; border-color:#2f3fe0; color:#fff}
+.gbtn.primary:hover{opacity:.9}
+.gatecard.done{border:1px solid #3d5a3a}
+.gatecard .gok{color:#7fd08c; font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; margin-bottom:.5rem}
+.cplist{list-style:none; margin-top:1rem; border-top:1px solid var(--rule)}
+.cplist li{display:flex; flex-wrap:wrap; gap:.5rem 1rem; align-items:center; padding:.7rem 0; border-bottom:1px solid var(--rule); font-size:.92rem}
+.cplist li .cm{font-family:var(--mono); font-size:.74rem; color:var(--muted)}
+
 </style>
 </head>
 <body>
@@ -237,39 +349,57 @@ table.record{width:100%; border-collapse:collapse; font-size:1rem}
     <div class="story">
       <div class="stage-col" aria-hidden="true">
         <div class="stage"><div class="stage-view">
-          <div class="shot on"><img src="../assets/projects/captures/openro-workspace.png" alt="" width="1280" height="Your project, <em>on your machine.</em>" loading="lazy" decoding="async"></div>
-          <div class="shot"><img src="../assets/projects/captures/openro-chat.png" alt="" width="1280" height="Ask in <em>plain language.</em>" loading="lazy" decoding="async"></div>
-          <div class="shot"><img src="../assets/projects/captures/openro-models.png" alt="" width="1280" height="Local models <em>first.</em>" loading="lazy" decoding="async"></div>
+          <div class="shot on"><img src="../assets/projects/captures/openro-gate.png" alt="" width="1240" height="Nothing lands <em>unreviewed.</em>" loading="lazy" decoding="async"></div>
+          <div class="shot"><img src="../assets/projects/captures/openro-playtest.png" alt="" width="1240" height="Then it <em>proves itself.</em>" loading="lazy" decoding="async"></div>
+          <div class="shot"><img src="../assets/projects/captures/openro-applied.png" alt="" width="375" height="Applied, checkpointed, <em>reversible.</em>" loading="lazy" decoding="async"></div>
         </div></div>
         <div class="stage-meta">
           <div class="dots"><i class=on></i><i></i><i></i></div>
-          <p class="stage-cap" id="stage-cap"><b>Screen i.</b> The workspace — the project&rsquo;s own screenshot.</p>
+          <p class="stage-cap" id="stage-cap"><b>Screen i.</b> The rebuilt workbench: a project open, a write staged at the gate. Captured from the real app, 16 Nov 2026.</p>
         </div>
       </div>
       <div class="steps">
-        <div class="step live" data-cap="<b>Screen i.</b> The workspace — the project&rsquo;s own screenshot.">
-          <div class="sfig"><img src="../assets/projects/captures/openro-workspace.png" alt="Open-Ro Studio&rsquo;s workspace: project files on the left, the selected script in the middle, checkpoints and project state on the right" width="1280" height="Your project, <em>on your machine.</em>" loading="lazy" decoding="async"></div>
-          <p class="no">Screen i. — the workspace</p>
-          <h3>Your project, <em>on your machine.</em></h3>
-          <p>A Rojo-style workspace — files, scripts and checkpoints — that never has to leave your computer.</p>
-          <p class="look"><b>Look for</b>the checkpoints panel: restore points keep every step reversible.</p>
+        <div class="step live" data-cap="<b>Screen i.</b> The rebuilt workbench: a project open, a write staged at the gate. Captured from the real app, 16 Nov 2026.">
+          <div class="sfig"><img src="../assets/projects/captures/openro-gate.png" alt="The rebuilt Open-Ro workbench with a project open: the working conversation on the left, and at the gate on the right a staged write — the diff of ServerScriptService/RoundService.lua — waiting on Approve or Reject" width="1240" height="Nothing lands <em>unreviewed.</em>" loading="lazy" decoding="async"></div>
+          <p class="no">Screen i. — the gate</p>
+          <h3>Nothing lands <em>unreviewed.</em></h3>
+          <p>The agent stages its write as a diff at the gate. The file on disk is untouched until a person approves — the ask, the diff and the decision sit in one view.</p>
+          <p class="look"><b>Look for</b>the gate card on the right: the staged diff, the file&rsquo;s name, and the line &lsquo;Nothing is written until you approve&rsquo;.</p>
         </div>
-        <div class="step" data-cap="<b>Screen ii.</b> Agent chat, in its honest first-run state.">
-          <div class="sfig"><img src="../assets/projects/captures/openro-chat.png" alt="Open-Ro Studio&rsquo;s agent chat at first run, showing the app&rsquo;s own notice that the Studio bridge is not connected yet" width="1280" height="Ask in <em>plain language.</em>" loading="lazy" decoding="async"></div>
-          <p class="no">Screen ii. — the agent</p>
-          <h3>Ask in <em>plain language.</em></h3>
-          <p>The agent works from your actual workspace — files, scripts and project state — not from pasted snippets.</p>
-          <p class="look"><b>Look for</b>the first-run notice the app itself shows: the Studio bridge is not connected yet. Kept in, because that is what the app really shows.</p>
+        <div class="step" data-cap="<b>Screen ii.</b> The same run, after approval: playtest passed, evidence captured.">
+          <div class="sfig"><img src="../assets/projects/captures/openro-playtest.png" alt="The rebuilt Open-Ro workbench after the approved write: the evidence card reads &lsquo;The change holds&rsquo; — the playtest passed, and a checkpoint of the previous contents was saved" width="1240" height="Then it <em>proves itself.</em>" loading="lazy" decoding="async"></div>
+          <p class="no">Screen ii. — the proof</p>
+          <h3>Then it <em>proves itself.</em></h3>
+          <p>After the write lands, a playtest exercises the changed behaviour and files its own evidence — assertions, state checks, a screenshot — before anyone calls it done.</p>
+          <p class="look"><b>Look for</b>the evidence card: &lsquo;The change holds.&rsquo; — and under it, the checkpoint the write saved before landing.</p>
         </div>
-        <div class="step" data-cap="<b>Screen iii.</b> Model routes — local first, your keys if you add them.">
-          <div class="sfig"><img src="../assets/projects/captures/openro-models.png" alt="Open-Ro Studio&rsquo;s model routes: local runtimes first, optional API routes with your own keys" width="1280" height="Local models <em>first.</em>" loading="lazy" decoding="async"></div>
-          <p class="no">Screen iii. — the models</p>
-          <h3>Local models <em>first.</em></h3>
-          <p>Ollama and llama.cpp are first-class routes that work fully offline. API routes are optional, use your own keys, and store them locally.</p>
-          <p class="look"><b>Look for</b>the route list — local runtimes first; keys stay on your machine and are redacted from logs.</p>
+        <div class="step" data-cap="<b>Screen iii.</b> The workbench at phone width, same run — the write landed, the checkpoint saved.">
+          <div class="sfig"><img src="../assets/projects/captures/openro-applied.png" alt="The rebuilt Open-Ro workbench at phone width: a &lsquo;Change applied — the write landed&rsquo; card, with the checkpoint of the previous contents saved and a Run playtest button" width="375" height="Applied, checkpointed, <em>reversible.</em>" loading="lazy" decoding="async"></div>
+          <p class="no">Screen iii. — the checkpoint</p>
+          <h3>Applied, checkpointed, <em>reversible.</em></h3>
+          <p>Every approved write saves a checkpoint of what it replaced. A bad step is a restore, not a loss — and restoring passes the same gate.</p>
+          <p class="look"><b>Look for</b>the &lsquo;Change applied&rsquo; card and the checkpoint line. The run is the app&rsquo;s own verification run; its model route is labelled on screen.</p>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- PRODUCT WINDOW: PROPOSAL GATE COMPONENT -->
+  <section class="wrap demo-sec" id="run" aria-label="The gate, in your hands">
+    <div class="demo-head" data-rv>
+      <p class="sec-label">The gate, in your hands</p>
+      <span class="hint">Open-Ro is a desktop app — its real flow, rebuilt for this page</span>
+    </div>
+    <div class="pwin" data-rv>
+      <div class="pwin-bar"><span class="dots3"><i></i><i></i><i></i></span><span class="ptitle">Open-Ro Studio — workbench</span><span class="ptag">Page demonstration</span></div>
+      <div class="prop" id="propDemo">
+        <div class="ask"><span class="who">You</span>Add a short intermission between rounds in Neon Harbor. Keep the server authoritative, and do not let players move during the countdown.</div>
+        <p class="reply"><span class="who">Open-Ro</span>Staged for review at the gate.</p>
+        <div id="propStage"></div>
+        <ul class="cplist" id="propCps"></ul>
+      </div>
+    </div>
+    <p class="demo-cap" data-rv><b>Why a demonstration, not a demo:</b> Open-Ro is a desktop application (Electron) — there is no browser build to embed, and this page will not fake one. The window above rebuilds the app&rsquo;s real gate flow for the page: the same ask, the same file, the same diff summary (+13 · −12) as the verification run in the screens on this page. Approve it, reject it, restore the checkpoint — the states behave the way the app behaves. The screens themselves are the real app, running.</p>
   </section>
 
   <!-- STAT BAND -->
@@ -289,16 +419,18 @@ table.record{width:100%; border-collapse:collapse; font-size:1rem}
 
   <!-- PROOF FIGURE -->
   <figure class="wrap proof">
-    <div class="frame" data-rv><img src="../assets/projects/captures/openro-workspace.png" alt="Open-Ro Studio&rsquo;s workspace at full width: project files, the selected script, and the checkpoints panel" width="1280" height="800" loading="lazy" decoding="async"></div>
+    <div class="frame" data-rv><img src="../assets/projects/captures/openro-playtest.png" alt="Open-Ro Studio after an approved write, at full width: the evidence card reads &lsquo;The change holds&rsquo; — the playtest passed for the RoundService.lua change, with the checkpoint saved" width="1240" height="820" loading="lazy" decoding="async"></div>
     <figcaption data-rv>
-      <span><b>The workspace.</b> Project files, the selected script, and the checkpoints panel — with the note the app itself shows: agent write proposals are reviewed before anything lands.</span>
-      <span class="src">Source: open-ro repository, docs/assets/workspace.png</span>
+      <span><b>The change holds.</b> After the gate approved the write, the app ran a playtest of the changed behaviour and filed the evidence itself: 2 assertions, 1 state check, 1 screenshot matched. The checkpoint of the previous contents was saved before the write landed.</span>
+      <span class="src">Source: rebuilt front end (completion/openro-frontend @ 043e70e), verification run captured 16 Nov 2026</span>
     </figcaption>
   </figure>
 
+
+
   <!-- ARGUMENT -->
   <section class="wrap arg">
-    <p class="sec-label" data-rv>First, the problem</p>
+    <p class="sec-label" data-rv>The problem, briefly</p>
     <h2 data-rv>AI help that starts by taking your project away</h2>
     <div class="cols" data-rv>
       <p>AI coding help for Roblox usually means pasting your project into someone else&rsquo;s cloud: an account, a subscription, your code and keys on their servers, and an agent that edits first and explains later.</p>
@@ -308,7 +440,7 @@ table.record{width:100%; border-collapse:collapse; font-size:1rem}
 
   <!-- WHAT IT DOES -->
   <section class="wrap arg">
-    <p class="sec-label" data-rv>Second, the product</p>
+    <p class="sec-label" data-rv>What it does</p>
     <h2 data-rv>The agent does the loop work. The person keeps the pen.</h2>
     <div class="index-list" data-rv>
       <div class="index-row"><span class="no">i.</span><h3>Agent chat with project context</h3><p>Ask for changes in plain language; the agent works from your actual workspace — files, scripts and project state — not from pasted snippets.</p></div>
@@ -320,19 +452,9 @@ table.record{width:100%; border-collapse:collapse; font-size:1rem}
     </div>
   </section>
 
-  <!-- HOW -->
-  <section class="wrap arg">
-    <p class="sec-label" data-rv>Third, the shape of it</p>
-    <h2 data-rv>A desktop studio with two rules</h2>
-    <div class="prose" data-rv>
-      <p>Open-Ro is a desktop application (Electron and React, in TypeScript) for Windows and native Linux. It opens a Rojo-style project workspace, connects to Roblox Studio through a local bridge when you ask it to, and routes model calls through whichever provider you configure — local runtimes first.</p>
-      <p>Two rules shape everything: permissions before action, and proposals before landing. The agent can inspect freely within the bounds you set; anything that changes the project arrives as a reviewable proposal, and Studio mutations take a checkpoint first, so a bad step is a restore, not a loss.</p>
-    </div>
-  </section>
-
   <!-- RECORD -->
   <section class="wrap arg">
-    <p class="sec-label" data-rv>Fourth, the record</p>
+    <p class="sec-label" data-rv>The record</p>
     <h2 data-rv>Open-Ro Studio, in figures</h2>
     <div class="tbl-wrap" data-rv>
     <table class="record">
@@ -340,6 +462,7 @@ table.record{width:100%; border-collapse:collapse; font-size:1rem}
       <thead><tr><th scope="col">Measure</th><th scope="col">Figure</th><th scope="col">Basis</th></tr></thead>
       <tbody>
         <tr><td class="k">Version</td><td class="num">0.1.0</td><td>&ldquo;Verified foundation&rdquo; — milestones 1–5 complete: workspace, providers, agent runtime, Studio control plane, Blender pipeline, packaging</td></tr>
+        <tr><td class="k">Front end</td><td class="k">Rebuilt workbench</td><td>Branch completion/openro-frontend @ 043e70e — checker-passed; the screens on this page were captured from it, 16 Nov 2026</td></tr>
         <tr><td class="k">Automated tests</td><td class="num">649</td><td>Across 61 files, documented in the repository</td></tr>
         <tr><td class="k">Stack</td><td class="k">Electron + React</td><td>In TypeScript — the cited commit&rsquo;s own package record</td></tr>
         <tr><td class="k">Licence</td><td class="k">MIT</td><td>The repository is public</td></tr>
@@ -359,12 +482,13 @@ table.record{width:100%; border-collapse:collapse; font-size:1rem}
     <div class="standing">
       <div class="prose" data-rv>
       <p>Version 0.1.0 is a verified foundation, in the repository&rsquo;s own words: milestones 1–5 are complete — the workspace, providers, agent runtime, Studio control plane, Blender pipeline and packaging — with 649 automated tests across 61 files, documented in the repository. The repository is public under the MIT licence and labelled, honestly, as early development.</p>
-      <p>The screenshots on this page are the project&rsquo;s own, from its documentation. The chat capture shows the app&rsquo;s first-run state, including its own notice that the Studio bridge is not connected yet — kept in, because that is what the app really shows.</p>
+      <p>The screens on this page are not the 0.1.0 documentation shots. They are the rebuilt front end (branch completion/openro-frontend), captured on 16 November 2026 from an end-to-end verification run of the real app — 19 of 19 checks passed: a project open, a write staged at the gate, approved, checkpointed and playtested. The run&rsquo;s model route was a local test endpoint, and the screens label it as such.</p>
       </div>
       <aside class="notes-box" data-rv>
         <h3>Notes on the evidence</h3>
         <ul>
           <li>Open-Ro is early development (the repository&rsquo;s own status); 0.1.0 is a foundation, not a finished product.</li>
+          <li>The capture run&rsquo;s model route was a local test endpoint (labelled &lsquo;fake-model&rsquo; on screen); the run proves the app&rsquo;s flows, not a model&rsquo;s judgement.</li>
           <li>Roblox Studio on Linux is best-effort through Wine/Vinegar; Windows and native Linux are the supported platforms.</li>
           <li>Test counts and milestone status are the repository&rsquo;s documented figures, read on 16 November 2026.</li>
           <li>No download or user numbers are claimed; none are published by the project.</li>
@@ -383,7 +507,7 @@ table.record{width:100%; border-collapse:collapse; font-size:1rem}
         <a class="btn" href="../resume.html">Read the résumé</a>
         <a class="btn" href="../index.html#projects">All projects</a>
       </div>
-      <p class="foot"><span>© 2026 Cayleb Alvarez-James</span><a href="https://github.com/cayleb-james2008">GitHub</a><a href="mailto:caylebalvarezjames@gmail.com">Email</a><span>Evidence: cayleb-james2008/open-ro @ 10f2d60 · 10 Nov 2026; checked 16 Nov 2026.</span><span>Open-Ro Studio — the editorial pitch</span></p>
+      <p class="foot"><span>© 2026 Cayleb Alvarez-James</span><a href="https://github.com/cayleb-james2008">GitHub</a><a href="mailto:caylebalvarezjames@gmail.com">Email</a><span>Evidence: cayleb-james2008/open-ro @ 10f2d60 · 10 Nov 2026; front end completion/openro-frontend @ 043e70e; checked 16 Nov 2026.</span><span>Open-Ro Studio — the editorial pitch</span></p>
     </div>
   </div>
 
@@ -461,6 +585,176 @@ table.record{width:100%; border-collapse:collapse; font-size:1rem}
   measure();
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
+
+  /* ================= custom components ================= */
+  function digest(text, cb){
+    function fnv(s){ var h1 = 0x811c9dc5; for (var i = 0; i < s.length; i++){ h1 ^= s.charCodeAt(i); h1 = Math.imul(h1, 0x01000193) >>> 0; } return ("0000000" + h1.toString(16)).slice(-8); }
+    if (window.crypto && crypto.subtle && window.TextEncoder) {
+      crypto.subtle.digest("SHA-256", new TextEncoder().encode(text)).then(function(buf){
+        var hex = Array.prototype.map.call(new Uint8Array(buf), function(b){ return ("0" + b.toString(16)).slice(-2); }).join("");
+        cb("sha-256", hex);
+      }).catch(function(){ cb("fnv-1a", fnv(text) + fnv(text.split("").reverse().join(""))); });
+    } else { cb("fnv-1a", fnv(text) + fnv(text.split("").reverse().join(""))); }
+  }
+  function stamp(){ return new Date().toLocaleTimeString("en-GB", { hour12: false }); }
+
+  /* ---- Ergon: the gate ---- */
+  var gate = document.getElementById("gateDemo");
+  if (gate) {
+    var gCheck = document.getElementById("gateCheck3");
+    var gWhy = document.getElementById("gateWhy");
+    var gApprove = document.getElementById("gateApprove");
+    var gDecline = document.getElementById("gateDecline");
+    var gAttach = document.getElementById("gateAttach");
+    var gPill = document.getElementById("gatePill");
+    var gLog = document.getElementById("gateLog");
+    var gReset = document.getElementById("gateReset");
+    var gDone = false;
+    function gateSync(){
+      var ok = gAttach.checked;
+      gCheck.className = ok ? "ok" : "fail";
+      gWhy.textContent = ok
+        ? "The document is on file — the check re-ran and passed."
+        : "No supporting document on file for the four write-offs. Approval stays locked while a check fails.";
+      gApprove.disabled = !ok || gDone;
+      gDecline.disabled = gDone;
+    }
+    function gateRecord(decision, sent){
+      var canonical = "ergon-gate|proposal-114|send 57 january invoices; write off 4 invoices|" + decision + "|" + new Date().toISOString();
+      digest(canonical, function(kind, hex){
+        if (gLog.querySelector(".xlog-empty")) gLog.innerHTML = "";
+        var li = document.createElement("li");
+        li.innerHTML = "<span>" + stamp() + "</span><span>Proposal 114 — " + decision + (sent ? " · the run went out under a person&rsquo;s name" : " · nothing was sent") + "</span><span class='h'>" + kind + " " + hex.slice(0, 12) + "&hellip;" + hex.slice(-6) + "</span>";
+        gLog.appendChild(li);
+      });
+    }
+    gAttach.addEventListener("change", gateSync);
+    gApprove.addEventListener("click", function(){
+      gDone = true; gPill.textContent = "Approved — sent"; gPill.className = "xpill ok";
+      gApprove.disabled = true; gDecline.disabled = true; gateRecord("APPROVED", true);
+    });
+    gDecline.addEventListener("click", function(){
+      gDone = true; gPill.textContent = "Declined — nothing sent"; gPill.className = "xpill bad";
+      gApprove.disabled = true; gDecline.disabled = true; gateRecord("DECLINED", false);
+    });
+    gReset.addEventListener("click", function(){
+      gDone = false; gAttach.checked = false; gPill.textContent = "Waiting on a person"; gPill.className = "xpill"; gateSync();
+    });
+    gateSync();
+  }
+
+  /* ---- OpenBell: the nine slots ---- */
+  var slotDemo = document.getElementById("slotDemo");
+  if (slotDemo) {
+    var SLOTS = [
+      ["BTC", "KXBTC15M", 60.52], ["ETH", "KXETH15M", -16.77], ["SOL", "KXSOL15M", 15.60],
+      ["XRP", "KXXRP15M", 9.20], ["DOGE", "KXDOGE15M", 5.35], ["HYPE", "KXHYPE15M", 31.11],
+      ["BNB", "KXBNB15M", -5.29], ["NEAR", "KXNEAR15M", -19.71], ["ZEC", "KXZEC15M", -61.74]
+    ];
+    var sName = document.getElementById("slotName");
+    var sBig = document.getElementById("slotBig");
+    var sSeries = document.getElementById("slotSeries");
+    function fmt(v){ return (v < 0 ? "−$" : "+$") + Math.abs(v).toFixed(2); }
+    function pick(i){
+      slotDemo.querySelectorAll(".slot-btn").forEach(function(b, j){ b.classList.toggle("on", j === i); b.setAttribute("aria-pressed", j === i ? "true" : "false"); });
+      var s = SLOTS[i];
+      sName.textContent = s[0] + " — the " + s[1] + " slot";
+      sSeries.textContent = s[1];
+      sBig.textContent = fmt(s[2]);
+      sBig.className = "big " + (s[2] < 0 ? "neg" : "pos");
+    }
+    slotDemo.querySelectorAll(".slot-btn").forEach(function(b, i){ b.addEventListener("click", function(){ pick(i); }); });
+    pick(0);
+  }
+
+  /* ---- Fleet: shape a swarm ---- */
+  var swarmDemo = document.getElementById("swarmDemo");
+  if (swarmDemo) {
+    var SHAPES = {
+      build: [["Lead", "strong tier · pinned", "lead"], ["Builder ×3", "cheapest tier · pinned", ""], ["Checker", "strong tier · fresh context", "check"]],
+      fix: [["Lead", "strong tier · pinned", "lead"], ["Builder ×2", "cheapest tier · pinned", ""], ["Checker", "strong tier · fresh context", "check"]],
+      grade: [["Checker", "strong tier · fresh context", "check"]]
+    };
+    var stage = document.getElementById("swarmStage");
+    var meter = document.getElementById("swarmMeter");
+    var verdict = document.getElementById("swarmVerdict");
+    var loadBtn = document.getElementById("swarmLoad");
+    var load = 4, shape = "build";
+    function renderSwarm(){
+      stage.innerHTML = SHAPES[shape].map(function(n){
+        return "<div class='swarm-node " + n[2] + "'><span class='r'>" + n[0] + "</span><span class='m'>" + n[1] + "</span></div>";
+      }).join("");
+      meter.innerHTML = [0,1,2,3,4,5].map(function(i){ return "<i class='" + (i < load ? "on" : "") + "'></i>"; }).join("");
+      verdict.textContent = load >= 6
+        ? "Board full at 6 of 6 — this start is postponed. Never dropped, never piled on."
+        : "Admitted — this swarm runs as swarm " + (load + 1) + " of 6.";
+      loadBtn.textContent = load >= 6 ? "Board load: 6 of 6 — full" : "Board load: " + load + " of 6 running";
+    }
+    swarmDemo.querySelectorAll("[data-shape]").forEach(function(b){
+      b.addEventListener("click", function(){
+        shape = b.getAttribute("data-shape");
+        swarmDemo.querySelectorAll("[data-shape]").forEach(function(x){ x.classList.toggle("ghost", x !== b); });
+        renderSwarm();
+      });
+    });
+    loadBtn.addEventListener("click", function(){ load = load >= 6 ? 4 : 6; renderSwarm(); });
+    renderSwarm();
+  }
+
+  /* ---- Open-Ro: the proposal gate ---- */
+  var prop = document.getElementById("propDemo");
+  if (prop) {
+    var pStage = document.getElementById("propStage");
+    var pCps = document.getElementById("propCps");
+    var DIFF = "<span class='del'>- -- RoundService: owns round state for Neon Harbor. Server only.</span>\n<span class='ctx'>  local Players = game:GetService(\"Players\")</span>\n<span class='ctx'>  local RoundService = {}</span>\n<span class='add'>+ local ROUND_SECONDS = 120</span>\n<span class='add'>+ local INTERMISSION_SECONDS = 8</span>\n<span class='ctx'>  local roundStartedAt = 0</span>";
+    function gateCard(){
+      return "<div class='gatecard'><p class='gk'><span>● At the gate</span><span>1 of 1 at the gate</span></p>"
+        + "<h4>Review write: ServerScriptService/RoundService.lua</h4>"
+        + "<p class='gsub'>Nothing is written until you approve</p>"
+        + "<div class='diffbox'>" + DIFF + "</div>"
+        + "<p class='gfile'>1 file · +13 · −12</p>"
+        + "<div class='gactions'><button class='gbtn' id='propReject' type='button'>Reject</button>"
+        + "<button class='gbtn primary' id='propApprove' type='button'>✓ Approve write</button></div></div>";
+    }
+    function doneCard(title, body){
+      return "<div class='gatecard done'><p class='gok'>● Evidence captured</p><h4>" + title + "</h4><p class='gsub'>" + body + "</p>"
+        + "<div class='gactions'><button class='gbtn' id='propAgain' type='button'>Stage the ask again</button></div></div>";
+    }
+    function wireStage(){
+      var ap = document.getElementById("propApprove");
+      var rj = document.getElementById("propReject");
+      var ag = document.getElementById("propAgain");
+      var rs = document.getElementById("propRestore");
+      if (ap) ap.addEventListener("click", function(){
+        pStage.innerHTML = doneCard("The write landed.", "Wrote ServerScriptService/RoundService.lua. A checkpoint of the previous contents was saved — the step is reversible.");
+        pCps.innerHTML = "<li><span>Checkpoint — RoundService.lua, taken before this write</span><span class='cm'>restore point</span><button class='gbtn' style='min-height:36px;padding:0 .8rem;font-size:.8rem' id='propRestore' type='button'>Restore</button></li>";
+        wireStage();
+      });
+      if (rj) rj.addEventListener("click", function(){
+        pStage.innerHTML = doneCard("Rejected at the gate.", "The proposal was declined. The file on disk is unchanged — a staged write that is rejected simply never happens.");
+        wireStage();
+      });
+      if (ag) ag.addEventListener("click", function(){ pStage.innerHTML = gateCard(); wireStage(); });
+      if (rs) rs.addEventListener("click", function(){
+        pStage.innerHTML = "<div class='gatecard'><p class='gk'><span>● At the gate</span><span>restore staged</span></p>"
+          + "<h4>Restore checkpoint: RoundService.lua</h4>"
+          + "<p class='gsub'>Restoring is itself a write, so it stops at the gate too. Approving reverts the file to the checkpointed contents.</p>"
+          + "<div class='gactions'><button class='gbtn' id='propReject2' type='button'>Reject</button>"
+          + "<button class='gbtn primary' id='propApprove2' type='button'>✓ Approve restore</button></div></div>";
+        document.getElementById("propApprove2").addEventListener("click", function(){
+          pStage.innerHTML = doneCard("Restored.", "RoundService.lua is back to its checkpointed contents. Every step of the round trip — ask, gate, write, restore — is in the project's record.");
+          pCps.innerHTML = "";
+          wireStage();
+        });
+        document.getElementById("propReject2").addEventListener("click", function(){
+          pStage.innerHTML = doneCard("Restore declined.", "The checkpoint stays saved and the applied change stays in place. Nothing moved.");
+          wireStage();
+        });
+      });
+    }
+    pStage.innerHTML = gateCard();
+    wireStage();
+  }
 })();
 
 </script>
