@@ -41,3 +41,9 @@ A personal AI agent for every employee, on one shared company system — the age
 An autonomous trading system for Kalshi's 15-minute markets — one slot per market, gateway-enforced risk rails, and every fill proven from the venue's own record.
 An open-source, local-first Roblox development studio — an AI agent that builds, tests and repairs in your own workspace, with review before anything lands.
 An orchestration plugin that turns one instruction into a swarm of AI agents — tickets in, work built in parallel, and a fresh-context checker deciding when it is done.
+
+Changed for the editorial product-page rollout (16 November 2026): the OpenBell product card's poster is now the
+order tape capture (assets/projects/captures/openbell-tape.png) instead of the watchtower poster, so the home card
+shows no balance or P&L figures. New card alt text:
+
+Still of the real OpenBell capture: the desk's order tape — orders as the venue recorded them
