@@ -199,6 +199,118 @@ table.record{width:100%; border-collapse:collapse; font-size:1rem}
   .step{opacity:1}
 }
 
+/* ============ product window: live demo / built-in component ============ */
+.demo-sec{padding:7vh 0 8vh; border-bottom:1px solid var(--rule)}
+.demo-head{display:flex; align-items:baseline; gap:1.4rem; flex-wrap:wrap; margin-bottom:1.2rem}
+.demo-head .sec-label{margin-bottom:0}
+.demo-head .hint{font-family:var(--mono); font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--faint)}
+.pwin{border:1px solid var(--rule-dark); background:#fff; box-shadow:0 24px 60px -30px rgba(26,22,16,.35)}
+.pwin-bar{display:flex; align-items:center; gap:.8rem; padding:.6rem 1rem; border-bottom:1px solid var(--rule-dark); background:var(--paper2)}
+.pwin-bar .dots3{display:flex; gap:.42rem}
+.pwin-bar .dots3 i{width:11px; height:11px; border-radius:50%; border:1px solid var(--rule-dark); display:block}
+.pwin-bar .dots3 i:first-child{background:var(--accent)}
+.pwin-bar .ptitle{font-family:var(--mono); font-size:.8rem; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.pwin-bar .ptag{margin-left:auto; font-family:var(--mono); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); border:1px solid var(--accent); padding:.22rem .6rem; border-radius:99px; white-space:nowrap}
+.pwin-bar .pfull{font-family:var(--mono); font-size:.74rem; color:var(--muted); text-decoration:none; white-space:nowrap}
+.pwin-bar .pfull:hover{color:var(--accent)}
+.pwin iframe{display:block; width:100%; height:780px; border:0; background:#fff}
+@media (max-width:700px){ .pwin iframe{height:620px} .pwin-bar .pfull{display:none} }
+.demo-cap{margin-top:1rem; font-size:.92rem; color:var(--muted); max-width:78ch}
+.demo-cap b{color:var(--ink)}
+
+/* ============ custom components ============ */
+.xsec{padding:8vh 0; border-bottom:1px solid var(--rule)}
+.xcard{border:1px solid var(--rule-dark); background:#fff; padding:clamp(1.2rem,3vw,2rem); box-shadow:0 24px 60px -34px rgba(26,22,16,.35)}
+.xkick{font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:.9rem; display:flex; flex-wrap:wrap; gap:.6rem 1.2rem; align-items:center}
+.xpill{font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; border:1px solid var(--rule-dark); padding:.24rem .65rem; border-radius:99px; color:var(--ink)}
+.xpill.ok{background:var(--accent); border-color:var(--accent); color:#fff}
+.xpill.bad{background:#a3271e; border-color:#a3271e; color:#fff}
+.xbtn{display:inline-flex; align-items:center; min-height:46px; padding:0 1.25rem; border-radius:99px; border:1px solid var(--rule-dark); background:var(--ink); color:var(--paper); font-family:var(--sans); font-weight:600; font-size:.92rem; cursor:pointer}
+.xbtn:hover{opacity:.88}
+.xbtn[disabled]{opacity:.35; cursor:not-allowed}
+.xbtn.ghost{background:transparent; color:var(--ink)}
+.xbtn.ghost:hover{border-color:var(--accent); color:var(--accent); opacity:1}
+.xbtn.small{min-height:38px; padding:0 .95rem; font-size:.85rem}
+.xnote{font-size:.88rem; color:var(--muted); margin-top:1.1rem; max-width:78ch}
+.xnote b{color:var(--ink)}
+.xlog{list-style:none; border-top:2px solid var(--rule-dark); margin-top:1.4rem}
+.xlog li{font-family:var(--mono); font-size:.8rem; padding:.6rem 0; border-bottom:1px solid var(--rule); color:#373126; display:flex; flex-wrap:wrap; gap:.4rem 1.2rem}
+.xlog li .h{color:var(--accent)}
+.xlog-empty{font-family:var(--mono); font-size:.8rem; color:var(--faint); padding:.6rem 0; border-bottom:1px solid var(--rule)}
+
+/* gate component (Ergon) */
+.gate-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:2rem}
+@media (max-width:860px){ .gate-grid{grid-template-columns:1fr} }
+.gate-pay h4, .gate-side h4{font-family:var(--serif); font-weight:640; font-size:1.3rem; margin-bottom:.8rem}
+.gate-pay ul{list-style:none; border-top:2px solid var(--rule-dark)}
+.gate-pay li{padding:.7rem 0; border-bottom:1px solid var(--rule); font-size:.98rem; display:flex; justify-content:space-between; gap:1rem}
+.gate-pay li span{font-family:var(--mono); font-size:.76rem; color:var(--muted); text-align:right}
+.checks{list-style:none; display:grid; gap:.55rem; margin-bottom:1.2rem}
+.checks li{font-size:.94rem; padding-left:1.7rem; position:relative; color:#373126}
+.checks li::before{position:absolute; left:0; font-family:var(--mono); font-weight:600}
+.checks li.ok::before{content:"✓"; color:var(--accent)}
+.checks li.fail{color:#7c1d16}
+.checks li.fail::before{content:"✗"; color:#a3271e}
+.checks li .why{display:block; font-size:.84rem; color:var(--muted)}
+.gate-actions{display:flex; flex-wrap:wrap; gap:.6rem; align-items:center}
+.gate-attach{display:flex; gap:.55rem; align-items:flex-start; font-size:.88rem; color:#373126; margin-bottom:1.2rem; cursor:pointer; max-width:44ch}
+.gate-attach input{margin-top:.25rem; accent-color:var(--accent); width:17px; height:17px; flex:none}
+
+/* slot board (OpenBell) */
+.slot-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:.7rem; margin-bottom:1.3rem}
+@media (max-width:700px){ .slot-grid{grid-template-columns:repeat(2,1fr)} }
+.slot-btn{border:1px solid var(--rule-dark); background:var(--paper); padding:.85rem 1rem; text-align:left; cursor:pointer; font-family:var(--sans)}
+.slot-btn:hover{border-color:var(--accent)}
+.slot-btn.on{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.slot-btn .sm{font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--faint); display:block}
+.slot-btn .sv{font-family:var(--serif); font-weight:900; font-size:1.5rem; line-height:1.1}
+.slot-btn .bar{height:5px; background:var(--rule); margin-top:.5rem; position:relative}
+.slot-btn .bar i{position:absolute; top:0; bottom:0; display:block}
+.pos{color:#0c6b4a} .neg{color:#a3271e}
+.slot-btn.on .pos{color:#6fd598} .slot-btn.on .neg{color:#f0937a}
+.slot-detail{border-top:2px solid var(--rule-dark); padding-top:1.1rem; display:grid; grid-template-columns:.8fr 1.2fr; gap:2rem}
+@media (max-width:760px){ .slot-detail{grid-template-columns:1fr} }
+.slot-detail h4{font-family:var(--serif); font-weight:640; font-size:1.5rem}
+.slot-detail .big{font-family:var(--serif); font-weight:900; font-size:2.4rem; line-height:1}
+.slot-detail p{font-size:.95rem; color:#373126}
+
+/* swarm builder (Fleet) */
+.swarm-pick{display:flex; flex-wrap:wrap; gap:.6rem; margin-bottom:1.4rem}
+.swarm-stage{display:flex; flex-wrap:wrap; gap:.7rem; margin-bottom:1.3rem; min-height:86px}
+.swarm-node{border:1px solid var(--rule-dark); background:var(--paper); padding:.8rem 1rem; min-width:150px}
+.swarm-node .r{font-family:var(--serif); font-weight:640; font-size:1.1rem}
+.swarm-node .m{font-family:var(--mono); font-size:.72rem; color:var(--muted); display:block; margin-top:.2rem}
+.swarm-node.lead{border-top:4px solid var(--accent)}
+.swarm-node.check{border-top:4px solid var(--ink)}
+.admit{display:flex; flex-wrap:wrap; gap:1rem; align-items:center; border-top:2px solid var(--rule-dark); padding-top:1.1rem}
+.admit .meter{display:flex; gap:.35rem}
+.admit .meter i{width:30px; height:10px; background:var(--rule); display:block}
+.admit .meter i.on{background:var(--accent)}
+.admit .verdict{font-weight:600; font-size:.95rem}
+
+/* proposal component (OpenRO) — lives inside .pwin */
+.prop{background:#f4f1ea; padding:clamp(1rem,2.6vw,1.8rem); color:#1c1a15; font-size:.98rem}
+.prop .ask{background:#e9e6f5; border-left:3px solid #4a3aff; padding:.9rem 1.1rem; margin-bottom:.8rem}
+.prop .ask .who, .prop .reply .who{font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:#6b675a; display:block; margin-bottom:.3rem}
+.prop .reply{padding:.4rem 0 1rem; color:#37342b}
+.gatecard{background:#191a17; color:#e8e6df; border-radius:14px; padding:1.2rem 1.3rem; margin-top:.6rem}
+.gatecard .gk{font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:#e8a34c; margin-bottom:.5rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap}
+.gatecard h4{font-family:var(--sans); font-weight:600; font-size:1.15rem; line-height:1.3; margin-bottom:.4rem}
+.gatecard .gsub{color:#a9a699; font-size:.88rem; margin-bottom:.9rem}
+.diffbox{font-family:var(--mono); font-size:.78rem; line-height:1.55; background:#101110; border:1px solid #33342f; border-radius:8px; padding:.8rem .9rem; overflow-x:auto; white-space:pre; margin-bottom:.9rem}
+.diffbox .add{color:#7fd08c} .diffbox .del{color:#e08a80} .diffbox .ctx{color:#8f8d84}
+.gatecard .gfile{font-family:var(--mono); font-size:.76rem; color:#a9a699; margin-bottom:.9rem}
+.gatecard .gactions{display:flex; gap:.6rem; flex-wrap:wrap}
+.gbtn{min-height:44px; padding:0 1.2rem; border-radius:8px; border:1px solid #45463f; background:transparent; color:#e8e6df; font-family:var(--sans); font-weight:600; font-size:.9rem; cursor:pointer}
+.gbtn:hover{border-color:#e8a34c}
+.gbtn.primary{background:#2f3fe0; border-color:#2f3fe0; color:#fff}
+.gbtn.primary:hover{opacity:.9}
+.gatecard.done{border:1px solid #3d5a3a}
+.gatecard .gok{color:#7fd08c; font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; margin-bottom:.5rem}
+.cplist{list-style:none; margin-top:1rem; border-top:1px solid var(--rule)}
+.cplist li{display:flex; flex-wrap:wrap; gap:.5rem 1rem; align-items:center; padding:.7rem 0; border-bottom:1px solid var(--rule); font-size:.92rem}
+.cplist li .cm{font-family:var(--mono); font-size:.74rem; color:var(--muted)}
+
 </style>
 </head>
 <body>
@@ -272,6 +384,19 @@ table.record{width:100%; border-collapse:collapse; font-size:1rem}
     </div>
   </section>
 
+  <!-- PRODUCT WINDOW: LIVE DEMO -->
+  <section class="wrap demo-sec" id="run" aria-label="The product, running">
+    <div class="demo-head" data-rv>
+      <p class="sec-label">The product, running</p>
+      <span class="hint">The real front set — live in this page</span>
+    </div>
+    <div class="pwin" data-rv>
+      <div class="pwin-bar"><span class="dots3"><i></i><i></i><i></i></span><span class="ptitle">Ergon — your agent (live demo)</span><a class="pfull" href="../demos/ergon/">Open full-screen &#8599;</a><span class="ptag">Live demo</span></div>
+      <iframe src="../demos/ergon/" title="Ergon — your agent (live demo)" loading="lazy"></iframe>
+    </div>
+    <p class="demo-cap" data-rv><b>This is the product, not a picture of it.</b> The current Ergon front set runs in the window above — the morning brief, the thread, the ledger open beside it, and the approval card that holds for a person&rsquo;s decision. Its own labels say what it is: a fixture reply engine with read-only apps. The interface, the brief and the gate are the real build&rsquo;s.</p>
+  </section>
+
   <!-- STAT BAND -->
   <div class="wrap">
     <div class="statband">
@@ -296,20 +421,58 @@ table.record{width:100%; border-collapse:collapse; font-size:1rem}
     </figcaption>
   </figure>
 
+  <!-- CUSTOM COMPONENT -->
+  <section class="wrap xsec" aria-label="The gate, in your hands">
+    <div class="demo-head" data-rv>
+      <p class="sec-label">The gate, in your hands</p>
+      <span class="hint">A working demonstration — decide something</span>
+    </div>
+    <div class="xcard" data-rv>
+      <div id="gateDemo">
+        <p class="xkick"><span>At the company gate — proposal 114</span><span class="xpill" id="gatePill">Waiting on a person</span></p>
+        <div class="gate-grid">
+          <div class="gate-pay">
+            <h4>What the agent wants to do</h4>
+            <ul>
+              <li>Send the January invoices <span>57 invoices</span></li>
+              <li>Write off four invoices <span>marked uncollectable</span></li>
+            </ul>
+            <p class="xnote" style="margin-top:1rem">Staged on the real event in the screen above: the agent proposed exactly this, and the run stopped at the gate. What happens next is the product&rsquo;s whole point — try it.</p>
+          </div>
+          <div class="gate-side">
+            <h4>The independent checks, shown before the decision</h4>
+            <ul class="checks">
+              <li class="ok">Amounts reconcile to the ledger</li>
+              <li class="ok">Recipients verified against the company record</li>
+              <li class="fail" id="gateCheck3">Write-offs carry a supporting document<span class="why" id="gateWhy"></span></li>
+            </ul>
+            <label class="gate-attach"><input type="checkbox" id="gateAttach"> Attach the supporting document — fetch it from the company record, as the agent would</label>
+            <div class="gate-actions">
+              <button class="xbtn" id="gateApprove" type="button" disabled>Approve &amp; send</button>
+              <button class="xbtn ghost" id="gateDecline" type="button">Decline</button>
+              <button class="xbtn ghost small" id="gateReset" type="button">Stage it again</button>
+            </div>
+          </div>
+        </div>
+        <ul class="xlog" id="gateLog"><li class="xlog-empty">The gate record is empty. Decisions land here, hash-bound to the exact payload they decided.</li></ul>
+        <p class="xnote"><b>A page demonstration of the gate&rsquo;s real mechanics.</b> A failed check locks approval — a person cannot wave a bad payload through from this screen; the evidence has to exist first. In the product the gate runs in the app, and every decision is recorded the same way: who decided, what they decided, and the hash of what they approved.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ARGUMENT -->
   <section class="wrap arg">
-    <p class="sec-label" data-rv>First, the problem</p>
+    <p class="sec-label" data-rv>The problem, briefly</p>
     <h2 data-rv>The busywork was never the job</h2>
     <div class="cols" data-rv>
       <p>Every employee loses hours to work that is not their job: chasing updates, re-typing the same information into another system, drafting the same messages, keeping the same lists current. It is the tax every company pays and nobody itemises.</p>
-      <p>A general chatbot does not fix it. It does not know the person&rsquo;s role, the company&rsquo;s records, or what it is allowed to touch — so it answers questions while the busywork carries on around it.</p>
-      <p>Ergon is built around that gap: an agent that <b>knows the role</b>, works <b>inside the company&rsquo;s own system</b>, and <b>stops at a human gate</b> before anything consequential leaves the building. The agent is not a chat window bolted onto the side of the work. It is inside the work, with a person holding the one door that matters.</p>
+      <p>A general chatbot does not fix it — it does not know the person&rsquo;s role, the company&rsquo;s records, or what it is allowed to touch. Ergon is built around that gap: an agent that <b>knows the role</b>, works <b>inside the company&rsquo;s own system</b>, and <b>stops at a human gate</b> before anything consequential leaves the building.</p>
     </div>
   </section>
 
   <!-- WHAT IT DOES -->
   <section class="wrap arg">
-    <p class="sec-label" data-rv>Second, the product</p>
+    <p class="sec-label" data-rv>What it does</p>
     <h2 data-rv>One agent per person. One system per company.</h2>
     <div class="index-list" data-rv>
       <div class="index-row"><span class="no">i.</span><h3>It learns the role</h3><p>After install, the agent watches recurring work and asks targeted questions, building a persistent model of the role and a memory of the person. Nobody maps the role in advance or keeps adjusting the agent by hand.</p></div>
@@ -322,20 +485,9 @@ table.record{width:100%; border-collapse:collapse; font-size:1rem}
     </div>
   </section>
 
-  <!-- HOW -->
-  <section class="wrap arg">
-    <p class="sec-label" data-rv>Third, the shape of it</p>
-    <h2 data-rv>A formula, not a box of apps</h2>
-    <div class="prose" data-rv>
-      <p>Ergon is a template plus creation blueprints. Each company gets its own separate private repository holding its full personalised suite — its apps, skills, tools and each employee&rsquo;s agent — kept apart from the platform repository and from every other company.</p>
-      <p>Agents customise themselves through conversation under a staging-to-promotion gate: a change is staged, evaluated and reviewed, and only then promoted. Access is controlled at the hosting layer, behind a zero-trust gate — employees sign in through the company&rsquo;s own identity provider, and there are no Ergon-issued employee keys and no Ergon passwords.</p>
-      <p>A capability is earned the same way: installed, observed, modelled, proposed, evaluated and reviewed — <b>then</b> used. Personalisation is built into the harness, not bolted on.</p>
-    </div>
-  </section>
-
   <!-- RECORD -->
   <section class="wrap arg">
-    <p class="sec-label" data-rv>Fourth, the record</p>
+    <p class="sec-label" data-rv>The record</p>
     <h2 data-rv>Ergon, in figures</h2>
     <div class="tbl-wrap" data-rv>
     <table class="record">
@@ -361,9 +513,8 @@ table.record{width:100%; border-collapse:collapse; font-size:1rem}
     <h2 data-rv>Where it stands</h2>
     <div class="standing">
       <div class="prose" data-rv>
-      <p>Ergon is built and verified as a working product build: the current front set runs as a live demo on the résumé page, and 622 automated tests pass. A simulation programme has run since 4 November 2026 — three simulated companies with detailed employee personas run full operations against the baseline, and every failure becomes a numbered defect, fixed by one side and checked by another.</p>
+      <p>Ergon is built and verified as a working product build: the front set runs as a live demo on this page, and 622 automated tests pass. A simulation programme has run since 4 November 2026 — three simulated companies with detailed employee personas run full operations against the baseline, and every failure becomes a numbered defect, fixed by one side and checked by another.</p>
       <p>Ergon is a product in development, designed and built by Cayleb. <b>It is not a launched company and it has no customers.</b> RHL is a proposed first deployment only: the concept was discussed there and drew interest, but RHL has not authorised or implemented an AI integration, and no Ergon infrastructure is in production there.</p>
-      <p>That is the whole pitch: a working product, a gate that has already stopped a real mistake, and a record that says exactly what is and is not proven.</p>
       </div>
       <aside class="notes-box" data-rv>
         <h3>Notes on the evidence</h3>
@@ -382,9 +533,9 @@ table.record{width:100%; border-collapse:collapse; font-size:1rem}
   <div class="close-band">
     <div class="wrap">
       <h2 data-rv>Don&rsquo;t take the pitch&rsquo;s word for it. <em>Run the demo.</em></h2>
-      <p data-rv>The current front set runs in the browser — the morning brief, the thread, and the approval card that holds the decision. It is the same build this page describes.</p>
+      <p data-rv>The demo is embedded on this page, and the gate is yours to try: stage the proposal, watch approval stay locked, then fetch the evidence and decide. It is the same build this page describes.</p>
       <div class="end-links" data-rv>
-        <a class="btn btn--accent" href="../demos/ergon/">Run the live demo</a>
+        <a class="btn btn--accent" href="#run">Run the demo</a>
         <a class="btn" href="../resume.html">Read the résumé</a>
         <a class="btn" href="../index.html#projects">All projects</a>
       </div>
@@ -466,6 +617,176 @@ table.record{width:100%; border-collapse:collapse; font-size:1rem}
   measure();
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
+
+  /* ================= custom components ================= */
+  function digest(text, cb){
+    function fnv(s){ var h1 = 0x811c9dc5; for (var i = 0; i < s.length; i++){ h1 ^= s.charCodeAt(i); h1 = Math.imul(h1, 0x01000193) >>> 0; } return ("0000000" + h1.toString(16)).slice(-8); }
+    if (window.crypto && crypto.subtle && window.TextEncoder) {
+      crypto.subtle.digest("SHA-256", new TextEncoder().encode(text)).then(function(buf){
+        var hex = Array.prototype.map.call(new Uint8Array(buf), function(b){ return ("0" + b.toString(16)).slice(-2); }).join("");
+        cb("sha-256", hex);
+      }).catch(function(){ cb("fnv-1a", fnv(text) + fnv(text.split("").reverse().join(""))); });
+    } else { cb("fnv-1a", fnv(text) + fnv(text.split("").reverse().join(""))); }
+  }
+  function stamp(){ return new Date().toLocaleTimeString("en-GB", { hour12: false }); }
+
+  /* ---- Ergon: the gate ---- */
+  var gate = document.getElementById("gateDemo");
+  if (gate) {
+    var gCheck = document.getElementById("gateCheck3");
+    var gWhy = document.getElementById("gateWhy");
+    var gApprove = document.getElementById("gateApprove");
+    var gDecline = document.getElementById("gateDecline");
+    var gAttach = document.getElementById("gateAttach");
+    var gPill = document.getElementById("gatePill");
+    var gLog = document.getElementById("gateLog");
+    var gReset = document.getElementById("gateReset");
+    var gDone = false;
+    function gateSync(){
+      var ok = gAttach.checked;
+      gCheck.className = ok ? "ok" : "fail";
+      gWhy.textContent = ok
+        ? "The document is on file — the check re-ran and passed."
+        : "No supporting document on file for the four write-offs. Approval stays locked while a check fails.";
+      gApprove.disabled = !ok || gDone;
+      gDecline.disabled = gDone;
+    }
+    function gateRecord(decision, sent){
+      var canonical = "ergon-gate|proposal-114|send 57 january invoices; write off 4 invoices|" + decision + "|" + new Date().toISOString();
+      digest(canonical, function(kind, hex){
+        if (gLog.querySelector(".xlog-empty")) gLog.innerHTML = "";
+        var li = document.createElement("li");
+        li.innerHTML = "<span>" + stamp() + "</span><span>Proposal 114 — " + decision + (sent ? " · the run went out under a person&rsquo;s name" : " · nothing was sent") + "</span><span class='h'>" + kind + " " + hex.slice(0, 12) + "&hellip;" + hex.slice(-6) + "</span>";
+        gLog.appendChild(li);
+      });
+    }
+    gAttach.addEventListener("change", gateSync);
+    gApprove.addEventListener("click", function(){
+      gDone = true; gPill.textContent = "Approved — sent"; gPill.className = "xpill ok";
+      gApprove.disabled = true; gDecline.disabled = true; gateRecord("APPROVED", true);
+    });
+    gDecline.addEventListener("click", function(){
+      gDone = true; gPill.textContent = "Declined — nothing sent"; gPill.className = "xpill bad";
+      gApprove.disabled = true; gDecline.disabled = true; gateRecord("DECLINED", false);
+    });
+    gReset.addEventListener("click", function(){
+      gDone = false; gAttach.checked = false; gPill.textContent = "Waiting on a person"; gPill.className = "xpill"; gateSync();
+    });
+    gateSync();
+  }
+
+  /* ---- OpenBell: the nine slots ---- */
+  var slotDemo = document.getElementById("slotDemo");
+  if (slotDemo) {
+    var SLOTS = [
+      ["BTC", "KXBTC15M", 60.52], ["ETH", "KXETH15M", -16.77], ["SOL", "KXSOL15M", 15.60],
+      ["XRP", "KXXRP15M", 9.20], ["DOGE", "KXDOGE15M", 5.35], ["HYPE", "KXHYPE15M", 31.11],
+      ["BNB", "KXBNB15M", -5.29], ["NEAR", "KXNEAR15M", -19.71], ["ZEC", "KXZEC15M", -61.74]
+    ];
+    var sName = document.getElementById("slotName");
+    var sBig = document.getElementById("slotBig");
+    var sSeries = document.getElementById("slotSeries");
+    function fmt(v){ return (v < 0 ? "−$" : "+$") + Math.abs(v).toFixed(2); }
+    function pick(i){
+      slotDemo.querySelectorAll(".slot-btn").forEach(function(b, j){ b.classList.toggle("on", j === i); b.setAttribute("aria-pressed", j === i ? "true" : "false"); });
+      var s = SLOTS[i];
+      sName.textContent = s[0] + " — the " + s[1] + " slot";
+      sSeries.textContent = s[1];
+      sBig.textContent = fmt(s[2]);
+      sBig.className = "big " + (s[2] < 0 ? "neg" : "pos");
+    }
+    slotDemo.querySelectorAll(".slot-btn").forEach(function(b, i){ b.addEventListener("click", function(){ pick(i); }); });
+    pick(0);
+  }
+
+  /* ---- Fleet: shape a swarm ---- */
+  var swarmDemo = document.getElementById("swarmDemo");
+  if (swarmDemo) {
+    var SHAPES = {
+      build: [["Lead", "strong tier · pinned", "lead"], ["Builder ×3", "cheapest tier · pinned", ""], ["Checker", "strong tier · fresh context", "check"]],
+      fix: [["Lead", "strong tier · pinned", "lead"], ["Builder ×2", "cheapest tier · pinned", ""], ["Checker", "strong tier · fresh context", "check"]],
+      grade: [["Checker", "strong tier · fresh context", "check"]]
+    };
+    var stage = document.getElementById("swarmStage");
+    var meter = document.getElementById("swarmMeter");
+    var verdict = document.getElementById("swarmVerdict");
+    var loadBtn = document.getElementById("swarmLoad");
+    var load = 4, shape = "build";
+    function renderSwarm(){
+      stage.innerHTML = SHAPES[shape].map(function(n){
+        return "<div class='swarm-node " + n[2] + "'><span class='r'>" + n[0] + "</span><span class='m'>" + n[1] + "</span></div>";
+      }).join("");
+      meter.innerHTML = [0,1,2,3,4,5].map(function(i){ return "<i class='" + (i < load ? "on" : "") + "'></i>"; }).join("");
+      verdict.textContent = load >= 6
+        ? "Board full at 6 of 6 — this start is postponed. Never dropped, never piled on."
+        : "Admitted — this swarm runs as swarm " + (load + 1) + " of 6.";
+      loadBtn.textContent = load >= 6 ? "Board load: 6 of 6 — full" : "Board load: " + load + " of 6 running";
+    }
+    swarmDemo.querySelectorAll("[data-shape]").forEach(function(b){
+      b.addEventListener("click", function(){
+        shape = b.getAttribute("data-shape");
+        swarmDemo.querySelectorAll("[data-shape]").forEach(function(x){ x.classList.toggle("ghost", x !== b); });
+        renderSwarm();
+      });
+    });
+    loadBtn.addEventListener("click", function(){ load = load >= 6 ? 4 : 6; renderSwarm(); });
+    renderSwarm();
+  }
+
+  /* ---- Open-Ro: the proposal gate ---- */
+  var prop = document.getElementById("propDemo");
+  if (prop) {
+    var pStage = document.getElementById("propStage");
+    var pCps = document.getElementById("propCps");
+    var DIFF = "<span class='del'>- -- RoundService: owns round state for Neon Harbor. Server only.</span>\n<span class='ctx'>  local Players = game:GetService(\"Players\")</span>\n<span class='ctx'>  local RoundService = {}</span>\n<span class='add'>+ local ROUND_SECONDS = 120</span>\n<span class='add'>+ local INTERMISSION_SECONDS = 8</span>\n<span class='ctx'>  local roundStartedAt = 0</span>";
+    function gateCard(){
+      return "<div class='gatecard'><p class='gk'><span>● At the gate</span><span>1 of 1 at the gate</span></p>"
+        + "<h4>Review write: ServerScriptService/RoundService.lua</h4>"
+        + "<p class='gsub'>Nothing is written until you approve</p>"
+        + "<div class='diffbox'>" + DIFF + "</div>"
+        + "<p class='gfile'>1 file · +13 · −12</p>"
+        + "<div class='gactions'><button class='gbtn' id='propReject' type='button'>Reject</button>"
+        + "<button class='gbtn primary' id='propApprove' type='button'>✓ Approve write</button></div></div>";
+    }
+    function doneCard(title, body){
+      return "<div class='gatecard done'><p class='gok'>● Evidence captured</p><h4>" + title + "</h4><p class='gsub'>" + body + "</p>"
+        + "<div class='gactions'><button class='gbtn' id='propAgain' type='button'>Stage the ask again</button></div></div>";
+    }
+    function wireStage(){
+      var ap = document.getElementById("propApprove");
+      var rj = document.getElementById("propReject");
+      var ag = document.getElementById("propAgain");
+      var rs = document.getElementById("propRestore");
+      if (ap) ap.addEventListener("click", function(){
+        pStage.innerHTML = doneCard("The write landed.", "Wrote ServerScriptService/RoundService.lua. A checkpoint of the previous contents was saved — the step is reversible.");
+        pCps.innerHTML = "<li><span>Checkpoint — RoundService.lua, taken before this write</span><span class='cm'>restore point</span><button class='gbtn' style='min-height:36px;padding:0 .8rem;font-size:.8rem' id='propRestore' type='button'>Restore</button></li>";
+        wireStage();
+      });
+      if (rj) rj.addEventListener("click", function(){
+        pStage.innerHTML = doneCard("Rejected at the gate.", "The proposal was declined. The file on disk is unchanged — a staged write that is rejected simply never happens.");
+        wireStage();
+      });
+      if (ag) ag.addEventListener("click", function(){ pStage.innerHTML = gateCard(); wireStage(); });
+      if (rs) rs.addEventListener("click", function(){
+        pStage.innerHTML = "<div class='gatecard'><p class='gk'><span>● At the gate</span><span>restore staged</span></p>"
+          + "<h4>Restore checkpoint: RoundService.lua</h4>"
+          + "<p class='gsub'>Restoring is itself a write, so it stops at the gate too. Approving reverts the file to the checkpointed contents.</p>"
+          + "<div class='gactions'><button class='gbtn' id='propReject2' type='button'>Reject</button>"
+          + "<button class='gbtn primary' id='propApprove2' type='button'>✓ Approve restore</button></div></div>";
+        document.getElementById("propApprove2").addEventListener("click", function(){
+          pStage.innerHTML = doneCard("Restored.", "RoundService.lua is back to its checkpointed contents. Every step of the round trip — ask, gate, write, restore — is in the project's record.");
+          pCps.innerHTML = "";
+          wireStage();
+        });
+        document.getElementById("propReject2").addEventListener("click", function(){
+          pStage.innerHTML = doneCard("Restore declined.", "The checkpoint stays saved and the applied change stays in place. Nothing moved.");
+          wireStage();
+        });
+      });
+    }
+    pStage.innerHTML = gateCard();
+    wireStage();
+  }
 })();
 
 </script>
