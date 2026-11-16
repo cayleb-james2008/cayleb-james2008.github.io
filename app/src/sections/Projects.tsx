@@ -5,7 +5,7 @@ import {
   MorphingDialogDescription, MorphingDialogTitle, MorphingDialogTrigger,
 } from "@/components/ui/morphing-dialog";
 import { InView } from "@/components/ui/in-view";
-import { captureTitle, chartHead, openDemoLabel, projects, stepsHead, type Capture, type Chart, type Project } from "@/content";
+import { captureTitle, chartHead, openDemoLabel, productPageLink, productPages, productPagesHead, projects, stepsHead, type Capture, type Chart, type ProductPage, type Project } from "@/content";
 import { cn, tapTarget } from "@/lib/utils";
 import { open } from "@/motion";
 
@@ -148,12 +148,36 @@ function ProjectCard({ p, onOpenDemo }: { p: Project; onOpenDemo: (key: string) 
   );
 }
 
+function ProductPageCard({ p }: { p: ProductPage }) {
+  return (
+    <a
+      href={p.href}
+      className="group grid content-start overflow-hidden rounded-[14px] border border-hairline bg-surface outline-none hover:bg-board focus-visible:ring-2 focus-visible:ring-blue active:bg-track"
+    >
+      <img src={p.img} alt={p.alt} width={1280} height={800} loading="lazy" className="aspect-[16/10] w-full border-b border-hairline object-cover object-top" />
+      <span className="grid gap-1.5 p-4">
+        <span className="text-ui font-medium text-ink">{p.name}</span>
+        <span className="text-pretty text-sm leading-relaxed text-ink-2">{p.pitch}</span>
+        <span className="mt-1 font-mono text-xs text-ink-2 underline-offset-4 group-hover:text-ink group-hover:underline">{productPageLink}</span>
+      </span>
+    </a>
+  );
+}
+
 export function Projects({ onOpenDemo }: { onOpenDemo: (key: string) => void }) {
   return (
     <InView>
       <section id="projects" aria-labelledby="projects-label" className="scroll-mt-6 grid gap-6 border-t border-hairline py-12 grid-cols-1 md:grid-cols-[12rem_1fr] md:gap-10">
         <h2 id="projects-label" className="font-mono text-xs uppercase tracking-wider text-ink-2" data-answers="3">selected projects</h2>
         <div className="grid gap-5 grid-cols-1 md:grid-cols-2">
+          <div className="grid gap-4 md:col-span-2">
+            <p className="font-mono text-xs uppercase tracking-wider text-ink-2">{productPagesHead}</p>
+            <div className="grid gap-5 grid-cols-1 sm:grid-cols-2">
+              {productPages.map((p) => (
+                <ProductPageCard key={p.name} p={p} />
+              ))}
+            </div>
+          </div>
           {projects.map((p) => (
             <ProjectCard key={p.name} p={p} onOpenDemo={onOpenDemo} />
           ))}

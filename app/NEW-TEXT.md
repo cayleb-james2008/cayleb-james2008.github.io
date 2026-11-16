@@ -30,3 +30,14 @@ Added after the UX quality review (m-0256):
 Close
 reset the demo
 The Ergon demo is reset: its approval waits for you again.
+
+Added for the product pages (16 November 2026) — the card block at the top of Selected projects. Each pitch is the
+page's own one-line summary of the product page it links to, grounded in that project's repository:
+
+the four products, in full
+the full product page ↗
+Open-Ro Studio
+A personal AI agent for every employee, on one shared company system — the agent learns the role, and a person approves anything that sends, spends or changes a record.
+An autonomous trading system for Kalshi's 15-minute markets — one slot per market, gateway-enforced risk rails, and every fill proven from the venue's own record.
+An open-source, local-first Roblox development studio — an AI agent that builds, tests and repairs in your own workspace, with review before anything lands.
+An orchestration plugin that turns one instruction into a swarm of AI agents — tickets in, work built in parallel, and a fresh-context checker deciding when it is done.

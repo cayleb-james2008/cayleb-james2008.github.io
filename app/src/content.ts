@@ -242,6 +242,43 @@ export const projects: Project[] = [
   },
 ];
 
+// The four product pages (static pages under /projects/, built 16 November 2026). The pitches are the page's own
+// words — each is grounded in its project's repository and logged in NEW-TEXT.md. Open-Ro Studio is not a résumé
+// record; it joins the other three here because its product page does.
+export type ProductPage = { name: string; href: string; pitch: string; img: string; alt: string };
+export const productPagesHead = "the four products, in full";
+export const productPageLink = "the full product page ↗";
+export const productPages: ProductPage[] = [
+  {
+    name: "Ergon",
+    href: "/projects/ergon.html",
+    pitch: "A personal AI agent for every employee, on one shared company system — the agent learns the role, and a person approves anything that sends, spends or changes a record.",
+    img: "/assets/projects/captures/ergon-poster.png",
+    alt: "Still of the real Ergon capture: the current front set, the morning brief and the approval card",
+  },
+  {
+    name: "OpenBell",
+    href: "/projects/openbell.html",
+    pitch: "An autonomous trading system for Kalshi's 15-minute markets — one slot per market, gateway-enforced risk rails, and every fill proven from the venue's own record.",
+    img: "/assets/projects/captures/openbell-poster.png",
+    alt: "Still of the real OpenBell capture: the Ticket 070 watchtower with three live lanes",
+  },
+  {
+    name: "Open-Ro Studio",
+    href: "/projects/openro.html",
+    pitch: "An open-source, local-first Roblox development studio — an AI agent that builds, tests and repairs in your own workspace, with review before anything lands.",
+    img: "/assets/projects/captures/openro-workspace.png",
+    alt: "Open-Ro Studio's workspace: project files on the left, the selected script in the middle, checkpoints and project state on the right",
+  },
+  {
+    name: "DSH Fleet",
+    href: "/projects/dsh-fleet.html",
+    pitch: "An orchestration plugin that turns one instruction into a swarm of AI agents — tickets in, work built in parallel, and a fresh-context checker deciding when it is done.",
+    img: "/assets/projects/captures/fleet-poster.png",
+    alt: "The DSH Fleet board from the repository's recorded demo, earlier light interface.",
+  },
+];
+
 export const skills = [
   {
     group: "AI & agents",
