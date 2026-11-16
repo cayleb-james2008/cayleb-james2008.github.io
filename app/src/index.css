@@ -3,14 +3,63 @@
    (--background, --primary, --muted, --info ...) is mapped inside this file. */
 @import "./tokens.css";
 
-/* Geist (text) and Geist Mono (ids, model names, times, counts): the owner's fonts.
-   Files and their SIL Open Font Licence texts are in public/fonts/. TTF is kept as received;
-   convert to woff2 before shipping an app (smaller, same look). */
-@font-face { font-family: "Geist"; font-weight: 400; font-style: normal; font-display: swap; src: url("/fonts/Geist-Regular.ttf") format("truetype"); }
-@font-face { font-family: "Geist"; font-weight: 500; font-style: normal; font-display: swap; src: url("/fonts/Geist-Medium.ttf") format("truetype"); }
-@font-face { font-family: "Geist"; font-weight: 600; font-style: normal; font-display: swap; src: url("/fonts/Geist-SemiBold.ttf") format("truetype"); }
-@font-face { font-family: "Geist Mono"; font-weight: 400; font-style: normal; font-display: swap; src: url("/fonts/GeistMono-Regular.ttf") format("truetype"); }
-@font-face { font-family: "Geist Mono"; font-weight: 700; font-style: normal; font-display: swap; src: url("/fonts/GeistMono-Bold.ttf") format("truetype"); }
+/* The product landing pages' faces (2026-11-16 re-skin): Fraunces for display, Archivo for text,
+   Plex Mono for ids, model names, times, counts. The files already live in this repo at
+   assets/editorial/fonts/ — the same files the four product pages load — so the home page takes
+   no new font dependency. Fraunces ships as one variable file per style (weight 100–900). */
+@font-face { font-family: "Fraunces"; font-weight: 100 900; font-style: normal; font-display: swap; src: url("/assets/editorial/fonts/fraunces-normal-500.woff2") format("woff2"); }
+@font-face { font-family: "Fraunces"; font-weight: 100 900; font-style: italic; font-display: swap; src: url("/assets/editorial/fonts/fraunces-italic-500.woff2") format("woff2"); }
+@font-face { font-family: "Archivo"; font-weight: 400; font-style: normal; font-display: swap; src: url("/assets/editorial/fonts/archivo-400.woff2") format("woff2"); }
+@font-face { font-family: "Archivo"; font-weight: 500; font-style: normal; font-display: swap; src: url("/assets/editorial/fonts/archivo-500.woff2") format("woff2"); }
+@font-face { font-family: "Archivo"; font-weight: 600; font-style: normal; font-display: swap; src: url("/assets/editorial/fonts/archivo-600.woff2") format("woff2"); }
+@font-face { font-family: "Plex Mono"; font-weight: 400; font-style: normal; font-display: swap; src: url("/assets/editorial/fonts/ibm-plex-mono-400.woff2") format("woff2"); }
+
+/* ---------- Editorial treatments (the product pages' manner, applied to this page's own markup) ----------
+   These rules are deliberately unlayered so they outrank the utility classes on the same elements:
+   they are the skin, and the markup, order and copy stay exactly as they were. */
+
+/* Selection, as on the product pages: the accent with paper text. */
+::selection { background: var(--blue); color: var(--blue-fg); }
+
+/* Display type: the name and the card titles set in Fraunces, tight, as the pages set their headlines.
+   (The sections' h2 labels are restyled separately below; anything carrying a font utility keeps it.) */
+h1, h3 { font-family: var(--font-heading); letter-spacing: -0.015em; }
+h1 { font-weight: 640; }
+h3 { font-weight: 600; }
+
+/* Section labels in the pages' manner: their .sec-label is Fraunces italic in the accent —
+   the serif voice that opens every section of a product page. The label words are the page's own. */
+main h2 {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--blue);
+}
+
+/* The masthead rule: the product pages open under a 3px double rule in the ink colour. */
+header { border-bottom: 3px double var(--ink); padding-bottom: 1.4rem; }
+
+/* The closing band: the product pages close on ink with paper text. The home page's footer keeps
+   its own one-row layout inside the column; only its dress changes (band colours are the pages'
+   closing-band values, constant across both themes so the page always closes on ink). */
+footer {
+  background: #1a1610;
+  border-top: 1px solid #3a342a;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+:root[data-theme="dark"] footer { background: #0d0b08; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) footer { background: #0d0b08; }
+}
+footer p { color: #9a9078; }
+footer p:first-of-type { color: #cfc7b4; }
+footer :is(a, button) { background: transparent; border-color: #4a4335; color: #faf7f1; }
+footer :is(a, button):hover { border-color: #b794e0; color: #ffffff; }
 
 /* Tremor Raw animation block (documented install step: paste its @theme into globals.css).
    Only the hover-card/tooltip entries that Tracker uses are kept. */
