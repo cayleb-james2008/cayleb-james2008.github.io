@@ -267,7 +267,7 @@ export const productPages: ProductPage[] = [
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
     pitch: "An open-source, local-first Roblox development studio — an AI agent that builds, tests and repairs in your own workspace, with review before anything lands.",
-    img: "/assets/projects/captures/openro-workspace.png",
+    img: "/assets/projects/captures/openro-playtest.png",
     alt: "Open-Ro Studio's workspace: project files on the left, the selected script in the middle, checkpoints and project state on the right",
   },
   {
