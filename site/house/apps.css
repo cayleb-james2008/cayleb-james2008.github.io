@@ -1,0 +1,68 @@
+/* The three demo apps in the house look. Each app keeps its own token names and every rule that reads them; only the values are
+   re-pointed here, to the roles of tokens.css (linked before the app's own stylesheet; this file is linked after it, so it wins).
+   Light by default, dark a full second theme, chosen by <html data-theme> (site/house/demo-theme.js).
+   Ergon (--eg-*) and OpenBell (--ob-*) share one set of names; the DSH Fleet dashboard (--c-*) has its own. */
+
+:root { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme]) { color-scheme: dark; } }
+
+:root {
+  /* surfaces: the canvas behind, the surface for panels, the board for tints and the sidebar */
+  --eg-base: var(--canvas);            --ob-base: var(--canvas);
+  --eg-sidebar: var(--board);          --ob-sidebar: var(--board);
+  --eg-panel: var(--surface);          --ob-panel: var(--surface);
+  --eg-raise: var(--board);            --ob-raise: var(--board);
+  --eg-muted-bg: var(--track);         --ob-muted-bg: var(--track);
+  --eg-hover: var(--track);            --ob-hover: var(--track);
+  /* lines */
+  --eg-line: var(--hairline);          --ob-line: var(--hairline);
+  --eg-line-strong: var(--line-strong); --ob-line-strong: var(--line-strong);
+  --eg-field-line: var(--field-line);  --ob-field-line: var(--field-line);
+  /* text */
+  --eg-ink: var(--ink);                --ob-ink: var(--ink);
+  --eg-muted: var(--ink-2);            --ob-muted: var(--ink-2);
+  --eg-subtle: var(--ink-subtle);      --ob-subtle: var(--ink-subtle);
+  /* the primary action is the near-black button (white in dark), as on the résumé page */
+  --eg-accent: var(--ink-button);      --ob-accent: var(--ink-button);
+  --eg-accent-hover: color-mix(in srgb, var(--ink-button) 86%, var(--surface));   --ob-accent-hover: color-mix(in srgb, var(--ink-button) 86%, var(--surface));
+  --eg-accent-press: color-mix(in srgb, var(--ink-button) 72%, var(--surface));   --ob-accent-press: color-mix(in srgb, var(--ink-button) 72%, var(--surface));
+  --eg-on-accent: var(--ink-button-fg); --ob-on-accent: var(--ink-button-fg);
+  --eg-accent-wash: color-mix(in srgb, var(--ink) 8%, transparent);               --ob-accent-wash: color-mix(in srgb, var(--ink) 8%, transparent);
+  /* state: ink for text, wash for a tint */
+  --eg-ok: var(--ok-ink);              --ob-ok: var(--ok-ink);
+  --eg-warn: var(--warn-ink);          --ob-warn: var(--warn-ink);
+  --eg-danger: var(--danger-ink);      --ob-danger: var(--danger-ink);
+  --eg-close-hover: var(--danger-ink); --ob-close-hover: var(--danger-ink);
+  --eg-close-press: color-mix(in srgb, var(--danger-ink) 80%, var(--ink));        --ob-close-press: color-mix(in srgb, var(--danger-ink) 80%, var(--ink));
+  --eg-ok-wash: var(--ok-wash);        --ob-ok-wash: var(--ok-wash);
+  --eg-warn-wash: var(--warn-wash);    --ob-warn-wash: var(--warn-wash);
+  --eg-danger-wash: var(--danger-wash); --ob-danger-wash: var(--danger-wash);
+  --eg-scrim: var(--scrim);            --ob-scrim: var(--scrim);
+  --eg-shadow: var(--shadow-ink);
+  /* shape and motion: the house radii and easing (timings already equal the house's) */
+  --eg-radius-control: 10px;           --ob-radius-control: 10px;
+  --eg-radius-panel: 14px;             --ob-radius-panel: 14px;
+  --eg-radius-lg: 14px;                --ob-radius-lg: 14px;
+  --eg-radius-xl: 20px;                --ob-radius-xl: 20px;
+  --eg-ease: var(--ease-house);        --ob-ease: var(--ease-house);
+
+  /* DSH Fleet dashboard */
+  --c-base: var(--canvas);
+  --c-panel: var(--surface);
+  --c-slab: var(--track);
+  --c-line: var(--hairline);
+  --c-text-1: var(--ink);
+  --c-text-2: var(--ink-2);
+  --c-text-2-contrast: var(--ink);
+  --c-amber: var(--warn-fill);
+  --c-mustard: var(--ok-fill);
+  --c-red: var(--danger-fill);
+  --c-info: var(--ink-2);
+  --c-stale-light: var(--ink-2);
+  --c-stale-dark: var(--line-strong);
+  --radius-base: 14px;
+  --radius-control: 10px;
+  --m-ease-out: var(--ease-house);
+  --shadow-float: 0 12px 32px -12px var(--shadow-ink);
+}

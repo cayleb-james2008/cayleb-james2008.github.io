@@ -1,0 +1,82 @@
+@import "tailwindcss";
+/* The single token source for the house frontend. Everything the libraries read
+   (--background, --primary, --muted, --info ...) is mapped inside this file. */
+@import "./tokens.css";
+
+/* Geist (text) and Geist Mono (ids, model names, times, counts): the owner's fonts.
+   Files and their SIL Open Font Licence texts are in public/fonts/. TTF is kept as received;
+   convert to woff2 before shipping an app (smaller, same look). */
+@font-face { font-family: "Geist"; font-weight: 400; font-style: normal; font-display: swap; src: url("/fonts/Geist-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Geist"; font-weight: 500; font-style: normal; font-display: swap; src: url("/fonts/Geist-Medium.ttf") format("truetype"); }
+@font-face { font-family: "Geist"; font-weight: 600; font-style: normal; font-display: swap; src: url("/fonts/Geist-SemiBold.ttf") format("truetype"); }
+@font-face { font-family: "Geist Mono"; font-weight: 400; font-style: normal; font-display: swap; src: url("/fonts/GeistMono-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Geist Mono"; font-weight: 700; font-style: normal; font-display: swap; src: url("/fonts/GeistMono-Bold.ttf") format("truetype"); }
+
+/* Tremor Raw animation block (documented install step: paste its @theme into globals.css).
+   Only the hover-card/tooltip entries that Tracker uses are kept. */
+@theme {
+  /* Every Tailwind transition that sets no time of its own runs on the house timing (motion.md section 4), so the whole page eases alike. */
+  --default-transition-duration: var(--dur-press);
+  --default-transition-timing-function: var(--ease-house);
+
+  --animate-slide-down-and-fade: slideDownAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-up-and-fade: slideUpAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-left-and-fade: slideLeftAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-right-and-fade: slideRightAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  @keyframes slideDownAndFade {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideUpAndFade {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideLeftAndFade {
+    from { opacity: 0; transform: translateX(6px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slideRightAndFade {
+    from { opacity: 0; transform: translateX(-6px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+}
+
+/* Vaul ignores prefers-reduced-motion: its sheet and overlay travel with CSS *animations* (slideFromBottom,
+   slideToBottom, fadeIn, fadeOut) and a transform transition. The earlier override here (until 2026-11-10)
+   matched [vaul-drawer], an attribute vaul 1.x does not set (it sets data-vaul-drawer), and cut only the
+   transition, so the 500 ms slide kept running. Both durations are cut on the real attributes. */
+@media (prefers-reduced-motion: reduce) {
+  [data-vaul-drawer], [data-vaul-overlay] { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* A control that sets no transition of its own still eases its colour, surface, border and ring on the house timing (a utility class on the
+   control outranks this: it sits in the base layer). Below the fold the links and buttons otherwise flip with no easing at all. */
+@layer base {
+  a, button, [role="tab"], [role="button"], input, summary {
+    transition: color var(--dur-press) var(--ease-house), background-color var(--dur-press) var(--ease-house), border-color var(--dur-press) var(--ease-house), box-shadow var(--dur-press) var(--ease-house);
+  }
+}
+
+/* The theme switch cross-fades the whole page (View Transitions; theme.tsx skips it under reduced motion), on the swap timing. */
+::view-transition-group(root) { animation-duration: var(--dur-swap); animation-timing-function: var(--ease-house); }
+
+/* The demo picker's gliding indicator uses the same timing as everything else. */
+[data-slot="tab-indicator"] { transition-duration: var(--dur-swap); transition-timing-function: var(--ease-house); }
+
+/* The ledger's rows are buttons: as blocks with the part's own 6 px gap they stack at the same pitch as the value column beside them
+   (inline-block rows drifted 1 px per row; the part's -m-0! also removes its space-y gap, so the gap is put back here). */
+.ledger-chart .group { display: block; }
+/* Important declarations of an earlier layer beat those of a later one, so the gap goes in the base layer to outrank the utility's -m-0!. */
+@layer base { .ledger-chart .group:not(:last-child) { margin-bottom: 0.375rem !important; } }
+
+/* The ledger bars lead to the project list: each row answers hover, press and focus from the tokens. */
+.ledger-chart .group:hover { background-color: var(--board); }
+.ledger-chart .group:active { background-color: var(--track); }
+
+/* On a phone the filter field is a 44 px target (the part's own height is 34 px there). */
+@media (max-width: 639px) { [data-slot="input"] { height: 2.75rem; line-height: 2.75rem; } }
+
+/* UX review Y8: the skills filter is a search field and shows the browser's own clear mark again (the COSS Input part switches it off for every search field):
+   on a phone the person had to delete the text by hand in the empty state. */
+#skills input[type="search"]::-webkit-search-cancel-button { appearance: auto; cursor: pointer; }
