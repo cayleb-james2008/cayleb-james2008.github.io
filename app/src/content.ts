@@ -260,8 +260,8 @@ export const productPages: ProductPage[] = [
     name: "OpenBell",
     href: "/projects/openbell.html",
     pitch: "An autonomous trading system for Kalshi's 15-minute markets — one slot per market, gateway-enforced risk rails, and every fill proven from the venue's own record.",
-    img: "/assets/projects/captures/openbell-poster.png",
-    alt: "Still of the real OpenBell capture: the Ticket 070 watchtower with three live lanes",
+    img: "/assets/projects/captures/openbell-tape.png",
+    alt: "Still of the real OpenBell capture: the desk's order tape — orders as the venue recorded them",
   },
   {
     name: "Open-Ro Studio",
