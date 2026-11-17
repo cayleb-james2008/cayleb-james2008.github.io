@@ -30,7 +30,7 @@ export function Ledger() {
             onValueChange={(b) => toProject(b.name)}
             className="ledger-chart hidden md:flex"
             role="group"
-            aria-label="Stated test counts: 4,000+ automated tests across five shipped systems; Ergon 622 tests; Sophos 1,224 interface tests; Asmodeus 1,111 Rust tests; dotz 828+ core tests; Industry AI Suite 382 Python tests. GitHub contributions in the last year: 1,200+, shown beside the chart because they are not tests."
+            aria-label="Stated test counts: 4,000+ automated tests across five shipped systems; Ergon 1,196 proof checks across 40 proof suites; Sophos 1,224 interface tests; Asmodeus 1,111 Rust tests; dotz 828+ core tests; Industry AI Suite 382 Python tests. GitHub contributions in the last year: 1,200+, shown beside the chart because they are not tests."
           />
           <ul className="grid gap-2 md:hidden" aria-label="Stated test counts">
             {ledger.bars.map((b) => (
