@@ -52,3 +52,9 @@ Changed for the employer-name strip (17 November 2026, owner's order — the day
 
 Furniture Installer · a Connecticut furniture company
 Furniture installation work, full-time.
+
+Changed for the claims-to-functionality programme, wave 2 (17 November 2026): the Ergon product card's poster is now
+the Work Graph capture (assets/projects/faces/ergon/graph-review.png) — the same capture the Ergon product page leads
+with — instead of the conversation-face poster, so the home card shows Ergon's default face (Work Graph). New card alt text:
+
+Still of the real Ergon capture: the Work Graph face — an agent's finished work waiting at its review node, with the Approve & send card

@@ -181,8 +181,8 @@ export const productPages: ProductPage[] = [
     name: "Ergon",
     href: "/projects/ergon.html",
     pitch: "A personal AI agent for every employee, on one shared company system — the agent is built to learn the role, and a person approves anything that sends, spends or changes a record.",
-    img: "/assets/projects/captures/ergon-poster.png",
-    alt: "Still of the real Ergon capture: the current front set, the morning brief and the approval card",
+    img: "/assets/projects/faces/ergon/graph-review.png",
+    alt: "Still of the real Ergon capture: the Work Graph face — an agent's finished work waiting at its review node, with the Approve & send card",
   },
   {
     name: "OpenBell",
