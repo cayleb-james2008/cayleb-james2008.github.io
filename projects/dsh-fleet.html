@@ -1,31 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DSH Fleet — Cayleb Alvarez-James</title>
-<meta name="description" content="The DSH Fleet is an orchestration plugin that turns one instruction into a swarm of AI agents: tickets in, work built in parallel, and a fresh-context checker deciding when it is done.">
-<link rel="canonical" href="https://cayleb-james2008.github.io/projects/dsh-fleet.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Cayleb Alvarez-James">
-<meta property="og:title" content="DSH Fleet — Cayleb Alvarez-James">
-<meta property="og:description" content="An orchestration plugin that turns one instruction into a swarm of AI agents — tickets in, work built in parallel, and a fresh-context checker deciding when it is done.">
-<meta property="og:url" content="https://cayleb-james2008.github.io/projects/dsh-fleet.html">
-<meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Share card: Cayleb Alvarez-James, AI Agent Systems Engineer.">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="DSH Fleet — Cayleb Alvarez-James">
-<meta name="twitter:description" content="An orchestration plugin that turns one instruction into a swarm of AI agents — tickets in, work built in parallel, and a fresh-context checker deciding when it is done.">
-<meta name="twitter:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
-<meta name="twitter:image:alt" content="Share card: Cayleb Alvarez-James, AI Agent Systems Engineer.">
-<meta name="color-scheme" content="light">
-<meta name="theme-color" content="#faf7f1">
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<style>
-:root{ --accent:#1f4fa0; --accent-bright:#93b8f5; }
-
+<meta name="description" content="A plugin that turns one instruction into a team of AI agents. They build in parallel, and a separate agent checks the finished work by running it.">
+<style>:root{--accent:#8fb4d9;}
 @font-face { font-family:"Fraunces"; src:url("../assets/editorial/fonts/fraunces-normal-500.woff2") format("woff2"); font-weight:100 900; font-display:swap; }
 @font-face { font-family:"Fraunces"; src:url("../assets/editorial/fonts/fraunces-italic-500.woff2") format("woff2"); font-weight:100 900; font-style:italic; font-display:swap; }
 @font-face { font-family:"Archivo"; src:url("../assets/editorial/fonts/archivo-400.woff2") format("woff2"); font-weight:400; font-display:swap; }
@@ -34,28 +14,26 @@
 @font-face { font-family:"Plex Mono"; src:url("../assets/editorial/fonts/ibm-plex-mono-400.woff2") format("woff2"); font-weight:400; font-display:swap; }
 
 :root{
-  --paper:#faf7f1; --paper2:#f3eee3; --ink:#1a1610; --muted:#5d5545; --faint:#8a7f68;
-  --rule:#d8d0bd; --rule-dark:#1a1610;
-  --serif:"Fraunces",Georgia,serif;
-  --sans:"Archivo",system-ui,sans-serif;
-  --mono:"Plex Mono",ui-monospace,monospace;
+  --paper:#161310; --paper2:#1e1a15; --panel:#221e17; --ink:#f0e9da; --muted:#b6ab94; --faint:#8a7f68;
+  --rule:#3a342a; --rule-dark:#0c0a08;
+  --serif:"Fraunces",Georgia,serif; --sans:"Archivo",system-ui,sans-serif; --mono:"Plex Mono",ui-monospace,monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:17.5px; line-height:1.6; -webkit-font-smoothing:antialiased}
-::selection{background:var(--accent); color:#fff}
+::selection{background:var(--accent); color:#14100a}
 a{color:var(--accent)}
 :focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 .skip-link{position:fixed; left:16px; top:-60px; z-index:70; background:var(--ink); color:var(--paper); padding:.55rem 1rem; border-radius:99px; font-weight:600; text-decoration:none; transition:top .2s}
 .skip-link:focus{top:14px}
-.progress{position:fixed; top:0; left:0; right:0; height:3px; z-index:60; background:transparent}
+.progress{position:fixed; top:0; left:0; right:0; height:3px; z-index:60}
 .progress i{display:block; height:100%; background:var(--accent); transform-origin:left; transform:scaleX(var(--p,0))}
 
 .wrap{width:min(1180px,100% - 2.5rem); margin:0 auto}
 .narrow{width:min(760px,100% - 2.5rem); margin:0 auto}
 
 /* masthead */
-.masthead{border-bottom:3px double var(--rule-dark); padding:1.1rem 0 .9rem; display:flex; align-items:baseline; gap:1.2rem; flex-wrap:wrap}
+.masthead{border-bottom:3px double var(--rule); padding:1.1rem 0 .9rem; display:flex; align-items:baseline; gap:1.2rem; flex-wrap:wrap}
 .masthead .wm{font-family:var(--serif); font-weight:900; font-size:1.35rem; color:var(--ink); text-decoration:none; letter-spacing:-.01em}
 .masthead .wm i{color:var(--accent); font-style:normal}
 .masthead .issue{color:var(--muted); font-size:.85rem}
@@ -63,726 +41,241 @@ a{color:var(--accent)}
 .masthead nav a{color:var(--muted); text-decoration:none}
 .masthead nav a:hover{color:var(--ink)}
 
-/* headline block */
-.headline{padding:8vh 0 4.5vh; border-bottom:1px solid var(--rule)}
-.headline .subject{font-size:.95rem; color:var(--muted); margin-bottom:1.6rem}
-.headline .subject b{color:var(--ink)}
-.headline h1{font-family:var(--serif); font-weight:640; font-size:clamp(2.7rem,6.6vw,5.4rem); line-height:1.04; letter-spacing:-.018em; max-width:17ch}
-.headline h1 em{font-style:italic; font-weight:500; color:var(--accent)}
-.standfirst{font-family:var(--serif); font-size:clamp(1.2rem,2.4vw,1.5rem); line-height:1.45; color:#373126; max-width:36em; margin-top:1.6rem}
-.byline{display:flex; flex-wrap:wrap; gap:.4rem 2rem; margin-top:2rem; padding-top:1rem; border-top:1px solid var(--rule); font-size:.85rem; color:var(--muted)}
-.byline b{color:var(--ink); font-weight:600}
-
-/* ============ visual story (front of page) ============ */
-.story-sec{padding:6.5vh 0 2vh; border-bottom:1px solid var(--rule)}
-.story-head{display:flex; align-items:baseline; gap:1.4rem; flex-wrap:wrap; margin-bottom:1rem}
-.story-head .sec-label{margin-bottom:0}
-.story-head .hint{font-family:var(--mono); font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--faint)}
-.story{display:grid; grid-template-columns:1.3fr .7fr; gap:3.2rem; align-items:start}
-.stage-col{position:sticky; top:2.6rem; padding-bottom:3rem}
-.stage{border:1px solid var(--rule-dark); padding:10px; background:#fff}
-.stage-view{position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--paper2)}
-.shot{position:absolute; inset:0; opacity:0; transform:scale(1.025); transition:opacity .7s ease, transform 1.4s ease; pointer-events:none}
-.shot.on{opacity:1; transform:scale(1); pointer-events:auto}
-.shot img{display:block; width:100%; height:100%; object-fit:cover; object-position:top center; transform:scale(calc(1.035 - var(--sp,0)*.035)); transition:transform .3s linear}
-.shot .plate{position:absolute; inset:0; background:var(--paper2); padding:clamp(1.2rem,3.4vw,2.6rem); display:flex; flex-direction:column; justify-content:center}
-.plate .pk{font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:1rem}
-.plate h4{font-family:var(--serif); font-weight:640; font-size:clamp(1.5rem,3vw,2.3rem); line-height:1.12; letter-spacing:-.015em; max-width:20ch; margin-bottom:1.4rem}
-.plate ul{list-style:none; border-top:2px solid var(--rule-dark)}
-.plate li{padding:.62rem 0; border-bottom:1px solid var(--rule-dark); font-weight:600; font-size:clamp(.92rem,1.6vw,1.05rem); display:flex; justify-content:space-between; gap:1rem; align-items:baseline}
-.plate li span{font-family:var(--mono); font-weight:400; font-size:.78rem; color:var(--muted); text-align:right}
-.stage-meta{display:flex; align-items:center; gap:1rem; margin-top:1rem}
-.dots{display:flex; gap:.5rem}
-.dots i{width:26px; height:3px; background:var(--rule); display:block; transition:background .4s}
-.dots i.on{background:var(--accent)}
-.stage-cap{font-size:.88rem; color:var(--muted)}
-.stage-cap b{color:var(--ink)}
-.steps{display:flex; flex-direction:column}
-.step{min-height:74vh; display:flex; flex-direction:column; justify-content:center; padding:2rem 0; opacity:.38; transition:opacity .6s ease}
-.step.live{opacity:1}
-.step .no{font-family:var(--serif); font-style:italic; font-weight:500; color:var(--accent); font-size:1.05rem; margin-bottom:.7rem}
-.step h3{font-family:var(--serif); font-weight:640; font-size:clamp(1.9rem,3.6vw,2.7rem); line-height:1.08; letter-spacing:-.015em; margin-bottom:1rem; max-width:16ch}
-.step h3 em{font-style:italic; font-weight:500; color:var(--accent)}
-.step p{color:#373126; max-width:34ch; font-size:1.05rem}
-.step .look{margin-top:1.3rem; border-left:2px solid var(--accent); padding-left:1rem; font-size:.9rem; color:var(--muted); max-width:36ch}
-.step .look b{display:block; font-family:var(--mono); font-weight:400; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:.3rem}
-.step .sfig{display:none}
-@media (max-width:900px){
-  .story{grid-template-columns:1fr; gap:0}
-  .stage-col{display:none}
-  .step{min-height:0; opacity:1; padding:2.2rem 0; border-bottom:1px solid var(--rule)}
-  .step:last-child{border-bottom:0}
-  .step .sfig{display:block; border:1px solid var(--rule-dark); padding:8px; background:#fff; margin-bottom:1.4rem}
-  .step .sfig img{display:block; width:100%; height:auto}
-  .step .sfig .plate{position:relative; background:var(--paper2); padding:1.4rem 1.2rem}
-}
-
-/* stat band */
-.statband{display:grid; grid-template-columns:repeat(3,1fr); border-bottom:1px solid var(--rule)}
-.statband .cell{padding:2rem 1.6rem 2.1rem 0}
-.statband .cell + .cell{border-left:1px solid var(--rule); padding-left:1.6rem}
-.statband .v{font-family:var(--serif); font-weight:900; font-size:clamp(2.6rem,5.5vw,4.2rem); line-height:1; letter-spacing:-.02em}
-.statband .v small{font-size:.42em; font-weight:640; color:var(--accent); letter-spacing:0}
-.statband .k{color:var(--muted); font-size:.92rem; margin-top:.6rem; max-width:28ch}
-@media (max-width:700px){ .statband{grid-template-columns:1fr} .statband .cell + .cell{border-left:0; border-top:1px solid var(--rule); padding-left:0} }
+/* hero */
+.hero{padding:3.2rem 0 1.4rem}
+.kicker{font-family:var(--mono); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent)}
+.hero h1{font-family:var(--serif); font-weight:900; font-size:clamp(2.6rem,6vw,4.4rem); line-height:1.02; letter-spacing:-.015em; margin:.55rem 0 .8rem}
+.hero .lead{font-size:clamp(1.15rem,2.4vw,1.45rem); line-height:1.45; color:var(--ink); max-width:34em}
+.checked{margin-top:1.4rem; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:.7rem 0; display:flex; gap:2rem; flex-wrap:wrap; font-size:.9rem; color:var(--muted)}
+.checked b{color:var(--ink); font-weight:600}
+.checked span b{margin-right:.4rem}
 
 /* sections */
-section.arg{padding:8vh 0; border-bottom:1px solid var(--rule)}
-.sec-label{font-family:var(--serif); font-style:italic; font-weight:500; color:var(--accent); font-size:1.05rem; margin-bottom:.8rem}
-.arg h2{font-family:var(--serif); font-weight:640; font-size:clamp(1.9rem,4.2vw,3rem); line-height:1.1; letter-spacing:-.015em; margin-bottom:1.4rem; max-width:22ch}
-.cols{columns:2; column-gap:3rem; max-width:1080px}
-@media (max-width:820px){ .cols{columns:1} }
-.cols p, .prose p{color:#373126; margin-bottom:1.1rem; max-width:68ch}
-.cols p:first-of-type::first-letter{font-family:var(--serif); font-weight:900; font-size:3.4em; float:left; line-height:.82; padding:.06em .12em 0 0; color:var(--ink)}
-.prose p b, .cols p b{color:var(--ink)}
+section{padding:2.6rem 0}
+.sec-label{font-family:var(--mono); font-size:.75rem; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-bottom:1.1rem; display:flex; align-items:center; gap:.8rem}
+.sec-label::after{content:""; flex:1; height:1px; background:var(--rule)}
+h2{font-family:var(--serif); font-weight:700; font-size:clamp(1.5rem,3vw,2rem); line-height:1.15; margin-bottom:.6rem}
+p.plain{color:var(--muted); max-width:38em}
+p.plain b, li b{color:var(--ink)}
 
-.pullquote{padding:9vh 0; border-bottom:1px solid var(--rule); text-align:left}
-.pullquote blockquote{font-family:var(--serif); font-style:italic; font-weight:500; font-size:clamp(1.7rem,4.4vw,3rem); line-height:1.25; letter-spacing:-.01em; max-width:24ch}
-.pullquote blockquote b{font-style:normal; font-weight:640; color:var(--accent)}
-.pullquote cite{display:block; margin-top:1.4rem; font-family:var(--sans); font-style:normal; font-size:.9rem; color:var(--muted)}
+/* face switcher */
+.faces{background:var(--paper2); border:1px solid var(--rule); border-radius:14px; padding:1rem}
+.face-tabs{display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:1rem}
+.face-tab{display:inline-flex; align-items:center; gap:.5rem; border:1px solid var(--rule); background:var(--panel); color:var(--muted); border-radius:99px; padding:.5rem 1rem; font:inherit; font-size:.92rem; font-weight:600; cursor:pointer; transition:color .2s,border-color .2s,background .2s}
+.face-tab svg{width:15px; height:15px; flex:none}
+.face-tab:hover{color:var(--ink)}
+.face-tab[aria-selected="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.face-tab .default-tag{font-family:var(--mono); font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; opacity:.75}
+.face-frame{border-radius:9px; overflow:hidden; border:1px solid var(--rule); background:#0d0b09}
+.face-frame img{display:block; width:100%; height:auto}
+.face-cap{padding:.85rem .2rem .1rem; color:var(--muted); font-size:.98rem; max-width:44em}
+.face-cap b{color:var(--ink)}
 
-/* proof figure */
-figure.proof{padding:8vh 0; border-bottom:1px solid var(--rule)}
-figure.proof .frame{border:1px solid var(--rule-dark); padding:10px; background:#fff}
-figure.proof img{display:block; width:100%; height:auto}
-figure.proof figcaption{display:flex; flex-wrap:wrap; gap:.4rem 2rem; justify-content:space-between; margin-top:1rem; font-size:.92rem; color:var(--muted)}
-figure.proof figcaption b{color:var(--ink)}
-figure.proof figcaption .src{font-family:var(--mono); font-size:.74rem; color:var(--faint)}
+/* still figure */
+figure.still{border:1px solid var(--rule); border-radius:14px; overflow:hidden; background:var(--paper2)}
+figure.still img{display:block; width:100%; height:auto}
+figure.still figcaption{padding:.85rem 1rem; color:var(--muted); font-size:.95rem; border-top:1px solid var(--rule)}
+figure.still figcaption b{color:var(--ink)}
 
-/* what it does — editorial index */
-.index-list{border-top:2px solid var(--rule-dark)}
-.index-row{display:grid; grid-template-columns:64px 1fr 1.4fr; gap:1.4rem; padding:1.3rem 0; border-bottom:1px solid var(--rule); align-items:baseline}
-.index-row .no{font-family:var(--serif); font-style:italic; color:var(--accent); font-size:1.1rem}
-.index-row h3{font-family:var(--serif); font-weight:640; font-size:1.3rem; line-height:1.2}
-.index-row p{color:#373126; font-size:.98rem}
-@media (max-width:760px){ .index-row{grid-template-columns:40px 1fr} .index-row p{grid-column:2} }
+/* three plain blocks */
+.blocks{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
+.block{background:var(--panel); border:1px solid var(--rule); border-radius:12px; padding:1.2rem 1.15rem}
+.block .n{font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; color:var(--accent); text-transform:uppercase}
+.block h3{font-family:var(--serif); font-size:1.22rem; font-weight:700; margin:.45rem 0 .4rem; line-height:1.2}
+.block p{color:var(--muted); font-size:.99rem; line-height:1.55}
+.note{margin-top:1rem; color:var(--muted); font-size:.95rem}
+.note b{color:var(--ink)}
 
-/* record table */
-.tbl-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch}
-table.record{width:100%; border-collapse:collapse; font-size:1rem}
-.record caption{text-align:left; font-family:var(--serif); font-style:italic; color:var(--muted); font-size:1rem; padding-bottom:1.2rem}
-.record th{font-size:.76rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); text-align:left; padding:.8rem 1rem .8rem 0; border-top:2px solid var(--rule-dark); border-bottom:1px solid var(--rule-dark)}
-.record td{padding:1rem 1rem 1rem 0; border-bottom:1px solid var(--rule); color:#373126; vertical-align:top}
-.record td.k{font-weight:600; color:var(--ink)}
-.record td.num{font-family:var(--mono); font-size:1.02rem; color:var(--ink); white-space:nowrap}
-.record td .sub{display:block; font-size:.84rem; color:var(--muted); margin-top:.2rem}
-.tbl-note{margin-top:1.1rem; font-size:.85rem; color:var(--muted)}
+/* data table */
+table.data{width:100%; border-collapse:collapse; font-size:1rem}
+table.data th, table.data td{padding:.75rem .6rem; text-align:left; border-bottom:1px solid var(--rule); vertical-align:top}
+table.data th{font-weight:600; color:var(--ink); width:42%}
+table.data td{color:var(--muted)}
+table.data td b{color:var(--ink)}
+table.data tr:last-child th, table.data tr:last-child td{border-bottom:none}
+table.data .ok{color:#9fc97f; font-weight:600}
+table.data .miss{color:#e0a458; font-weight:600}
 
-/* standing */
-.standing{display:grid; grid-template-columns:1.25fr 1fr; gap:3rem}
-@media (max-width:860px){ .standing{grid-template-columns:1fr} }
-.notes-box{border:1px solid var(--rule-dark); padding:1.6rem 1.7rem; background:var(--paper2)}
-.notes-box h3{font-family:var(--serif); font-weight:640; font-size:1.25rem; margin-bottom:1rem}
-.notes-box ul{list-style:none; display:grid; gap:.65rem}
-.notes-box li{font-size:.93rem; color:#373126; padding-left:1.2rem; position:relative}
-.notes-box li::before{content:"—"; position:absolute; left:0; color:var(--accent)}
+/* status */
+.status p{color:var(--muted); max-width:40em; margin-bottom:.7rem}
+.status p b{color:var(--ink)}
 
-/* close */
-.close-band{background:var(--ink); color:var(--paper); padding:10vh 0 8vh; margin-top:0}
-.close-band h2{font-family:var(--serif); font-weight:640; font-size:clamp(2.1rem,5vw,3.6rem); line-height:1.08; letter-spacing:-.015em; max-width:20ch}
-.close-band h2 em{font-style:italic; font-weight:500; color:var(--accent-bright)}
-.close-band p{color:#cfc7b4; max-width:56ch; margin-top:1.3rem}
-.end-links{display:flex; flex-wrap:wrap; gap:.7rem; margin-top:2.2rem}
-.btn{display:inline-flex; align-items:center; min-height:50px; padding:0 1.4rem; border-radius:99px; border:1px solid #4a4335; color:var(--paper); text-decoration:none; font-weight:600; font-size:.94rem}
-.btn:hover{border-color:var(--accent-bright); color:var(--accent-bright)}
-.btn--accent{background:var(--accent-bright); border-color:var(--accent-bright); color:#1a1610}
-.btn--accent:hover{color:#1a1610; opacity:.9}
-.close-band .foot{margin-top:3.4rem; padding-top:1.3rem; border-top:1px solid #3a342a; font-size:.8rem; color:#9a9078; display:flex; flex-wrap:wrap; gap:.4rem 1.6rem}
-.close-band .foot a{color:#9a9078}
+/* mini demo (fleet board + openbell gateway) */
+.demo{background:var(--paper2); border:1px solid var(--rule); border-radius:14px; padding:1.1rem}
+.demo-head{display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:1rem}
+.demo-head .t{font-family:var(--serif); font-weight:700; font-size:1.15rem}
+.demo-head .s{color:var(--muted); font-size:.9rem}
+.demo-btn{margin-left:auto; border:1px solid var(--ink); background:var(--ink); color:var(--paper); border-radius:99px; padding:.5rem 1.1rem; font:inherit; font-size:.92rem; font-weight:600; cursor:pointer}
+.demo-btn.ghost{background:transparent; color:var(--muted); border-color:var(--rule); margin-left:0}
+.demo-btn.ghost[aria-pressed="true"]{color:var(--paper); background:var(--ink); border-color:var(--ink)}
+.board{display:grid; grid-template-columns:repeat(4,1fr); gap:.8rem}
+.lane h4{font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); margin-bottom:.5rem}
+.card{background:var(--panel); border:1px solid var(--rule); border-radius:10px; padding:.7rem .75rem; font-size:.88rem; line-height:1.45; color:var(--muted); margin-bottom:.55rem; opacity:.35; transform:translateY(6px); transition:opacity .45s, transform .45s}
+.card b{color:var(--ink); display:block; font-size:.92rem}
+.card.on{opacity:1; transform:none}
+.card .stamp{display:inline-block; margin-top:.4rem; font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; padding:.12rem .5rem; border-radius:99px; border:1px solid #9fc97f; color:#9fc97f}
+.card .stamp.block{border-color:#e0a458; color:#e0a458}
+.gate-flow{display:flex; flex-direction:column; gap:.55rem}
+.gate-step{display:flex; gap:.8rem; align-items:flex-start; background:var(--panel); border:1px solid var(--rule); border-radius:10px; padding:.75rem .9rem; opacity:.35; transform:translateY(6px); transition:opacity .45s, transform .45s}
+.gate-step.on{opacity:1; transform:none}
+.gate-step svg{width:19px; height:19px; flex:none; margin-top:.15rem; color:var(--accent)}
+.gate-step p{color:var(--muted); font-size:.97rem}
+.gate-step p b{color:var(--ink)}
+.gate-verdict{font-family:var(--mono); font-size:.8rem; letter-spacing:.08em; margin-top:.7rem; min-height:1.2em; color:var(--ink)}
 
-[data-rv]{opacity:0; transform:translateY(16px); transition:opacity .8s ease, transform .8s ease}
-[data-rv].in{opacity:1; transform:none}
+/* footer */
+.subfoot{border-top:3px double var(--rule); padding:1.6rem 0 2.6rem; display:flex; gap:1.6rem; flex-wrap:wrap; font-size:.95rem}
+.subfoot a{text-decoration:none; font-weight:600}
+.subfoot .back{color:var(--muted); font-weight:400}
+
+/* scroll animation — GSAP-style beats, vanilla JS */
+[data-anim]{opacity:0}
+[data-anim="up"]{transform:translateY(26px)}
+[data-anim="left"]{transform:translateX(-26px)}
+[data-anim="zoom"]{transform:scale(.965)}
+[data-anim].in{opacity:1; transform:none; transition:opacity .8s cubic-bezier(.22,.8,.3,1), transform .8s cubic-bezier(.22,.8,.3,1)}
+[data-anim].in.d1{transition-delay:.1s} [data-anim].in.d2{transition-delay:.22s} [data-anim].in.d3{transition-delay:.34s}
+.shots [data-anim]{opacity:1 !important; transform:none !important; transition:none !important}
 @media (prefers-reduced-motion: reduce){
+  [data-anim]{opacity:1; transform:none; transition:none}
   html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none !important; transition:none !important}
-  [data-rv]{opacity:1 !important; transform:none !important}
-  .step{opacity:1}
 }
 
-/* ============ product window: live demo / built-in component ============ */
-.demo-sec{padding:7vh 0 8vh; border-bottom:1px solid var(--rule)}
-.demo-head{display:flex; align-items:baseline; gap:1.4rem; flex-wrap:wrap; margin-bottom:1.2rem}
-.demo-head .sec-label{margin-bottom:0}
-.demo-head .hint{font-family:var(--mono); font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--faint)}
-.pwin{border:1px solid var(--rule-dark); background:#fff; box-shadow:0 24px 60px -30px rgba(26,22,16,.35)}
-.pwin-bar{display:flex; align-items:center; gap:.8rem; padding:.6rem 1rem; border-bottom:1px solid var(--rule-dark); background:var(--paper2)}
-.pwin-bar .dots3{display:flex; gap:.42rem}
-.pwin-bar .dots3 i{width:11px; height:11px; border-radius:50%; border:1px solid var(--rule-dark); display:block}
-.pwin-bar .dots3 i:first-child{background:var(--accent)}
-.pwin-bar .ptitle{font-family:var(--mono); font-size:.8rem; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-.pwin-bar .ptag{margin-left:auto; font-family:var(--mono); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); border:1px solid var(--accent); padding:.22rem .6rem; border-radius:99px; white-space:nowrap}
-.pwin-bar .pfull{font-family:var(--mono); font-size:.74rem; color:var(--muted); text-decoration:none; white-space:nowrap}
-.pwin-bar .pfull:hover{color:var(--accent)}
-.pwin iframe{display:block; width:100%; height:780px; border:0; background:#fff}
-@media (max-width:700px){ .pwin iframe{height:620px} .pwin-bar .pfull{display:none} }
-.demo-cap{margin-top:1rem; font-size:.92rem; color:var(--muted); max-width:78ch}
-.demo-cap b{color:var(--ink)}
-
-/* ============ custom components ============ */
-.xsec{padding:8vh 0; border-bottom:1px solid var(--rule)}
-.xcard{border:1px solid var(--rule-dark); background:#fff; padding:clamp(1.2rem,3vw,2rem); box-shadow:0 24px 60px -34px rgba(26,22,16,.35)}
-.xkick{font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:.9rem; display:flex; flex-wrap:wrap; gap:.6rem 1.2rem; align-items:center}
-.xpill{font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; border:1px solid var(--rule-dark); padding:.24rem .65rem; border-radius:99px; color:var(--ink)}
-.xpill.ok{background:var(--accent); border-color:var(--accent); color:#fff}
-.xpill.bad{background:#a3271e; border-color:#a3271e; color:#fff}
-.xbtn{display:inline-flex; align-items:center; min-height:46px; padding:0 1.25rem; border-radius:99px; border:1px solid var(--rule-dark); background:var(--ink); color:var(--paper); font-family:var(--sans); font-weight:600; font-size:.92rem; cursor:pointer}
-.xbtn:hover{opacity:.88}
-.xbtn[disabled]{opacity:.35; cursor:not-allowed}
-.xbtn.ghost{background:transparent; color:var(--ink)}
-.xbtn.ghost:hover{border-color:var(--accent); color:var(--accent); opacity:1}
-.xbtn.small{min-height:38px; padding:0 .95rem; font-size:.85rem}
-.xnote{font-size:.88rem; color:var(--muted); margin-top:1.1rem; max-width:78ch}
-.xnote b{color:var(--ink)}
-.xlog{list-style:none; border-top:2px solid var(--rule-dark); margin-top:1.4rem}
-.xlog li{font-family:var(--mono); font-size:.8rem; padding:.6rem 0; border-bottom:1px solid var(--rule); color:#373126; display:flex; flex-wrap:wrap; gap:.4rem 1.2rem}
-.xlog li .h{color:var(--accent)}
-.xlog-empty{font-family:var(--mono); font-size:.8rem; color:var(--faint); padding:.6rem 0; border-bottom:1px solid var(--rule)}
-
-/* gate component (Ergon) */
-.gate-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:2rem}
-@media (max-width:860px){ .gate-grid{grid-template-columns:1fr} }
-.gate-pay h4, .gate-side h4{font-family:var(--serif); font-weight:640; font-size:1.3rem; margin-bottom:.8rem}
-.gate-pay ul{list-style:none; border-top:2px solid var(--rule-dark)}
-.gate-pay li{padding:.7rem 0; border-bottom:1px solid var(--rule); font-size:.98rem; display:flex; justify-content:space-between; gap:1rem}
-.gate-pay li span{font-family:var(--mono); font-size:.76rem; color:var(--muted); text-align:right}
-.checks{list-style:none; display:grid; gap:.55rem; margin-bottom:1.2rem}
-.checks li{font-size:.94rem; padding-left:1.7rem; position:relative; color:#373126}
-.checks li::before{position:absolute; left:0; font-family:var(--mono); font-weight:600}
-.checks li.ok::before{content:"✓"; color:var(--accent)}
-.checks li.fail{color:#7c1d16}
-.checks li.fail::before{content:"✗"; color:#a3271e}
-.checks li .why{display:block; font-size:.84rem; color:var(--muted)}
-.gate-actions{display:flex; flex-wrap:wrap; gap:.6rem; align-items:center}
-.gate-attach{display:flex; gap:.55rem; align-items:flex-start; font-size:.88rem; color:#373126; margin-bottom:1.2rem; cursor:pointer; max-width:44ch}
-.gate-attach input{margin-top:.25rem; accent-color:var(--accent); width:17px; height:17px; flex:none}
-
-/* slot board (OpenBell) */
-.slot-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:.7rem; margin-bottom:1.3rem}
-@media (max-width:700px){ .slot-grid{grid-template-columns:repeat(2,1fr)} }
-.slot-btn{border:1px solid var(--rule-dark); background:var(--paper); padding:.85rem 1rem; text-align:left; cursor:pointer; font-family:var(--sans)}
-.slot-btn:hover{border-color:var(--accent)}
-.slot-btn.on{background:var(--ink); color:var(--paper); border-color:var(--ink)}
-.slot-btn .sm{font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--faint); display:block}
-.slot-btn .sv{font-family:var(--serif); font-weight:900; font-size:1.5rem; line-height:1.1}
-.slot-btn .bar{height:5px; background:var(--rule); margin-top:.5rem; position:relative}
-.slot-btn .bar i{position:absolute; top:0; bottom:0; display:block}
-.pos{color:#0c6b4a} .neg{color:#a3271e}
-.slot-btn.on .pos{color:#6fd598} .slot-btn.on .neg{color:#f0937a}
-.slot-detail{border-top:2px solid var(--rule-dark); padding-top:1.1rem; display:grid; grid-template-columns:.8fr 1.2fr; gap:2rem}
-@media (max-width:760px){ .slot-detail{grid-template-columns:1fr} }
-.slot-detail h4{font-family:var(--serif); font-weight:640; font-size:1.5rem}
-.slot-detail .big{font-family:var(--serif); font-weight:900; font-size:2.4rem; line-height:1}
-.slot-detail p{font-size:.95rem; color:#373126}
-
-/* swarm builder (Fleet) */
-.swarm-pick{display:flex; flex-wrap:wrap; gap:.6rem; margin-bottom:1.4rem}
-.swarm-stage{display:flex; flex-wrap:wrap; gap:.7rem; margin-bottom:1.3rem; min-height:86px}
-.swarm-node{border:1px solid var(--rule-dark); background:var(--paper); padding:.8rem 1rem; min-width:150px}
-.swarm-node .r{font-family:var(--serif); font-weight:640; font-size:1.1rem}
-.swarm-node .m{font-family:var(--mono); font-size:.72rem; color:var(--muted); display:block; margin-top:.2rem}
-.swarm-node.lead{border-top:4px solid var(--accent)}
-.swarm-node.check{border-top:4px solid var(--ink)}
-.admit{display:flex; flex-wrap:wrap; gap:1rem; align-items:center; border-top:2px solid var(--rule-dark); padding-top:1.1rem}
-.admit .meter{display:flex; gap:.35rem}
-.admit .meter i{width:30px; height:10px; background:var(--rule); display:block}
-.admit .meter i.on{background:var(--accent)}
-.admit .verdict{font-weight:600; font-size:.95rem}
-
-/* proposal component (OpenRO) — lives inside .pwin */
-.prop{background:#f4f1ea; padding:clamp(1rem,2.6vw,1.8rem); color:#1c1a15; font-size:.98rem}
-.prop .ask{background:#e9e6f5; border-left:3px solid #4a3aff; padding:.9rem 1.1rem; margin-bottom:.8rem}
-.prop .ask .who, .prop .reply .who{font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:#6b675a; display:block; margin-bottom:.3rem}
-.prop .reply{padding:.4rem 0 1rem; color:#37342b}
-.gatecard{background:#191a17; color:#e8e6df; border-radius:14px; padding:1.2rem 1.3rem; margin-top:.6rem}
-.gatecard .gk{font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:#e8a34c; margin-bottom:.5rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap}
-.gatecard h4{font-family:var(--sans); font-weight:600; font-size:1.15rem; line-height:1.3; margin-bottom:.4rem}
-.gatecard .gsub{color:#a9a699; font-size:.88rem; margin-bottom:.9rem}
-.diffbox{font-family:var(--mono); font-size:.78rem; line-height:1.55; background:#101110; border:1px solid #33342f; border-radius:8px; padding:.8rem .9rem; overflow-x:auto; white-space:pre; margin-bottom:.9rem}
-.diffbox .add{color:#7fd08c} .diffbox .del{color:#e08a80} .diffbox .ctx{color:#8f8d84}
-.gatecard .gfile{font-family:var(--mono); font-size:.76rem; color:#a9a699; margin-bottom:.9rem}
-.gatecard .gactions{display:flex; gap:.6rem; flex-wrap:wrap}
-.gbtn{min-height:44px; padding:0 1.2rem; border-radius:8px; border:1px solid #45463f; background:transparent; color:#e8e6df; font-family:var(--sans); font-weight:600; font-size:.9rem; cursor:pointer}
-.gbtn:hover{border-color:#e8a34c}
-.gbtn.primary{background:#2f3fe0; border-color:#2f3fe0; color:#fff}
-.gbtn.primary:hover{opacity:.9}
-.gatecard.done{border:1px solid #3d5a3a}
-.gatecard .gok{color:#7fd08c; font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; margin-bottom:.5rem}
-.cplist{list-style:none; margin-top:1rem; border-top:1px solid var(--rule)}
-.cplist li{display:flex; flex-wrap:wrap; gap:.5rem 1rem; align-items:center; padding:.7rem 0; border-bottom:1px solid var(--rule); font-size:.92rem}
-.cplist li .cm{font-family:var(--mono); font-size:.74rem; color:var(--muted)}
-
+@media (max-width:760px){
+  .blocks{grid-template-columns:1fr}
+  .board{grid-template-columns:1fr 1fr}
+  .checked{gap:.9rem}
+  table.data th{width:48%}
+}
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="progress" aria-hidden="true"><i></i></div>
-
 <header class="wrap masthead">
   <a class="wm" href="../index.html">Cayleb<i>.</i>AJ</a>
-  <span class="issue">DSH Fleet — the editorial pitch</span>
-  <nav aria-label="Primary">
-    <a href="../index.html#projects">Projects</a>
-    <a href="../resume.html">Résumé</a>
-  </nav>
+  <span class="issue">The product pages — plain edition</span>
+  <nav><a href="index.html">Projects</a><a href="../resume.html">Résumé</a></nav>
 </header>
-
-<main id="main">
-
-  <!-- HEADLINE -->
-  <div class="wrap headline">
-    <p class="subject" data-rv><b>DSH Fleet</b> — an orchestration plugin, designed and built by Cayleb Alvarez-James. Checked against the fleet definition and the public core, 16 November 2026.</p>
-    <h1 data-rv>One instruction. A swarm builds it. <em>A stranger grades it.</em></h1>
-    <p class="standfirst" data-rv>An orchestration plugin for the DeepSeek Harness that turns one instruction into a swarm of AI agents: the swarm builds the work in parallel, a separate checker grades the real output, and done means the output was run — not that the builder said so.</p>
-    <div class="byline" data-rv>
-      <span><b>Status</b> — paused — out of model usage; the plugin, the core and the ticket record stand as built</span>
-      <span><b>Missions</b> — more than a hundred run, by the fleet&rsquo;s own ticket record</span>
-      <span><b>Evidence</b> — the fleet definition and the public core, cited throughout</span>
-    </div>
+<main id="main" class="wrap">
+  <div class="hero">
+    <p class="kicker" data-anim="up">DSH Fleet — an agent-team plugin for the DeepSeek Harness</p>
+    <h1 data-anim="up">One instruction. A team builds it.</h1>
+    <p class="lead" data-anim="up">A plugin that turns one instruction into a team of AI agents. They build in parallel, and a separate agent checks the finished work by running it.</p>
+    <div class="checked" data-anim="up"><span><b>Status —</b>in daily use on the owner's machine</span><span><b>Evidence —</b>the acceptance record, November 2026</span></div>
   </div>
 
-  <!-- VISUAL STORY -->
-  <section class="wrap story-sec" aria-label="The product, in pictures">
-    <div class="story-head" data-rv>
-      <p class="sec-label">The product, in pictures</p>
-      <span class="hint">Scroll — the product explains itself</span>
-    </div>
-    <div class="story">
-      <div class="stage-col" aria-hidden="true">
-        <div class="stage"><div class="stage-view">
-          <div class="shot on"><img src="../assets/projects/captures/fleet-poster.png" alt="" width="1600" height="Tickets are <em>the only intake.</em>" loading="lazy" decoding="async"></div>
-          <div class="shot"><img src="../assets/projects/captures/fleet-graph.png" alt="" width="1600" height="The swarm is <em>shaped per ticket.</em>" loading="lazy" decoding="async"></div>
-          <div class="shot"><div class="plate"><p class="pk">The checker gate — fresh verdicts only</p><h4>Done means the output was run.</h4><ul>
-          <li>Fresh context<span>no stake in the build</span></li>
-          <li>Runs the actual output<span>against the done-when</span></li>
-          <li>Stale or self-issued pass<span>does not count</span></li>
-          <li>One outcome per ticket<span>done · blocked · error</span></li>
-        </ul></div></div>
-        </div></div>
-        <div class="stage-meta">
-          <div class="dots"><i class=on></i><i></i><i></i></div>
-          <p class="stage-cap" id="stage-cap"><b>Screen i.</b> The board — the recorded demo, November 2026.</p>
-        </div>
+  <section aria-label="The board">
+    <p class="sec-label" data-anim="left">The board — a miniature</p>
+    <div class="demo" data-anim="up">
+      <div class="demo-head">
+        <span class="t">One ticket's journey</span><span class="s">A small model of the fleet's card board. On the real board, every job is a card like these.</span>
+        <button class="demo-btn" id="board-run" type="button">Run a ticket</button>
       </div>
-      <div class="steps">
-        <div class="step live" data-cap="<b>Screen i.</b> The board — the recorded demo, November 2026.">
-          <div class="sfig"><img src="../assets/projects/captures/fleet-poster.png" alt="The DSH Fleet board from the repository&rsquo;s recorded demo, November 2026 — the earlier light interface" width="1600" height="1000" loading="lazy" decoding="async"></div>
-          <p class="no">Screen i. — the intake</p>
-          <h3>Tickets are <em>the only intake.</em></h3>
-          <p>Every job arrives as a ticket: a goal, the context, and a done-when check written before the work starts.</p>
-          <p class="look"><b>Look for</b>the board from the fleet&rsquo;s recorded demo — November 2026, the earlier light interface, labelled as such wherever it appears.</p>
+      <div class="board" id="board">
+        <div class="lane"><h4>Queued</h4>
+          <div class="card"><b>Ticket — fix the login page</b>Goal, context, and how done will be checked — written before work starts.</div>
         </div>
-        <div class="step" data-cap="<b>Screen ii.</b> The fleet graph — lanes, missions, tickets.">
-          <div class="sfig"><img src="../assets/projects/captures/fleet-graph.png" alt="The fleet graph: directing seats on top, the harness below, lanes and ticket work units at the bottom" width="1600" height="1000" loading="lazy" decoding="async"></div>
-          <p class="no">Screen ii. — the swarm</p>
-          <h3>The swarm is <em>shaped per ticket.</em></h3>
-          <p>A lead, builders and a checker fan out under the directing seats — capped at six concurrent swarms, admitted only when the machine has room.</p>
-          <p class="look"><b>Look for</b>lanes, missions and tickets as the graph recorded them — work units at the bottom, the directing seats on top.</p>
+        <div class="lane"><h4>Building</h4>
+          <div class="card"><b>Lead</b>Splits the ticket into pieces and hands them out.</div>
+          <div class="card"><b>Builders</b>Work the pieces in parallel — never on the same file at once.</div>
         </div>
-        <div class="step" data-cap="<b>Screen iii.</b> The checker gate — the fleet&rsquo;s rule sheet.">
-          <div class="sfig"><div class="plate"><p class="pk">The checker gate — fresh verdicts only</p><h4>Done means the output was run.</h4><ul>
-          <li>Fresh context<span>no stake in the build</span></li>
-          <li>Runs the actual output<span>against the done-when</span></li>
-          <li>Stale or self-issued pass<span>does not count</span></li>
-          <li>One outcome per ticket<span>done · blocked · error</span></li>
-        </ul></div></div>
-          <p class="no">Screen iii. — the gate</p>
-          <h3>Maker <em>never</em> checker.</h3>
-          <p>A fresh-context checker grades every delivery by running the actual output. The builder&rsquo;s own report never closes a ticket.</p>
-          <p class="look"><b>Look for</b>the gate&rsquo;s rule sheet — fresh eyes, or it doesn&rsquo;t count.</p>
+        <div class="lane"><h4>Checking</h4>
+          <div class="card"><b>Checker</b>Fresh eyes. Runs the finished output against the check written at the start.<span class="stamp">PASS</span></div>
+        </div>
+        <div class="lane"><h4>Done</h4>
+          <div class="card"><b>One outcome</b>Done, blocked, or error — one per ticket, with the evidence attached.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PRODUCT WINDOW: LIVE DEMO -->
-  <section class="wrap demo-sec" id="run" aria-label="The product, running">
-    <div class="demo-head" data-rv>
-      <p class="sec-label">The fleet, running</p>
-      <span class="hint">The staged demo build — live in this page, and clickable</span>
-    </div>
-    <div class="pwin" data-rv>
-      <div class="pwin-bar"><span class="dots3"><i></i><i></i><i></i></span><span class="ptitle">The Fleet — live dashboard (demo)</span><a class="pfull" href="../demos/fleet/">Open full-screen &#8599;</a><span class="ptag">Demo build</span></div>
-      <iframe src="../demos/fleet/" title="The Fleet — live dashboard (demo)" loading="lazy"></iframe>
-    </div>
-    <p class="demo-cap" data-rv><b>The fleet graph, running in the window above — and it is not a picture.</b> Click any node to drill into its state: the directing seats, the harness, the lanes, the tickets at the bottom. It is the staged demo build over recorded fleet state; the fleet itself is paused, and its standing is stated plainly below.</p>
-  </section>
-
-  <!-- STAT BAND -->
-  <div class="wrap">
-    <div class="statband">
-      <div class="cell" data-rv><div class="v">100+</div><div class="k">ticket missions run across Cayleb&rsquo;s projects — the fleet&rsquo;s own ticket record</div></div>
-      <div class="cell" data-rv><div class="v">32</div><div class="k">dependency-free core tests in the public core</div></div>
-      <div class="cell" data-rv><div class="v">6 <small>swarms</small></div><div class="k">the concurrency cap — a start is postponed, never dropped or piled on</div></div>
-    </div>
-  </div>
-
-  <!-- PULL QUOTE -->
-  <div class="wrap pullquote">
-    <blockquote data-rv>&ldquo;The builder&rsquo;s own report <b>never closes a ticket.</b>&rdquo;</blockquote>
-    <cite data-rv>Maker never checker — the fleet&rsquo;s grading rule</cite>
-  </div>
-
-  <!-- PROOF FIGURE -->
-  <figure class="wrap proof">
-    <div class="frame" data-rv><img src="../assets/projects/captures/fleet-graph.png" alt="The fleet graph at full width: Nox and Duet on top, the harness below, lanes and the ticket work units at the bottom" width="1600" height="1000" loading="lazy" decoding="async"></div>
-    <figcaption data-rv>
-      <span><b>The fleet, drawn by its own graph.</b> Directing seats on top, the harness below, lanes in the middle and the ticket work units at the bottom — work originates at the top and is dispatched down; a lane hands its queue to its named successor when it empties.</span>
-      <span class="src">Source: recorded capture from the staged fleet demo</span>
-    </figcaption>
-  </figure>
-
-  <!-- CUSTOM COMPONENT -->
-  <section class="wrap xsec" aria-label="Shape a swarm">
-    <div class="demo-head" data-rv>
-      <p class="sec-label">Shape a swarm</p>
-      <span class="hint">The fleet&rsquo;s rules, working</span>
-    </div>
-    <div class="xcard" data-rv>
-      <div id="swarmDemo">
-        <p class="xkick"><span>One ticket arrives — what does the fleet send?</span></p>
-        <div class="swarm-pick">
-          <button class="xbtn" type="button" data-shape="build">Build a feature</button>
-          <button class="xbtn ghost" type="button" data-shape="fix">Fix a defect</button>
-          <button class="xbtn ghost" type="button" data-shape="grade">Grade a delivery</button>
-        </div>
-        <div class="swarm-stage" id="swarmStage"></div>
-        <div class="admit">
-          <div class="meter" id="swarmMeter"></div>
-          <span class="verdict" id="swarmVerdict"></span>
-          <button class="xbtn ghost small" type="button" id="swarmLoad">Board load: 4 of 6 running</button>
-        </div>
-        <p class="xnote"><b>A page demonstration of the fleet&rsquo;s shaping and admission rules</b>, from the fleet definition: a swarm is shaped per ticket, models are pinned per role — the cheapest tier that answers by default, stronger tiers for leads and checkers — and admission control caps the board at six concurrent swarms. Toggle the board to full and the same ticket is postponed, never dropped. The fleet is paused; nothing here is live.</p>
-      </div>
+  <section aria-label="What it does">
+    <p class="sec-label" data-anim="left">What it does</p>
+    <div class="blocks">
+      <div class="block" data-anim="up"><p class="n">One</p><h3>One instruction in</h3><p>A ticket states the goal, the context, and the check that proves it is done — before any work starts.</p></div>
+      <div class="block" data-anim="up d1"><p class="n">Two</p><h3>A team forms around it</h3><p>A lead splits the work; builders run in parallel; a separate checker waits at the end. Nobody grades their own work.</p></div>
+      <div class="block" data-anim="up d2"><p class="n">Three</p><h3>Done means it ran</h3><p>The checker runs the real output against the check. A builder's say-so never closes a ticket.</p></div>
     </div>
   </section>
 
-  <!-- ARGUMENT -->
-  <section class="wrap arg">
-    <p class="sec-label" data-rv>The problem, briefly</p>
-    <h2 data-rv>One session is a bottleneck</h2>
-    <div class="cols" data-rv>
-      <p>One agent session is a bottleneck: it works serially, it grades its own output kindly, and when it stalls, everything stalls. Prompting harder does not fix any of that — the failure is structural.</p>
-      <p>The fleet is the structural answer: work is shaped into tickets with a check written before the work starts, built by several agents at once, and graded by a checker that did not build it and has no stake in passing it.</p>
-    </div>
-  </section>
-
-  <!-- WHAT IT DOES -->
-  <section class="wrap arg">
-    <p class="sec-label" data-rv>What it does</p>
-    <h2 data-rv>Shaped by the ticket, not by a fixed team</h2>
-    <div class="index-list" data-rv>
-      <div class="index-row"><span class="no">i.</span><h3>Tickets are the only intake</h3><p>Every piece of work arrives as a ticket carrying a goal, the context, and a done-when check — and ends in exactly one outcome: done with evidence, blocked with the need named, or error with what broke.</p></div>
-      <div class="index-row"><span class="no">ii.</span><h3>Dynamic swarms</h3><p>Each ticket gets a swarm shaped to it — a lead, builders, a checker — capped at six concurrent swarms, with admission control that postpones a start rather than overloading the machine.</p></div>
-      <div class="index-row"><span class="no">iii.</span><h3>Maker never checker</h3><p>A fresh-context checker grades every delivery by running the actual output against the done-when. The builder&rsquo;s own report never closes a ticket.</p></div>
-      <div class="index-row"><span class="no">iv.</span><h3>A model ladder</h3><p>Models are pinned per role — the cheapest tier that answers by default, stronger tiers for leads and checkers — and a model route sits behind one configuration point, so the whole fleet can change engines without code changes.</p></div>
-      <div class="index-row"><span class="no">v.</span><h3>Pull requests only</h3><p>Fleet work lands as pull requests; nothing is edited straight onto main, and merges happen one at a time.</p></div>
-      <div class="index-row"><span class="no">vi.</span><h3>Gated self-improvement</h3><p>The fleet&rsquo;s own improvement loop proposes changes to itself, and every proposal passes the same evaluation and checker gates as product work before it can land.</p></div>
-    </div>
-  </section>
-
-  <!-- RECORD -->
-  <section class="wrap arg">
-    <p class="sec-label" data-rv>The record</p>
-    <h2 data-rv>The fleet, in figures</h2>
-    <div class="tbl-wrap" data-rv>
-    <table class="record">
-      <caption>The measured record, as documented in the fleet definition and the public core — checked 16 November 2026.</caption>
-      <thead><tr><th scope="col">Measure</th><th scope="col">Figure</th><th scope="col">Basis</th></tr></thead>
-      <tbody>
-        <tr><td class="k">Ticket missions run</td><td class="num">100+</td><td>Across Cayleb&rsquo;s projects — the fleet&rsquo;s own ticket record, not an outside audit</td></tr>
-        <tr><td class="k">Core tests</td><td class="num">32</td><td>Dependency-free, in the public core (dsh-fleet-core)</td></tr>
-        <tr><td class="k">Concurrency cap</td><td class="num">6 swarms</td><td>Admission control reads a load gauge; a start is postponed, never dropped or piled on</td></tr>
-        <tr><td class="k">Intake</td><td class="k">Tickets only</td><td>Each ticket ends in exactly one outcome: done, blocked, or error</td></tr>
-        <tr><td class="k">Model routes</td><td class="k">One config point</td><td>Cheapest answering tier by default; the fleet changes engines without code changes</td></tr>
-        <tr><td class="k">Fleet definition</td><td class="k">DSH-FLEET.md</td><td>The living definition, last updated 12 November 2026</td></tr>
-        <tr><td class="k">Core read at</td><td class="num">2aec462</td><td>cayleb-james2008/dsh-fleet-core · 11 November 2026</td></tr>
-      </tbody>
+  <section aria-label="The record">
+    <p class="sec-label" data-anim="left">The record — acceptance run, November 2026</p>
+    <div data-anim="up">
+    <table class="data">
+      <tr><th>Clean install (A1)</th><td><span class="ok">Pass</span> — a fresh install comes up and the board opens with live data</td></tr>
+      <tr><th>Crash recovery (A6)</th><td><span class="ok">Pass</span> — the host was killed mid-job; the job resumed from its saved state and finished</td></tr>
+      <tr><th>Model picks (A12)</th><td><span class="ok">Pass</span> — <b>19 of 19</b> checks: the models the owner picks are the models that run</td></tr>
+      <tr><th>Keyboard &amp; contrast (A11)</th><td><b>37 of 38</b> checks — the one miss is named below</td></tr>
+      <tr><th>Built-in self-test</th><td><b>138 of 138</b></td></tr>
     </table>
     </div>
-    <p class="tbl-note" data-rv>Mission counts come from the fleet&rsquo;s own ticket record; the table says so wherever a figure is not independently audited.</p>
   </section>
 
-  <!-- STANDING -->
-  <section class="wrap arg" style="border-bottom:0">
-    <p class="sec-label" data-rv>Finally, the honest part</p>
-    <h2 data-rv>Where it stands</h2>
-    <div class="standing">
-      <div class="prose" data-rv>
-      <p>The fleet has run more than a hundred ticket missions across Cayleb&rsquo;s projects — including the builds behind the other three pages on this site — under the rules above. The public core (dsh-fleet-core) carries the three mechanisms as dependency-free code with 32 tests, and the full fleet definition is maintained as a living document, last updated 12 November 2026.</p>
-      <p>The fleet is currently paused: it is out of model usage, and work continues solo until the fleet&rsquo;s model plan is connected. That is a billing state, not a build state — the plugin, the core and the ticket record all stand as built.</p>
-      </div>
-      <aside class="notes-box" data-rv>
-        <h3>Notes on the evidence</h3>
-        <ul>
-          <li>The fleet is paused for model usage as of 16 November 2026; nothing on this page claims it is running today.</li>
-          <li>The full plugin repository is private; the public core is the inspectable part.</li>
-          <li>The recorded board capture is the earlier light interface (November 2026), labelled as such wherever it appears.</li>
-          <li>Mission counts come from the fleet&rsquo;s own ticket record, not from an outside audit.</li>
-        </ul>
-      </aside>
+  <section class="status" aria-label="Where it stands">
+    <p class="sec-label" data-anim="left">Where it stands</p>
+    <div data-anim="up">
+    <p><b>In daily use on the owner's own machine</b>, running the work described on these pages.</p>
+    <p>Two known gaps, stated plainly: the board does not yet offer steer or stop controls for a running job (acceptance item A7), and one light-mode screen sits under the contrast floor (the A11 miss). Both are on the fix list, and neither is hidden here.</p>
     </div>
   </section>
-
-  <!-- CLOSE -->
-  <div class="close-band">
-    <div class="wrap">
-      <h2 data-rv>The fleet is paused. <em>The record isn&rsquo;t.</em></h2>
-      <p data-rv>More than a hundred ticket missions stand in the record — including the builds behind the other three pages on this site. The graph on this page still runs; work continues solo until the fleet&rsquo;s model plan is connected.</p>
-      <div class="end-links" data-rv>
-        <a class="btn btn--accent" href="#run">Run the fleet graph</a>
-        <a class="btn" href="../resume.html">Read the résumé</a>
-        <a class="btn" href="../index.html#projects">All projects</a>
-      </div>
-      <p class="foot"><span>© 2026 Cayleb Alvarez-James</span><a href="https://github.com/cayleb-james2008">GitHub</a><a href="mailto:caylebalvarezjames@gmail.com">Email</a><span>Evidence: DSH-FLEET.md (12 Nov 2026) and dsh-fleet-core @ 2aec462 · 11 Nov 2026; checked 16 Nov 2026.</span><span>DSH Fleet — the editorial pitch</span></p>
-    </div>
-  </div>
 
 </main>
+<footer class="wrap subfoot"><a href="../index.html">← Résumé</a><a href="index.html">All projects</a><a href="https://github.com/cayleb-james2008/dsh-fleet-core">The public core on GitHub ↗</a><span class="back">Built and written by Cayleb Alvarez-James. Every figure on this page is from the product's own records.</span></footer>
 
 <script>
-
 (function(){
-  "use strict";
-  var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var rvEls = document.querySelectorAll("[data-rv]");
-  if (RM || !("IntersectionObserver" in window)) {
-    rvEls.forEach(function(el){ el.classList.add("in"); });
-  } else {
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
-    }, { threshold: .14 });
-    rvEls.forEach(function(el){ io.observe(el); });
-  }
-  /* visual story: steps drive the sticky stage */
-  var steps = Array.prototype.slice.call(document.querySelectorAll(".step"));
-  var shots = Array.prototype.slice.call(document.querySelectorAll(".stage-view .shot"));
-  var dots = Array.prototype.slice.call(document.querySelectorAll(".dots i"));
-  var stageCap = document.getElementById("stage-cap");
-  function activate(i){
-    shots.forEach(function(s, j){ s.classList.toggle("on", j === i); });
-    dots.forEach(function(d, j){ d.classList.toggle("on", j === i); });
-    steps.forEach(function(s, j){ s.classList.toggle("live", j === i); });
-    if (stageCap && steps[i]) {
-      var c = steps[i].getAttribute("data-cap");
-      if (c) stageCap.innerHTML = c;
-    }
-  }
-  if (steps.length && shots.length) {
-    activate(0);
-    if ("IntersectionObserver" in window && window.innerWidth > 900) {
-      var sio = new IntersectionObserver(function(es){
-        es.forEach(function(e){
-          if (e.isIntersecting) activate(steps.indexOf(e.target));
-        });
-      }, { rootMargin: "-42% 0px -42% 0px" });
-      steps.forEach(function(s){ sio.observe(s); });
-    } else {
-      steps.forEach(function(s){ s.classList.add("live"); });
-    }
-  }
-  /* reveal sweep: anything scrolled to (or past) the fold is revealed, even on a fast flick */
-  var pending = Array.prototype.slice.call(rvEls);
-  function sweep(){
-    if (!pending.length) return;
-    pending = pending.filter(function(el){
-      if (el.classList.contains("in")) return false;
-      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) { el.classList.add("in"); return false; }
-      return true;
+  var root=document.documentElement;
+  if(location.search.indexOf('shots')>-1){root.classList.add('shots');}
+  /* scroll progress */
+  var bar=document.querySelector('.progress i');
+  function prog(){var h=document.body.scrollHeight-innerHeight;var p=h>0?(scrollY/h):0;root.style.setProperty('--p',p);if(bar){bar.style.transform='scaleX('+p+')';}}
+  addEventListener('scroll',prog,{passive:true}); prog();
+  /* reveal on scroll */
+  var io=('IntersectionObserver' in window)&&!root.classList.contains('shots')?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12}):null;
+  document.querySelectorAll('[data-anim]').forEach(function(el){if(io){io.observe(el);}else{el.classList.add('in');}});
+  /* face switcher */
+  document.querySelectorAll('.faces').forEach(function(box){
+    var tabs=box.querySelectorAll('.face-tab'), img=box.querySelector('.face-frame img'), cap=box.querySelector('.face-cap');
+    tabs.forEach(function(tab){tab.addEventListener('click',function(){
+      tabs.forEach(function(t){t.setAttribute('aria-selected','false');});
+      tab.setAttribute('aria-selected','true');
+      img.src=tab.getAttribute('data-img'); img.alt=tab.getAttribute('data-alt');
+      cap.innerHTML=tab.getAttribute('data-cap');
+    });});
+  });
+  /* fleet board miniature */
+  var runBtn=document.getElementById('board-run');
+  if(runBtn){
+    var cards=document.querySelectorAll('#board .card'), timers=[];
+    function reset(){timers.forEach(clearTimeout);timers=[];cards.forEach(function(c){c.classList.remove('on');});}
+    runBtn.addEventListener('click',function(){
+      reset();
+      cards.forEach(function(c,i){timers.push(setTimeout(function(){c.classList.add('on');}, 260*(i+1)));});
     });
+    if(root.classList.contains('shots')){cards.forEach(function(c){c.classList.add('on');});}
   }
-  var story = document.querySelector(".story");
-  function measure(){
-    sweep();
-    var h = document.documentElement;
-    var max = h.scrollHeight - window.innerHeight;
-    var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
-    document.body.style.setProperty("--p", p.toFixed(4));
-    if (story) {
-      var r = story.getBoundingClientRect();
-      var total = r.height + window.innerHeight * .4;
-      var done = Math.min(1, Math.max(0, (window.innerHeight * .7 - r.top) / total));
-      story.style.setProperty("--sp", done.toFixed(4));
+  /* openbell gateway walk-through */
+  var gate=document.getElementById('gate');
+  if(gate){
+    var steps=gate.querySelectorAll('.gate-step'), verdict=gate.querySelector('#gate-verdict'), chips=gate.querySelectorAll('.demo-btn.ghost'), gtimers=[];
+    function play(mode){
+      gtimers.forEach(clearTimeout); gtimers=[];
+      steps.forEach(function(s){s.classList.remove('on');});
+      verdict.textContent='';
+      var seq=mode==='late'?[0,1]:mode==='day'?[0,3]:[0,1,2,3];
+      seq.forEach(function(si,k){gtimers.push(setTimeout(function(){steps[si].classList.add('on');},300*(k+1)));});
+      var msg=mode==='late'?'BLOCKED — the gateway stops it. No order is sent.':mode==='day'?'STOPPED — at \u221210% on the day, the whole desk stops.':'SENT — every check passed, so the order goes to Kalshi.';
+      gtimers.push(setTimeout(function(){verdict.textContent=msg;},300*(seq.length+1)));
     }
-  }
-  var ticking = false;
-  function onScroll(){
-    if (!ticking) { ticking = true; window.requestAnimationFrame(function(){ measure(); ticking = false; }); }
-  }
-  measure();
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll);
-
-  /* ================= custom components ================= */
-  function digest(text, cb){
-    function fnv(s){ var h1 = 0x811c9dc5; for (var i = 0; i < s.length; i++){ h1 ^= s.charCodeAt(i); h1 = Math.imul(h1, 0x01000193) >>> 0; } return ("0000000" + h1.toString(16)).slice(-8); }
-    if (window.crypto && crypto.subtle && window.TextEncoder) {
-      crypto.subtle.digest("SHA-256", new TextEncoder().encode(text)).then(function(buf){
-        var hex = Array.prototype.map.call(new Uint8Array(buf), function(b){ return ("0" + b.toString(16)).slice(-2); }).join("");
-        cb("sha-256", hex);
-      }).catch(function(){ cb("fnv-1a", fnv(text) + fnv(text.split("").reverse().join(""))); });
-    } else { cb("fnv-1a", fnv(text) + fnv(text.split("").reverse().join(""))); }
-  }
-  function stamp(){ return new Date().toLocaleTimeString("en-GB", { hour12: false }); }
-
-  /* ---- Ergon: the gate ---- */
-  var gate = document.getElementById("gateDemo");
-  if (gate) {
-    var gCheck = document.getElementById("gateCheck3");
-    var gWhy = document.getElementById("gateWhy");
-    var gApprove = document.getElementById("gateApprove");
-    var gDecline = document.getElementById("gateDecline");
-    var gAttach = document.getElementById("gateAttach");
-    var gPill = document.getElementById("gatePill");
-    var gLog = document.getElementById("gateLog");
-    var gReset = document.getElementById("gateReset");
-    var gDone = false;
-    function gateSync(){
-      var ok = gAttach.checked;
-      gCheck.className = ok ? "ok" : "fail";
-      gWhy.textContent = ok
-        ? "The document is on file — the check re-ran and passed."
-        : "No supporting document on file for the four write-offs. Approval stays locked while a check fails.";
-      gApprove.disabled = !ok || gDone;
-      gDecline.disabled = gDone;
-    }
-    function gateRecord(decision, sent){
-      var canonical = "ergon-gate|proposal-114|send 57 january invoices; write off 4 invoices|" + decision + "|" + new Date().toISOString();
-      digest(canonical, function(kind, hex){
-        if (gLog.querySelector(".xlog-empty")) gLog.innerHTML = "";
-        var li = document.createElement("li");
-        li.innerHTML = "<span>" + stamp() + "</span><span>Proposal 114 — " + decision + (sent ? " · the run went out under a person&rsquo;s name" : " · nothing was sent") + "</span><span class='h'>" + kind + " " + hex.slice(0, 12) + "&hellip;" + hex.slice(-6) + "</span>";
-        gLog.appendChild(li);
-      });
-    }
-    gAttach.addEventListener("change", gateSync);
-    gApprove.addEventListener("click", function(){
-      gDone = true; gPill.textContent = "Approved — sent"; gPill.className = "xpill ok";
-      gApprove.disabled = true; gDecline.disabled = true; gateRecord("APPROVED", true);
-    });
-    gDecline.addEventListener("click", function(){
-      gDone = true; gPill.textContent = "Declined — nothing sent"; gPill.className = "xpill bad";
-      gApprove.disabled = true; gDecline.disabled = true; gateRecord("DECLINED", false);
-    });
-    gReset.addEventListener("click", function(){
-      gDone = false; gAttach.checked = false; gPill.textContent = "Waiting on a person"; gPill.className = "xpill"; gateSync();
-    });
-    gateSync();
-  }
-
-  /* ---- OpenBell: the nine slots ---- */
-  var slotDemo = document.getElementById("slotDemo");
-  if (slotDemo) {
-    var SLOTS = [
-      ["BTC", "KXBTC15M", 60.52], ["ETH", "KXETH15M", -16.77], ["SOL", "KXSOL15M", 15.60],
-      ["XRP", "KXXRP15M", 9.20], ["DOGE", "KXDOGE15M", 5.35], ["HYPE", "KXHYPE15M", 31.11],
-      ["BNB", "KXBNB15M", -5.29], ["NEAR", "KXNEAR15M", -19.71], ["ZEC", "KXZEC15M", -61.74]
-    ];
-    var sName = document.getElementById("slotName");
-    var sBig = document.getElementById("slotBig");
-    var sSeries = document.getElementById("slotSeries");
-    function fmt(v){ return (v < 0 ? "−$" : "+$") + Math.abs(v).toFixed(2); }
-    function pick(i){
-      slotDemo.querySelectorAll(".slot-btn").forEach(function(b, j){ b.classList.toggle("on", j === i); b.setAttribute("aria-pressed", j === i ? "true" : "false"); });
-      var s = SLOTS[i];
-      sName.textContent = s[0] + " — the " + s[1] + " slot";
-      sSeries.textContent = s[1];
-      sBig.textContent = fmt(s[2]);
-      sBig.className = "big " + (s[2] < 0 ? "neg" : "pos");
-    }
-    slotDemo.querySelectorAll(".slot-btn").forEach(function(b, i){ b.addEventListener("click", function(){ pick(i); }); });
-    pick(0);
-  }
-
-  /* ---- Fleet: shape a swarm ---- */
-  var swarmDemo = document.getElementById("swarmDemo");
-  if (swarmDemo) {
-    var SHAPES = {
-      build: [["Lead", "strong tier · pinned", "lead"], ["Builder ×3", "cheapest tier · pinned", ""], ["Checker", "strong tier · fresh context", "check"]],
-      fix: [["Lead", "strong tier · pinned", "lead"], ["Builder ×2", "cheapest tier · pinned", ""], ["Checker", "strong tier · fresh context", "check"]],
-      grade: [["Checker", "strong tier · fresh context", "check"]]
-    };
-    var stage = document.getElementById("swarmStage");
-    var meter = document.getElementById("swarmMeter");
-    var verdict = document.getElementById("swarmVerdict");
-    var loadBtn = document.getElementById("swarmLoad");
-    var load = 4, shape = "build";
-    function renderSwarm(){
-      stage.innerHTML = SHAPES[shape].map(function(n){
-        return "<div class='swarm-node " + n[2] + "'><span class='r'>" + n[0] + "</span><span class='m'>" + n[1] + "</span></div>";
-      }).join("");
-      meter.innerHTML = [0,1,2,3,4,5].map(function(i){ return "<i class='" + (i < load ? "on" : "") + "'></i>"; }).join("");
-      verdict.textContent = load >= 6
-        ? "Board full at 6 of 6 — this start is postponed. Never dropped, never piled on."
-        : "Admitted — this swarm runs as swarm " + (load + 1) + " of 6.";
-      loadBtn.textContent = load >= 6 ? "Board load: 6 of 6 — full" : "Board load: " + load + " of 6 running";
-    }
-    swarmDemo.querySelectorAll("[data-shape]").forEach(function(b){
-      b.addEventListener("click", function(){
-        shape = b.getAttribute("data-shape");
-        swarmDemo.querySelectorAll("[data-shape]").forEach(function(x){ x.classList.toggle("ghost", x !== b); });
-        renderSwarm();
-      });
-    });
-    loadBtn.addEventListener("click", function(){ load = load >= 6 ? 4 : 6; renderSwarm(); });
-    renderSwarm();
-  }
-
-  /* ---- Open-Ro: the proposal gate ---- */
-  var prop = document.getElementById("propDemo");
-  if (prop) {
-    var pStage = document.getElementById("propStage");
-    var pCps = document.getElementById("propCps");
-    var DIFF = "<span class='del'>- -- RoundService: owns round state for Neon Harbor. Server only.</span>\n<span class='ctx'>  local Players = game:GetService(\"Players\")</span>\n<span class='ctx'>  local RoundService = {}</span>\n<span class='add'>+ local ROUND_SECONDS = 120</span>\n<span class='add'>+ local INTERMISSION_SECONDS = 8</span>\n<span class='ctx'>  local roundStartedAt = 0</span>";
-    function gateCard(){
-      return "<div class='gatecard'><p class='gk'><span>● At the gate</span><span>1 of 1 at the gate</span></p>"
-        + "<h4>Review write: ServerScriptService/RoundService.lua</h4>"
-        + "<p class='gsub'>Nothing is written until you approve</p>"
-        + "<div class='diffbox'>" + DIFF + "</div>"
-        + "<p class='gfile'>1 file · +13 · −12</p>"
-        + "<div class='gactions'><button class='gbtn' id='propReject' type='button'>Reject</button>"
-        + "<button class='gbtn primary' id='propApprove' type='button'>✓ Approve write</button></div></div>";
-    }
-    function doneCard(title, body){
-      return "<div class='gatecard done'><p class='gok'>● Evidence captured</p><h4>" + title + "</h4><p class='gsub'>" + body + "</p>"
-        + "<div class='gactions'><button class='gbtn' id='propAgain' type='button'>Stage the ask again</button></div></div>";
-    }
-    function wireStage(){
-      var ap = document.getElementById("propApprove");
-      var rj = document.getElementById("propReject");
-      var ag = document.getElementById("propAgain");
-      var rs = document.getElementById("propRestore");
-      if (ap) ap.addEventListener("click", function(){
-        pStage.innerHTML = doneCard("The write landed.", "Wrote ServerScriptService/RoundService.lua. A checkpoint of the previous contents was saved — the step is reversible.");
-        pCps.innerHTML = "<li><span>Checkpoint — RoundService.lua, taken before this write</span><span class='cm'>restore point</span><button class='gbtn' style='min-height:36px;padding:0 .8rem;font-size:.8rem' id='propRestore' type='button'>Restore</button></li>";
-        wireStage();
-      });
-      if (rj) rj.addEventListener("click", function(){
-        pStage.innerHTML = doneCard("Rejected at the gate.", "The proposal was declined. The file on disk is unchanged — a staged write that is rejected simply never happens.");
-        wireStage();
-      });
-      if (ag) ag.addEventListener("click", function(){ pStage.innerHTML = gateCard(); wireStage(); });
-      if (rs) rs.addEventListener("click", function(){
-        pStage.innerHTML = "<div class='gatecard'><p class='gk'><span>● At the gate</span><span>restore staged</span></p>"
-          + "<h4>Restore checkpoint: RoundService.lua</h4>"
-          + "<p class='gsub'>Restoring is itself a write, so it stops at the gate too. Approving reverts the file to the checkpointed contents.</p>"
-          + "<div class='gactions'><button class='gbtn' id='propReject2' type='button'>Reject</button>"
-          + "<button class='gbtn primary' id='propApprove2' type='button'>✓ Approve restore</button></div></div>";
-        document.getElementById("propApprove2").addEventListener("click", function(){
-          pStage.innerHTML = doneCard("Restored.", "RoundService.lua is back to its checkpointed contents. Every step of the round trip — ask, gate, write, restore — is in the project's record.");
-          pCps.innerHTML = "";
-          wireStage();
-        });
-        document.getElementById("propReject2").addEventListener("click", function(){
-          pStage.innerHTML = doneCard("Restore declined.", "The checkpoint stays saved and the applied change stays in place. Nothing moved.");
-          wireStage();
-        });
-      });
-    }
-    pStage.innerHTML = gateCard();
-    wireStage();
+    chips.forEach(function(ch){ch.addEventListener('click',function(){
+      chips.forEach(function(c){c.setAttribute('aria-pressed','false');});
+      ch.setAttribute('aria-pressed','true'); play(ch.getAttribute('data-mode'));
+    });});
+    if(root.classList.contains('shots')){steps.forEach(function(s){s.classList.add('on');});}
   }
 })();
-
 </script>
+
 </body>
 </html>
