@@ -9,7 +9,6 @@ export const identity = {
   email: "caylebalvarezjames@gmail.com",
   links: [
     { label: "github.com/cayleb-james2008", href: "https://github.com/cayleb-james2008" },
-    { label: "linkedin.com/in/cayleb-alvarez-james-99850531b", href: "https://linkedin.com/in/cayleb-alvarez-james-99850531b" },
     { label: "cayleb-james2008.github.io", href: "https://cayleb-james2008.github.io/" },
   ],
 };
@@ -22,7 +21,7 @@ export const PDF = {
 };
 
 export const summary = [
-  "AI agent systems engineer and technical founder. I have spent the past year on agentic systems and harness engineering, starting while I was finishing high school, where I was also wrestling team captain for two years. For most of that stretch I worked 13 to 14 hours a day on it, around school, my job and wrestling. I work across several harnesses instead of just one: OpenCode and DeepSeek Harness, Claude Desktop and Duet, Gemini Antigravity, Freebuff, ChatGPT Codex and Claude Code. I pick whichever has usage left and fits the job. Right now most of the work runs through Muse, Claude Duet and the DSH Fleet I am finishing. Three systems make up most of it. Ergon\u2019s employee agents set themselves up: the agent watches how someone works, asks them targeted questions, learns the role and keeps a memory of the person, adding skills and tools as it goes. The DSH Fleet runs dynamic swarms across desktop, virtual machine and browser surfaces, lets outside agents join through Slack, and improves its own workflows, skills and plugin behaviour from the results of finished jobs. OpenBell is my trading research system: I set the weights of tiny models directly, freeze their predictions before scoring, and score them in time order with costs counted.",
+  "AI agent systems engineer and technical founder. I have spent the past year on agentic systems and harness engineering, starting while I was finishing high school, where I was also wrestling team captain for two years. For most of that stretch I worked 13 to 14 hours a day on it, around school, my job and wrestling. I work across several harnesses instead of just one: OpenCode and DeepSeek Harness, Claude Desktop and Duet, Gemini Antigravity, Freebuff, ChatGPT Codex and Claude Code. I pick whichever has usage left and fits the job. Right now most of the work runs through Muse, Claude Duet and the DSH Fleet I am finishing. Three systems make up most of it. Ergon\u2019s employee agents are built to set themselves up \u2014 to watch how someone works, ask targeted questions, learn the role and keep a memory of the person, adding skills and tools as it goes. That loop is built and verified against simulated companies; the live model connection is the remaining piece before a first install. The DSH Fleet runs dynamic swarms across desktop, virtual machine and browser surfaces, takes its tickets through Slack, and improves its own workflows, skills and plugin behaviour through a governed, checker-gated improvement programme run in rounds. OpenBell is my trading system: the desk runs a slot system \u2014 one slot per 15-minute market, every order placed by hand \u2014 and the research programme behind it is weight-space: I set the weights of tiny models directly, freeze their predictions before scoring, and score them in time order with costs counted.",
   "1,200+ GitHub contributions in the last year. 4,000+ automated tests across five shipped systems.",
 ];
 
@@ -32,9 +31,9 @@ export const ledger = {
   contributions: { label: "GitHub contributions, last year", display: "1,200+" },
   bars: [
     { name: "Sophos interface", value: 1224, display: "1,224" },
+    { name: "Ergon proof checks", value: 1196, display: "1,196" },
     { name: "Asmodeus Rust", value: 1111, display: "1,111" },
     { name: "dotz core tests", value: 828, display: "828+" },
-    { name: "Ergon tests", value: 622, display: "622" },
     { name: "Industry AI Suite", value: 382, display: "382" },
   ],
   caption: "stated test counts · one bar per count · the 4,000+ is the five-system total",
@@ -46,10 +45,10 @@ export const experience = [
     date: "Oct 2025 \u2013 Present",
     org: "Founder \u00b7 Independent AI Agent Systems",
     bullets: [
-      "Built Ergon as a self-configuring employee-agent platform. After installation, the agent learns the employee\u2019s role by watching their recurring work and asking targeted questions, then proposes capabilities it can take over. A learned skill or tool has to pass evaluation and review before the agent can use it, so nobody has to map the role in advance or keep adjusting the agent by hand.",
-      "Built the DSH Fleet. A dynamic swarm forms around each objective, execution runs across desktop, Windows VM, phone VM and browser surfaces, and outside agents can join through Slack under the same coordination and outcome rules. Slack was not the original integration layer. I was going to build my own, but I kept getting flagged by the existing guardrails on Muse and the other platforms I build on, so I used Slack for that layer instead.",
-      "Built OpenBell around weight-space model development. I set the weights of tiny specialist models directly, freeze their predictions before scoring, and score them in time order with costs and kill rules counted. Live trading is where candidates get tested, in slots with capital kept separate.",
-      "The Omni Loop is the fleet\u2019s recursive self-improvement system, and every change it makes is gated: results from finished jobs drive revisions to the workflows, plugin, skills and the loop itself, and a revision ships only when it measures better than the current version on a fixed scorecard, checked against a frozen set of past tickets. Every change is versioned and can be rolled back.",
+      "Built Ergon as a self-configuring employee-agent platform. After installation, the agent is built to learn the employee\u2019s role by watching their recurring work and asking targeted questions, then propose capabilities it can take over. A learned skill or tool has to pass evaluation and review before the agent can use it, so nobody has to map the role in advance or keep adjusting the agent by hand. The self-setup loop is built and verified against simulated companies; the live model connection is the remaining piece before a first install.",
+      "Built the DSH Fleet. A dynamic swarm forms around each objective, execution runs across desktop, Windows VM, phone VM and browser surfaces, and tickets are coordinated through Slack under the same coordination and outcome rules. The coordination protocol is designed to let outside agents join through it as well \u2014 a design goal, not yet an observed practice. Slack was not the original integration layer. I was going to build my own, but I kept getting flagged by the existing guardrails on Muse and the other platforms I build on, so I used Slack for that layer instead.",
+      "Built OpenBell as a slot-system trading desk \u2014 one slot per 15-minute market, every order placed by hand \u2014 with weight-space model development as the research programme behind it. I set the weights of tiny specialist models directly, freeze their predictions before scoring, and score them in time order with costs and kill rules counted. Candidates get tested in slots with capital kept separate. The desk is currently paused while the system is rebuilt.",
+      "The Omni Loop is the fleet\u2019s self-improvement method, run as a governed programme in rounds, and every change it makes is gated: results from finished jobs drive proposed revisions to the workflows, plugin, skills and the loop itself, and a revision ships only when a fresh checker measures it better than the current version on a fixed scorecard, checked against a frozen set of past tickets. Every change is versioned and can be rolled back.",
     ],
   },
   {
@@ -175,14 +174,14 @@ export const projects: Project[] = [
 // The four product pages (static pages under /projects/, built 16 November 2026). The pitches are the page's own
 // words — each is grounded in its project's repository and logged in NEW-TEXT.md. Open-Ro Studio is not a résumé
 // record; it joins the other three here because its product page does.
-export type ProductPage = { name: string; href: string; pitch: string; img: string; alt: string };
+export type ProductPage = { name: string; href: string; pitch: string; img?: string; miniature?: boolean; alt: string };
 export const productPagesHead = "the four products, in full";
 export const productPageLink = "the full product page ↗";
 export const productPages: ProductPage[] = [
   {
     name: "Ergon",
     href: "/projects/ergon.html",
-    pitch: "A personal AI agent for every employee, on one shared company system — the agent learns the role, and a person approves anything that sends, spends or changes a record.",
+    pitch: "A personal AI agent for every employee, on one shared company system — the agent is built to learn the role, and a person approves anything that sends, spends or changes a record.",
     img: "/assets/projects/captures/ergon-poster.png",
     alt: "Still of the real Ergon capture: the current front set, the morning brief and the approval card",
   },
@@ -204,8 +203,8 @@ export const productPages: ProductPage[] = [
     name: "DSH Fleet",
     href: "/projects/dsh-fleet.html",
     pitch: "An orchestration plugin that turns one instruction into a swarm of AI agents — tickets in, work built in parallel, and a fresh-context checker deciding when it is done.",
-    img: "/assets/projects/captures/fleet-poster.png",
-    alt: "The DSH Fleet board from the repository's recorded demo, earlier light interface.",
+    miniature: true,
+    alt: "A small model of the DSH Fleet card board — four lanes, Queued, Building, Checking and Done, with a card in each. A drawn model, not a screenshot of the current board.",
   },
 ];
 
