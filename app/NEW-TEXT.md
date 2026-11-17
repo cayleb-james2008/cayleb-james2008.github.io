@@ -48,7 +48,7 @@ shows no balance or P&L figures. New card alt text:
 
 Still of the real OpenBell capture: the desk's order tape — orders as the venue recorded them
 
-Changed for the RHL strip (17 November 2026, owner's order — the day-job employer's name comes out of all public copy; the experience entry now states the job generically):
+Changed for the employer-name strip (17 November 2026, owner's order — the day-job employer's name comes out of all public copy; the experience entry now states the job generically):
 
 Furniture Installer · a Connecticut furniture company
 Furniture installation work, full-time.
