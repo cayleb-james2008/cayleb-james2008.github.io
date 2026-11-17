@@ -5,7 +5,7 @@ export type Theme = "light" | "dark";
 const Ctx = createContext<{ theme: Theme; toggle: () => void }>({ theme: "light", toggle: () => {} });
 export const useTheme = () => useContext(Ctx);
 
-/** Light by default, dark follows the system until the person chooses; the choice is kept in localStorage (guarded), key "theme", and every page of the site reads it. */
+/** Dark by default until the person chooses (the pre-paint bootstrap in index.html sets the initial data-theme); the choice is kept in localStorage (guarded), key "theme", and every page of the site reads it. */
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => (document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light"));
   useEffect(() => {
