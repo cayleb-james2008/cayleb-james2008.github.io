@@ -58,8 +58,8 @@ where it stands (honest status) → what is not verified → path back (résumé
   definitions, shared skill library, formula/blueprints + per-company private suite repo, staging-to-
   promotion, zero-trust access design, simulation programme (Meridian Van Line, Bayside Dental, Northgate
   Law; since 4 Nov 2026), 622 automated tests. Status framing: built and verified product build, in
-  development, **no customers, no deployment**; RHL stated as proposed-only / not authorised, exactly as
-  the repo and résumé state it.
+  development, **no customers, no deployment**; the day-job employer stated as proposed-only / not authorised, exactly as
+  the repo and résumé state it. (17 Nov 2026: the employer's name was later removed from all public copy on the owner's order — see RHL-STRIP record in the job-hunt workspace.)
 - **OpenBell** (`projects/openbell.html`, replaces the 9 Nov two-desk case study — that framing is retired
   in the current repo). Grounded in `cayleb-james2008/openbell` README @ **ff65104** (15 Nov 2026), system
   state 14 Nov 2026. Covers: one slot per 15-minute Kalshi market, even equity split, 100%-of-share slots,

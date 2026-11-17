@@ -53,10 +53,9 @@ export const experience = [
   },
   {
     date: "Sep 2026 \u2013 Present",
-    org: "Robert H. Lord Company (RHL) \u00b7 AI Concept Discussion & Warehouse-Board Demo",
+    org: "Furniture Installer \u00b7 a Connecticut furniture company",
     bullets: [
-      "Discussed a proposed Ergon deployment at RHL; the concept drew interest, but RHL has not authorised or implemented an AI integration, and no Ergon infrastructure is in production there.",
-      "At Roy\u2019s request, built a standalone warehouse-board demo as a non-AI operational showcase. It is a demonstration artifact, not an official RHL system, AI deployment or production rollout.",
+      "Furniture installation work, full-time.",
     ],
   },
 ];
