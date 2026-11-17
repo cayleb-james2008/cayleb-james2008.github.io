@@ -90,11 +90,11 @@ export const projects: Project[] = [
     kind: "Coding-Agent Desktop App",
     stack: "React, TypeScript, Tauri",
     repo: "github.com/cayleb-james2008/sophos",
-    figure: "1,224 interface tests \u00b7 82 Node tests \u00b7 56/56 Windows checks",
+    figure: "1,224 interface tests \u00b7 82 Node tests",
     status: "merged after hosted CI",
     stepsLead: "how it works \u00b7 from the r\u00e9sum\u00e9\u2019s description",
-    lead: "Desktop app that runs coding agents from saved profiles. 1,224 interface tests and 82 Node tests pass; 56/56 Windows checks pass.",
-    chart: { rows: [{ name: "interface tests", value: 1224, display: "1,224" }, { name: "Node tests", value: 82, display: "82" }, { name: "Windows checks", value: 56, display: "56/56" }], label: "Sophos stated test counts: 1,224 interface tests, 82 Node tests, and 56 of 56 Windows checks.", caption: "stated test counts \u00b7 square-root scale \u00b7 from the r\u00e9sum\u00e9", sqrt: true },
+    lead: "Desktop app that runs coding agents from saved profiles. 1,224 interface tests and 82 Node tests pass.",
+    chart: { rows: [{ name: "interface tests", value: 1224, display: "1,224" }, { name: "Node tests", value: 82, display: "82" }], label: "Sophos stated test counts: 1,224 interface tests and 82 Node tests.", caption: "stated test counts \u00b7 square-root scale \u00b7 from the r\u00e9sum\u00e9", sqrt: true },
     steps: [
       { title: "saved profiles", sub: "coding agents" },
       { title: "run the agent", sub: "" },
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     ],
     bullets: [
       "Desktop app that runs coding agents from saved profiles, with sessions and transcripts that survive restarts and clear errors when a provider fails.",
-      "1,224 interface tests, 82 Node tests and 56/56 Windows checks pass; merged after full hosted CI.",
+      "1,224 interface tests and 82 Node tests pass; merged after full hosted CI.",
     ],
   },
   {
@@ -189,7 +189,7 @@ export const productPages: ProductPage[] = [
   {
     name: "OpenBell",
     href: "/projects/openbell.html",
-    pitch: "An autonomous trading system for Kalshi's 15-minute markets — one slot per market, gateway-enforced risk rails, and every fill proven from the venue's own record.",
+    pitch: "A trading desk for Kalshi's 15-minute markets — one slot per market, rails set by its owner, every order placed by hand, and every fill proven from the venue's own record.",
     img: "/assets/projects/captures/openbell-tape.png",
     alt: "Still of the real OpenBell capture: the desk's order tape — orders as the venue recorded them",
   },
