@@ -58,3 +58,13 @@ the Work Graph capture (assets/projects/faces/ergon/graph-review.png) — the sa
 with — instead of the conversation-face poster, so the home card shows Ergon's default face (Work Graph). New card alt text:
 
 Still of the real Ergon capture: the Work Graph face — an agent's finished work waiting at its review node, with the Approve & send card
+
+## 18 November 2026 — public replacement landing (new Rust + Rune builds)
+
+The four flagship product pages were replaced with the new builds' staged pages, and the home
+product-card pitches now describe the new builds (app/src/content.ts `productPages`):
+- Ergon: "An AI agent for every employee — personal to each person, it learns how they work and finishes their digital work autonomously, end to end. No approval ceremony in the middle."
+- OpenBell: "A compounding desk for Kalshi's 15-minute markets — it collects the venue's public data around the clock and scores a library of strategies against that tape on paper, in slots that compound. It places no orders."
+- Open-Ro Studio: "You describe the game, it builds it — a proactive creative agent in a plain chat window, full access by default: it writes the scripts, playtests its own work, fixes what breaks, and every change can be reverted."
+- DSH Fleet: "Your agents working in parallel under one screen — hand out the work, and it comes back verified done: Fleet runs your check command itself, and everything else lands in a Needs-you inbox with the reason. Nothing is babysat."
+Projects.tsx DSH_REPO now names the new public repo github.com/cayleb-james2008/dsh-fleet.

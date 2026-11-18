@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OpenBell — Cayleb Alvarez-James</title>
-<meta name="description" content="A desk for Kalshi's 15-minute markets, run inside fixed risk rules it cannot bend — every order placed by hand, and every result read back from the venue's own record.">
+<meta name="description" content="OpenBell, rebuilt in Rust: a compounding desk for Kalshi's 15-minute markets that collects the venue's public data around the clock, scores strategies on paper in slots, and shows a number only when the venue or the tape actually said it.">
 <script>
 /* Theme before first paint: dark by default until the person chooses; the choice is kept in
    localStorage, key "theme" — the same key the home page reads, so one choice covers the site. */
@@ -180,56 +180,66 @@ table.data .miss{color:var(--miss); font-weight:600}
 </header>
 <main id="main" class="wrap">
   <div class="hero">
-    <p class="kicker" data-anim="up">OpenBell — a trading desk for Kalshi</p>
-    <h1 data-anim="up">A trading desk with hard rules.</h1>
-    <p class="lead" data-anim="up">A desk for Kalshi's 15-minute markets, run inside fixed risk rules it cannot bend — every order placed by hand, and every result read back from the venue's own record.</p>
-    <div class="checked" data-anim="up"><span><b>Status —</b>paused while it is rebuilt</span><span><b>Performance claims —</b>none, anywhere on this page</span><span><b>Evidence —</b>Kalshi's own records</span></div>
+    <p class="kicker" data-anim="up">OpenBell — a compounding desk for Kalshi</p>
+    <h1 data-anim="up">A desk that only believes the venue.</h1>
+    <p class="lead" data-anim="up">OpenBell collects Kalshi's public 15-minute market data around the clock and scores a library of strategies against it on paper, in slots that compound. Every number it shows is the venue's, the tape's, or labelled paper — and anything it has not actually obtained reads "unavailable", never zero.</p>
+    <div class="checked" data-anim="up"><span><b>Status —</b>rebuilt in Rust; the collector runs around the clock</span><span><b>Orders —</b>none; there is no order path in the code</span><span><b>Performance claims —</b>none; the forward evidence is young and says so</span></div>
   </div>
 
-  <section aria-label="The desk">
-    <p class="sec-label" data-anim="left">The desk, as it stands</p>
-    <figure class="still" data-anim="zoom">
-      <img src="../assets/projects/captures/openbell-desk-top.png" alt="The top of the OpenBell desk dashboard: the pot at $262.42, the day down $12.89 in red against its anchor, the snapshot flagged stale">
-      <figcaption><b>The desk's own dashboard, cropped to its top panel.</b> From the last recorded snapshot, 15 November 2026 — the pot, the day in red against its anchor, and the screen flagging itself stale. The crop leaves out the app's internal goal banner below this panel; nothing inside the frame is edited.</figcaption>
-    </figure>
-  </section>
-
-  <section aria-label="The gateway">
-    <p class="sec-label" data-anim="left">Every order passes one gateway — try it</p>
-    <div class="demo" id="gate" data-anim="up">
+  <section aria-label="The slot system">
+    <p class="sec-label" data-anim="left">The slot system — try the rules</p>
+    <h2 data-anim="up">Slots that compound, strikes that retire.</h2>
+    <p class="plain" data-anim="up">Each strategy in the library runs in its own slot. At the start of every settled window the paper pot is re-split evenly across the slots, and each slot stakes its share — so the pot compounds. Three consecutive losses retire a strategy and the next one that is not already running takes its place. This miniature runs the same rules on made-up windows; the real desk runs them on the collected tape.</p>
+    <div class="demo" id="slots" data-anim="up" style="margin-top:1.2rem">
       <div class="demo-head">
-        <span class="t">One order's path</span><span class="s">The desk's real rules, as a walk-through. Pick a situation:</span>
-        <button class="demo-btn ghost" data-mode="ok" aria-pressed="false">A normal order</button>
-        <button class="demo-btn ghost" data-mode="late" aria-pressed="false">An order in the final minute</button>
-        <button class="demo-btn ghost" data-mode="day" aria-pressed="false">A day down 10%</button>
+        <span class="t">Twelve windows, three slots</span><span class="s">Paper pot $100, split evenly each window. A slot's bar is its paper equity.</span>
+        <button class="demo-btn" id="slots-run" type="button">Run the windows</button>
       </div>
-      <div class="gate-flow">
-        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h6l-1 8 9-12h-6z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg><p><b>The strategy asks to trade.</b> A slot wants into a 15-minute market, at a price it likes.</p></div>
-        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg><p><b>Final-minute check.</b> No new entries in a market's last 60 seconds — the price can swing too far to trust.</p></div>
-        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg><p><b>Price-ceiling check.</b> Entries stop at the fair-price cap. The desk never chases a price past it.</p></div>
-        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>Day-guard check.</b> The day is measured against the venue's own numbers. At &minus;10%, the desk stops for the day.</p></div>
-      </div>
-      <p class="gate-verdict" id="gate-verdict" aria-live="polite"></p>
+      <div id="slot-rows"></div>
+      <p class="gate-verdict" id="slot-log" aria-live="polite"></p>
     </div>
   </section>
 
-  <section aria-label="What it does">
-    <p class="sec-label" data-anim="left">How the desk is built</p>
+  <section aria-label="How the desk keeps its numbers honest">
+    <p class="sec-label" data-anim="left">How it works</p>
     <div class="blocks">
-      <div class="block" data-anim="up"><p class="n">Slots</p><h3>One market, one slot</h3><p>Each 15-minute market gets its own slot and a fixed share of the pot. No slot can quietly take the whole account.</p></div>
-      <div class="block" data-anim="up d1"><p class="n">Gateway</p><h3>One door, checked</h3><p>Every order passes a single gateway that enforces the rules above before the order exists. There is no second path.</p></div>
-      <div class="block" data-anim="up d2"><p class="n">Record</p><h3>The venue keeps the score</h3><p>Fills, exits and profit are read back from Kalshi's own record. If the desk's book and the venue disagree, the venue wins.</p></div>
+      <div class="block" data-anim="up">
+        <p class="n">01 — The tape</p>
+        <h3>Public data, collected live</h3>
+        <p>A collector pass reads Kalshi's public markets for five 15-minute series and appends each pass to the tape in a single write. The home screen shows its health — snapshots on disk, markets seen, settled windows, newest snapshot's age — because an uncollected window can never be backfilled.</p>
+      </div>
+      <div class="block" data-anim="up d1">
+        <p class="n">02 — The slots</p>
+        <h3>Paper strategies, real discipline</h3>
+        <p>Five strategy shapes, written as small Rune scripts, trade the tape on paper. A slot's line separates the current strategy's own stint from the slot's cumulative total, retirements name the strategy that actually took over, and if a strategy ends up running in two slots at once, the report discloses it.</p>
+      </div>
+      <div class="block" data-anim="up d2">
+        <p class="n">03 — The report</p>
+        <h3>Line 1 is the venue's word</h3>
+        <p>The daily report opens with the signed venue day P&amp;L — or the honest unavailable line, with the real reason. Signed venue reads are not enabled in this build, so account figures read "unavailable". Unknown is never printed as zero: not the balance, not the position count, not the capital at risk.</p>
+      </div>
     </div>
   </section>
 
-  <section class="status" aria-label="Where it stands">
-    <p class="sec-label" data-anim="left">Where it stands</p>
-    <div data-anim="up">
-    <p><b>The desk lost money, and it is paused.</b> On 15 November 2026 the day ran against it and its own day guard stopped it. The desk is paused while the system is being rebuilt.</p>
-    <p>This page describes the tool — what it does and the rules it trades under. <b>It makes no performance claims</b>, and it will not dress a losing record up as anything else.</p>
-    </div>
+  <section aria-label="What is proven">
+    <p class="sec-label" data-anim="left">What is proven</p>
+    <h2 data-anim="up">Checked by a kit, not by assertion.</h2>
+    <p class="plain" data-anim="up">The build carries its own check kit, re-run after every change. Each row below names what the kit does, in plain terms.</p>
+    <table class="data" data-anim="up" style="margin-top:1rem">
+      <tr><th>No order path exists</th><td>A mechanical scan of the source <b>and the compiled binary</b> finds no order endpoint, no order function, no signing code. The program's only outbound call is an unauthenticated GET of public market data.</td></tr>
+      <tr><th>Slot arithmetic reconciles</th><td>Slot equities sum to the pot; the equity curve's final points equal the slot report's figures on two different tapes; an independent recomputation of the sizing rule matches <b>to the cent</b>.</td></tr>
+      <tr><th>Rotation is honest</th><td>Three consecutive losses retire a strategy; the recorded successor is the one chosen at that moment; a strategy's stint is never credited with a predecessor's windows or money.</td></tr>
+      <tr><th>Collector health is counted both ways</th><td>The health figures on the home screen are compared against an independent count of the tape file itself — a stale tape reads "not collecting", a fresh one reads "collecting".</td></tr>
+      <tr><th>The library is really five files</th><td>Mutating one strategy's Rune file changes only that strategy's results — the strategies are read from the files, not baked in.</td></tr>
+      <tr><th>Both themes ship</th><td>Light and dark, dark by default, the switch in the settings footer, the choice kept. Icons are drawn symbols, never letters.</td></tr>
+    </table>
   </section>
 
+  <section class="status" aria-label="Status">
+    <p class="sec-label" data-anim="left">Status, plainly</p>
+    <p data-anim="up"><b>The tape is young.</b> Collection began on 17 November 2026. The promotion standard is stated in the report itself — 100+ forward windows, both chronological halves positive, and an overall mean of +3.5¢ per contract or better after the stated fee model — and no strategy has that record yet. Every verdict on the desk today reads "insufficient evidence", and that is the correct answer.</p>
+    <p data-anim="up"><b>This build trades nothing.</b> It is a collector and a paper scorer with a report a person can read in a minute. What it proves is narrower and, for a desk, more valuable: that its numbers are never invented — each one is the venue's, the tape's, or labelled paper, and the rest say "unavailable".</p>
+  </section>
 </main>
 <footer class="wrap subfoot"><a href="../index.html">← Résumé</a><a href="index.html">All projects</a><span class="back">Built and written by Cayleb Alvarez-James. Every figure on this page is from the product's own records.</span><span class="settings"><span class="set-label">Settings · Appearance</span><button class="theme-btn" type="button" data-set-theme="dark" aria-pressed="true">Dark</button><button class="theme-btn" type="button" data-set-theme="light" aria-pressed="false">Light</button></span></footer>
 
@@ -254,48 +264,72 @@ table.data .miss{color:var(--miss); font-weight:600}
   /* reveal on scroll */
   var io=('IntersectionObserver' in window)&&!root.classList.contains('shots')?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12}):null;
   document.querySelectorAll('[data-anim]').forEach(function(el){if(io){io.observe(el);}else{el.classList.add('in');}});
-  /* face switcher */
-  document.querySelectorAll('.faces').forEach(function(box){
-    var tabs=box.querySelectorAll('.face-tab'), img=box.querySelector('.face-frame img'), cap=box.querySelector('.face-cap');
-    tabs.forEach(function(tab){tab.addEventListener('click',function(){
-      tabs.forEach(function(t){t.setAttribute('aria-selected','false');});
-      tab.setAttribute('aria-selected','true');
-      img.src=tab.getAttribute('data-img'); img.alt=tab.getAttribute('data-alt');
-      cap.innerHTML=tab.getAttribute('data-cap');
-    });});
-  });
-  /* fleet board miniature */
-  var runBtn=document.getElementById('board-run');
+  /* slot-system miniature — the desk's rules on made-up windows:
+     share = current pot / slots, re-split every window; a trade pays
+     contracts*(1) on a win, 0 on a loss, minus stake and the fee
+     0.07*p*(1-p) per contract; three consecutive losses retire the
+     strategy and the next one not already running takes the slot. */
+  var runBtn=document.getElementById('slots-run');
   if(runBtn){
-    var cards=document.querySelectorAll('#board .card'), timers=[];
-    function reset(){timers.forEach(clearTimeout);timers=[];cards.forEach(function(c){c.classList.remove('on');});}
-    runBtn.addEventListener('click',function(){
-      reset();
-      cards.forEach(function(c,i){timers.push(setTimeout(function(){c.classList.add('on');}, 260*(i+1)));});
-    });
-    if(root.classList.contains('shots')){cards.forEach(function(c){c.classList.add('on');});}
-  }
-  /* openbell gateway walk-through */
-  var gate=document.getElementById('gate');
-  if(gate){
-    var steps=gate.querySelectorAll('.gate-step'), verdict=gate.querySelector('#gate-verdict'), chips=gate.querySelectorAll('.demo-btn.ghost'), gtimers=[];
-    function play(mode){
-      gtimers.forEach(clearTimeout); gtimers=[];
-      steps.forEach(function(s){s.classList.remove('on');});
-      verdict.textContent='';
-      var seq=mode==='late'?[0,1]:mode==='day'?[0,3]:[0,1,2,3];
-      seq.forEach(function(si,k){gtimers.push(setTimeout(function(){steps[si].classList.add('on');},300*(k+1)));});
-      var msg=mode==='late'?'BLOCKED — the gateway stops it. No order is sent.':mode==='day'?'STOPPED — at \u221210% on the day, the whole desk stops.':'SENT — every check passed, so the order goes to Kalshi.';
-      gtimers.push(setTimeout(function(){verdict.textContent=msg;},300*(seq.length+1)));
+    var rowsEl=document.getElementById('slot-rows'), logEl=document.getElementById('slot-log');
+    var LIB=[
+      {name:'favourite-late', side:'yes', price:0.70},
+      {name:'longshot-late', side:'no', price:0.32},
+      {name:'no-favourite', side:'no', price:0.68},
+      {name:'mid-window-momentum', side:'yes', price:0.62}
+    ];
+    var RESULTS=['no','no','no','yes','yes','no','yes','no','yes','yes','no','yes'];
+    function fee(p){return 0.07*p*(1-p);}
+    function money(v){return (v<0?'-$':'$')+Math.abs(v).toFixed(2);}
+    function simulate(){
+      var slots=[0,1,2].map(function(i){return {lib:i, strikes:0, pnl:0, stint:0};});
+      var equity=100, trace=[];
+      RESULTS.forEach(function(res, wi){
+        var share=equity>0?equity/slots.length:0, lines=[];
+        slots.forEach(function(s, si){
+          var st=LIB[s.lib], contracts=Math.floor(share/st.price);
+          if(contracts<=0){return;}
+          var pnl=(res===st.side?contracts:0)-contracts*st.price-contracts*fee(st.price);
+          equity+=pnl; s.pnl+=pnl; s.stint+=1;
+          if(pnl<0){s.strikes+=1;}else{s.strikes=0;}
+          if(s.strikes>=3){
+            var running=slots.map(function(x){return x.lib;});
+            var next=s.lib;
+            for(var k=1;k<LIB.length;k++){var cand=(s.lib+k)%LIB.length; if(running.indexOf(cand)===-1){next=cand; break;}}
+            lines.push('Window '+(wi+1)+' settled '+res.toUpperCase()+' — '+st.name+' takes its third straight loss and retires from slot '+(si+1)+'; '+LIB[next].name+' takes its place.');
+            s.lib=next; s.strikes=0; s.stint=0;
+          }
+        });
+        if(!lines.length){lines.push('Window '+(wi+1)+' settled '+res.toUpperCase()+' — pot now '+money(equity)+'.');}
+        trace.push({lines:lines, equity:equity, slots:slots.map(function(s){return {name:LIB[s.lib].name, strikes:s.strikes, equity:100/3+s.pnl};})});
+      });
+      return trace;
     }
-    chips.forEach(function(ch){ch.addEventListener('click',function(){
-      chips.forEach(function(c){c.setAttribute('aria-pressed','false');});
-      ch.setAttribute('aria-pressed','true'); play(ch.getAttribute('data-mode'));
-    });});
-    if(root.classList.contains('shots')){steps.forEach(function(s){s.classList.add('on');});}
+    function render(step){
+      rowsEl.innerHTML=step.slots.map(function(s, i){
+        var w=Math.max(2, Math.min(100, s.equity));
+        return '<div class="card on" style="opacity:1;transform:none"><b>Slot '+(i+1)+' — '+s.name+'</b>'+
+          '<span style="display:block;height:8px;border-radius:99px;background:var(--rule);margin:.45rem 0 .35rem"><span style="display:block;height:100%;width:'+w+'%;border-radius:99px;background:var(--accent)"></span></span>'+
+          'paper equity '+money(s.equity)+' · strikes '+s.strikes+'/3</div>';
+      }).join('');
+    }
+    var timers=[];
+    runBtn.addEventListener('click',function(){
+      timers.forEach(clearTimeout); timers=[];
+      var trace=simulate();
+      logEl.textContent='';
+      render({slots:[{name:'favourite-late',strikes:0,equity:100/3},{name:'longshot-late',strikes:0,equity:100/3},{name:'no-favourite',strikes:0,equity:100/3}]});
+      trace.forEach(function(step, i){
+        timers.push(setTimeout(function(){
+          render(step);
+          logEl.textContent=step.lines[step.lines.length-1];
+          if(i===trace.length-1){logEl.textContent+=' Final paper pot: '+money(step.equity)+' — paper only, on made-up windows.';}
+        }, 420*(i+1)));
+      });
+    });
+    if(root.classList.contains('shots')){var t=simulate(); render(t[t.length-1]);}
   }
 })();
 </script>
-
 </body>
 </html>
