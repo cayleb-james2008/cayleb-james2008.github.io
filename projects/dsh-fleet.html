@@ -194,7 +194,7 @@ table.data .miss{color:var(--miss); font-weight:600}
   <div class="hero">
     <p class="kicker" data-anim="up">Fleet — your agents, under one screen</p>
     <h1 data-anim="up">Hand out the work. It comes back verified.</h1>
-    <p class="lead" data-anim="up">Fleet is a control board for coding agents — opencode, Claude Code, Codex. Each task becomes a session in its own git worktree. When the agent stops, Fleet runs <b>your</b> check command itself, on the exact commit a merge would land — and the session is done only when that check passes. Everything else lands in a Needs-you inbox with the reason attached. Nothing is babysat, and nothing calls itself done without the receipt.</p>
+    <p class="lead" data-anim="up">Fleet is a control board for coding agents — opencode, Claude Code, Codex — each driven through an adapter in its real non-interactive form, never a terminal UI left hanging in a pipe. Each task becomes a session in its own git worktree. When the agent stops, Fleet runs <b>your</b> check command itself, on the exact commit a merge would land — and the session is done only when that check passes. Everything else lands in a Needs-you inbox with the reason attached. You can steer a session while it works, stop one that runs away, and name the next job at hand-out: it starts on its own the moment this one is verified done. Nothing is babysat, and nothing calls itself done without the receipt.</p>
     <div class="checked" data-anim="up"><span><b>Status —</b>rebuilt in Rust; the check kit passes end to end</span><span><b>Done means —</b>Fleet's own run of your check, passed on the committed tree</span><span><b>Sessions —</b>persist across restarts; a run interrupted mid-work comes back as Needs you, with the reason</span></div>
   </div>
 
@@ -227,7 +227,7 @@ table.data .miss{color:var(--miss); font-weight:600}
         <li><button type="button" data-t="37.41"><span class="ct">0:37</span>One agent says it's done. It isn't.</button></li>
         <li><button type="button" data-t="44.47"><span class="ct">0:44</span>The check catches it</button></li>
       </ol>
-      <p class="walk-note"><b>What you are watching:</b> the real Fleet app on a scratch repo, with stand-in command-line agents as fixtures. The board, the parallel sessions, the check that gates &ldquo;done&rdquo;, the diff and the merge are Fleet's own — including the session it refuses to call done.</p>
+      <p class="walk-note"><b>What you are watching:</b> the real Fleet app on a scratch repo, with stand-in command-line agents as fixtures. The board, the parallel sessions, the check that gates &ldquo;done&rdquo;, the diff and the merge are Fleet's own — including the session it refuses to call done. Recorded before the board's elevation pass and the steer, stop and chain controls — a re-shoot is queued.</p>
     </div>
   </section>
 
@@ -249,6 +249,11 @@ table.data .miss{color:var(--miss); font-weight:600}
         <h3>Needs you, with the reason</h3>
         <p>A failed check, a timeout, a refused merge, a detached process still holding the worktree — each lands in one inbox across all sessions, with the reason in plain words and the full transcript one click away. Retry hands the session back to its agent in the same worktree, with the failure attached. Runs are bounded: a timeout kills the whole process group, and processes that detach to escape it are swept if they still hold the worktree.</p>
       </div>
+      <div class="block" data-anim="up d2">
+        <p class="n">04 — The conversation</p>
+        <h3>Steer it, stop it, chain it</h3>
+        <p>A session is not out of reach once it starts. A steering message is delivered to the agent as a continuation run — using the engine's own resume form — before anything is committed or checked, so "done" never describes a tree you have since steered away from. Stop kills a runaway session's whole process group and lands it in Needs you, stopped by you. And a hand-out can name what comes next: the successor starts on its own when, and only when, this session is verified done — failed work never cascades into the next job.</p>
+      </div>
     </div>
   </section>
 
@@ -261,14 +266,16 @@ table.data .miss{color:var(--miss); font-weight:600}
       <tr><th>Sessions survive a hard kill</th><td>The kit kills the server with <b>kill -9</b> mid-work and restarts it: done sessions keep their status, check receipt, diff and transcript; the interrupted session returns as Needs you with the restart named; a lost session store is recovered from the per-session logs, with the loss stated.</td></tr>
       <tr><th>Merges are defensive</th><td>Dirty repos, merges already in progress, detached HEADs and content conflicts are refused or aborted clean, with nothing landed and the session still mergeable. Two sessions merged at once: one wins, the other gets an honest refusal.</td></tr>
       <tr><th>Runs are bounded</th><td>Hung agents and checks time out into Needs you with the timeout named and their slot freed. Floods — thousands of lines, one 20&nbsp;MB line — are capped in the view and kept whole in the on-disk log. A request that dribbles its body a byte at a time is dropped at the whole-request deadline.</td></tr>
-      <tr><th>The board is honest on its face</th><td>A session whose check passed but whose work was refused wears an amber "check passed — but this session needs you", never the green verified-done claim. Both themes ship — light and dark, dark by default, the switch in Settings — and icons are drawn symbols, never letters.</td></tr>
+      <tr><th>Real engines, driven properly</th><td>The kit records a stand-in binary's argv and proves the adapter's exact invocation: opencode as <b>run</b> with the house model from the policies file (DeepSeek V4.1 Flash via OpenCode Go, one config point), Claude Code with <b>-p</b>, Codex with <b>exec</b> — and the same shapes with each engine's resume form for steering. With the machine's real Codex present but signed out, the session spawns the real process, streams its output, and lands in Needs you naming the failure — never done, never hung. An agent given as a plain path is labelled "custom command — test mode" in the API and on the board; a stand-in never wears a real engine's name.</td></tr>
+      <tr><th>Steering lands before the check</th><td>The kit steers a working session and proves the continuation run happened before the commit: the final tree carries the steered change, the transcript shows the operator's message, and the session still had to pass its check to be done. A stop posted mid-run kills the session within seconds — long before the agent's own sleep would have ended. A two-step chain fires in order, each successor on verified done alone; a session that lands in Needs you fires nothing.</td></tr>
+      <tr><th>The board is honest on its face</th><td>A session whose check passed but whose work was refused wears an amber "check passed — but this session needs you", never the green verified-done claim. Before the first answer from the server, the board shows no count it does not know. Both themes ship — light and dark, dark by default, the switch in Settings — and icons are drawn symbols, never letters.</td></tr>
     </table>
   </section>
 
   <section class="status" aria-label="Status">
     <p class="sec-label" data-anim="left">Status, plainly</p>
     <p data-anim="up"><b>A local tool, on purpose.</b> Fleet runs on the operator's own machine, against their own repos, with the agents they already have. It makes one promise and keeps it mechanically: work is done when the check the operator chose passes on the exact commit that would merge — proven by a kit that includes three rounds of adversarial review findings, each reproduced before it was fixed.</p>
-    <p data-anim="up"><b>The honest limit:</b> Fleet trusts the machine it runs on. Its store is a file in its data directory, and its checks are the operator's own commands. Within that boundary, every claim above is exercised by the kit on every change.</p>
+    <p data-anim="up"><b>The honest limit:</b> Fleet trusts the machine it runs on. Its store is a file in its data directory, and its checks are the operator's own commands. And a real-engine run needs a machine with a signed-in agent credential: on the build machine the adapter is proven to that wall — its Codex is installed but signed out, and opencode lives on Cayleb's desktop, signed into OpenCode Go — so the kit's positive path runs through the adapter's exact invocation shape with fixtures that are labelled test mode wherever they appear. Within those boundaries, every claim above is exercised by the kit on every change.</p>
   </section>
 </main>
 <footer class="wrap subfoot"><a href="../index.html">← Résumé</a><a href="index.html">All projects</a><span class="back">Built and written by Cayleb Alvarez-James. Every figure on this page is from the product's own records.</span><span class="settings"><span class="set-label">Settings · Appearance</span><button class="theme-btn" type="button" data-set-theme="dark" aria-pressed="true">Dark</button><button class="theme-btn" type="button" data-set-theme="light" aria-pressed="false">Light</button></span></footer>
