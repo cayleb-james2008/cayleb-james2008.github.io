@@ -1,17 +1,15 @@
-import { useLayoutEffect, useRef, useState, type CSSProperties } from "react";
+import { useLayoutEffect, useRef, type CSSProperties } from "react";
 import { motion } from "motion/react";
-import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/ui/tabs";
 import { InView } from "@/components/ui/in-view";
 import { demoWords, liveDemos } from "@/content";
 import { tapTarget } from "@/lib/utils";
 import { reveal } from "@/motion";
 
-// A live frame runs its app at the desktop viewport its capture was taken at (1280 x 800), so the app lays out the way its own capture shows it
-// (squeezed into the 1038 px column it stacks a word per line). From 1100 px up the frame is as wide as the app's own 1280 px where the window
-// allows it (24 px from each edge), centred on the page content, so a 12 px label is drawn at 12 px on a 1328 px window and wider; narrower
-// windows scale it down by the least they must. Below 1100 px the frame is the column's own width and the app answers to that.
+// A capture frame holds a still of the current build at the size it was taken (1280 x 800). From 1100 px up the frame is as wide as
+// the app's own 1280 px where the window allows it (24 px from each edge), centred on the page content, so a 12 px label is drawn at
+// 12 px on a 1328 px window and wider; narrower windows scale it down by the least they must. Below 1100 px the frame is the column's
+// own width. The still is the app's real interface, captured from the app itself — nothing in it is drawn or mocked.
 const NATIVE_W = 1280;
 function DemoFrame({ title, src }: { title: string; src: string }) {
   const box = useRef<HTMLDivElement>(null);
@@ -30,32 +28,25 @@ function DemoFrame({ title, src }: { title: string; src: string }) {
       style={{ "--frame-w": "max(calc(100% + 14.5rem), min(1280px, calc(100vw - 3rem)))" } as CSSProperties}
       className="relative h-[680px] w-full overflow-hidden rounded-[14px] border border-hairline bg-surface min-[1100px]:ml-[calc((100%-var(--frame-w)-14.5rem)/2)] min-[1100px]:aspect-[16/10] min-[1100px]:h-auto min-[1100px]:w-[var(--frame-w)]"
     >
-      <iframe title={title} src={src} className="size-full min-[1100px]:h-[800px] min-[1100px]:w-[1280px] min-[1100px]:origin-top-left min-[1100px]:[transform:scale(var(--fit))]" />
+      <img src={src} alt={title} width={1280} height={800} className="size-full min-[1100px]:h-[800px] min-[1100px]:w-[1280px] min-[1100px]:origin-top-left min-[1100px]:[transform:scale(var(--fit))]" />
     </div>
   );
 }
 
-// Region G: the three real app builds, each running in its own frame, with what runs, what is fixture and why it is here.
-// The Ergon demo keeps what a visitor decided in this browser (one localStorage key); the reset clears it and loads the frame again.
-const ERGON_STATE = "ergon.frontend.v1";
+// Region G: captures of the three current builds, each in its own frame, with what is shown, what is fixture and why it is here.
+// The interactive demos that ran in these frames were the retired builds; they were removed in the capture pass (18 November 2026).
 
 export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => void }) {
-  const [ergonRuns, setErgonRuns] = useState(0);
-  const resetErgon = () => {
-    try { localStorage.removeItem(ERGON_STATE); } catch { /* storage blocked: the frame still loads again */ }
-    setErgonRuns((n) => n + 1);
-    toast("The Ergon demo is reset: its approval waits for you again.");
-  };
   return (
     <InView>
       <section id="live-demos" aria-labelledby="demos-label" className="scroll-mt-6 grid gap-6 border-t border-hairline py-12 grid-cols-1 md:grid-cols-[12rem_1fr] md:gap-10">
         <div className="grid content-start gap-2">
           <h2 id="demos-label" className="font-mono text-xs uppercase tracking-wider text-ink-2" data-answers="4">demos</h2>
           <p className="font-mono text-xs text-ink-2">{demoWords.count}</p>
-          <p className="max-w-[28ch] text-sm text-ink-2">These are the real app builds, served from this site. No recording stands in for a demo.</p>
+          <p className="max-w-[28ch] text-sm text-ink-2">Captures of the current builds, taken from the apps themselves. The builds are native apps and are not served from this site; the retired builds that ran in these frames are gone.</p>
         </div>
         <Tabs value={tab} onValueChange={(v) => onTab(String(v))}>
-          <TabsList aria-label="Live demos" className="max-w-full flex-wrap">
+          <TabsList aria-label="Captures of the current builds" className="max-w-full flex-wrap">
             {liveDemos.map((d, i) => (
               <TabsTab key={d.key} value={d.key} className="gap-2 whitespace-nowrap max-sm:min-h-11">
                 <span className="font-mono text-xs text-ink-2">{String(i + 1).padStart(2, "0")}</span>
@@ -75,8 +66,7 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
                   <h3 className="text-ui font-medium text-ink">{d.title}</h3>
                   <p className="max-w-[68ch] text-sm text-ink-2">{d.blurb}</p>
                 </div>
-                <DemoFrame key={d.key === "Ergon" ? ergonRuns : 0} title={d.title} src={d.url} />
-                {d.hint ? <p className="font-mono text-xs text-ink-2">{d.hint}</p> : null}
+                <DemoFrame title={d.title} src={d.img} />
                 <p className="max-w-[68ch] text-sm text-ink-2">
                   <span className="font-mono text-xs text-ink">{demoWords.tryIt}</span> {d.action}
                 </p>
@@ -95,22 +85,12 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
                 <div className="flex flex-wrap items-center gap-x-6">
                   <a
                     className={`${tapTarget} w-fit rounded-[4px] font-mono text-xs text-ink-2 underline-offset-4 outline-none hover:text-ink hover:underline active:text-blue focus-visible:ring-2 focus-visible:ring-blue`}
-                    href={d.url}
+                    href={d.img}
                     target="_blank"
                     rel="noreferrer noopener"
                   >
-                    Open the full demo ↗
+                    Open the full capture ↗
                   </a>
-                  {d.key === "Ergon" ? (
-                    <Button
-                      variant="link"
-                      size="xs"
-                      onClick={resetErgon}
-                      className="h-6 w-fit px-0 font-mono text-xs font-normal text-ink-2 hover:text-ink active:text-blue max-sm:h-11"
-                    >
-                      reset the demo
-                    </Button>
-                  ) : null}
                 </div>
               </motion.div>
             </TabsPanel>

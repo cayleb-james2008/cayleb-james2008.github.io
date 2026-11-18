@@ -173,7 +173,7 @@ export const projects: Project[] = [
 // The four product pages (static pages under /projects/, built 16 November 2026). The pitches are the page's own
 // words — each is grounded in its project's repository and logged in NEW-TEXT.md. Open-Ro Studio is not a résumé
 // record; it joins the other three here because its product page does.
-export type ProductPage = { name: string; href: string; pitch: string; img?: string; miniature?: boolean; alt: string };
+export type ProductPage = { name: string; href: string; pitch: string; img?: string; alt: string };
 export const productPagesHead = "the four products, in full";
 export const productPageLink = "the full product page ↗";
 export const productPages: ProductPage[] = [
@@ -181,29 +181,29 @@ export const productPages: ProductPage[] = [
     name: "Ergon",
     href: "/projects/ergon.html",
     pitch: "An AI agent for every employee — personal to each person, it learns how they work and finishes their digital work autonomously, end to end. No approval ceremony in the middle.",
-    img: "/assets/projects/faces/ergon/graph-review.png",
-    alt: "Still of the real Ergon capture: the Work Graph face — an agent's finished work waiting at its review node, with the Approve & send card",
+    img: "/assets/projects/captures/ergon-rs-main.png",
+    alt: "Capture of the current Ergon build: a finished task in the thread — the agent read two messy note files, wrote Summary.md, updated its memory of how its person works, and reported done, its tool steps shown as a ledger",
   },
   {
     name: "OpenBell",
     href: "/projects/openbell.html",
     pitch: "A compounding desk for Kalshi's 15-minute markets — it collects the venue's public data around the clock and scores a library of strategies against that tape on paper, in slots that compound. It places no orders.",
-    img: "/assets/projects/captures/openbell-tape.png",
-    alt: "Still of the real OpenBell capture: the desk's order tape — orders as the venue recorded them",
+    img: "/assets/projects/captures/openbell-rs-main.png",
+    alt: "Capture of the current OpenBell build: the home screen in shadow mode — venue balance, day P&L, open positions and capital at risk all read 'unavailable' (no credential in the environment), above the forward collector's counts and real public market rows",
   },
   {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
     pitch: "You describe the game, it builds it — a proactive creative agent in a plain chat window, full access by default: it writes the scripts, playtests its own work, fixes what breaks, and every change can be reverted.",
-    img: "/assets/projects/captures/openro-playtest.png",
-    alt: "Open-Ro Studio's rebuilt workbench: the neon-harbor project thread, where a change was made and verified — 'The change holds'",
+    img: "/assets/projects/captures/openro-rs-main.png",
+    alt: "Capture of the current OpenRO build: a chat where the agent wrote a round manager for the game Neon Harbor, the playtest failed, it read the console and repaired the script, and the playtest passed — Studio connected, and a Revert button under the thread",
   },
   {
     name: "DSH Fleet",
     href: "/projects/dsh-fleet.html",
     pitch: "Your agents working in parallel under one screen — hand out the work, and it comes back verified done: Fleet runs your check command itself, and everything else lands in a Needs-you inbox with the reason. Nothing is babysat.",
-    miniature: true,
-    alt: "A small model of the DSH Fleet card board — four lanes, Queued, Building, Checking and Done, with a card in each. A drawn model, not a screenshot of the current board.",
+    img: "/assets/projects/captures/fleet-rs-main.png",
+    alt: "Capture of the current DSH Fleet build: a session marked 'Check passed — verified done', its transcript and diff on screen and its work ready to merge, with a second session waiting in the Needs-you inbox",
   },
 ];
 
@@ -262,54 +262,52 @@ export type LiveDemo = {
   tag: string; // DEMO-01 ...
   title: string;
   blurb: string;
-  url: string;
-  hint?: string; // only the fleet frame has one
+  img: string;
   action: string;
   provenance: { label: string; text: string }[];
 };
 
-// The words around the demos, as the live page prints them.
-export const demoWords = { count: "live demos \u00b7 3", running: "running", idle: "runs in the frame", eyebrow: "runs in your browser", tryIt: "try it", provenance: "provenance", noCalls: "\u00b7 no third-party calls" };
+// The words around the captures, as the live page prints them.
+export const demoWords = { count: "captures \u00b7 3", running: "shown", idle: "capture", eyebrow: "a still of the current build", tryIt: "In the frame:", provenance: "provenance", noCalls: "\u00b7 no third-party calls" };
 
 export const liveDemos: LiveDemo[] = [
   {
     key: "Ergon",
-    tag: "DEMO-01",
-    title: "Ergon \u2014 the current front set",
-    blurb: "The real Ergon app, running in the frame: the morning brief speaks first, the approval card holds to commit, the Decisions inbox keeps the result, and apps open beside the thread.",
-    url: "/demos/ergon/",
-    action: "Hold \u201cHold to approve\u201d for ~0.9 s, then open Decisions \u2014 the decision is recorded in the app\u2019s own state.",
+    tag: "CAPTURE-01",
+    title: "Ergon — the current build",
+    blurb: "The current Ergon build at work: a second finished task in the same running copy — a plain-words ask, the agent's steps as a ledger in the thread, a finished spreadsheet, and the summary it reported. No approval step sits in the middle.",
+    img: "/assets/projects/captures/ergon-rs-demo.png",
+    action: "the expenses task, finished end to end; the first task in the sidebar turned two messy note files into Summary.md and updated what the agent has learned about its person.",
     provenance: [
-      { label: "What runs:", text: "the real build served at /demos/ergon/, the same bytes in this frame and in the standalone tab." },
-      { label: "What is fixture:", text: "The app names its own fixture reply engine in the footer: \u201cfixture reply engine \u2014 no live agent runtime\u201d." },
-      { label: "Why it is here:", text: "the r\u00e9sum\u00e9 claims the app works; the demo lets a visitor check that claim by using it, not by watching a recording." },
+      { label: "What is shown:", text: "a capture of ergon-rs, the Rust rebuild, running on the owner's machine — taken 18 November 2026 at the app's own 1280×800, in the dark theme it ships with." },
+      { label: "What is fixture:", text: "the tasks and files are fixture work seeded for the capture, and the model answering the agent was a scripted stand-in on the same machine: this environment holds no live model key for the app, and the app refuses honestly when it has none. The interface, the tools and the files produced are the app's own." },
+      { label: "Why it is here:", text: "the résumé claims the app works; the capture shows its current interface doing a task end to end. The interactive demo that used to run in this frame was the retired build, and it has been removed." },
     ],
   },
   {
     key: "DSH Fleet",
-    tag: "DEMO-02",
-    title: "DSH Fleet \u2014 the approved panel",
-    blurb: "The fleet dashboard the owner approved as-is, with its captured snapshot embedded: the graph, the swarm panel, the tabs and every node\u2019s drill-down are live in the frame.",
-    url: "/demos/fleet/",
-    hint: "desktop-width dashboard \u2014 swipe or scroll the frame sideways to pan",
-    action: "Click any node in the graph (or Tab to it and press Enter) to drill into its state; on a phone, swipe the frame sideways to pan the desktop-width dashboard.",
+    tag: "CAPTURE-02",
+    title: "DSH Fleet — the current build",
+    blurb: "The current Fleet build catching a claim: the agent said its work was finished, Fleet ran the task's check itself on the committed tree, the check failed — so the session sits in Needs-you with the reason and a Retry button, not in Done.",
+    img: "/assets/projects/captures/fleet-rs-demo.png",
+    action: "the failed session, with the two verified-done sessions behind it in the sidebar; the check — test -s output.txt — is the project's own, from its policies file.",
     provenance: [
-      { label: "What runs:", text: "the real build served at /demos/fleet/, the same bytes in this frame and in the standalone tab." },
-      { label: "What is fixture:", text: "The dashboard is a captured snapshot (02:35 UTC, embedded in the page); the header says \u201ccaptured 02:35:16Z\u201d. It is not a live fleet feed." },
-      { label: "Why it is here:", text: "the r\u00e9sum\u00e9 claims the app works; the demo lets a visitor check that claim by using it, not by watching a recording." },
+      { label: "What is shown:", text: "a capture of fleet-rs, the Rust rebuild, running on the owner's machine — taken 18 November 2026 at 1280×800, in the dark theme it ships with." },
+      { label: "What is fixture:", text: "the three sessions are fixture tasks handed out through the app's own API, run by a fixture agent against a fixture repository. The statuses, the transcript and the failed check are the app's real verdicts on that work." },
+      { label: "Why it is here:", text: "the résumé claims Fleet verifies work before calling it done; the capture shows a claim being refused. The dashboard snapshot that used to sit in this frame was the retired build, and it has been removed." },
     ],
   },
   {
     key: "OpenBell",
-    tag: "DEMO-03",
-    title: "OpenBell \u2014 the Ticket 070 watchtower",
-    blurb: "The real watchtower build: three lanes, each desk one level down, tooltips with the exact figures, a stale reading labelled STALE, and a lane detail with the desk\u2019s account figures.",
-    url: "/demos/openbell/",
-    action: "Open \u201cDetails\u201d on a lane for its account figures, hover a point for its exact value, then use \u201cAll three lanes\u201d to go back.",
+    tag: "CAPTURE-03",
+    title: "OpenBell — the current build",
+    blurb: "The current OpenBell build scoring its strategy library on paper against the forward tape: the paper equity curves, and every strategy's verdict — each one reads 'insufficient evidence', because the promotion standard is code and it asks for 100 forward windows.",
+    img: "/assets/projects/captures/openbell-rs-demo.png",
+    action: "the shadow strategies table over a slice of the collected tape; on the home screen above it, the venue balance and day P&L read 'unavailable', as they do without a credential.",
     provenance: [
-      { label: "What runs:", text: "the real build served at /demos/openbell/, the same bytes in this frame and in the standalone tab." },
-      { label: "What is fixture:", text: "The app labels its sample series \u201cDEMO\u201d and \u201cSTALE \u2014 DEMO snapshot\u201d itself; no source answered, so it shows sample data honestly. Its own subtitle says \u201cevery chart read from the desk\u2019s own live source\u201d while the banner and the STALE tag say DEMO \u2014 the banner and tag are the operative honesty labels, and Refresh re-asks a launcher this static host does not run, so the labelled sample data stays." },
-      { label: "Why it is here:", text: "the r\u00e9sum\u00e9 claims the app works; the demo lets a visitor check that claim by using it, not by watching a recording." },
+      { label: "What is shown:", text: "a capture of openbell-rs, the Rust rebuild, running on the owner's machine against a copy of a slice of the real collected tape — taken 18 November 2026 at 1280×800." },
+      { label: "What is fixture:", text: "nothing in the frame is a venue account figure. This build places no orders; the paper pot and curves are its own simulation over real public market data it collected, labelled paper-only in the app itself." },
+      { label: "Why it is here:", text: "the résumé claims the desk scores strategies against forward evidence under a fixed standard; the capture shows the standard refusing to promote any of them yet. The watchtower demo that used to run in this frame was the retired build, and it has been removed." },
     ],
   },
 ];
