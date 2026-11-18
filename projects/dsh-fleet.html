@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DSH Fleet — Cayleb Alvarez-James</title>
-<meta name="description" content="A plugin that turns one instruction into a team of AI agents. They build in parallel, and a separate agent checks the finished work by running it.">
+<title>Fleet — Cayleb Alvarez-James</title>
+<meta name="description" content="Fleet, rebuilt in Rust: a control board for coding agents. You hand out the work; each session runs in its own git worktree; Fleet runs your check itself on the exact commit a merge would land, and a session is done only when that check passes.">
 <script>
 /* Theme before first paint: dark by default until the person chooses; the choice is kept in
    localStorage, key "theme" — the same key the home page reads, so one choice covers the site. */
@@ -12,7 +12,7 @@ try{var t=null;try{t=localStorage.getItem("theme");}catch(e){}
 if(t!=="light"&&t!=="dark")t="dark";document.documentElement.setAttribute("data-theme",t);
 }catch(e){document.documentElement.setAttribute("data-theme","dark");}
 </script>
-<style>:root{--accent:#8fb4d9;}[data-theme="light"]{--accent:#2e5c8a;}
+<style>:root{--accent:#93b8d8;}[data-theme="light"]{--accent:#2f5d8a;}
 @font-face { font-family:"Fraunces"; src:url("../assets/editorial/fonts/fraunces-normal-500.woff2") format("woff2"); font-weight:100 900; font-display:swap; }
 @font-face { font-family:"Fraunces"; src:url("../assets/editorial/fonts/fraunces-italic-500.woff2") format("woff2"); font-weight:100 900; font-style:italic; font-display:swap; }
 @font-face { font-family:"Archivo"; src:url("../assets/editorial/fonts/archivo-400.woff2") format("woff2"); font-weight:400; font-display:swap; }
@@ -180,75 +180,71 @@ table.data .miss{color:var(--miss); font-weight:600}
 </header>
 <main id="main" class="wrap">
   <div class="hero">
-    <p class="kicker" data-anim="up">DSH Fleet — an agent-team plugin for the DeepSeek Harness</p>
-    <h1 data-anim="up">One instruction. A team builds it.</h1>
-    <p class="lead" data-anim="up">A plugin that turns one instruction into a team of AI agents. They build in parallel, and a separate agent checks the finished work by running it.</p>
-    <div class="checked" data-anim="up"><span><b>Status —</b>in daily use on the owner's machine</span><span><b>Evidence —</b>the acceptance record, November 2026</span></div>
+    <p class="kicker" data-anim="up">Fleet — your agents, under one screen</p>
+    <h1 data-anim="up">Hand out the work. It comes back verified.</h1>
+    <p class="lead" data-anim="up">Fleet is a control board for coding agents — opencode, Claude Code, Codex. Each task becomes a session in its own git worktree. When the agent stops, Fleet runs <b>your</b> check command itself, on the exact commit a merge would land — and the session is done only when that check passes. Everything else lands in a Needs-you inbox with the reason attached. Nothing is babysat, and nothing calls itself done without the receipt.</p>
+    <div class="checked" data-anim="up"><span><b>Status —</b>rebuilt in Rust; the check kit passes end to end</span><span><b>Done means —</b>Fleet's own run of your check, passed on the committed tree</span><span><b>Sessions —</b>persist across restarts; a run interrupted mid-work comes back as Needs you, with the reason</span></div>
   </div>
 
   <section aria-label="The board">
-    <p class="sec-label" data-anim="left">The board — a miniature</p>
-    <div class="demo" data-anim="up">
+    <p class="sec-label" data-anim="left">The board — try the states</p>
+    <h2 data-anim="up">Three groups, one rule.</h2>
+    <p class="plain" data-anim="up">Working, Done, Needs you. A done session's row carries its check line — the command and its verdict — as part of its identity, not a green badge. This miniature runs the same states with scripted agents; the real board runs your agents and your check.</p>
+    <div class="demo" id="board" data-anim="up" style="margin-top:1.2rem">
       <div class="demo-head">
-        <span class="t">One ticket's journey</span><span class="s">A small model of the fleet's card board. On the real board, every job is a card like these.</span>
-        <button class="demo-btn" id="board-run" type="button">Run a ticket</button>
+        <span class="t">The board, in miniature</span><span class="s">Hand out two sessions. One's work passes its check; the other's check fails — watch where each lands.</span>
+        <button class="demo-btn" id="board-run" type="button">Hand out the sessions</button>
       </div>
-      <div class="board" id="board">
-        <div class="lane"><h4>Queued</h4>
-          <div class="card"><b>Ticket — fix the login page</b>Goal, context, and how done will be checked — written before work starts.</div>
-        </div>
-        <div class="lane"><h4>Building</h4>
-          <div class="card"><b>Lead</b>Splits the ticket into pieces and hands them out.</div>
-          <div class="card"><b>Builders</b>Work the pieces in parallel — never on the same file at once.</div>
-        </div>
-        <div class="lane"><h4>Checking</h4>
-          <div class="card"><b>Checker</b>Fresh eyes. Runs the finished output against the check written at the start.<span class="stamp">PASS</span></div>
-        </div>
-        <div class="lane"><h4>Done</h4>
-          <div class="card"><b>One outcome</b>Done, blocked, or error — one per ticket, with the evidence attached.</div>
-        </div>
-      </div>
+      <div id="board-rows"></div>
+      <p class="gate-verdict" id="board-log" aria-live="polite"></p>
     </div>
   </section>
 
-  <section aria-label="What it does">
-    <p class="sec-label" data-anim="left">What it does</p>
+  <section aria-label="How Fleet works">
+    <p class="sec-label" data-anim="left">How it works</p>
     <div class="blocks">
-      <div class="block" data-anim="up"><p class="n">One</p><h3>One instruction in</h3><p>A ticket states the goal, the context, and the check that proves it is done — before any work starts.</p></div>
-      <div class="block" data-anim="up d1"><p class="n">Two</p><h3>A team forms around it</h3><p>A lead splits the work; builders run in parallel; a separate checker waits at the end. Nobody grades their own work.</p></div>
-      <div class="block" data-anim="up d2"><p class="n">Three</p><h3>Done means it ran</h3><p>The checker runs the real output against the check. A builder's say-so never closes a ticket.</p></div>
+      <div class="block" data-anim="up">
+        <p class="n">01 — The hand-out</p>
+        <h3>One session, one worktree</h3>
+        <p>Each session gets its own git worktree and branch in your repo, and runs the agent your project names. Agents are detected, never assumed: a name counts only when it resolves to a real executable on the machine, and asking for one that is not there is refused before any worktree exists. Sessions beyond the parallel cap queue, with their positions shown.</p>
+      </div>
+      <div class="block" data-anim="up d1">
+        <p class="n">02 — The check</p>
+        <h3>The grader is never the agent</h3>
+        <p>When the agent stops, Fleet commits its work and runs your check in a pristine checkout of that exact commit. Files the check itself writes cannot change what it judges; work hidden by git index bits is committed for real or the session is refused; files your repo gitignores are named, because they can never land. Merging consumes the verified commit itself — never the branch's later tip — and names the branch it lands on.</p>
+      </div>
+      <div class="block" data-anim="up d2">
+        <p class="n">03 — The inbox</p>
+        <h3>Needs you, with the reason</h3>
+        <p>A failed check, a timeout, a refused merge, a detached process still holding the worktree — each lands in one inbox across all sessions, with the reason in plain words and the full transcript one click away. Retry hands the session back to its agent in the same worktree, with the failure attached. Runs are bounded: a timeout kills the whole process group, and processes that detach to escape it are swept if they still hold the worktree.</p>
+      </div>
     </div>
   </section>
 
-  <section aria-label="The record">
-    <p class="sec-label" data-anim="left">The record — acceptance run, November 2026</p>
-    <div data-anim="up">
-    <table class="data">
-      <tr><th>Clean install (A1)</th><td><span class="ok">Pass</span> — a fresh install comes up and the board opens with live data</td></tr>
-      <tr><th>Crash recovery (A6)</th><td><span class="ok">Pass</span> — the host was killed mid-job; the job resumed from its saved state and finished</td></tr>
-      <tr><th>Model picks (A12)</th><td><span class="ok">Pass</span> — <b>19 of 19</b> checks: the models the owner picks are the models that run</td></tr>
-      <tr><th>Keyboard &amp; contrast (A11)</th><td><b>37 of 38</b> checks — the one miss is named below</td></tr>
-      <tr><th>Built-in self-test</th><td><b>138 of 138</b></td></tr>
+  <section aria-label="What is proven">
+    <p class="sec-label" data-anim="left">What is proven</p>
+    <h2 data-anim="up">Checked by a kit, not by assertion.</h2>
+    <p class="plain" data-anim="up">The build carries its own check kit — shell checks against the running server, plus the Rust tests — re-run after every change. Each row names what the kit does, in plain terms.</p>
+    <table class="data" data-anim="up" style="margin-top:1rem">
+      <tr><th>Verified means the committed tree</th><td>The kit attacks the claim from every side found in three adversarial review rounds: gitignored directories, nested repos, escaping symlinks — including one with a non-ASCII name — index bits that hide work from the commit, checks that write files, checks that commit. Done survives only when the checked tree is the tree a merge lands.</td></tr>
+      <tr><th>Sessions survive a hard kill</th><td>The kit kills the server with <b>kill -9</b> mid-work and restarts it: done sessions keep their status, check receipt, diff and transcript; the interrupted session returns as Needs you with the restart named; a lost session store is recovered from the per-session logs, with the loss stated.</td></tr>
+      <tr><th>Merges are defensive</th><td>Dirty repos, merges already in progress, detached HEADs and content conflicts are refused or aborted clean, with nothing landed and the session still mergeable. Two sessions merged at once: one wins, the other gets an honest refusal.</td></tr>
+      <tr><th>Runs are bounded</th><td>Hung agents and checks time out into Needs you with the timeout named and their slot freed. Floods — thousands of lines, one 20&nbsp;MB line — are capped in the view and kept whole in the on-disk log. A request that dribbles its body a byte at a time is dropped at the whole-request deadline.</td></tr>
+      <tr><th>The board is honest on its face</th><td>A session whose check passed but whose work was refused wears an amber "check passed — but this session needs you", never the green verified-done claim. Both themes ship — light and dark, dark by default, the switch in Settings — and icons are drawn symbols, never letters.</td></tr>
     </table>
-    </div>
   </section>
 
-  <section class="status" aria-label="Where it stands">
-    <p class="sec-label" data-anim="left">Where it stands</p>
-    <div data-anim="up">
-    <p><b>In daily use on the owner's own machine</b>, running the work described on these pages.</p>
-    <p>Two known gaps, stated plainly: the board does not yet offer steer or stop controls for a running job (acceptance item A7), and one light-mode screen sits under the contrast floor (the A11 miss). Both are on the fix list, and neither is hidden here.</p>
-    </div>
+  <section class="status" aria-label="Status">
+    <p class="sec-label" data-anim="left">Status, plainly</p>
+    <p data-anim="up"><b>A local tool, on purpose.</b> Fleet runs on the operator's own machine, against their own repos, with the agents they already have. It makes one promise and keeps it mechanically: work is done when the check the operator chose passes on the exact commit that would merge — proven by a kit that includes three rounds of adversarial review findings, each reproduced before it was fixed.</p>
+    <p data-anim="up"><b>The honest limit:</b> Fleet trusts the machine it runs on. Its store is a file in its data directory, and its checks are the operator's own commands. Within that boundary, every claim above is exercised by the kit on every change.</p>
   </section>
-
 </main>
-<footer class="wrap subfoot"><a href="../index.html">← Résumé</a><a href="index.html">All projects</a><a href="https://github.com/cayleb-james2008/dsh-fleet-core">The public core on GitHub ↗</a><span class="back">Built and written by Cayleb Alvarez-James. Every figure on this page is from the product's own records.</span><span class="settings"><span class="set-label">Settings · Appearance</span><button class="theme-btn" type="button" data-set-theme="dark" aria-pressed="true">Dark</button><button class="theme-btn" type="button" data-set-theme="light" aria-pressed="false">Light</button></span></footer>
-
+<footer class="wrap subfoot"><a href="../index.html">← Résumé</a><a href="index.html">All projects</a><span class="back">Built and written by Cayleb Alvarez-James. Every figure on this page is from the product's own records.</span><span class="settings"><span class="set-label">Settings · Appearance</span><button class="theme-btn" type="button" data-set-theme="dark" aria-pressed="true">Dark</button><button class="theme-btn" type="button" data-set-theme="light" aria-pressed="false">Light</button></span></footer>
 <script>
 (function(){
   var root=document.documentElement;
   if(location.search.indexOf('shots')>-1){root.classList.add('shots');}
-  /* appearance — settings toggle in the footer; the choice persists site-wide (key "theme", as on the home page) */
   var themeBtns=document.querySelectorAll('.theme-btn');
   function syncThemeBtns(){var cur=root.getAttribute('data-theme')==='light'?'light':'dark';themeBtns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-set-theme')===cur?'true':'false');});}
   themeBtns.forEach(function(b){b.addEventListener('click',function(){
@@ -258,55 +254,57 @@ table.data .miss{color:var(--miss); font-weight:600}
     syncThemeBtns();
   });});
   syncThemeBtns();
-  /* scroll progress */
   var bar=document.querySelector('.progress i');
   function prog(){var h=document.body.scrollHeight-innerHeight;var p=h>0?(scrollY/h):0;root.style.setProperty('--p',p);if(bar){bar.style.transform='scaleX('+p+')';}}
   addEventListener('scroll',prog,{passive:true}); prog();
-  /* reveal on scroll */
   var io=('IntersectionObserver' in window)&&!root.classList.contains('shots')?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12}):null;
   document.querySelectorAll('[data-anim]').forEach(function(el){if(io){io.observe(el);}else{el.classList.add('in');}});
-  /* face switcher */
-  document.querySelectorAll('.faces').forEach(function(box){
-    var tabs=box.querySelectorAll('.face-tab'), img=box.querySelector('.face-frame img'), cap=box.querySelector('.face-cap');
-    tabs.forEach(function(tab){tab.addEventListener('click',function(){
-      tabs.forEach(function(t){t.setAttribute('aria-selected','false');});
-      tab.setAttribute('aria-selected','true');
-      img.src=tab.getAttribute('data-img'); img.alt=tab.getAttribute('data-alt');
-      cap.innerHTML=tab.getAttribute('data-cap');
-    });});
-  });
-  /* fleet board miniature */
+  /* board miniature — the real board's states with scripted agents:
+     a session is Working while its agent runs, then Fleet runs the
+     check; pass -> Done (the row carries the check line), fail ->
+     Needs you with the reason. Merge consumes the done session. */
   var runBtn=document.getElementById('board-run');
   if(runBtn){
-    var cards=document.querySelectorAll('#board .card'), timers=[];
-    function reset(){timers.forEach(clearTimeout);timers=[];cards.forEach(function(c){c.classList.remove('on');});}
-    runBtn.addEventListener('click',function(){
-      reset();
-      cards.forEach(function(c,i){timers.push(setTimeout(function(){c.classList.add('on');}, 260*(i+1)));});
-    });
-    if(root.classList.contains('shots')){cards.forEach(function(c){c.classList.add('on');});}
-  }
-  /* openbell gateway walk-through */
-  var gate=document.getElementById('gate');
-  if(gate){
-    var steps=gate.querySelectorAll('.gate-step'), verdict=gate.querySelector('#gate-verdict'), chips=gate.querySelectorAll('.demo-btn.ghost'), gtimers=[];
-    function play(mode){
-      gtimers.forEach(clearTimeout); gtimers=[];
-      steps.forEach(function(s){s.classList.remove('on');});
-      verdict.textContent='';
-      var seq=mode==='late'?[0,1]:mode==='day'?[0,3]:[0,1,2,3];
-      seq.forEach(function(si,k){gtimers.push(setTimeout(function(){steps[si].classList.add('on');},300*(k+1)));});
-      var msg=mode==='late'?'BLOCKED — the gateway stops it. No order is sent.':mode==='day'?'STOPPED — at \u221210% on the day, the whole desk stops.':'SENT — every check passed, so the order goes to Kalshi.';
-      gtimers.push(setTimeout(function(){verdict.textContent=msg;},300*(seq.length+1)));
+    var rowsEl=document.getElementById('board-rows'), logEl=document.getElementById('board-log');
+    var SESSIONS=[
+      {task:'Add the export button', agent:'opencode', check:'npm test', verdict:'pass', line:'24 passed in 3.1s'},
+      {task:'Fix the totals rounding', agent:'claude', check:'npm test', verdict:'fail', line:'2 failed — totals.test.js: expected 41.20, got 41.19'}
+    ];
+    function row(s, group, extra){
+      return '<div style="display:flex;justify-content:space-between;gap:1rem;padding:.45rem 0;border-bottom:1px solid var(--rule)">'
+        +'<span>'+s.task+' <span style="color:var(--faint)">· '+s.agent+'</span></span>'
+        +'<span style="font-family:var(--mono);font-size:.85em">'+group+(extra?' — '+extra:'')+'</span></div>';
     }
-    chips.forEach(function(ch){ch.addEventListener('click',function(){
-      chips.forEach(function(c){c.setAttribute('aria-pressed','false');});
-      ch.setAttribute('aria-pressed','true'); play(ch.getAttribute('data-mode'));
-    });});
-    if(root.classList.contains('shots')){steps.forEach(function(s){s.classList.add('on');});}
+    function render(state){
+      var h='';
+      state.forEach(function(s){ h+=row(s, s.group, s.extra); });
+      rowsEl.innerHTML=h || '<p style="color:var(--faint);margin:.6rem 0">No sessions yet — hand some out.</p>';
+    }
+    var state=[];
+    render(state);
+    runBtn.addEventListener('click',function(){
+      runBtn.disabled=true;
+      state=SESSIONS.map(function(s){return {task:s.task,agent:s.agent,check:s.check,verdict:s.verdict,line:s.line,group:'Working',extra:'agent running'};});
+      render(state);
+      logEl.textContent='Two sessions handed out — each in its own worktree.';
+      setTimeout(function(){
+        state.forEach(function(s){ s.extra='Fleet is running the check: '+s.check; });
+        render(state);
+        logEl.textContent='Agents stopped. Fleet runs the check itself, on the committed tree.';
+      },1100);
+      setTimeout(function(){
+        state.forEach(function(s){
+          if(s.verdict==='pass'){ s.group='Done'; s.extra=s.check+' — '+s.line; }
+          else { s.group='Needs you'; s.extra='check failed: '+s.line; }
+        });
+        render(state);
+        logEl.textContent='One verified done — its row carries the check line. One needs you, with the reason attached. Nothing was babysat.';
+        runBtn.disabled=false;
+        runBtn.textContent='Hand them out again';
+      },2400);
+    });
   }
 })();
 </script>
-
 </body>
 </html>

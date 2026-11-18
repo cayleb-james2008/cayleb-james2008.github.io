@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ergon — Cayleb Alvarez-James</title>
-<meta name="description" content="A personal AI agent for every employee, on one shared company system. The agents do the work and bring it back finished. People keep the decisions that matter.">
+<meta name="description" content="An AI agent for every employee — personal to each person, it learns how they work and finishes their digital work autonomously, end to end.">
 <script>
 /* Theme before first paint: dark by default until the person chooses; the choice is kept in
    localStorage, key "theme" — the same key the home page reads, so one choice covers the site. */
@@ -73,25 +73,6 @@ h2{font-family:var(--serif); font-weight:700; font-size:clamp(1.5rem,3vw,2rem); 
 p.plain{color:var(--muted); max-width:38em}
 p.plain b, li b{color:var(--ink)}
 
-/* face switcher */
-.faces{background:var(--paper2); border:1px solid var(--rule); border-radius:14px; padding:1rem}
-.face-tabs{display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:1rem}
-.face-tab{display:inline-flex; align-items:center; gap:.5rem; border:1px solid var(--rule); background:var(--panel); color:var(--muted); border-radius:99px; padding:.5rem 1rem; font:inherit; font-size:.92rem; font-weight:600; cursor:pointer; transition:color .2s,border-color .2s,background .2s}
-.face-tab svg{width:15px; height:15px; flex:none}
-.face-tab:hover{color:var(--ink)}
-.face-tab[aria-selected="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
-.face-tab .default-tag{font-family:var(--mono); font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; opacity:.75}
-.face-frame{border-radius:9px; overflow:hidden; border:1px solid var(--rule); background:var(--frame)}
-.face-frame img{display:block; width:100%; height:auto}
-.face-cap{padding:.85rem .2rem .1rem; color:var(--muted); font-size:.98rem; max-width:44em}
-.face-cap b{color:var(--ink)}
-
-/* still figure */
-figure.still{border:1px solid var(--rule); border-radius:14px; overflow:hidden; background:var(--paper2)}
-figure.still img{display:block; width:100%; height:auto}
-figure.still figcaption{padding:.85rem 1rem; color:var(--muted); font-size:.95rem; border-top:1px solid var(--rule)}
-figure.still figcaption b{color:var(--ink)}
-
 /* three plain blocks */
 .blocks{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
 .block{background:var(--panel); border:1px solid var(--rule); border-radius:12px; padding:1.2rem 1.15rem}
@@ -115,21 +96,12 @@ table.data .miss{color:var(--miss); font-weight:600}
 .status p{color:var(--muted); max-width:40em; margin-bottom:.7rem}
 .status p b{color:var(--ink)}
 
-/* mini demo (fleet board + openbell gateway) */
+/* mini demo */
 .demo{background:var(--paper2); border:1px solid var(--rule); border-radius:14px; padding:1.1rem}
 .demo-head{display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:1rem}
 .demo-head .t{font-family:var(--serif); font-weight:700; font-size:1.15rem}
 .demo-head .s{color:var(--muted); font-size:.9rem}
 .demo-btn{margin-left:auto; border:1px solid var(--ink); background:var(--ink); color:var(--paper); border-radius:99px; padding:.5rem 1.1rem; font:inherit; font-size:.92rem; font-weight:600; cursor:pointer}
-.demo-btn.ghost{background:transparent; color:var(--muted); border-color:var(--rule); margin-left:0}
-.demo-btn.ghost[aria-pressed="true"]{color:var(--paper); background:var(--ink); border-color:var(--ink)}
-.board{display:grid; grid-template-columns:repeat(4,1fr); gap:.8rem}
-.lane h4{font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); margin-bottom:.5rem}
-.card{background:var(--panel); border:1px solid var(--rule); border-radius:10px; padding:.7rem .75rem; font-size:.88rem; line-height:1.45; color:var(--muted); margin-bottom:.55rem; opacity:.35; transform:translateY(6px); transition:opacity .45s, transform .45s}
-.card b{color:var(--ink); display:block; font-size:.92rem}
-.card.on{opacity:1; transform:none}
-.card .stamp{display:inline-block; margin-top:.4rem; font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; padding:.12rem .5rem; border-radius:99px; border:1px solid var(--ok); color:var(--ok)}
-.card .stamp.block{border-color:var(--miss); color:var(--miss)}
 .gate-flow{display:flex; flex-direction:column; gap:.55rem}
 .gate-step{display:flex; gap:.8rem; align-items:flex-start; background:var(--panel); border:1px solid var(--rule); border-radius:10px; padding:.75rem .9rem; opacity:.35; transform:translateY(6px); transition:opacity .45s, transform .45s}
 .gate-step.on{opacity:1; transform:none}
@@ -142,14 +114,13 @@ table.data .miss{color:var(--miss); font-weight:600}
 .subfoot{border-top:3px double var(--rule); padding:1.6rem 0 2.6rem; display:flex; gap:1.6rem; flex-wrap:wrap; align-items:center; font-size:.95rem}
 .subfoot a{text-decoration:none; font-weight:600}
 .subfoot .back{color:var(--muted); font-weight:400}
-/* settings — the appearance switch lives here, quiet, per the owner's rule */
 .settings{margin-left:auto; display:flex; align-items:center; gap:.5rem; font-size:.85rem; color:var(--faint)}
 .settings .set-label{font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase}
 .theme-btn{font:inherit; font-size:.85rem; background:none; border:1px solid var(--rule); color:var(--muted); border-radius:99px; padding:.28rem .8rem; cursor:pointer; transition:color .2s,border-color .2s,background .2s}
 .theme-btn:hover{color:var(--ink)}
 .theme-btn[aria-pressed="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
 
-/* scroll animation — GSAP-style beats, vanilla JS */
+/* scroll animation */
 [data-anim]{opacity:0}
 [data-anim="up"]{transform:translateY(26px)}
 [data-anim="left"]{transform:translateX(-26px)}
@@ -164,7 +135,6 @@ table.data .miss{color:var(--miss); font-weight:600}
 
 @media (max-width:760px){
   .blocks{grid-template-columns:1fr}
-  .board{grid-template-columns:1fr 1fr}
   .checked{gap:.9rem}
   table.data th{width:48%}
 }
@@ -182,39 +152,30 @@ table.data .miss{color:var(--miss); font-weight:600}
   <div class="hero">
     <p class="kicker" data-anim="up">Ergon — an AI agent for every employee</p>
     <h1 data-anim="up">Every employee gets an agent.</h1>
-    <p class="lead" data-anim="up">A personal AI agent for every employee, on one shared company system. The agents do the work and bring it back finished. People keep the decisions that matter.</p>
-    <div class="checked" data-anim="up"><span><b>Status —</b>built, verified in simulation</span><span><b>Customers —</b>none yet</span><span><b>Evidence —</b>the build's own test record</span></div>
+    <p class="lead" data-anim="up">A personal agent for each person. It learns how they work, takes a task in plain words, and brings it back finished — documents written, spreadsheets built, research done. No approval ceremony in the middle.</p>
+    <div class="checked" data-anim="up"><span><b>Status —</b>built, verified end to end</span><span><b>Tests —</b>44 of 44 passing</span><span><b>Sealed exam —</b>19 of 19</span><span><b>Customers —</b>none yet</span></div>
   </div>
 
-  <section aria-label="The product">
-    <p class="sec-label" data-anim="left">The product — three faces, one system</p>
-    <div class="faces" data-anim="zoom">
-      <div class="face-tabs" role="tablist" aria-label="Ergon faces">
-        <button class="face-tab" role="tab" aria-selected="true"
-          data-img="../assets/projects/faces/ergon/graph-review.png"
-          data-alt="Ergon Work Graph: an agent's finished work waiting for a glance, with an Approve and send button"
-          data-cap="<b>Work Graph — the default.</b> The day's work as a map. Finished work comes to the front; one glance, one click, it is sent."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>Work Graph <span class="default-tag">Default</span></button>
-        <button class="face-tab" role="tab" aria-selected="false"
-          data-img="../assets/projects/faces/ergon/spine-worked.png"
-          data-alt="Ergon Conversation Spine: the same work as a conversation thread"
-          data-cap="<b>Conversation Spine.</b> The same work as one conversation — the brief, the thread, and what was decided, in order."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M12 7h6M12 12H6M12 17h6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>Conversation Spine</button>
-        <button class="face-tab" role="tab" aria-selected="false"
-          data-img="../assets/projects/faces/ergon/river-glance.png"
-          data-alt="Ergon Today River: the day flowing past as a stream of work"
-          data-cap="<b>Today River.</b> The day as a stream: what is arriving, what is waiting on you, what already went out."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9c3-2.5 6-2.5 9 0s6 2.5 9 0M2 15c3-2.5 6-2.5 9 0s6 2.5 9 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>Today River</button>
+  <section aria-label="How a task runs">
+    <p class="sec-label" data-anim="left">How a task runs — the build's own end-to-end test, step for step</p>
+    <div class="demo" data-anim="zoom">
+      <div class="demo-head"><span class="t">“Tidy my notes into one summary.”</span><span class="s">Schematic — the steps below are the exact tool calls the test suite drives and asserts.</span><button class="demo-btn" id="gate-run" type="button">Run it</button></div>
+      <div class="gate-flow" id="gate">
+        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg><p><b>Look first.</b> The agent lists the person's workspace and reads the two messy note files it finds there — nothing outside that workspace is reachable.</p></div>
+        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z M15 3v4h4" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg><p><b>Write the document.</b> A Rune skill formats the merged notes and writes <b>Summary.md</b> into the workspace.</p></div>
+        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21C7 17.5 4 14 4 9.8 4 6.9 6.2 5 8.7 5c1.3 0 2.6.6 3.3 1.5C12.7 5.6 14 5 15.3 5 17.8 5 20 6.9 20 9.8c0 4.2-3 7.7-8 11.2z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg><p><b>Learn from it.</b> The agent updates its memory of this person — a preference spotted in the notes is kept, and it shapes the next task.</p></div>
+        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>Finish, and prove it.</b> The summary names the file it wrote. Ergon checks that claim against the files the run actually wrote — a claim that doesn't match stays visible in the thread.</p></div>
       </div>
-      <div class="face-frame"><img src="../assets/projects/faces/ergon/graph-review.png" alt="Ergon Work Graph: an agent's finished work waiting for a glance, with an Approve and send button"></div>
-      <p class="face-cap"><b>Work Graph — the default.</b> The day's work as a map. Finished work comes to the front; one glance, one click, it is sent.</p>
+      <p class="gate-verdict" id="gate-verdict" aria-live="polite"></p>
     </div>
-    <p class="note" data-anim="up">The faces are views, not separate apps. Switch views and the work — including what you just sent — is exactly where you left it. Captured from the running build.</p>
   </section>
 
   <section aria-label="What it does">
     <p class="sec-label" data-anim="left">What it does</p>
     <div class="blocks">
-      <div class="block" data-anim="up"><p class="n">One</p><h3>Each person gets an agent</h3><p>Every employee's agent is shaped to their role. It is built to learn how they work and take the routine work off their plate.</p></div>
-      <div class="block" data-anim="up d1"><p class="n">Two</p><h3>It brings finished work</h3><p>The agent does the work first, then shows you the result — what it did, and the check it ran on its own output.</p></div>
-      <div class="block" data-anim="up d2"><p class="n">Three</p><h3>You glance, adjust, send</h3><p>One look. Type a change if it needs one. One click sends it. Sending, spending and changing records wait for that click — nothing else does.</p></div>
+      <div class="block" data-anim="up"><p class="n">One</p><h3>Each person gets an agent</h3><p>Every employee has their own workspace, memory and threads. New people are created in the app; their agent starts learning from a seeded memory and keeps learning from every task.</p></div>
+      <div class="block" data-anim="up d1"><p class="n">Two</p><h3>It finishes the work</h3><p>Ten real tools: files, search, documents, spreadsheets, web research and memory. The agent works the task end to end and the finished result lands in the thread — the person asked once.</p></div>
+      <div class="block" data-anim="up d2"><p class="n">Three</p><h3>It can't quietly lie</h3><p>Every file path is sandboxed to the person's own workspace — symlink escapes are refused. Summaries are checked against the files the run actually wrote. No model key configured? It says so and refuses, rather than making something up.</p></div>
     </div>
   </section>
 
@@ -222,10 +183,10 @@ table.data .miss{color:var(--miss); font-weight:600}
     <p class="sec-label" data-anim="left">The record — from the build's own test runs</p>
     <div data-anim="up">
     <table class="data">
-      <tr><th>Automated proof suites</th><td><b>40 of 40</b> passing, unmodified</td></tr>
-      <tr><th>Face checks (the three views above)</th><td><b>18 of 18</b> passing</td></tr>
-      <tr><th>Simulated companies in the test programme</th><td><b>3</b> — a moving company, a dental practice, a law firm, each with detailed staff</td></tr>
-      <tr><th>One shared record</th><td>Every agent works from the same company definitions, which the agents maintain themselves</td></tr>
+      <tr><th>Automated tests</th><td><b>44 of 44</b> passing — agent loop, sandbox escapes, sessions, persistence, the honesty gate in both directions</td></tr>
+      <tr><th>Sealed acceptance exam</th><td><b>19 of 19</b> — written and run independently, black-box, against the unmodified binary</td></tr>
+      <tr><th>People</th><td>Per-person workspaces, memory and threads; sessions pinned per person; forged cookies replaced, never adopted</td></tr>
+      <tr><th>Persistence</th><td>Threads, people and memory survive restarts; a corrupt store is backed up, never silently overwritten</td></tr>
     </table>
     </div>
   </section>
@@ -233,8 +194,8 @@ table.data .miss{color:var(--miss); font-weight:600}
   <section class="status" aria-label="Where it stands">
     <p class="sec-label" data-anim="left">Where it stands</p>
     <div data-anim="up">
-    <p><b>Built, and verified against simulated companies.</b> Ergon is not running at a real company yet, and no customer uses it today — this page will not pretend otherwise.</p>
-    <p>The remaining piece before a first install is the live model connection. The work up to that point — the agents, the faces, the checks — is done and proven above.</p>
+    <p><b>Built, and verified as above.</b> Ergon is not running at a real company yet, and no customer uses it today — this page will not pretend otherwise.</p>
+    <p>The model route is real code that talks to any OpenAI-compatible endpoint. In the build environment it is proven against a scripted test model, because no live model key is available there — the honest limit, stated plainly.</p>
     </div>
   </section>
 
@@ -245,7 +206,6 @@ table.data .miss{color:var(--miss); font-weight:600}
 (function(){
   var root=document.documentElement;
   if(location.search.indexOf('shots')>-1){root.classList.add('shots');}
-  /* appearance — settings toggle in the footer; the choice persists site-wide (key "theme", as on the home page) */
   var themeBtns=document.querySelectorAll('.theme-btn');
   function syncThemeBtns(){var cur=root.getAttribute('data-theme')==='light'?'light':'dark';themeBtns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-set-theme')===cur?'true':'false');});}
   themeBtns.forEach(function(b){b.addEventListener('click',function(){
@@ -255,51 +215,22 @@ table.data .miss{color:var(--miss); font-weight:600}
     syncThemeBtns();
   });});
   syncThemeBtns();
-  /* scroll progress */
   var bar=document.querySelector('.progress i');
   function prog(){var h=document.body.scrollHeight-innerHeight;var p=h>0?(scrollY/h):0;root.style.setProperty('--p',p);if(bar){bar.style.transform='scaleX('+p+')';}}
   addEventListener('scroll',prog,{passive:true}); prog();
-  /* reveal on scroll */
   var io=('IntersectionObserver' in window)&&!root.classList.contains('shots')?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12}):null;
   document.querySelectorAll('[data-anim]').forEach(function(el){if(io){io.observe(el);}else{el.classList.add('in');}});
-  /* face switcher */
-  document.querySelectorAll('.faces').forEach(function(box){
-    var tabs=box.querySelectorAll('.face-tab'), img=box.querySelector('.face-frame img'), cap=box.querySelector('.face-cap');
-    tabs.forEach(function(tab){tab.addEventListener('click',function(){
-      tabs.forEach(function(t){t.setAttribute('aria-selected','false');});
-      tab.setAttribute('aria-selected','true');
-      img.src=tab.getAttribute('data-img'); img.alt=tab.getAttribute('data-alt');
-      cap.innerHTML=tab.getAttribute('data-cap');
-    });});
-  });
-  /* fleet board miniature */
-  var runBtn=document.getElementById('board-run');
-  if(runBtn){
-    var cards=document.querySelectorAll('#board .card'), timers=[];
-    function reset(){timers.forEach(clearTimeout);timers=[];cards.forEach(function(c){c.classList.remove('on');});}
-    runBtn.addEventListener('click',function(){
-      reset();
-      cards.forEach(function(c,i){timers.push(setTimeout(function(){c.classList.add('on');}, 260*(i+1)));});
-    });
-    if(root.classList.contains('shots')){cards.forEach(function(c){c.classList.add('on');});}
-  }
-  /* openbell gateway walk-through */
+  /* task walk-through */
   var gate=document.getElementById('gate');
   if(gate){
-    var steps=gate.querySelectorAll('.gate-step'), verdict=gate.querySelector('#gate-verdict'), chips=gate.querySelectorAll('.demo-btn.ghost'), gtimers=[];
-    function play(mode){
-      gtimers.forEach(clearTimeout); gtimers=[];
+    var steps=gate.querySelectorAll('.gate-step'), verdict=document.getElementById('gate-verdict'), timers=[];
+    document.getElementById('gate-run').addEventListener('click',function(){
+      timers.forEach(clearTimeout); timers=[];
       steps.forEach(function(s){s.classList.remove('on');});
       verdict.textContent='';
-      var seq=mode==='late'?[0,1]:mode==='day'?[0,3]:[0,1,2,3];
-      seq.forEach(function(si,k){gtimers.push(setTimeout(function(){steps[si].classList.add('on');},300*(k+1)));});
-      var msg=mode==='late'?'BLOCKED — the gateway stops it. No order is sent.':mode==='day'?'STOPPED — at \u221210% on the day, the whole desk stops.':'SENT — every check passed, so the order goes to Kalshi.';
-      gtimers.push(setTimeout(function(){verdict.textContent=msg;},300*(seq.length+1)));
-    }
-    chips.forEach(function(ch){ch.addEventListener('click',function(){
-      chips.forEach(function(c){c.setAttribute('aria-pressed','false');});
-      ch.setAttribute('aria-pressed','true'); play(ch.getAttribute('data-mode'));
-    });});
+      steps.forEach(function(s,i){timers.push(setTimeout(function(){s.classList.add('on');},300*(i+1)));});
+      timers.push(setTimeout(function(){verdict.textContent='DONE — Summary.md written, memory updated, claim checked against the run\u2019s own writes.';},300*(steps.length+1)));
+    });
     if(root.classList.contains('shots')){steps.forEach(function(s){s.classList.add('on');});}
   }
 })();

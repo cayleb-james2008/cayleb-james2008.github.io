@@ -11,7 +11,7 @@ import { open } from "@/motion";
 
 // Region F: selected projects. The three flagship projects lead with a still of the real capture; the others with their stated
 // numbers. Every bullet stays on the page; the steps open as a morphing detail on a press.
-const DSH_REPO = "github.com/cayleb-james2008/dsh-fleet-genesis";
+const DSH_REPO = "github.com/cayleb-james2008/dsh-fleet";
 
 function CaptureFigure({ c, onOpenDemo }: { c: Capture; onOpenDemo: () => void }) {
   return (

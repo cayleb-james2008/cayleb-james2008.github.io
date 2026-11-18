@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Open-Ro Studio — Cayleb Alvarez-James</title>
-<meta name="description" content="A desktop studio where an AI agent builds Roblox games with you. You describe what you want; the agent writes it, playtests it, and fixes what fails.">
+<meta name="description" content="You describe the game, it builds it — a proactive creative agent in a plain chat window, full access by default, that can one-shot a game.">
 <script>
 /* Theme before first paint: dark by default until the person chooses; the choice is kept in
    localStorage, key "theme" — the same key the home page reads, so one choice covers the site. */
@@ -73,25 +73,6 @@ h2{font-family:var(--serif); font-weight:700; font-size:clamp(1.5rem,3vw,2rem); 
 p.plain{color:var(--muted); max-width:38em}
 p.plain b, li b{color:var(--ink)}
 
-/* face switcher */
-.faces{background:var(--paper2); border:1px solid var(--rule); border-radius:14px; padding:1rem}
-.face-tabs{display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:1rem}
-.face-tab{display:inline-flex; align-items:center; gap:.5rem; border:1px solid var(--rule); background:var(--panel); color:var(--muted); border-radius:99px; padding:.5rem 1rem; font:inherit; font-size:.92rem; font-weight:600; cursor:pointer; transition:color .2s,border-color .2s,background .2s}
-.face-tab svg{width:15px; height:15px; flex:none}
-.face-tab:hover{color:var(--ink)}
-.face-tab[aria-selected="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
-.face-tab .default-tag{font-family:var(--mono); font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; opacity:.75}
-.face-frame{border-radius:9px; overflow:hidden; border:1px solid var(--rule); background:var(--frame)}
-.face-frame img{display:block; width:100%; height:auto}
-.face-cap{padding:.85rem .2rem .1rem; color:var(--muted); font-size:.98rem; max-width:44em}
-.face-cap b{color:var(--ink)}
-
-/* still figure */
-figure.still{border:1px solid var(--rule); border-radius:14px; overflow:hidden; background:var(--paper2)}
-figure.still img{display:block; width:100%; height:auto}
-figure.still figcaption{padding:.85rem 1rem; color:var(--muted); font-size:.95rem; border-top:1px solid var(--rule)}
-figure.still figcaption b{color:var(--ink)}
-
 /* three plain blocks */
 .blocks{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
 .block{background:var(--panel); border:1px solid var(--rule); border-radius:12px; padding:1.2rem 1.15rem}
@@ -115,21 +96,12 @@ table.data .miss{color:var(--miss); font-weight:600}
 .status p{color:var(--muted); max-width:40em; margin-bottom:.7rem}
 .status p b{color:var(--ink)}
 
-/* mini demo (fleet board + openbell gateway) */
+/* mini demo */
 .demo{background:var(--paper2); border:1px solid var(--rule); border-radius:14px; padding:1.1rem}
 .demo-head{display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:1rem}
 .demo-head .t{font-family:var(--serif); font-weight:700; font-size:1.15rem}
 .demo-head .s{color:var(--muted); font-size:.9rem}
 .demo-btn{margin-left:auto; border:1px solid var(--ink); background:var(--ink); color:var(--paper); border-radius:99px; padding:.5rem 1.1rem; font:inherit; font-size:.92rem; font-weight:600; cursor:pointer}
-.demo-btn.ghost{background:transparent; color:var(--muted); border-color:var(--rule); margin-left:0}
-.demo-btn.ghost[aria-pressed="true"]{color:var(--paper); background:var(--ink); border-color:var(--ink)}
-.board{display:grid; grid-template-columns:repeat(4,1fr); gap:.8rem}
-.lane h4{font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); margin-bottom:.5rem}
-.card{background:var(--panel); border:1px solid var(--rule); border-radius:10px; padding:.7rem .75rem; font-size:.88rem; line-height:1.45; color:var(--muted); margin-bottom:.55rem; opacity:.35; transform:translateY(6px); transition:opacity .45s, transform .45s}
-.card b{color:var(--ink); display:block; font-size:.92rem}
-.card.on{opacity:1; transform:none}
-.card .stamp{display:inline-block; margin-top:.4rem; font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; padding:.12rem .5rem; border-radius:99px; border:1px solid var(--ok); color:var(--ok)}
-.card .stamp.block{border-color:var(--miss); color:var(--miss)}
 .gate-flow{display:flex; flex-direction:column; gap:.55rem}
 .gate-step{display:flex; gap:.8rem; align-items:flex-start; background:var(--panel); border:1px solid var(--rule); border-radius:10px; padding:.75rem .9rem; opacity:.35; transform:translateY(6px); transition:opacity .45s, transform .45s}
 .gate-step.on{opacity:1; transform:none}
@@ -142,14 +114,13 @@ table.data .miss{color:var(--miss); font-weight:600}
 .subfoot{border-top:3px double var(--rule); padding:1.6rem 0 2.6rem; display:flex; gap:1.6rem; flex-wrap:wrap; align-items:center; font-size:.95rem}
 .subfoot a{text-decoration:none; font-weight:600}
 .subfoot .back{color:var(--muted); font-weight:400}
-/* settings — the appearance switch lives here, quiet, per the owner's rule */
 .settings{margin-left:auto; display:flex; align-items:center; gap:.5rem; font-size:.85rem; color:var(--faint)}
 .settings .set-label{font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase}
 .theme-btn{font:inherit; font-size:.85rem; background:none; border:1px solid var(--rule); color:var(--muted); border-radius:99px; padding:.28rem .8rem; cursor:pointer; transition:color .2s,border-color .2s,background .2s}
 .theme-btn:hover{color:var(--ink)}
 .theme-btn[aria-pressed="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
 
-/* scroll animation — GSAP-style beats, vanilla JS */
+/* scroll animation */
 [data-anim]{opacity:0}
 [data-anim="up"]{transform:translateY(26px)}
 [data-anim="left"]{transform:translateX(-26px)}
@@ -164,7 +135,6 @@ table.data .miss{color:var(--miss); font-weight:600}
 
 @media (max-width:760px){
   .blocks{grid-template-columns:1fr}
-  .board{grid-template-columns:1fr 1fr}
   .checked{gap:.9rem}
   table.data th{width:48%}
 }
@@ -180,57 +150,43 @@ table.data .miss{color:var(--miss); font-weight:600}
 </header>
 <main id="main" class="wrap">
   <div class="hero">
-    <p class="kicker" data-anim="up">Open-Ro Studio — an open-source Roblox building studio</p>
+    <p class="kicker" data-anim="up">OpenRO — you describe the game, it builds it</p>
     <h1 data-anim="up">Say the game. It builds it.</h1>
-    <p class="lead" data-anim="up">A desktop studio where an AI agent builds Roblox games with you. You describe what you want; the agent writes it, playtests it, and fixes what fails.</p>
-    <div class="checked" data-anim="up"><span><b>Status —</b>working, in early development</span><span><b>Licence —</b>MIT, public code</span><span><b>Evidence —</b>the repository's own eval record</span></div>
+    <p class="lead" data-anim="up">A creative agent in a plain chat window. Describe the game in your own words; it writes the scripts, places the pieces, playtests its own work, fixes what breaks — and every change it makes can be reverted.</p>
+    <div class="checked" data-anim="up"><span><b>Status —</b>built, verified end to end</span><span><b>Tests —</b>46 of 46 passing</span><span><b>Sealed exam —</b>12 of 12</span><span><b>Studio —</b>mock-proven, real bridge drops in</span></div>
   </div>
 
-  <section aria-label="The product">
-    <p class="sec-label" data-anim="left">The product — four faces, one workbench</p>
-    <div class="faces" data-anim="zoom">
-      <div class="face-tabs" role="tablist" aria-label="Open-Ro Studio faces">
-        <button class="face-tab" role="tab" aria-selected="true"
-          data-img="../assets/projects/faces/openro/spine-worked.png"
-          data-alt="Open-Ro Studio Conversation Spine: a conversation with the agent, a verdict banner reading the change holds"
-          data-cap="<b>Conversation Spine — the default.</b> You talk; the agent builds. Its verdict arrives in the same thread: the change holds."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M12 7h6M12 12H6M12 17h6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>Spine <span class="default-tag">Default</span></button>
-        <button class="face-tab" role="tab" aria-selected="false"
-          data-img="../assets/projects/faces/openro/canvas-worked.png"
-          data-alt="Open-Ro Studio Free Canvas: the project spread out on a canvas"
-          data-cap="<b>Free Canvas.</b> The whole project spread out — files, work and checks on one canvas."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z M4 12h16 M12 4v16" stroke="currentColor" stroke-width="2" fill="none"/></svg>Canvas</button>
-        <button class="face-tab" role="tab" aria-selected="false"
-          data-img="../assets/projects/faces/openro/river-worked.png"
-          data-alt="Open-Ro Studio Work River: the work as a flowing stream"
-          data-cap="<b>Work River.</b> The work as a stream: what the agent is doing now, and what it finished."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9c3-2.5 6-2.5 9 0s6 2.5 9 0M2 15c3-2.5 6-2.5 9 0s6 2.5 9 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>River</button>
-        <button class="face-tab" role="tab" aria-selected="false"
-          data-img="../assets/projects/faces/openro/studio-worked.png"
-          data-alt="Open-Ro Studio classic workbench view"
-          data-cap="<b>Studio.</b> The classic workbench — project, files and agent in one window."><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Studio</button>
+  <section aria-label="How a build runs">
+    <p class="sec-label" data-anim="left">How a build runs — the build's own integration test, step for step</p>
+    <div class="demo" data-anim="zoom">
+      <div class="demo-head"><span class="t">“Make a round-based obby with a leaderboard.”</span><span class="s">Schematic — the steps below are the exact flow the integration suite drives and asserts, repair included.</span><button class="demo-btn" id="gate-run" type="button">Run it</button></div>
+      <div class="gate-flow" id="gate">
+        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg><p><b>Generate the code.</b> Rune skills write the Luau — a round manager and a leaderboard. Game code only ever comes from the skills, never from raw model output.</p></div>
+        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>Write it into the place.</b> The scripts land in the game's tree through the Studio bridge, and every change is checkpointed as it succeeds.</p></div>
+        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5m0 3.5v.5M10.3 3.8L2.6 17a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 3.8a2 2 0 0 0-3.4 0z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>The playtest fails.</b> The console says why: the round script reaches for a Round object nothing created. The agent reads the actual console output — it doesn't guess.</p></div>
+        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>Repair, retest, done.</b> The missing piece is generated and written, the playtest passes, and only then is the build called done. If it can't fix it, it says so — and the whole ask can still be reverted.</p></div>
       </div>
-      <div class="face-frame"><img src="../assets/projects/faces/openro/spine-worked.png" alt="Open-Ro Studio Conversation Spine: a conversation with the agent, a verdict banner reading the change holds"></div>
-      <p class="face-cap"><b>Conversation Spine — the default.</b> You talk; the agent builds. Its verdict arrives in the same thread: the change holds.</p>
+      <p class="gate-verdict" id="gate-verdict" aria-live="polite"></p>
     </div>
-    <p class="note" data-anim="up">Captured from the running app. The four faces are one workbench — same project, same agent, four ways to look at it.</p>
   </section>
 
   <section aria-label="What it does">
     <p class="sec-label" data-anim="left">What it does</p>
     <div class="blocks">
-      <div class="block" data-anim="up"><p class="n">One</p><h3>Say it, and it builds</h3><p>Ask for a game, a system or a fix in plain words. The agent writes the code and the project files itself.</p></div>
-      <div class="block" data-anim="up d1"><p class="n">Two</p><h3>It playtests its own work</h3><p>Every change is tested against checks set before the work starts. The verdict is recorded, pass or fail.</p></div>
-      <div class="block" data-anim="up d2"><p class="n">Three</p><h3>When a test fails, it repairs</h3><p>The app works out what broke, fixes it, and tests again — by itself. The recorded run in the table below did exactly that.</p></div>
+      <div class="block" data-anim="up"><p class="n">One</p><h3>Describe it, it builds it</h3><p>A plain chat window, full access by default. No forms, no wizards, no approval queue — you say the game, the agent runs the whole loop itself.</p></div>
+      <div class="block" data-anim="up d1"><p class="n">Two</p><h3>Real game pieces</h3><p>Five Rune generation skills — rounds, leaderboard, day/night cycle, kill bricks, spawn pads — writing scripts and placing instances across the whole place tree, not one script at a time.</p></div>
+      <div class="block" data-anim="up d2"><p class="n">Three</p><h3>Every change reversible</h3><p>Each ask's changes are checkpointed into a set. Revert restores the exact state from before the ask — and refuses, out loud, if someone else changed the same piece in between.</p></div>
     </div>
-    <p class="note" data-anim="up">How much it asks first is <b>your setting</b>: full access by default, or review each write before it lands.</p>
   </section>
 
   <section aria-label="The record">
-    <p class="sec-label" data-anim="left">The record — from the repository's own eval file</p>
+    <p class="sec-label" data-anim="left">The record — from the build's own test runs</p>
     <div data-anim="up">
     <table class="data">
-      <tr><th>Recorded run, end to end</th><td>Ask &rarr; fix &rarr; playtest <b>failed</b> &rarr; the app repaired it itself &rarr; playtest <b>passed</b></td></tr>
-      <tr><th>Driver checks on that run</th><td><b>17 of 17</b> passed</td></tr>
-      <tr><th>Test suite</th><td><b>1,443</b> tests — <b>1,422</b> passing. The 12 that fail need machines this one is not; each is named in the repository</td></tr>
-      <tr><th>Licence</th><td><b>MIT</b> — the code is public, and it runs on your own machine</td></tr>
+      <tr><th>Automated tests</th><td><b>46 of 46</b> passing — generation, repair loop, revert exactness, persistence, honesty gates in both directions</td></tr>
+      <tr><th>Sealed acceptance exam</th><td><b>12 of 12</b> — written and run independently, black-box, against the unmodified binary</td></tr>
+      <tr><th>Studio bridge</th><td>MCP over stdio, seven tools; a bridge missing one is refused up front, before any ask runs</td></tr>
+      <tr><th>Done means proven</th><td>A build is not called done until a playtest passes; a failed repair loop ends in an honest give-up, never a false claim</td></tr>
     </table>
     </div>
   </section>
@@ -238,8 +194,8 @@ table.data .miss{color:var(--miss); font-weight:600}
   <section class="status" aria-label="Where it stands">
     <p class="sec-label" data-anim="left">Where it stands</p>
     <div data-anim="up">
-    <p><b>A working, open-source studio in early development.</b> The workbench, the agent loop, the playtest-and-repair cycle and the Blender mesh pipeline are built and tested.</p>
-    <p>Still open: proving the live bridge into Roblox Studio end to end. That needs a Studio session, and it has not been dressed up as done here.</p>
+    <p><b>Built, and verified as above</b> — against a mock Studio fixture that plays by the same MCP protocol. A real Roblox Studio MCP server drops in through one environment variable, unchanged; that is the designed connection, not a rewrite.</p>
+    <p>The model route is real code that talks to any OpenAI-compatible endpoint. In the build environment it is proven against a scripted test model, because no live model key is available there — the honest limit, stated plainly.</p>
     </div>
   </section>
 
@@ -250,7 +206,6 @@ table.data .miss{color:var(--miss); font-weight:600}
 (function(){
   var root=document.documentElement;
   if(location.search.indexOf('shots')>-1){root.classList.add('shots');}
-  /* appearance — settings toggle in the footer; the choice persists site-wide (key "theme", as on the home page) */
   var themeBtns=document.querySelectorAll('.theme-btn');
   function syncThemeBtns(){var cur=root.getAttribute('data-theme')==='light'?'light':'dark';themeBtns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-set-theme')===cur?'true':'false');});}
   themeBtns.forEach(function(b){b.addEventListener('click',function(){
@@ -260,51 +215,22 @@ table.data .miss{color:var(--miss); font-weight:600}
     syncThemeBtns();
   });});
   syncThemeBtns();
-  /* scroll progress */
   var bar=document.querySelector('.progress i');
   function prog(){var h=document.body.scrollHeight-innerHeight;var p=h>0?(scrollY/h):0;root.style.setProperty('--p',p);if(bar){bar.style.transform='scaleX('+p+')';}}
   addEventListener('scroll',prog,{passive:true}); prog();
-  /* reveal on scroll */
   var io=('IntersectionObserver' in window)&&!root.classList.contains('shots')?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12}):null;
   document.querySelectorAll('[data-anim]').forEach(function(el){if(io){io.observe(el);}else{el.classList.add('in');}});
-  /* face switcher */
-  document.querySelectorAll('.faces').forEach(function(box){
-    var tabs=box.querySelectorAll('.face-tab'), img=box.querySelector('.face-frame img'), cap=box.querySelector('.face-cap');
-    tabs.forEach(function(tab){tab.addEventListener('click',function(){
-      tabs.forEach(function(t){t.setAttribute('aria-selected','false');});
-      tab.setAttribute('aria-selected','true');
-      img.src=tab.getAttribute('data-img'); img.alt=tab.getAttribute('data-alt');
-      cap.innerHTML=tab.getAttribute('data-cap');
-    });});
-  });
-  /* fleet board miniature */
-  var runBtn=document.getElementById('board-run');
-  if(runBtn){
-    var cards=document.querySelectorAll('#board .card'), timers=[];
-    function reset(){timers.forEach(clearTimeout);timers=[];cards.forEach(function(c){c.classList.remove('on');});}
-    runBtn.addEventListener('click',function(){
-      reset();
-      cards.forEach(function(c,i){timers.push(setTimeout(function(){c.classList.add('on');}, 260*(i+1)));});
-    });
-    if(root.classList.contains('shots')){cards.forEach(function(c){c.classList.add('on');});}
-  }
-  /* openbell gateway walk-through */
+  /* build walk-through */
   var gate=document.getElementById('gate');
   if(gate){
-    var steps=gate.querySelectorAll('.gate-step'), verdict=gate.querySelector('#gate-verdict'), chips=gate.querySelectorAll('.demo-btn.ghost'), gtimers=[];
-    function play(mode){
-      gtimers.forEach(clearTimeout); gtimers=[];
+    var steps=gate.querySelectorAll('.gate-step'), verdict=document.getElementById('gate-verdict'), timers=[];
+    document.getElementById('gate-run').addEventListener('click',function(){
+      timers.forEach(clearTimeout); timers=[];
       steps.forEach(function(s){s.classList.remove('on');});
       verdict.textContent='';
-      var seq=mode==='late'?[0,1]:mode==='day'?[0,3]:[0,1,2,3];
-      seq.forEach(function(si,k){gtimers.push(setTimeout(function(){steps[si].classList.add('on');},300*(k+1)));});
-      var msg=mode==='late'?'BLOCKED — the gateway stops it. No order is sent.':mode==='day'?'STOPPED — at \u221210% on the day, the whole desk stops.':'SENT — every check passed, so the order goes to Kalshi.';
-      gtimers.push(setTimeout(function(){verdict.textContent=msg;},300*(seq.length+1)));
-    }
-    chips.forEach(function(ch){ch.addEventListener('click',function(){
-      chips.forEach(function(c){c.setAttribute('aria-pressed','false');});
-      ch.setAttribute('aria-pressed','true'); play(ch.getAttribute('data-mode'));
-    });});
+      steps.forEach(function(s,i){timers.push(setTimeout(function(){s.classList.add('on');},300*(i+1)));});
+      timers.push(setTimeout(function(){verdict.textContent='DONE — playtest passed after one repair; the whole ask stays revertable.';},300*(steps.length+1)));
+    });
     if(root.classList.contains('shots')){steps.forEach(function(s){s.classList.add('on');});}
   }
 })();
