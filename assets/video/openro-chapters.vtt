@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:08.130
+Describe the game
+
+00:00:08.130 --> 00:00:18.280
+It builds the first version
+
+00:00:18.280 --> 00:00:21.010
+The playtest fails
+
+00:00:21.010 --> 00:00:23.740
+It reads the error and fixes itself
+
+00:00:23.740 --> 00:00:28.250
+The playtest passes
+
+00:00:28.250 --> 00:00:33.580
+Undo the whole change
