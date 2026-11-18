@@ -110,6 +110,18 @@ table.data .miss{color:var(--miss); font-weight:600}
 .gate-step p b{color:var(--ink)}
 .gate-verdict{font-family:var(--mono); font-size:.8rem; letter-spacing:.08em; margin-top:.7rem; min-height:1.2em; color:var(--ink)}
 
+/* walkthrough video */
+.walk{background:var(--paper2); border:1px solid var(--rule); border-radius:14px; padding:1.1rem}
+.walk video{width:100%; display:block; border-radius:10px; background:#000; aspect-ratio:8/5}
+.chapters{list-style:none; margin-top:1rem; display:grid; grid-template-columns:1fr 1fr; gap:.4rem}
+.chapters button{display:flex; gap:.7rem; align-items:baseline; width:100%; text-align:left; font:inherit; font-size:.95rem; color:var(--muted); background:var(--panel); border:1px solid var(--rule); border-radius:9px; padding:.55rem .8rem; cursor:pointer; transition:color .2s,border-color .2s}
+.chapters button:hover{color:var(--ink)}
+.chapters button.on{color:var(--ink); border-color:var(--accent)}
+.chapters .ct{font-family:var(--mono); font-size:.78rem; color:var(--accent); flex:none}
+.walk-note{margin-top:1rem; color:var(--muted); font-size:.95rem; max-width:44em}
+.walk-note b{color:var(--ink)}
+@media (max-width:760px){ .chapters{grid-template-columns:1fr} }
+
 /* footer */
 .subfoot{border-top:3px double var(--rule); padding:1.6rem 0 2.6rem; display:flex; gap:1.6rem; flex-wrap:wrap; align-items:center; font-size:.95rem}
 .subfoot a{text-decoration:none; font-weight:600}
@@ -167,6 +179,26 @@ table.data .miss{color:var(--miss); font-weight:600}
         <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>Finish, and prove it.</b> The summary names the file it wrote. Ergon checks that claim against the files the run actually wrote — a claim that doesn't match stays visible in the thread.</p></div>
       </div>
       <p class="gate-verdict" id="gate-verdict" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section aria-label="Watch it work">
+    <p class="sec-label" data-anim="left">Watch it work — the full run, recorded on the real app</p>
+    <div class="walk" data-anim="zoom">
+      <video controls preload="metadata" playsinline poster="../assets/video/ergon-poster.jpg" src="../assets/video/ergon.mp4">
+        <track kind="chapters" label="Chapters" srclang="en" default src="../assets/video/ergon-chapters.vtt">
+      </video>
+      <ol class="chapters">
+        <li><button type="button" data-t="0.00"><span class="ct">0:00</span>Meet your agent</button></li>
+        <li><button type="button" data-t="5.21"><span class="ct">0:05</span>Give it a task</button></li>
+        <li><button type="button" data-t="8.33"><span class="ct">0:08</span>It finishes on its own</button></li>
+        <li><button type="button" data-t="17.99"><span class="ct">0:17</span>Every step is on the record</button></li>
+        <li><button type="button" data-t="23.10"><span class="ct">0:23</span>A second job: the spreadsheet</button></li>
+        <li><button type="button" data-t="32.82"><span class="ct">0:32</span>It remembers how you work</button></li>
+        <li><button type="button" data-t="37.61"><span class="ct">0:37</span>A new person gets their own agent</button></li>
+        <li><button type="button" data-t="48.01"><span class="ct">0:48</span>Light and dark</button></li>
+      </ol>
+      <p class="walk-note"><b>What you are watching:</b> the real Ergon app, recorded in the build environment. The answers come from a scripted test model — no live model key exists in that environment — but every tool call, file written and memory update on screen is Ergon's own work, start to finish.</p>
     </div>
   </section>
 
@@ -236,5 +268,23 @@ table.data .miss{color:var(--miss); font-weight:600}
 })();
 </script>
 
+
+<script>
+/* walkthrough chapters: click a chapter to jump the video to it */
+(function(){
+  var walk=document.querySelector('.walk'); if(!walk){return;}
+  var video=walk.querySelector('video'), btns=walk.querySelectorAll('.chapters button');
+  if(video.textTracks.length){video.textTracks[0].mode='hidden';}
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    video.currentTime=parseFloat(b.getAttribute('data-t'));
+    if(video.paused){video.play();}
+  });});
+  video.addEventListener('timeupdate',function(){
+    var t=video.currentTime, cur=null;
+    btns.forEach(function(b){if(parseFloat(b.getAttribute('data-t'))<=t+0.05){cur=b;}});
+    btns.forEach(function(b){b.classList.toggle('on',b===cur);});
+  });
+})();
+</script>
 </body>
 </html>
