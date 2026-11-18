@@ -164,8 +164,8 @@ table.data .miss{color:var(--miss); font-weight:600}
   <div class="hero">
     <p class="kicker" data-anim="up">Ergon — an AI agent for every employee</p>
     <h1 data-anim="up">Every employee gets an agent.</h1>
-    <p class="lead" data-anim="up">A personal agent for each person. It learns how they work, takes a task in plain words, and brings it back finished — documents written, spreadsheets built, research done. No approval ceremony in the middle.</p>
-    <div class="checked" data-anim="up"><span><b>Status —</b>built, verified end to end</span><span><b>Tests —</b>44 of 44 passing</span><span><b>Sealed exam —</b>19 of 19</span><span><b>Customers —</b>none yet</span></div>
+    <p class="lead" data-anim="up">A personal agent for each person, carrying a suite of skills, subagents and apps drawn from one shared company library. It learns how they work, takes a task in plain words, and brings it back finished — documents written, spreadsheets built, research done. No approval ceremony in the middle.</p>
+    <div class="checked" data-anim="up"><span><b>Status —</b>built, verified end to end</span><span><b>Tests —</b>65 of 65 passing</span><span><b>Sealed exam —</b>31 of 31</span><span><b>Customers —</b>none yet</span></div>
   </div>
 
   <section aria-label="How a task runs">
@@ -198,16 +198,16 @@ table.data .miss{color:var(--miss); font-weight:600}
         <li><button type="button" data-t="37.61"><span class="ct">0:37</span>A new person gets their own agent</button></li>
         <li><button type="button" data-t="48.01"><span class="ct">0:48</span>Light and dark</button></li>
       </ol>
-      <p class="walk-note"><b>What you are watching:</b> the real Ergon app, recorded in the build environment. The answers come from a scripted test model — no live model key exists in that environment — but every tool call, file written and memory update on screen is Ergon's own work, start to finish.</p>
+      <p class="walk-note"><b>What you are watching:</b> the real Ergon app, recorded in the build environment before the completion build — the shared library, suites, faces and phone app above are newer than this recording, which will be re-shot. The answers come from a scripted test model — no live model key exists in that environment — but every tool call, file written and memory update on screen is Ergon's own work, start to finish.</p>
     </div>
   </section>
 
   <section aria-label="What it does">
     <p class="sec-label" data-anim="left">What it does</p>
     <div class="blocks">
-      <div class="block" data-anim="up"><p class="n">One</p><h3>Each person gets an agent</h3><p>Every employee has their own workspace, memory and threads. New people are created in the app; their agent starts learning from a seeded memory and keeps learning from every task.</p></div>
-      <div class="block" data-anim="up d1"><p class="n">Two</p><h3>It finishes the work</h3><p>Ten real tools: files, search, documents, spreadsheets, web research and memory. The agent works the task end to end and the finished result lands in the thread — the person asked once.</p></div>
-      <div class="block" data-anim="up d2"><p class="n">Three</p><h3>It can't quietly lie</h3><p>Every file path is sandboxed to the person's own workspace — symlink escapes are refused. Summaries are checked against the files the run actually wrote. No model key configured? It says so and refuses, rather than making something up.</p></div>
+      <div class="block" data-anim="up"><p class="n">One</p><h3>Each person gets an agent</h3><p>Every employee has their own workspace, memory, threads — and their own suite of skills, subagents and apps, shaped by their role and drawn from one shared company library. The agents maintain that library themselves: a skill one person's agent publishes can be installed by everyone's.</p></div>
+      <div class="block" data-anim="up d1"><p class="n">Two</p><h3>It finishes the work</h3><p>Real tools: files, search, documents, spreadsheets, web research, memory — plus delegation to specialist subagents in the suite. The agent works the task end to end and the finished result lands in the thread — the person asked once. It also watches its own work: repeat a task often enough and it offers to turn it into a one-tap app.</p></div>
+      <div class="block" data-anim="up d2"><p class="n">Three</p><h3>Decisions only when it matters</h3><p>Deleting a file is the kind of moment a person should see first — so it parks in a decisions inbox and happens only on their approval, exactly as approved. Everything else just finishes. And it can't quietly lie: paths are sandboxed to the person's workspace, summaries are checked against the files the run actually wrote, and with no model key configured it says so and refuses.</p></div>
     </div>
   </section>
 
@@ -215,8 +215,11 @@ table.data .miss{color:var(--miss); font-weight:600}
     <p class="sec-label" data-anim="left">The record — from the build's own test runs</p>
     <div data-anim="up">
     <table class="data">
-      <tr><th>Automated tests</th><td><b>44 of 44</b> passing — agent loop, sandbox escapes, sessions, persistence, the honesty gate in both directions</td></tr>
-      <tr><th>Sealed acceptance exam</th><td><b>19 of 19</b> — written and run independently, black-box, against the unmodified binary</td></tr>
+      <tr><th>Automated tests</th><td><b>65 of 65</b> passing — agent loop, sandbox escapes, sessions, persistence, the honesty gate in both directions, the library and suites, delegation, the decisions gate, offers, concurrent writers</td></tr>
+      <tr><th>Sealed acceptance exam</th><td><b>31 of 31</b> — written and run independently, black-box, against the unmodified binary</td></tr>
+      <tr><th>Library &amp; suites</th><td>One shared library, seeded with twelve skills, subagents and apps; per-person suites shaped by role; agents publish skills the whole company can install — ownership-checked, compile-gated</td></tr>
+      <tr><th>Three faces + phone</th><td>Work Graph, Conversation Spine and Today River over one core, plus a pre-packaged phone app at <b>/phone</b>; morning brief, decisions inbox and proactive offers on the Today River</td></tr>
+      <tr><th>Installer</th><td><b>install.sh</b> — binary, launcher and a systemd user service; access gated at the hosting layer, no Ergon passwords</td></tr>
       <tr><th>People</th><td>Per-person workspaces, memory and threads; sessions pinned per person; forged cookies replaced, never adopted</td></tr>
       <tr><th>Persistence</th><td>Threads, people and memory survive restarts; a corrupt store is backed up, never silently overwritten</td></tr>
     </table>
