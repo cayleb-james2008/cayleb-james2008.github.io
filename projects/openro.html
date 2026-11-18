@@ -165,7 +165,7 @@ table.data .miss{color:var(--miss); font-weight:600}
     <p class="kicker" data-anim="up">OpenRO — you describe the game, it builds it</p>
     <h1 data-anim="up">Say the game. It builds it.</h1>
     <p class="lead" data-anim="up">A creative agent in a plain chat window. Describe the game in your own words; it writes the scripts, places the pieces, playtests its own work, fixes what breaks — and every change it makes can be reverted.</p>
-    <div class="checked" data-anim="up"><span><b>Status —</b>built, verified end to end</span><span><b>Tests —</b>46 of 46 passing</span><span><b>Sealed exam —</b>12 of 12</span><span><b>Studio —</b>mock-proven, real bridge drops in</span></div>
+    <div class="checked" data-anim="up"><span><b>Status —</b>built, verified end to end</span><span><b>Tests —</b>57 of 57 passing</span><span><b>Sealed exam —</b>14 of 14</span><span><b>Studio —</b>mock-proven, real bridge drops in</span></div>
   </div>
 
   <section aria-label="How a build runs">
@@ -203,8 +203,8 @@ table.data .miss{color:var(--miss); font-weight:600}
   <section aria-label="What it does">
     <p class="sec-label" data-anim="left">What it does</p>
     <div class="blocks">
-      <div class="block" data-anim="up"><p class="n">One</p><h3>Describe it, it builds it</h3><p>A plain chat window, full access by default. No forms, no wizards, no approval queue — you say the game, the agent runs the whole loop itself.</p></div>
-      <div class="block" data-anim="up d1"><p class="n">Two</p><h3>Real game pieces</h3><p>Five Rune generation skills — rounds, leaderboard, day/night cycle, kill bricks, spawn pads — writing scripts and placing instances across the whole place tree, not one script at a time.</p></div>
+      <div class="block" data-anim="up"><p class="n">One</p><h3>Describe it, it builds it</h3><p>A plain chat window, full access by default. No forms, no wizards, no approval queue — you say the game, the agent runs the whole loop itself. And it speaks first: on an empty chat it pitches complete games it can build in one go; after a build, it offers the feature that fits next. One tap builds the pitch.</p></div>
+      <div class="block" data-anim="up d1"><p class="n">Two</p><h3>Real game pieces</h3><p>Ten Rune generation skills — rounds, leaderboard, day/night cycle, kill bricks, spawn pads, a currency that saves, a shop, the game's own screen, checkpoints, a soundtrack — writing scripts and placing instances across the whole place tree, not one script at a time. Enough kit for a complete small game in a single run.</p></div>
       <div class="block" data-anim="up d2"><p class="n">Three</p><h3>Every change reversible</h3><p>Each ask's changes are checkpointed into a set. Revert restores the exact state from before the ask — and refuses, out loud, if someone else changed the same piece in between.</p></div>
     </div>
   </section>
@@ -213,8 +213,10 @@ table.data .miss{color:var(--miss); font-weight:600}
     <p class="sec-label" data-anim="left">The record — from the build's own test runs</p>
     <div data-anim="up">
     <table class="data">
-      <tr><th>Automated tests</th><td><b>46 of 46</b> passing — generation, repair loop, revert exactness, persistence, honesty gates in both directions</td></tr>
-      <tr><th>Sealed acceptance exam</th><td><b>12 of 12</b> — written and run independently, black-box, against the unmodified binary</td></tr>
+      <tr><th>Automated tests</th><td><b>57 of 57</b> passing — generation, repair loop, revert exactness, persistence, honesty gates in both directions</td></tr>
+      <tr><th>Sealed acceptance exam</th><td><b>14 of 14</b> — written and run independently, black-box, against the unmodified binary</td></tr>
+      <tr><th>It pitches, too</th><td>On an empty chat it offers complete games it can build in one go; after a build it offers the feature that fits next. The exam proves a pitch builds with <b>zero model calls</b> — the plan runs the same playtest gate as everything else</td></tr>
+      <tr><th>One-shot, complete</th><td>A whole small game — currency that saves, shop, game screen, checkpoints, a round — generated, playtested, repaired and passing in a single run, proven end to end in the suite and the exam</td></tr>
       <tr><th>Studio bridge</th><td>MCP over stdio, seven tools; a bridge missing one is refused up front, before any ask runs</td></tr>
       <tr><th>Done means proven</th><td>A build is not called done until a playtest passes; a failed repair loop ends in an honest give-up, never a false claim</td></tr>
     </table>
