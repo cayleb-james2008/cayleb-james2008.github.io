@@ -185,13 +185,6 @@ export const productPages: ProductPage[] = [
     alt: "Capture of the current Ergon build: a finished task in the thread — the agent read two messy note files, wrote Summary.md, updated its memory of how its person works, and reported done, its tool steps shown as a ledger",
   },
   {
-    name: "OpenBell",
-    href: "/projects/openbell.html",
-    pitch: "A compounding desk for Kalshi's 15-minute markets — it collects the venue's public data around the clock and scores a library of strategies against that tape on paper, in slots that compound. It places no orders.",
-    img: "/assets/projects/captures/openbell-rs-main.png",
-    alt: "Capture of the current OpenBell build: the home screen in shadow mode — venue balance, day P&L, open positions and capital at risk all read 'unavailable' (no credential in the environment), above the forward collector's counts and real public market rows",
-  },
-  {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
     pitch: "You describe the game, it builds it — a proactive creative agent in a plain chat window, full access by default: it writes the scripts, playtests its own work, fixes what breaks, and every change can be reverted.",
@@ -295,19 +288,6 @@ export const liveDemos: LiveDemo[] = [
       { label: "What is shown:", text: "a capture of fleet-rs, the Rust rebuild, running on the owner's machine — taken 18 November 2026 at 1280×800, in the dark theme it ships with." },
       { label: "What is fixture:", text: "the three sessions are fixture tasks handed out through the app's own API, run by a fixture agent against a fixture repository. The statuses, the transcript and the failed check are the app's real verdicts on that work." },
       { label: "Why it is here:", text: "the résumé claims Fleet verifies work before calling it done; the capture shows a claim being refused. The dashboard snapshot that used to sit in this frame was the retired build, and it has been removed." },
-    ],
-  },
-  {
-    key: "OpenBell",
-    tag: "CAPTURE-03",
-    title: "OpenBell — the current build",
-    blurb: "The current OpenBell build scoring its strategy library on paper against the forward tape: the paper equity curves, and every strategy's verdict — each one reads 'insufficient evidence', because the promotion standard is code and it asks for 100 forward windows.",
-    img: "/assets/projects/captures/openbell-rs-demo.png",
-    action: "the shadow strategies table over a slice of the collected tape; on the home screen above it, the venue balance and day P&L read 'unavailable', as they do without a credential.",
-    provenance: [
-      { label: "What is shown:", text: "a capture of openbell-rs, the Rust rebuild, running on the owner's machine against a copy of a slice of the real collected tape — taken 18 November 2026 at 1280×800." },
-      { label: "What is fixture:", text: "nothing in the frame is a venue account figure. This build places no orders; the paper pot and curves are its own simulation over real public market data it collected, labelled paper-only in the app itself." },
-      { label: "Why it is here:", text: "the résumé claims the desk scores strategies against forward evidence under a fixed standard; the capture shows the standard refusing to promote any of them yet. The watchtower demo that used to run in this frame was the retired build, and it has been removed." },
     ],
   },
 ];
