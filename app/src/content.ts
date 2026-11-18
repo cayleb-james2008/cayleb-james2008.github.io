@@ -16,7 +16,7 @@ export const identity = {
 export const PDF = {
   href: "/Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf",
   name: "Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf",
-  size: "88 KB",
+  size: "49 KB",
   note: "the plain PDF, the submission copy",
 };
 
@@ -173,7 +173,7 @@ export const projects: Project[] = [
 // words — each is grounded in its project's repository and logged in NEW-TEXT.md. Open-Ro Studio is not a résumé
 // record; it joins the other three here because its product page does.
 export type ProductPage = { name: string; href: string; pitch: string; img?: string; alt: string };
-export const productPagesHead = "the four products, in full";
+export const productPagesHead = "the three products, in full";
 export const productPageLink = "the full product page ↗";
 export const productPages: ProductPage[] = [
   {
