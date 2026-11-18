@@ -227,7 +227,7 @@ table.data .miss{color:var(--miss); font-weight:600}
         <li><button type="button" data-t="27.68"><span class="ct">0:27</span>The daily report</button></li>
         <li><button type="button" data-t="32.12"><span class="ct">0:32</span>Nothing is proven yet - on purpose</button></li>
       </ol>
-      <p class="walk-note"><b>What you are watching:</b> the real OpenBell app reading a copy of the forward tape it collects around the clock — real market data, and a fresh collection pass runs during the recording. Account figures read &ldquo;unavailable&rdquo;: no venue credential in that environment, and the app invents none. The slots are paper only; this build never places orders.</p>
+      <p class="walk-note"><b>What you are watching:</b> the real OpenBell app reading a copy of the forward tape it collects around the clock — real market data, and a fresh collection pass runs during the recording. Account figures read &ldquo;unavailable&rdquo;: no venue credential in that environment, and the app invents none. The slots are paper only; this build never places orders. The recording predates the completion build — the front end has since been elevated and the scoring machinery extended — and a re-recording follows.</p>
     </div>
   </section>
 
@@ -247,7 +247,7 @@ table.data .miss{color:var(--miss); font-weight:600}
       <div class="block" data-anim="up d2">
         <p class="n">03 — The report</p>
         <h3>Line 1 is the venue's word</h3>
-        <p>The daily report opens with the signed venue day P&amp;L — or the honest unavailable line, with the real reason. Signed venue reads are not enabled in this build, so account figures read "unavailable". Unknown is never printed as zero: not the balance, not the position count, not the capital at risk.</p>
+        <p>The daily report opens with the signed venue day P&amp;L — or the honest unavailable line, with the real reason. Signed venue reads are not enabled in this build, so account figures read "unavailable". Unknown is never printed as zero: not the balance, not the position count, not the capital at risk. The same report tracks the paper pot against the $1,000 stage-one target, labelled paper.</p>
       </div>
     </div>
   </section>
@@ -263,12 +263,15 @@ table.data .miss{color:var(--miss); font-weight:600}
       <tr><th>Collector health is counted both ways</th><td>The health figures on the home screen are compared against an independent count of the tape file itself — a stale tape reads "not collecting", a fresh one reads "collecting".</td></tr>
       <tr><th>The library is really five files</th><td>Mutating one strategy's Rune file changes only that strategy's results — the strategies are read from the files, not baked in.</td></tr>
       <tr><th>Both themes ship</th><td>Light and dark, dark by default, the switch in the settings footer, the choice kept. Icons are drawn symbols, never letters.</td></tr>
+      <tr><th>Strategy code cannot eat the machine</th><td>Every strategy call runs under an instruction budget, a hard memory cap and an aggregate deadline. A hostile test strategy that tries to allocate about 600 MB inside a few instructions fails its calls, trades nothing, and leaves the honest strategies beside it — and the server's memory — untouched.</td></tr>
+      <tr><th>The report stays fast on the full tape</th><td>On a tape the size of the live one (over 225,000 snapshots), a repeat report answers in milliseconds and a recompute after a collection pass costs a fraction of the first pass — per-window results are indexed and resumed, never silently re-derived. Cold, warm and post-append reports of the same record are identical.</td></tr>
+      <tr><th>The stage target is tracked, labelled paper</th><td>The desk's stage one is a number — compound the pot to $1,000. The home screen, the slots view and the daily report all carry the paper pot's progress toward it, computed from the paper record and labelled paper in every place it appears.</td></tr>
     </table>
   </section>
 
   <section class="status" aria-label="Status">
     <p class="sec-label" data-anim="left">Status, plainly</p>
-    <p data-anim="up"><b>The tape is young.</b> Collection began on 17 November 2026. The promotion standard is stated in the report itself — 100+ forward windows, both chronological halves positive, and an overall mean of +3.5¢ per contract or better after the stated fee model — and no strategy has that record yet. Every verdict on the desk today reads "insufficient evidence", and that is the correct answer.</p>
+    <p data-anim="up"><b>The tape is young, and the paper record is losing.</b> Collection began on 17 November 2026. The promotion standard is stated in the report itself — 100+ forward windows, both chronological halves positive, and an overall mean of +3.5¢ per contract or better after the stated fee model. As of the last full recomputation (18 November 2026, independently re-derived from the tape), the paper pot stands at $0.07 of its $100 start, three strategies read "not proven" and two "insufficient evidence" — none has the record the standard asks for. The verdicts are computed live from the tape and move as it grows; the desk's surfaces, not this page, are the standing record.</p>
     <p data-anim="up"><b>This build trades nothing.</b> It is a collector and a paper scorer with a report a person can read in a minute. What it proves is narrower and, for a desk, more valuable: that its numbers are never invented — each one is the venue's, the tape's, or labelled paper, and the rest say "unavailable".</p>
   </section>
 </main>
