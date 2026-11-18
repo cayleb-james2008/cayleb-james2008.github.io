@@ -254,7 +254,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. This page is its interactive edition, and every demo on it is the real app build running in the frame \u2014 no recording stands in for a demo.",
+  line: "The plain PDF is the submission copy. This page is its interactive edition, and every capture on it is a still of the current build \u2014 taken from the app itself, not a mockup.",
 };
 
 export type LiveDemo = {

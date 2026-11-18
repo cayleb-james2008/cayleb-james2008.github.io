@@ -88,3 +88,8 @@ site; the retired builds that ran in these frames are gone.", "Open the full cap
 "CAPTURE-01", "CAPTURE-02", "CAPTURE-03"; titles "Ergon — the current build", "DSH Fleet — the
 current build", "OpenBell — the current build"; and each entry's blurb, "In the frame:" line and
 three provenance lines, all as written in app/src/content.ts.
+
+Colophon fix (18 November 2026, capture-pass checker finding): the footer line no longer claims
+the demos run live in the frame. New line: "The plain PDF is the submission copy. This page is its
+interactive edition, and every capture on it is a still of the current build — taken from the app
+itself, not a mockup."
