@@ -1,19 +1,22 @@
 WEBVTT
 
-00:00:00.000 --> 00:00:08.130
-Describe the game
+00:00:00.000 --> 00:00:09.540
+It pitches first
 
-00:00:08.130 --> 00:00:18.280
-It builds the first version
+00:00:09.540 --> 00:00:14.550
+One tap builds a whole game
 
-00:00:18.280 --> 00:00:21.010
-The playtest fails
+00:00:14.550 --> 00:00:33.570
+Or ask for a whole game at once
 
-00:00:21.010 --> 00:00:23.740
-It reads the error and fixes itself
+00:00:33.570 --> 00:00:36.600
+The playtest fails — for real
 
-00:00:23.740 --> 00:00:28.250
-The playtest passes
+00:00:36.600 --> 00:00:40.250
+It repairs its own work
 
-00:00:28.250 --> 00:00:33.580
-Undo the whole change
+00:00:40.250 --> 00:00:43.680
+It keeps pitching
+
+00:00:43.680 --> 00:00:49.360
+One tap reverts the ask
