@@ -9,14 +9,11 @@ This is the interactive edition of Cayleb Alvarez-James's résumé. The plain PD
 
 - The record: summary, experience, flagship projects, supporting projects, skills, additional
   experience, education — all content locked to the résumé.
-- Three live demos, served from `/demos/<name>/` and embedded in the page. They are real app
-  builds running in the browser; the recordings under `/demos/*.mp4` are supporting evidence only.
-  - `demos/ergon/` — Ergon front set, with its own fixture reply engine labelled in
-    the app.
-  - `demos/fleet/` — the DSH Fleet dashboard, a captured snapshot (`captured 02:35:16Z`) whose
-    interactions run in the browser.
-  - `demos/openbell/` — OpenBell watchtower, sample data labelled DEMO/STALE by the
-    app itself.
+- Three captures of the current builds, embedded in the page (`/assets/projects/captures/*-rs-*.png`),
+  taken from the apps themselves running locally on 18 November 2026, each with its provenance
+  stated beside it: what is shown, what is fixture, and why it is here. The current builds are
+  native apps and are not served from this site. The interactive demos of the retired builds
+  that used to be served from `/demos/` were removed in the capture pass.
 - Vendored parts, their sources and licences: `app/STACK.lock.md` and `app/THIRD-PARTY-LICENSES/`; fonts: Geist and
   Geist Mono (SIL OFL), in `app/public/fonts/`. Square UI is a grammar reference only; no Square UI artwork ships.
 

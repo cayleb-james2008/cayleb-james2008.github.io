@@ -68,3 +68,23 @@ product-card pitches now describe the new builds (app/src/content.ts `productPag
 - Open-Ro Studio: "You describe the game, it builds it — a proactive creative agent in a plain chat window, full access by default: it writes the scripts, playtests its own work, fixes what breaks, and every change can be reverted."
 - DSH Fleet: "Your agents working in parallel under one screen — hand out the work, and it comes back verified done: Fleet runs your check command itself, and everything else lands in a Needs-you inbox with the reason. Nothing is babysat."
 Projects.tsx DSH_REPO now names the new public repo github.com/cayleb-james2008/dsh-fleet.
+
+## 18 November 2026 — capture pass (real captures of the four new builds)
+
+The home product cards now carry captures of the current Rust + Rune builds, and the three
+interactive demos of the retired builds were replaced with captures of the current builds
+(the retired demo builds under /demos/ were removed). New card alt texts:
+
+- Ergon: "Capture of the current Ergon build: a finished task in the thread — the agent read two messy note files, wrote Summary.md, updated its memory of how its person works, and reported done, its tool steps shown as a ledger"
+- OpenBell: "Capture of the current OpenBell build: the home screen in shadow mode — venue balance, day P&L, open positions and capital at risk all read 'unavailable' (no credential in the environment), above the forward collector's counts and real public market rows"
+- Open-Ro Studio: "Capture of the current OpenRO build: a chat where the agent wrote a round manager for the game Neon Harbor, the playtest failed, it read the console and repaired the script, and the playtest passed — Studio connected, and a Revert button under the thread"
+- DSH Fleet: "Capture of the current DSH Fleet build: a session marked 'Check passed — verified done', its transcript and diff on screen and its work ready to merge, with a second session waiting in the Needs-you inbox"
+
+Demo section words (app/src/content.ts `demoWords`, app/src/sections/Demos.tsx): "captures · 3",
+"shown", "capture", "a still of the current build", "In the frame:", "Captures of the current
+builds, taken from the apps themselves. The builds are native apps and are not served from this
+site; the retired builds that ran in these frames are gone.", "Open the full capture ↗",
+"Captures of the current builds" (tabs aria-label). Demo entries (`liveDemos`): tags
+"CAPTURE-01", "CAPTURE-02", "CAPTURE-03"; titles "Ergon — the current build", "DSH Fleet — the
+current build", "OpenBell — the current build"; and each entry's blurb, "In the frame:" line and
+three provenance lines, all as written in app/src/content.ts.

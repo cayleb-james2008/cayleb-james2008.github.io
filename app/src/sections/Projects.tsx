@@ -148,36 +148,8 @@ function ProjectCard({ p, onOpenDemo }: { p: Project; onOpenDemo: (key: string) 
   );
 }
 
-// The Fleet card carries a drawn model of the card board, labelled as a model — the same treatment as the
-// Fleet product page. No current-board capture exists on this machine (the board lives inside the owner's
-// desktop app), and a stale capture is never presented as the current front end.
-function FleetBoardMiniature({ alt }: { alt: string }) {
-  const lanes: { name: string; cards: string[] }[] = [
-    { name: "Queued", cards: ["Ticket — goal, context, and the check, written before work starts"] },
-    { name: "Building", cards: ["Lead — splits the ticket, hands out the pieces", "Builders — work in parallel, never the same file at once"] },
-    { name: "Checking", cards: ["Checker — fresh eyes; runs the output against the check · PASS"] },
-    { name: "Done", cards: ["One outcome per ticket, evidence attached"] },
-  ];
-  return (
-    <div role="img" aria-label={alt} className="grid w-full content-start gap-2 border-b border-hairline bg-board p-3">
-      <p className="flex items-baseline justify-between gap-2 font-mono text-xs uppercase tracking-wider text-ink-2">
-        <span>DSH Fleet — card board</span>
-        <span>a small model</span>
-      </p>
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-        {lanes.map((l) => (
-          <div key={l.name} className="grid content-start gap-1.5">
-            <p className="font-mono text-xs uppercase tracking-wider text-ink-2">{l.name}</p>
-            {l.cards.map((c) => (
-              <p key={c} className="rounded-[6px] border border-hairline bg-surface p-1.5 text-xs leading-snug text-ink-2">{c}</p>
-            ))}
-          </div>
-        ))}
-      </div>
-      <p className="font-mono text-xs text-ink-2">a small model of the fleet&rsquo;s card board — not a screenshot</p>
-    </div>
-  );
-}
+// All four product cards carry a capture of the current build. (The Fleet card's drawn model was retired in the
+// capture pass, 18 November 2026, once a real capture of fleet-rs existed to take its place.)
 
 function ProductPageCard({ p }: { p: ProductPage }) {
   return (
@@ -185,11 +157,7 @@ function ProductPageCard({ p }: { p: ProductPage }) {
       href={p.href}
       className="group grid content-start overflow-hidden rounded-[14px] border border-hairline bg-surface outline-none hover:bg-board focus-visible:ring-2 focus-visible:ring-blue active:bg-track"
     >
-      {p.miniature ? (
-        <FleetBoardMiniature alt={p.alt} />
-      ) : (
-        <img src={p.img} alt={p.alt} width={1280} height={800} loading="lazy" className="aspect-[16/10] w-full border-b border-hairline object-cover object-top" />
-      )}
+      <img src={p.img} alt={p.alt} width={1280} height={800} loading="lazy" className="aspect-[16/10] w-full border-b border-hairline object-cover object-top" />
       <span className="grid gap-1.5 p-4">
         <span className="text-ui font-medium text-ink">{p.name}</span>
         <span className="text-pretty text-sm leading-relaxed text-ink-2">{p.pitch}</span>
