@@ -5,6 +5,9 @@
 /* ---------- the hero: the page's one focal object is its title and what was verified ---------- */
 .project-hero { padding: 48px 0 32px; }
 .project-hero__main { min-width: 0; }
+.project-back { display: inline-flex; align-items: center; min-height: var(--target); margin-bottom: 12px; color: var(--ink-2); font: 400 var(--text-xs)/var(--text-xs-lh) var(--font-mono); text-decoration: none; text-underline-offset: 4px; }
+.project-back:hover { color: var(--ink); text-decoration: underline; }
+.project-back:active { color: var(--blue); }
 .case-hero__meta { margin-bottom: 12px; color: var(--ink-2); font: 400 var(--text-xs)/var(--text-xs-lh) var(--font-mono); }
 .case-hero__title { max-width: 20ch; margin-bottom: 16px; font: 600 var(--text-display)/1.05 var(--font-sans); letter-spacing: -0.02em; text-wrap: balance; }
 .case-hero__out { max-width: 60ch; color: var(--ink-2); font: 400 var(--text-base)/var(--text-base-lh) var(--font-sans); text-wrap: pretty; }
@@ -66,10 +69,20 @@
 .flow__tag { display: inline-block; margin-left: 4px; padding: 0 8px; border-radius: 999px; background: var(--blue-soft); color: var(--ink); font: 500 var(--text-xs)/var(--text-xs-lh) var(--font-mono); vertical-align: 1px; }
 
 /* ---------- the chart: the Recharts bundle draws it, these rules colour it from the live theme ---------- */
+body.project-page {
+  --chart-bar: var(--blue);
+  --chart-line: var(--blue);
+  --chart-grid: var(--hairline);
+  --chart-axis: var(--ink-2);
+  --chart-plate: var(--surface);
+  --rj-ink: var(--ink);
+  --rj-ink-muted: var(--ink-2);
+}
 .viz--chart .viz__body { padding-bottom: 20px; }
-.chart { width: 100%; height: 232px; margin-top: 12px; }
-.chart svg { display: block; overflow: visible; }
-.chart .recharts-cartesian-grid line { stroke: var(--hairline); }
+.chart { width: 100%; height: 232px; margin-top: 12px; overflow: hidden; }
+.chart svg { display: block; }
+.chart .recharts-cartesian-grid line,
+.chart .recharts-cartesian-axis-line { stroke: var(--hairline); }
 .chart .recharts-bar-rectangle .recharts-rectangle { fill: var(--blue); }
 /* the hover band behind a bar is a quiet track tint, not the bar's blue */
 .chart .recharts-tooltip-cursor { fill: var(--track); fill-opacity: 0.8; stroke: none; }
@@ -183,3 +196,101 @@
   .pp-card__meta { letter-spacing: -0.02em; }
 }
 @media (hover: none) { .pp-card:hover { background: var(--surface); border-color: var(--hairline); } }
+
+/* ---------- flagship v0.3.0 extensions (actions, theme-aware captures, walkthrough video, interactive schematic, record table) ---------- */
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 24px; }
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 20px;
+  border: 1px solid var(--slab-ring); border-radius: var(--radius-control);
+  background: var(--slab-bottom) linear-gradient(to bottom, var(--slab-top), var(--slab-bottom)); color: var(--slab-fg);
+  font: 500 var(--text-sm)/1 var(--font-sans); text-decoration: none; cursor: pointer;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.08);
+}
+.btn-primary:hover { box-shadow: inset 0 0 0 100px var(--slab-hover); }
+.btn-primary:active { box-shadow: inset 0 0 0 100px var(--slab-press); transform: scale(0.98); }
+.btn-outline {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 16px;
+  border: 1px solid var(--hairline); border-radius: var(--radius-control);
+  background: var(--surface); color: var(--ink);
+  font: 500 var(--text-sm)/1 var(--font-sans); text-decoration: none; cursor: pointer;
+  box-shadow: 0 1px 2px rgb(16 24 40 / 0.05);
+}
+.btn-outline:hover { background: var(--board); border-color: var(--line-strong); }
+.btn-outline:active { background: var(--track); box-shadow: none; transform: scale(0.98); }
+.btn-outline:disabled, .btn-primary:disabled { opacity: 0.6; cursor: wait; }
+
+/* Theme-aware screenshot swap */
+:root[data-theme="dark"] .shot-light { display: none; }
+:root:not([data-theme="dark"]) .shot-dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .shot-light { display: none; }
+  :root:not([data-theme]) .shot-dark { display: block; }
+}
+
+/* Walkthrough video card + chapters */
+.walk-video { display: block; width: 100%; border-radius: var(--radius-control); background: #0e1013; aspect-ratio: 16 / 10; }
+.chapters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 16px; list-style: none; }
+.chapters button {
+  display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 8px 12px;
+  border: 1px solid var(--hairline); border-radius: var(--radius-control);
+  background: var(--board); color: var(--ink); text-align: left; cursor: pointer;
+  font: 400 var(--text-sm)/var(--text-sm-lh) var(--font-sans);
+}
+.chapters button:hover { background: var(--track); border-color: var(--line-strong); }
+.chapters button:active { transform: scale(0.99); }
+.chapters button.on { background: var(--blue-soft); border-color: var(--blue); font-weight: 500; }
+.chapters .ct { flex: none; padding: 2px 6px; border-radius: var(--radius-chip); background: var(--surface); border: 1px solid var(--hairline); color: var(--ink-2); font: 400 var(--text-xs)/1.2 var(--font-mono); }
+.chapters button.on .ct { color: var(--ink); border-color: var(--blue); }
+
+/* Interactive schematic card (contrast-safe at rest: no low-opacity text) */
+.sim-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 16px; padding-bottom: 16px; border-bottom: 1px solid var(--hairline); }
+.sim-head__copy { min-width: 0; flex: 1 1 280px; }
+.sim-head__title { display: block; color: var(--ink); font: 600 var(--text-base)/var(--text-base-lh) var(--font-sans); }
+.sim-head__sub { display: block; margin-top: 4px; color: var(--ink-2); font: 400 var(--text-sm)/var(--text-sm-lh) var(--font-sans); }
+.sim-steps { display: grid; gap: 8px; margin-top: 16px; list-style: none; }
+.sim-step {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px; align-items: start;
+  padding: 12px 14px; border: 1px solid var(--hairline); border-radius: var(--radius-control); background: var(--board);
+  transition: border-color var(--dur-swap) var(--ease-house), background-color var(--dur-swap) var(--ease-house);
+}
+.sim-step.on { border-color: var(--blue); background: var(--blue-soft); }
+.sim-step__num {
+  display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px;
+  border: 1px solid var(--line-strong); border-radius: 999px; background: var(--surface);
+  color: var(--ink-2); font: 500 var(--text-xs)/1 var(--font-mono);
+}
+.sim-step.on .sim-step__num { border-color: var(--blue); background: var(--blue); color: var(--blue-fg); }
+.sim-step p { color: var(--ink-2); font: 400 var(--text-sm)/var(--text-sm-lh) var(--font-sans); }
+.sim-step p b { color: var(--ink); font-weight: 500; }
+.sim-verdict { margin-top: 12px; min-height: 20px; color: var(--ink); font: 400 var(--text-xs)/var(--text-xs-lh) var(--font-mono); }
+.sim-rows { display: grid; gap: 8px; margin-top: 16px; }
+.sim-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding: 12px 14px; border: 1px solid var(--hairline); border-radius: var(--radius-control); background: var(--board); }
+.sim-row__task { color: var(--ink); font: 500 var(--text-sm)/var(--text-sm-lh) var(--font-sans); }
+.sim-row__agent { color: var(--ink-2); font: 400 var(--text-xs)/var(--text-xs-lh) var(--font-mono); }
+.sim-row__state { padding: 4px 10px; border-radius: 999px; background: var(--track); color: var(--ink); font: 400 var(--text-xs)/var(--text-xs-lh) var(--font-mono); }
+.sim-row--ok .sim-row__state { background: var(--ok-wash); color: var(--ok-ink); }
+.sim-row--warn .sim-row__state { background: var(--warn-wash); color: var(--warn-ink); }
+
+/* Record table inside prose */
+.record-table { width: 100%; margin-top: 12px; border-collapse: collapse; border-top: 1px solid var(--hairline); }
+.record-table th, .record-table td { padding: 12px 8px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--hairline); font: 400 var(--text-sm)/var(--text-sm-lh) var(--font-sans); }
+.record-table th { width: 32%; color: var(--ink); font-weight: 500; padding-left: 0; }
+.record-table td { color: var(--ink-2); padding-right: 0; overflow-wrap: anywhere; }
+.record-table td b { color: var(--ink); font-weight: 500; }
+
+/* Capability 3-card grid */
+.cap-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 12px; }
+.cap-card { display: grid; align-content: start; gap: 8px; padding: 16px; border: 1px solid var(--hairline); border-radius: var(--radius-card); background: var(--surface); }
+.cap-card__tag { width: fit-content; padding: 2px 8px; border-radius: var(--radius-chip); background: var(--track); color: var(--ink-2); font: 400 var(--text-xs)/var(--text-xs-lh) var(--font-mono); }
+.cap-card h3 { color: var(--ink); font: 600 var(--text-ui)/var(--text-ui-lh) var(--font-sans); }
+.cap-card p { color: var(--ink-2); font: 400 var(--text-sm)/var(--text-sm-lh) var(--font-sans); }
+
+@media (max-width: 899px) {
+  .cap-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 639px) {
+  .chapters { grid-template-columns: minmax(0, 1fr); }
+  .record-table, .record-table tbody, .record-table tr, .record-table th, .record-table td { display: block; width: 100%; }
+  .record-table tr { padding: 12px 0; border-bottom: 1px solid var(--hairline); }
+  .record-table th, .record-table td { padding: 2px 0; border-bottom: 0; }
+}

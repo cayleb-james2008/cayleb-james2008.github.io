@@ -113,7 +113,7 @@ record. Where nothing was changed, the reason is given instead.
 - **A chosen lab row's number was 4.36:1** — `runs/gate-pages-p2-1.txt` FAIL PG3, `span "01" 4.36 <
   4.5` at 1440 and 390 light; fixed and re-measured: `runs/gate-pages-p2-2.txt` PASS with 5,570 text
   elements measured over 19 pages x 2 widths x 2 themes.
-- **The OpenBell chart ticks** — an earlier rule meant to move the chart ticks matched nothing in
+- **The subpage chart ticks** — an earlier rule meant to move the chart ticks matched nothing in
   Recharts' structure; the replacement is measured: overlapping label pairs 2 / 1 / 1 before, 0 / 0 / 0
   after (report.md, "Polish passes — how they ran").
 - **A take's clock** — one take's clock search mistook the PDF viewer's 1.5 s black opening for the

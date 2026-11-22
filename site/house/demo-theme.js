@@ -1,4 +1,4 @@
-/* The theme of the three demo apps (Ergon, DSH Fleet, OpenBell), the same rule as the résumé page: light by default, dark when the system asks.
+/* The theme of the three demo apps (Ergon, Open-Ro, DSH Fleet), the same rule as the résumé page: light by default, dark when the system asks.
    Inside the résumé page's frame the app follows that page's switch (the frame is the same origin, so it can read the page's data-theme and watch it);
    opened on its own it uses the choice kept by the site's switch (localStorage key "theme") and otherwise the system scheme, live.
    A blocking script in <head>, so the app is painted in its theme the first time. */
@@ -11,7 +11,11 @@
   try { if (window.parent && window.parent !== window) host = window.parent.document.documentElement; } catch (e) { /* another origin: follow the system */ }
   var stored = function () { try { var t = localStorage.getItem("theme"); return t === "dark" || t === "light" ? t : null; } catch (e) { return null; } };
   var pick = function () { var t = host && host.getAttribute("data-theme"); return t === "dark" || t === "light" ? t : stored() || system(); };
-  var apply = function () { root.setAttribute("data-theme", pick()); };
+  var apply = function () {
+    var t = pick();
+    root.setAttribute("data-theme", t);
+    root.classList.toggle("dark", t === "dark");
+  };
   apply();
   if (host && window.MutationObserver) new MutationObserver(apply).observe(host, { attributes: true, attributeFilter: ["data-theme"] });
   if (mq && mq.addEventListener) mq.addEventListener("change", apply);

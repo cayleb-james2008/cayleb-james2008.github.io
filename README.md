@@ -7,21 +7,22 @@ This is the interactive edition of Cayleb Alvarez-James's résumé. The plain PD
 
 ## What is here
 
-- The record: summary, experience, flagship projects, supporting projects, skills, additional
-  experience, education — all content locked to the résumé.
-- Three captures of the current builds, embedded in the page (`/assets/projects/captures/*-rs-*.png`),
-  taken from the apps themselves running locally on 18 November 2026, each with its provenance
-  stated beside it: what is shown, what is fixture, and why it is here. The current builds are
-  native apps and are not served from this site. The interactive demos of the retired builds
-  that used to be served from `/demos/` were removed in the capture pass.
-- Vendored parts, their sources and licences: `app/STACK.lock.md` and `app/THIRD-PARTY-LICENSES/`; fonts: Geist and
-  Geist Mono (SIL OFL), in `app/public/fonts/`. Square UI is a grammar reference only; no Square UI artwork ships.
+- **The record** (`/`): summary, stated test-count ledger, experience, selected projects, skills, additional experience, and education — locked to the submission PDF.
+- **Three flagship product pages & interactive fixture demos**:
+  - **Ergon v0.3.0** (`/projects/ergon.html`, live demo at `/demos/ergon/`, source at `github.com/cayleb-james2008/ergon`)
+  - **Open-Ro Studio v0.3.0** (`/projects/openro.html`, live demo at `/demos/open-ro/`, source at `github.com/cayleb-james2008/open-ro`)
+  - **DSH Fleet v0.3.0** (`/projects/dsh-fleet.html`, live demo at `/demos/dsh-fleet/`, source at `github.com/cayleb-james2008/dsh-fleet`)
+  Each live demo runs the v0.3.0 House Frontend UI against self-contained in-browser fixture data (`fixture demo` pill visible in frame, zero third-party network calls), paired with full-resolution v0.3.0 light and dark captures in `/assets/projects/captures/`.
+- **Fourteen supporting project case studies & the Industry AI Suite Workbench** (`/projects/*.html`, `/lab/`, `/resume.html`): styled in the same House Frontend token system (`site/house/tokens.css`, `base.css`, `project.css`).
+- **Vendored parts, their sources and licences**: `app/STACK.lock.md`, `app/THIRD-PARTY-LICENSES/`, and `vendor/`; fonts: Geist and Geist Mono (SIL OFL) in `/fonts/` and `app/public/fonts/`. Square UI is a grammar reference only; no Square UI artwork ships.
 
-## Build
+## Build & Verification
 
-The apex page (`index.html` and `assets/index-*`) is built from `app/`: Vite 8, React 19, TypeScript and Tailwind 4,
-made with the house-frontend method. `app/JOB.md` says what the page is for, `app/ROLE-COVERAGE.md` which library part
-serves each need, and `app/ALIVE.md` what answers each control. To rebuild: `cd app && npm ci && npm run build`, then copy
-`dist/index.html` to the repo root and `dist/assets/index-*` to `assets/` (Pages serves this root). `node
-scripts/render-check.mjs` in `app/` is the closing check. Every asset is static; there are no network calls at runtime and
-no analytics.
+Everything lives on `main` as a single unified source-and-Pages repository:
+
+```bash
+cd app && npm ci && npm run build          # tsc -b && vite build → updates root index.html + assets/index-* AND stages app/dist/
+node scripts/render-check.mjs              # House Frontend gate (1440/390 light/dark + reduced-motion, contrast, spacing, inert sweep)
+```
+
+Every asset is static; there are zero runtime third-party network calls and no analytics.

@@ -1,293 +1,265 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ergon — Cayleb Alvarez-James</title>
-<meta name="description" content="An AI agent for every employee — personal to each person, it learns how they work and finishes their digital work autonomously, end to end.">
-<script>
-/* Theme before first paint: dark by default until the person chooses; the choice is kept in
-   localStorage, key "theme" — the same key the home page reads, so one choice covers the site. */
-try{var t=null;try{t=localStorage.getItem("theme");}catch(e){}
-if(t!=="light"&&t!=="dark")t="dark";document.documentElement.setAttribute("data-theme",t);
-}catch(e){document.documentElement.setAttribute("data-theme","dark");}
-</script>
-<style>:root{--accent:#d99a3d;}[data-theme="light"]{--accent:#8a5a10;}
-@font-face { font-family:"Fraunces"; src:url("../assets/editorial/fonts/fraunces-normal-500.woff2") format("woff2"); font-weight:100 900; font-display:swap; }
-@font-face { font-family:"Fraunces"; src:url("../assets/editorial/fonts/fraunces-italic-500.woff2") format("woff2"); font-weight:100 900; font-style:italic; font-display:swap; }
-@font-face { font-family:"Archivo"; src:url("../assets/editorial/fonts/archivo-400.woff2") format("woff2"); font-weight:400; font-display:swap; }
-@font-face { font-family:"Archivo"; src:url("../assets/editorial/fonts/archivo-500.woff2") format("woff2"); font-weight:500; font-display:swap; }
-@font-face { font-family:"Archivo"; src:url("../assets/editorial/fonts/archivo-600.woff2") format("woff2"); font-weight:600; font-display:swap; }
-@font-face { font-family:"Plex Mono"; src:url("../assets/editorial/fonts/ibm-plex-mono-400.woff2") format("woff2"); font-weight:400; font-display:swap; }
-
-:root{
-  color-scheme:dark;
-  --paper:#161310; --paper2:#1e1a15; --panel:#221e17; --ink:#f0e9da; --muted:#b6ab94; --faint:#968a70;
-  --rule:#3a342a; --rule-dark:#0c0a08; --frame:#0d0b09;
-  --ok:#9fc97f; --miss:#e0a458; --sel:#14100a;
-  --serif:"Fraunces",Georgia,serif; --sans:"Archivo",system-ui,sans-serif; --mono:"Plex Mono",ui-monospace,monospace;
-}
-[data-theme="light"]{
-  color-scheme:light;
-  --paper:#f3eddc; --paper2:#eae1c9; --panel:#faf6ea; --ink:#221a0e; --muted:#5c4c2c; --faint:#6d5c39;
-  --rule:#c8b995; --rule-dark:#a5936e;
-  --ok:#3d6b1f; --miss:#8f5410; --sel:#f7f2e4;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:17.5px; line-height:1.6; -webkit-font-smoothing:antialiased}
-::selection{background:var(--accent); color:var(--sel)}
-a{color:var(--accent)}
-:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
-.skip-link{position:fixed; left:16px; top:-60px; z-index:70; background:var(--ink); color:var(--paper); padding:.55rem 1rem; border-radius:99px; font-weight:600; text-decoration:none; transition:top .2s}
-.skip-link:focus{top:14px}
-.progress{position:fixed; top:0; left:0; right:0; height:3px; z-index:60}
-.progress i{display:block; height:100%; background:var(--accent); transform-origin:left; transform:scaleX(var(--p,0))}
-
-.wrap{width:min(1180px,100% - 2.5rem); margin:0 auto}
-.narrow{width:min(760px,100% - 2.5rem); margin:0 auto}
-
-/* masthead */
-.masthead{border-bottom:3px double var(--rule); padding:1.1rem 0 .9rem; display:flex; align-items:baseline; gap:1.2rem; flex-wrap:wrap}
-.masthead .wm{font-family:var(--serif); font-weight:900; font-size:1.35rem; color:var(--ink); text-decoration:none; letter-spacing:-.01em}
-.masthead .wm i{color:var(--accent); font-style:normal}
-.masthead .issue{color:var(--muted); font-size:.85rem}
-.masthead nav{margin-left:auto; display:flex; gap:1.3rem; font-size:.88rem}
-.masthead nav a{color:var(--muted); text-decoration:none}
-.masthead nav a:hover{color:var(--ink)}
-
-/* hero */
-.hero{padding:3.2rem 0 1.4rem}
-.kicker{font-family:var(--mono); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent)}
-.hero h1{font-family:var(--serif); font-weight:900; font-size:clamp(2.6rem,6vw,4.4rem); line-height:1.02; letter-spacing:-.015em; margin:.55rem 0 .8rem}
-.hero .lead{font-size:clamp(1.15rem,2.4vw,1.45rem); line-height:1.45; color:var(--ink); max-width:34em}
-.checked{margin-top:1.4rem; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:.7rem 0; display:flex; gap:2rem; flex-wrap:wrap; font-size:.9rem; color:var(--muted)}
-.checked b{color:var(--ink); font-weight:600}
-.checked span b{margin-right:.4rem}
-
-/* sections */
-section{padding:2.6rem 0}
-.sec-label{font-family:var(--mono); font-size:.75rem; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-bottom:1.1rem; display:flex; align-items:center; gap:.8rem}
-.sec-label::after{content:""; flex:1; height:1px; background:var(--rule)}
-h2{font-family:var(--serif); font-weight:700; font-size:clamp(1.5rem,3vw,2rem); line-height:1.15; margin-bottom:.6rem}
-p.plain{color:var(--muted); max-width:38em}
-p.plain b, li b{color:var(--ink)}
-
-/* three plain blocks */
-.blocks{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
-.block{background:var(--panel); border:1px solid var(--rule); border-radius:12px; padding:1.2rem 1.15rem}
-.block .n{font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; color:var(--accent); text-transform:uppercase}
-.block h3{font-family:var(--serif); font-size:1.22rem; font-weight:700; margin:.45rem 0 .4rem; line-height:1.2}
-.block p{color:var(--muted); font-size:.99rem; line-height:1.55}
-.note{margin-top:1rem; color:var(--muted); font-size:.95rem}
-.note b{color:var(--ink)}
-
-/* data table */
-table.data{width:100%; border-collapse:collapse; font-size:1rem}
-table.data th, table.data td{padding:.75rem .6rem; text-align:left; border-bottom:1px solid var(--rule); vertical-align:top}
-table.data th{font-weight:600; color:var(--ink); width:42%}
-table.data td{color:var(--muted)}
-table.data td b{color:var(--ink)}
-table.data tr:last-child th, table.data tr:last-child td{border-bottom:none}
-table.data .ok{color:var(--ok); font-weight:600}
-table.data .miss{color:var(--miss); font-weight:600}
-
-/* status */
-.status p{color:var(--muted); max-width:40em; margin-bottom:.7rem}
-.status p b{color:var(--ink)}
-
-/* mini demo */
-.demo{background:var(--paper2); border:1px solid var(--rule); border-radius:14px; padding:1.1rem}
-.demo-head{display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:1rem}
-.demo-head .t{font-family:var(--serif); font-weight:700; font-size:1.15rem}
-.demo-head .s{color:var(--muted); font-size:.9rem}
-.demo-btn{margin-left:auto; border:1px solid var(--ink); background:var(--ink); color:var(--paper); border-radius:99px; padding:.5rem 1.1rem; font:inherit; font-size:.92rem; font-weight:600; cursor:pointer}
-.gate-flow{display:flex; flex-direction:column; gap:.55rem}
-.gate-step{display:flex; gap:.8rem; align-items:flex-start; background:var(--panel); border:1px solid var(--rule); border-radius:10px; padding:.75rem .9rem; opacity:.35; transform:translateY(6px); transition:opacity .45s, transform .45s}
-.gate-step.on{opacity:1; transform:none}
-.gate-step svg{width:19px; height:19px; flex:none; margin-top:.15rem; color:var(--accent)}
-.gate-step p{color:var(--muted); font-size:.97rem}
-.gate-step p b{color:var(--ink)}
-.gate-verdict{font-family:var(--mono); font-size:.8rem; letter-spacing:.08em; margin-top:.7rem; min-height:1.2em; color:var(--ink)}
-
-/* walkthrough video */
-.walk{background:var(--paper2); border:1px solid var(--rule); border-radius:14px; padding:1.1rem}
-.walk video{width:100%; display:block; border-radius:10px; background:#000; aspect-ratio:8/5}
-.chapters{list-style:none; margin-top:1rem; display:grid; grid-template-columns:1fr 1fr; gap:.4rem}
-.chapters button{display:flex; gap:.7rem; align-items:baseline; width:100%; text-align:left; font:inherit; font-size:.95rem; color:var(--muted); background:var(--panel); border:1px solid var(--rule); border-radius:9px; padding:.55rem .8rem; cursor:pointer; transition:color .2s,border-color .2s}
-.chapters button:hover{color:var(--ink)}
-.chapters button.on{color:var(--ink); border-color:var(--accent)}
-.chapters .ct{font-family:var(--mono); font-size:.78rem; color:var(--accent); flex:none}
-.walk-note{margin-top:1rem; color:var(--muted); font-size:.95rem; max-width:44em}
-.walk-note b{color:var(--ink)}
-@media (max-width:760px){ .chapters{grid-template-columns:1fr} }
-
-/* footer */
-.subfoot{border-top:3px double var(--rule); padding:1.6rem 0 2.6rem; display:flex; gap:1.6rem; flex-wrap:wrap; align-items:center; font-size:.95rem}
-.subfoot a{text-decoration:none; font-weight:600}
-.subfoot .back{color:var(--muted); font-weight:400}
-.settings{margin-left:auto; display:flex; align-items:center; gap:.5rem; font-size:.85rem; color:var(--faint)}
-.settings .set-label{font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase}
-.theme-btn{font:inherit; font-size:.85rem; background:none; border:1px solid var(--rule); color:var(--muted); border-radius:99px; padding:.28rem .8rem; cursor:pointer; transition:color .2s,border-color .2s,background .2s}
-.theme-btn:hover{color:var(--ink)}
-.theme-btn[aria-pressed="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
-
-/* scroll animation */
-[data-anim]{opacity:0}
-[data-anim="up"]{transform:translateY(26px)}
-[data-anim="left"]{transform:translateX(-26px)}
-[data-anim="zoom"]{transform:scale(.965)}
-[data-anim].in{opacity:1; transform:none; transition:opacity .8s cubic-bezier(.22,.8,.3,1), transform .8s cubic-bezier(.22,.8,.3,1)}
-[data-anim].in.d1{transition-delay:.1s} [data-anim].in.d2{transition-delay:.22s} [data-anim].in.d3{transition-delay:.34s}
-.shots [data-anim]{opacity:1 !important; transform:none !important; transition:none !important}
-@media (prefers-reduced-motion: reduce){
-  [data-anim]{opacity:1; transform:none; transition:none}
-  html{scroll-behavior:auto}
-}
-
-@media (max-width:760px){
-  .blocks{grid-template-columns:1fr}
-  .checked{gap:.9rem}
-  table.data th{width:48%}
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ergon — Cayleb Alvarez-James</title>
+  <meta name="description" content="Ergon v0.3.0: personal employee agent desk in a single Rust + Rune binary on the House Frontend system — Chat, Today brief & decisions queue, Work Graph, and shared Rune skill library.">
+  <link rel="canonical" href="https://cayleb-james2008.github.io/projects/ergon.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cayleb Alvarez-James">
+  <meta property="og:title" content="Ergon — Cayleb Alvarez-James">
+  <meta property="og:description" content="Personal AI agent desk for every employee — single Rust binary, Rune skill suite, and House Frontend UI (v0.3.0).">
+  <meta property="og:url" content="https://cayleb-james2008.github.io/projects/ergon.html">
+  <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f2f5">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e1013">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <script src="../site/house/theme.js"></script>
+  <script src="../site/house/pages.js" defer></script>
+  <link rel="stylesheet" href="../site/house/tokens.css">
+  <link rel="stylesheet" href="../site/house/base.css">
+  <link rel="stylesheet" href="../site/house/project.css">
 </head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-<div class="progress" aria-hidden="true"><i></i></div>
-<header class="wrap masthead">
-  <a class="wm" href="../index.html">Cayleb<i>.</i>AJ</a>
-  <span class="issue">The product pages — plain edition</span>
-  <nav><a href="index.html">Projects</a><a href="../resume.html">Résumé</a></nav>
-</header>
-<main id="main" class="wrap">
-  <div class="hero">
-    <p class="kicker" data-anim="up">Ergon — an AI agent for every employee</p>
-    <h1 data-anim="up">Every employee gets an agent.</h1>
-    <p class="lead" data-anim="up">A personal agent for each person, carrying a suite of skills, subagents and apps drawn from one shared company library. It learns how they work, takes a task in plain words, and brings it back finished — documents written, spreadsheets built, research done. No approval ceremony in the middle.</p>
-    <div class="checked" data-anim="up"><span><b>Status —</b>built, verified end to end</span><span><b>Tests —</b>65 of 65 passing</span><span><b>Sealed exam —</b>31 of 31</span><span><b>Customers —</b>none yet</span></div>
-  </div>
+<body class="project-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="sub-masthead">
+    <a class="sub-wordmark" href="../index.html" aria-label="Cayleb Alvarez-James, home">Cayleb<span class="wm-dot">.</span>AJ</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="../index.html#summary">Résumé</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#live-demos">Live demos</a></li>
+      </ul>
+    </nav>
+    <a class="sub-resume" href="../Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf" download>Résumé PDF</a>
+  </header>
 
-  <section aria-label="How a task runs">
-    <p class="sec-label" data-anim="left">How a task runs — the build's own end-to-end test, step for step</p>
-    <div class="demo" data-anim="zoom">
-      <div class="demo-head"><span class="t">“Tidy my notes into one summary.”</span><span class="s">Schematic — the steps below are the exact tool calls the test suite drives and asserts.</span><button class="demo-btn" id="gate-run" type="button">Run it</button></div>
-      <div class="gate-flow" id="gate">
-        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg><p><b>Look first.</b> The agent lists the person's workspace and reads the two messy note files it finds there — nothing outside that workspace is reachable.</p></div>
-        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z M15 3v4h4" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg><p><b>Write the document.</b> A Rune skill formats the merged notes and writes <b>Summary.md</b> into the workspace.</p></div>
-        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21C7 17.5 4 14 4 9.8 4 6.9 6.2 5 8.7 5c1.3 0 2.6.6 3.3 1.5C12.7 5.6 14 5 15.3 5 17.8 5 20 6.9 20 9.8c0 4.2-3 7.7-8 11.2z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg><p><b>Learn from it.</b> The agent updates its memory of this person — a preference spotted in the notes is kept, and it shapes the next task.</p></div>
-        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>Finish, and prove it.</b> The summary names the file it wrote. Ergon checks that claim against the files the run actually wrote — a claim that doesn't match stays visible in the thread.</p></div>
+  <main id="main">
+    <header class="project-hero">
+      <div class="wrap project-hero__main">
+        <a class="project-back" href="./">← All project pages</a>
+        <p class="case-hero__meta">Flagship v0.3.0 · Rust + Rune + House Frontend · checked 21 November 2026</p>
+        <h1 class="case-hero__title">Every employee gets an agent.</h1>
+        <p class="case-hero__out">Ergon is a personal AI agent desk for each employee, served from one Rust binary with a shared Rune skill library. It learns how a person works, takes tasks in plain words, and brings back finished documents, spreadsheets and summaries — parking only destructive actions in Today for explicit sign-off.</p>
+        <ul class="project-status" aria-label="Verification">
+          <li><span class="checked-dot" aria-hidden="true"></span>v0.3.0 single-binary build · 101/101 Rust &amp; .loop/verify tests · 52/52 UI gate &amp; 80/80 replay · zero customers yet.</li>
+          <li><span class="chip chip--current">v0.3.0 public</span></li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn-primary" href="../demos/ergon/">Launch interactive fixture demo ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/ergon" target="_blank" rel="noreferrer noopener">Source on GitHub ↗</a>
+        </div>
       </div>
-      <p class="gate-verdict" id="gate-verdict" aria-live="polite"></p>
+    </header>
+
+    <div class="wrap project-top">
+      <nav class="project-index" aria-label="On this page">
+        <a href="#figures">interface &amp; walkthrough</a>
+        <a href="#schematic">how a task runs</a>
+        <a href="#capabilities">what it does</a>
+        <a href="#record">verification record</a>
+        <a href="#limits">honest boundaries</a>
+      </nav>
+
+      <section class="project-figures" id="figures" aria-labelledby="figures-h">
+        <h2 class="vis-kicker" id="figures-h">v0.3.0 interface &amp; recorded walkthrough</h2>
+        <div class="figure-grid">
+          <figure class="viz viz--shot">
+            <div class="viz__head viz__head--shot">
+              <span class="viz__title">Ergon v0.3.0 — Personal Employee Agent Desk</span>
+              <span class="viz__live">example fixture</span>
+              <span class="viz__note">House Frontend · switches with page theme</span>
+            </div>
+            <div class="viz__media">
+              <a class="shot-light" href="../assets/projects/captures/ergon-v030-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Ergon v0.3.0">
+                <img src="../assets/projects/captures/ergon-v030-light.png" alt="Ergon v0.3.0 desk in the light House Frontend theme: left conversation rail with memory and Rune skill suite triggers, Chat · Today · Work Graph tabs, and field-book task entries badged fixture demo." width="1440" height="900" loading="eager" decoding="async">
+              </a>
+              <a class="shot-dark" href="../assets/projects/captures/ergon-v030-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Ergon v0.3.0">
+                <img src="../assets/projects/captures/ergon-v030-dark.png" alt="Ergon v0.3.0 desk in the dark House Frontend theme: left conversation rail, Chat · Today · Work Graph tabs, and field-book task entries badged fixture demo." width="1440" height="900" loading="eager" decoding="async">
+              </a>
+            </div>
+            <figcaption class="viz__cap">
+              <p class="viz__caption">Captured directly from the Ergon v0.3.0 build at 1440×900 in both House Frontend themes. Tasks and files shown in the capture are seeded fixture work against a scripted local test model and carry an in-frame fixture badge.</p>
+              <p class="viz__source">Source: cayleb-james2008/ergon v0.3.0 · interactive build available at /demos/ergon/</p>
+              <p class="viz__action">
+                <a class="viz__open" href="../demos/ergon/">open interactive fixture demo ↗</a>
+              </p>
+            </figcaption>
+          </figure>
+
+          <figure class="viz" id="schematic">
+            <div class="viz__body">
+              <div class="sim-head">
+                <div class="sim-head__copy">
+                  <span class="sim-head__title">“Tidy my notes into one summary.”</span>
+                  <span class="sim-head__sub">Step-by-step schematic of the exact tool sequence driven and asserted by Ergon’s integration suite.</span>
+                </div>
+                <button class="btn-outline" id="gate-run" type="button">Step through run</button>
+              </div>
+              <ol class="sim-steps" id="gate">
+                <li class="sim-step"><span class="sim-step__num">01</span><p><b>List and read inside the sandbox.</b> The agent inspects its person’s workspace and reads the two note files there; paths outside that workspace are refused by the host layer.</p></li>
+                <li class="sim-step"><span class="sim-step__num">02</span><p><b>Format via a Rune skill.</b> A compiled Rune skill structures the merged notes and writes <b>Summary.md</b> into the employee’s workspace.</p></li>
+                <li class="sim-step"><span class="sim-step__num">03</span><p><b>Update per-person memory.</b> Formatting preferences spotted in the notes are recorded in the employee’s memory store so future runs follow them automatically.</p></li>
+                <li class="sim-step"><span class="sim-step__num">04</span><p><b>Verify completion against disk writes.</b> Ergon checks the agent’s summary claims against the files the run actually wrote before displaying the field-book result card.</p></li>
+              </ol>
+              <p class="sim-verdict" id="gate-verdict" aria-live="polite">Ready — press “Step through run” to trace each verified stage.</p>
+            </div>
+          </figure>
+
+          <figure class="viz">
+            <div class="viz__body">
+              <div class="viz__head">
+                <span class="viz__title">Recorded end-to-end walkthrough</span>
+                <span class="viz__note">real binary + Remotion chapter package</span>
+              </div>
+              <div style="margin-top:16px">
+                <video class="walk-video" controls preload="metadata" playsinline poster="../assets/video/ergon-poster.jpg" src="../assets/video/ergon.mp4">
+                  <track kind="chapters" label="Chapters" srclang="en" default src="../assets/video/ergon-chapters.vtt">
+                </video>
+                <ol class="chapters">
+                  <li><button type="button" data-t="5.80"><span class="ct">0:05</span>Meet your agent</button></li>
+                  <li><button type="button" data-t="12.41"><span class="ct">0:12</span>Give it a task — finishes end to end</button></li>
+                  <li><button type="button" data-t="18.33"><span class="ct">0:18</span>Spots recurring work</button></li>
+                  <li><button type="button" data-t="29.57"><span class="ct">0:29</span>One tap makes it a repeatable offer</button></li>
+                  <li><button type="button" data-t="37.14"><span class="ct">0:37</span>A deletion parks in Today</button></li>
+                  <li><button type="button" data-t="44.00"><span class="ct">0:44</span>Approve it — executed as approved</button></li>
+                  <li><button type="button" data-t="50.24"><span class="ct">0:50</span>The morning brief</button></li>
+                  <li><button type="button" data-t="55.24"><span class="ct">0:55</span>Responsive mobile view</button></li>
+                </ol>
+              </div>
+            </div>
+            <figcaption class="viz__cap">
+              <p class="viz__caption">Recorded on the completed Rust + Rune build against a scripted test model (no live API key in the test harness); every tool call, file write, approval hold and memory update is Ergon’s own execution.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
     </div>
-  </section>
 
-  <section aria-label="Watch it work">
-    <p class="sec-label" data-anim="left">Watch it work — the full run, recorded on the real app</p>
-    <div class="walk" data-anim="zoom">
-      <video controls preload="metadata" playsinline poster="../assets/video/ergon-poster.jpg" src="../assets/video/ergon.mp4">
-        <track kind="chapters" label="Chapters" srclang="en" default src="../assets/video/ergon-chapters.vtt">
-      </video>
-      <ol class="chapters">
-        <li><button type="button" data-t="5.80"><span class="ct">0:05</span>Meet your agent</button></li>
-        <li><button type="button" data-t="12.41"><span class="ct">0:12</span>Give it a task — it finishes on its own</button></li>
-        <li><button type="button" data-t="18.33"><span class="ct">0:18</span>It spots the repeat</button></li>
-        <li><button type="button" data-t="29.57"><span class="ct">0:29</span>One tap makes it an app</button></li>
-        <li><button type="button" data-t="37.14"><span class="ct">0:37</span>A deletion waits for you</button></li>
-        <li><button type="button" data-t="44.00"><span class="ct">0:44</span>Approve it — done exactly as approved</button></li>
-        <li><button type="button" data-t="50.24"><span class="ct">0:50</span>The morning brief</button></li>
-        <li><button type="button" data-t="55.24"><span class="ct">0:55</span>The same agent, on the phone</button></li>
-      </ol>
-      <p class="walk-note"><b>What you are watching:</b> the real Ergon app, recorded in the build environment — the completed build: the shared library, the suites drawn from it, the offers, the decisions inbox, the three faces and the phone app are all what you see. The answers come from a scripted test model — no live model key exists in that environment — but every tool call, file written and memory update on screen is Ergon's own work, start to finish. This cut wraps the same unedited capture in a graphics package composed with Remotion — an animated title, a flow diagram and chapter graphics.</p>
+    <div class="wrap project-layout">
+      <article class="project-content">
+        <div class="project-prose">
+          <section id="capabilities">
+            <h2>What it does</h2>
+            <div class="project-prose__body">
+              <p>Ergon ships as one self-contained Rust executable embedding the House Frontend desk UI, the agent loop, workspace-sandboxed file and document tools, per-person persistent state, and the Rune skill runtime.</p>
+              <div class="cap-grid">
+                <div class="cap-card">
+                  <span class="cap-card__tag">01 · Per-employee desk</span>
+                  <h3>Personal memory &amp; suite</h3>
+                  <p>Each employee gets an isolated workspace, learned memory, conversation history, and a role-tailored skill suite drawn from one shared company Rune library.</p>
+                </div>
+                <div class="cap-card">
+                  <span class="cap-card__tag">02 · Field-book execution</span>
+                  <h3>Finishes digital work</h3>
+                  <p>Reads files, drafts documents and spreadsheets, delegates to specialist subagents, and proposes repeatable capabilities when it detects recurring tasks.</p>
+                </div>
+                <div class="cap-card">
+                  <span class="cap-card__tag">03 · Today &amp; Work Graph</span>
+                  <h3>Holds only where needed</h3>
+                  <p>Routine work finishes without friction; file deletions and sensitive actions park in Today’s approval queue with explicit consequence copy and full audit trails.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="record">
+            <h2>Verification record</h2>
+            <div class="project-prose__body">
+              <p>Every capability on this page is backed by automated Rust tests, black-box binary checks, and headless Chromium UI and worst-case data gates in <code>cayleb-james2008/ergon</code>.</p>
+              <table class="record-table">
+                <tbody>
+                  <tr><th>Rust &amp; .loop/verify suite</th><td><b>101 of 101 passing</b> (17 unit + 84 E2E) — agent loop, workspace path-escape guards, session isolation, persistence, write-claim honesty checks, shared Rune library &amp; suites, decisions gate, proactive offers, and concurrent writers.</td></tr>
+                  <tr><th>UI &amp; worst-case replay</th><td><b>52 of 52</b> Playwright UI gate checks, <b>6 of 6</b> Work Graph SVG label probes, <b>20 of 20</b> built-in replays, and <b>80 of 80</b> worst-case API resilience cases passing.</td></tr>
+                  <tr><th>House Frontend UI</th><td><b>v0.3.0</b> — Chat, Today (morning brief, Tremor task-outcome tracker, Waiting-on-you approvals, agent offers) and responsive SVG Work Graph, verified at 320/390/768/1440px in Light and Dark themes.</td></tr>
+                  <tr><th>Rune skill library</th><td>Ownership-checked, compile-gated Rune scripts acting strictly through registered host functions.</td></tr>
+                  <tr><th>Packaging</th><td>Single Rust binary + <code>install.sh</code> launcher and user service template; forged session cookies are replaced rather than trusted.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <section class="project-limits" id="limits" aria-labelledby="limits-h">
+          <h2 id="limits-h">what is not verified</h2>
+          <ul>
+            <li><b>No customer deployment yet:</b> Ergon is in development and is not deployed at any live company today; no customer, pricing or revenue claims exist.</li>
+            <li><b>Model connection in automated checks:</b> the OpenAI-compatible HTTP client is real production code, while CI and fixture captures drive it against a deterministic scripted test model because no live provider key is stored in the test environment; with no key configured, Ergon states that plainly and refuses to fabricate output.</li>
+          </ul>
+        </section>
+      </article>
+
+      <aside class="project-aside">
+        <h2>Evidence</h2>
+        <dl class="repo-facts">
+          <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/ergon">cayleb-james2008/ergon</a> <span>(public)</span></dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.3.0</b> · Rust + Rune</dd></div>
+          <div class="repo-facts__row"><dt>checked</dt><dd>21 Nov 2026</dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.3.0</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/ergon/">Fixture demo</a> · <a href="https://github.com/cayleb-james2008/ergon">GitHub</a> · <a href="https://github.com/cayleb-james2008/ergon/releases">Releases</a></dd></div>
+        </dl>
+        <p class="project-aside__more"><a href="../index.html">← Back to the interactive résumé</a></p>
+      </aside>
     </div>
-  </section>
+  </main>
 
-  <section aria-label="What it does">
-    <p class="sec-label" data-anim="left">What it does</p>
-    <div class="blocks">
-      <div class="block" data-anim="up"><p class="n">One</p><h3>Each person gets an agent</h3><p>Every employee has their own workspace, memory, threads — and their own suite of skills, subagents and apps, shaped by their role and drawn from one shared company library. The agents maintain that library themselves: a skill one person's agent publishes can be installed by everyone's.</p></div>
-      <div class="block" data-anim="up d1"><p class="n">Two</p><h3>It finishes the work</h3><p>Real tools: files, search, documents, spreadsheets, web research, memory — plus delegation to specialist subagents in the suite. The agent works the task end to end and the finished result lands in the thread — the person asked once. It also watches its own work: repeat a task often enough and it offers to turn it into a one-tap app.</p></div>
-      <div class="block" data-anim="up d2"><p class="n">Three</p><h3>Decisions only when it matters</h3><p>Deleting a file is the kind of moment a person should see first — so it parks in a decisions inbox and happens only on their approval, exactly as approved. Everything else just finishes. And it can't quietly lie: paths are sandboxed to the person's workspace, summaries are checked against the files the run actually wrote, and with no model key configured it says so and refuses.</p></div>
-    </div>
-  </section>
+  <footer class="sub-footer">
+    <p>© 2026 Cayleb Alvarez-James.</p>
+    <ul aria-label="Elsewhere">
+      <li><a href="../index.html">Résumé</a></li>
+      <li><a href="./">All projects</a></li>
+      <li><a href="https://github.com/cayleb-james2008/ergon">GitHub</a></li>
+      <li><a href="mailto:caylebalvarezjames@gmail.com">Email</a></li>
+    </ul>
+  </footer>
 
-  <section aria-label="The record">
-    <p class="sec-label" data-anim="left">The record — from the build's own test runs</p>
-    <div data-anim="up">
-    <table class="data">
-      <tr><th>Automated tests</th><td><b>65 of 65</b> passing — agent loop, sandbox escapes, sessions, persistence, the honesty gate in both directions, the library and suites, delegation, the decisions gate, offers, concurrent writers</td></tr>
-      <tr><th>Sealed acceptance exam</th><td><b>31 of 31</b> — written and run independently, black-box, against the unmodified binary</td></tr>
-      <tr><th>Library &amp; suites</th><td>One shared library, seeded with twelve skills, subagents and apps; per-person suites shaped by role; agents publish skills the whole company can install — ownership-checked, compile-gated</td></tr>
-      <tr><th>Three faces + phone</th><td>Work Graph, Conversation Spine and Today River over one core, plus a pre-packaged phone app at <b>/phone</b>; morning brief, decisions inbox and proactive offers on the Today River</td></tr>
-      <tr><th>Installer</th><td><b>install.sh</b> — binary, launcher and a systemd user service; access gated at the hosting layer, no Ergon passwords</td></tr>
-      <tr><th>People</th><td>Per-person workspaces, memory and threads; sessions pinned per person; forged cookies replaced, never adopted</td></tr>
-      <tr><th>Persistence</th><td>Threads, people and memory survive restarts; a corrupt store is backed up, never silently overwritten</td></tr>
-    </table>
-    </div>
-  </section>
-
-  <section class="status" aria-label="Where it stands">
-    <p class="sec-label" data-anim="left">Where it stands</p>
-    <div data-anim="up">
-    <p><b>Built, and verified as above.</b> Ergon is not running at a real company yet, and no customer uses it today — this page will not pretend otherwise.</p>
-    <p>The model route is real code that talks to any OpenAI-compatible endpoint. In the build environment it is proven against a scripted test model, because no live model key is available there — the honest limit, stated plainly.</p>
-    </div>
-  </section>
-
-</main>
-<footer class="wrap subfoot"><a href="../index.html">← Résumé</a><a href="index.html">All projects</a><a href="https://github.com/cayleb-james2008/ergon">The code on GitHub ↗</a><span class="back">Built and written by Cayleb Alvarez-James. Every figure on this page is from the product's own records.</span><span class="settings"><span class="set-label">Settings · Appearance</span><button class="theme-btn" type="button" data-set-theme="dark" aria-pressed="true">Dark</button><button class="theme-btn" type="button" data-set-theme="light" aria-pressed="false">Light</button></span></footer>
-
-<script>
-(function(){
-  var root=document.documentElement;
-  if(location.search.indexOf('shots')>-1){root.classList.add('shots');}
-  var themeBtns=document.querySelectorAll('.theme-btn');
-  function syncThemeBtns(){var cur=root.getAttribute('data-theme')==='light'?'light':'dark';themeBtns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-set-theme')===cur?'true':'false');});}
-  themeBtns.forEach(function(b){b.addEventListener('click',function(){
-    var next=b.getAttribute('data-set-theme');
-    root.setAttribute('data-theme',next);
-    try{localStorage.setItem('theme',next);}catch(e){}
-    syncThemeBtns();
-  });});
-  syncThemeBtns();
-  var bar=document.querySelector('.progress i');
-  function prog(){var h=document.body.scrollHeight-innerHeight;var p=h>0?(scrollY/h):0;root.style.setProperty('--p',p);if(bar){bar.style.transform='scaleX('+p+')';}}
-  addEventListener('scroll',prog,{passive:true}); prog();
-  var io=('IntersectionObserver' in window)&&!root.classList.contains('shots')?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12}):null;
-  document.querySelectorAll('[data-anim]').forEach(function(el){if(io){io.observe(el);}else{el.classList.add('in');}});
-  /* task walk-through */
-  var gate=document.getElementById('gate');
-  if(gate){
-    var steps=gate.querySelectorAll('.gate-step'), verdict=document.getElementById('gate-verdict'), timers=[];
-    document.getElementById('gate-run').addEventListener('click',function(){
-      timers.forEach(clearTimeout); timers=[];
-      steps.forEach(function(s){s.classList.remove('on');});
-      verdict.textContent='';
-      steps.forEach(function(s,i){timers.push(setTimeout(function(){s.classList.add('on');},300*(i+1)));});
-      timers.push(setTimeout(function(){verdict.textContent='DONE — Summary.md written, memory updated, claim checked against the run\u2019s own writes.';},300*(steps.length+1)));
-    });
-    if(root.classList.contains('shots')){steps.forEach(function(s){s.classList.add('on');});}
-  }
-})();
-</script>
-
-
-<script>
-/* walkthrough chapters: click a chapter to jump the video to it */
-(function(){
-  var walk=document.querySelector('.walk'); if(!walk){return;}
-  var video=walk.querySelector('video'), btns=walk.querySelectorAll('.chapters button');
-  if(video.textTracks.length){video.textTracks[0].mode='hidden';}
-  btns.forEach(function(b){b.addEventListener('click',function(){
-    video.currentTime=parseFloat(b.getAttribute('data-t'));
-    if(video.paused){video.play();}
-  });});
-  video.addEventListener('timeupdate',function(){
-    var t=video.currentTime, cur=null;
-    btns.forEach(function(b){if(parseFloat(b.getAttribute('data-t'))<=t+0.05){cur=b;}});
-    btns.forEach(function(b){b.classList.toggle('on',b===cur);});
-  });
-})();
-</script>
+  <script>
+  (function () {
+    var gate = document.getElementById("gate");
+    var btn = document.getElementById("gate-run");
+    var verdict = document.getElementById("gate-verdict");
+    if (gate && btn && verdict) {
+      var steps = gate.querySelectorAll(".sim-step");
+      var timers = [];
+      var reduced = function () { try { return matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } };
+      btn.addEventListener("click", function () {
+        timers.forEach(clearTimeout);
+        timers = [];
+        steps.forEach(function (s) { s.classList.remove("on"); });
+        if (reduced()) {
+          steps.forEach(function (s) { s.classList.add("on"); });
+          verdict.textContent = "DONE — Summary.md written, per-person memory updated, and completion verified against disk writes.";
+          return;
+        }
+        verdict.textContent = "Running trace…";
+        steps.forEach(function (s, i) {
+          timers.push(setTimeout(function () { s.classList.add("on"); }, 220 * (i + 1)));
+        });
+        timers.push(setTimeout(function () {
+          verdict.textContent = "DONE — Summary.md written, per-person memory updated, and completion verified against disk writes.";
+        }, 220 * (steps.length + 1)));
+      });
+    }
+    var video = document.querySelector(".walk-video");
+    var cbtns = document.querySelectorAll(".chapters button");
+    if (video && cbtns.length) {
+      if (video.textTracks && video.textTracks.length) video.textTracks[0].mode = "hidden";
+      cbtns.forEach(function (b) {
+        b.addEventListener("click", function () {
+          video.currentTime = parseFloat(b.getAttribute("data-t"));
+          if (video.paused) video.play();
+        });
+      });
+      video.addEventListener("timeupdate", function () {
+        var t = video.currentTime, cur = null;
+        cbtns.forEach(function (b) { if (parseFloat(b.getAttribute("data-t")) <= t + 0.05) cur = b; });
+        cbtns.forEach(function (b) { b.classList.toggle("on", b === cur); });
+      });
+    }
+  })();
+  </script>
 </body>
 </html>

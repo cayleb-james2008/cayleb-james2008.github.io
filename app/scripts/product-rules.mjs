@@ -512,11 +512,19 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const cached = fs.existsSync(cache) ? fs.readdirSync(cache).filter((d) => /^chromium-\d+$/.test(d)).flatMap((d) => ["chrome-linux64", "chrome-linux"].map((o) => path.join(cache, d, o, "chrome"))) : [];
   const exe = [process.env.CHROME_PATH, "/usr/bin/chromium", "/usr/bin/chromium-browser", "/usr/bin/google-chrome", ...cached].find((p) => p && fs.existsSync(p));
   if (!exe) { console.error("No Chromium found"); process.exit(2); }
-  const MIME = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".svg": "image/svg+xml", ".json": "application/json", ".woff2": "font/woff2", ".ttf": "font/ttf", ".png": "image/png" };
+  const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".svg": "image/svg+xml", ".json": "application/json; charset=utf-8", ".woff2": "font/woff2", ".ttf": "font/ttf", ".png": "image/png", ".jpg": "image/jpeg", ".pdf": "application/pdf" };
   const server = http.createServer((req, res) => {
-    let file = path.join(dist, decodeURIComponent(new URL(req.url, "http://x").pathname));
-    if (!file.startsWith(dist) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) file = path.join(dist, "index.html");
-    res.writeHead(200, { "content-type": MIME[path.extname(file)] ?? "application/octet-stream" }); fs.createReadStream(file).pipe(res);
+    const rel = decodeURIComponent(new URL(req.url, "http://127.0.0.1").pathname);
+    let file = path.resolve(dist, "." + rel);
+    if (!file.startsWith(dist + path.sep) && file !== dist) { res.writeHead(403); res.end(); return; }
+    if (fs.existsSync(file) && fs.statSync(file).isDirectory()) file = path.join(file, "index.html");
+    if (!fs.existsSync(file) || !fs.statSync(file).isFile()) {
+      if (path.extname(rel)) { res.writeHead(404); res.end("Not found"); return; }
+      file = path.join(dist, "index.html");
+    }
+    const buf = fs.readFileSync(file);
+    res.writeHead(200, { "content-type": MIME[path.extname(file).toLowerCase()] ?? "application/octet-stream", "content-length": buf.length, "cache-control": "public, max-age=3600" });
+    res.end(buf);
   });
   await new Promise((r) => server.listen(0, "127.0.0.1", r));
   const base = `http://127.0.0.1:${server.address().port}/`;
@@ -524,7 +532,12 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const failures = [];
   const fail = (cfg, m) => { failures.push(m); console.error(`FAIL [${cfg}] ${m}`); };
   const browser = await chromium.launch({ headless: true, executablePath: exe });
-  const reload = async (page) => { await page.reload({ waitUntil: "networkidle" }); await page.evaluate(() => document.fonts.ready); await page.waitForTimeout(700); };
+  const reload = async (page) => {
+    await page.evaluate(() => { try { localStorage.clear(); sessionStorage.clear(); } catch {} if ("scrollRestoration" in history) history.scrollRestoration = "manual"; }).catch(() => {});
+    await page.reload({ waitUntil: "load" });
+    await page.evaluate(() => { window.scrollTo(0, 0); return document.fonts.ready; });
+    await page.waitForTimeout(300);
+  };
   try {
     for (const width of [1440, 390]) {
       if (width === 390 && !which.includes("S")) continue;

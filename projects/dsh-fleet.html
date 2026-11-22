@@ -1,364 +1,279 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fleet — Cayleb Alvarez-James</title>
-<meta name="description" content="Fleet, rebuilt in Rust: a control board for coding agents. You hand out the work; each session runs in its own git worktree; Fleet runs your check itself on the exact commit a merge would land, and a session is done only when that check passes.">
-<script>
-/* Theme before first paint: dark by default until the person chooses; the choice is kept in
-   localStorage, key "theme" — the same key the home page reads, so one choice covers the site. */
-try{var t=null;try{t=localStorage.getItem("theme");}catch(e){}
-if(t!=="light"&&t!=="dark")t="dark";document.documentElement.setAttribute("data-theme",t);
-}catch(e){document.documentElement.setAttribute("data-theme","dark");}
-</script>
-<style>:root{--accent:#93b8d8;}[data-theme="light"]{--accent:#2f5d8a;}
-@font-face { font-family:"Fraunces"; src:url("../assets/editorial/fonts/fraunces-normal-500.woff2") format("woff2"); font-weight:100 900; font-display:swap; }
-@font-face { font-family:"Fraunces"; src:url("../assets/editorial/fonts/fraunces-italic-500.woff2") format("woff2"); font-weight:100 900; font-style:italic; font-display:swap; }
-@font-face { font-family:"Archivo"; src:url("../assets/editorial/fonts/archivo-400.woff2") format("woff2"); font-weight:400; font-display:swap; }
-@font-face { font-family:"Archivo"; src:url("../assets/editorial/fonts/archivo-500.woff2") format("woff2"); font-weight:500; font-display:swap; }
-@font-face { font-family:"Archivo"; src:url("../assets/editorial/fonts/archivo-600.woff2") format("woff2"); font-weight:600; font-display:swap; }
-@font-face { font-family:"Plex Mono"; src:url("../assets/editorial/fonts/ibm-plex-mono-400.woff2") format("woff2"); font-weight:400; font-display:swap; }
-
-:root{
-  color-scheme:dark;
-  --paper:#161310; --paper2:#1e1a15; --panel:#221e17; --ink:#f0e9da; --muted:#b6ab94; --faint:#968a70;
-  --rule:#3a342a; --rule-dark:#0c0a08; --frame:#0d0b09;
-  --ok:#9fc97f; --miss:#e0a458; --sel:#14100a;
-  --serif:"Fraunces",Georgia,serif; --sans:"Archivo",system-ui,sans-serif; --mono:"Plex Mono",ui-monospace,monospace;
-}
-[data-theme="light"]{
-  color-scheme:light;
-  --paper:#f3eddc; --paper2:#eae1c9; --panel:#faf6ea; --ink:#221a0e; --muted:#5c4c2c; --faint:#6d5c39;
-  --rule:#c8b995; --rule-dark:#a5936e;
-  --ok:#3d6b1f; --miss:#8f5410; --sel:#f7f2e4;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:17.5px; line-height:1.6; -webkit-font-smoothing:antialiased}
-::selection{background:var(--accent); color:var(--sel)}
-a{color:var(--accent)}
-:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
-.skip-link{position:fixed; left:16px; top:-60px; z-index:70; background:var(--ink); color:var(--paper); padding:.55rem 1rem; border-radius:99px; font-weight:600; text-decoration:none; transition:top .2s}
-.skip-link:focus{top:14px}
-.progress{position:fixed; top:0; left:0; right:0; height:3px; z-index:60}
-.progress i{display:block; height:100%; background:var(--accent); transform-origin:left; transform:scaleX(var(--p,0))}
-
-.wrap{width:min(1180px,100% - 2.5rem); margin:0 auto}
-.narrow{width:min(760px,100% - 2.5rem); margin:0 auto}
-
-/* masthead */
-.masthead{border-bottom:3px double var(--rule); padding:1.1rem 0 .9rem; display:flex; align-items:baseline; gap:1.2rem; flex-wrap:wrap}
-.masthead .wm{font-family:var(--serif); font-weight:900; font-size:1.35rem; color:var(--ink); text-decoration:none; letter-spacing:-.01em}
-.masthead .wm i{color:var(--accent); font-style:normal}
-.masthead .issue{color:var(--muted); font-size:.85rem}
-.masthead nav{margin-left:auto; display:flex; gap:1.3rem; font-size:.88rem}
-.masthead nav a{color:var(--muted); text-decoration:none}
-.masthead nav a:hover{color:var(--ink)}
-
-/* hero */
-.hero{padding:3.2rem 0 1.4rem}
-.kicker{font-family:var(--mono); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent)}
-.hero h1{font-family:var(--serif); font-weight:900; font-size:clamp(2.6rem,6vw,4.4rem); line-height:1.02; letter-spacing:-.015em; margin:.55rem 0 .8rem}
-.hero .lead{font-size:clamp(1.15rem,2.4vw,1.45rem); line-height:1.45; color:var(--ink); max-width:34em}
-.checked{margin-top:1.4rem; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:.7rem 0; display:flex; gap:2rem; flex-wrap:wrap; font-size:.9rem; color:var(--muted)}
-.checked b{color:var(--ink); font-weight:600}
-.checked span b{margin-right:.4rem}
-
-/* sections */
-section{padding:2.6rem 0}
-.sec-label{font-family:var(--mono); font-size:.75rem; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-bottom:1.1rem; display:flex; align-items:center; gap:.8rem}
-.sec-label::after{content:""; flex:1; height:1px; background:var(--rule)}
-h2{font-family:var(--serif); font-weight:700; font-size:clamp(1.5rem,3vw,2rem); line-height:1.15; margin-bottom:.6rem}
-p.plain{color:var(--muted); max-width:38em}
-p.plain b, li b{color:var(--ink)}
-
-/* face switcher */
-.faces{background:var(--paper2); border:1px solid var(--rule); border-radius:14px; padding:1rem}
-.face-tabs{display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:1rem}
-.face-tab{display:inline-flex; align-items:center; gap:.5rem; border:1px solid var(--rule); background:var(--panel); color:var(--muted); border-radius:99px; padding:.5rem 1rem; font:inherit; font-size:.92rem; font-weight:600; cursor:pointer; transition:color .2s,border-color .2s,background .2s}
-.face-tab svg{width:15px; height:15px; flex:none}
-.face-tab:hover{color:var(--ink)}
-.face-tab[aria-selected="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
-.face-tab .default-tag{font-family:var(--mono); font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; opacity:.75}
-.face-frame{border-radius:9px; overflow:hidden; border:1px solid var(--rule); background:var(--frame)}
-.face-frame img{display:block; width:100%; height:auto}
-.face-cap{padding:.85rem .2rem .1rem; color:var(--muted); font-size:.98rem; max-width:44em}
-.face-cap b{color:var(--ink)}
-
-/* still figure */
-figure.still{border:1px solid var(--rule); border-radius:14px; overflow:hidden; background:var(--paper2)}
-figure.still img{display:block; width:100%; height:auto}
-figure.still figcaption{padding:.85rem 1rem; color:var(--muted); font-size:.95rem; border-top:1px solid var(--rule)}
-figure.still figcaption b{color:var(--ink)}
-
-/* three plain blocks */
-.blocks{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
-.block{background:var(--panel); border:1px solid var(--rule); border-radius:12px; padding:1.2rem 1.15rem}
-.block .n{font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; color:var(--accent); text-transform:uppercase}
-.block h3{font-family:var(--serif); font-size:1.22rem; font-weight:700; margin:.45rem 0 .4rem; line-height:1.2}
-.block p{color:var(--muted); font-size:.99rem; line-height:1.55}
-.note{margin-top:1rem; color:var(--muted); font-size:.95rem}
-.note b{color:var(--ink)}
-
-/* data table */
-table.data{width:100%; border-collapse:collapse; font-size:1rem}
-table.data th, table.data td{padding:.75rem .6rem; text-align:left; border-bottom:1px solid var(--rule); vertical-align:top}
-table.data th{font-weight:600; color:var(--ink); width:42%}
-table.data td{color:var(--muted)}
-table.data td b{color:var(--ink)}
-table.data tr:last-child th, table.data tr:last-child td{border-bottom:none}
-table.data .ok{color:var(--ok); font-weight:600}
-table.data .miss{color:var(--miss); font-weight:600}
-
-/* status */
-.status p{color:var(--muted); max-width:40em; margin-bottom:.7rem}
-.status p b{color:var(--ink)}
-
-/* mini demo (fleet board + openbell gateway) */
-.demo{background:var(--paper2); border:1px solid var(--rule); border-radius:14px; padding:1.1rem}
-.demo-head{display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:1rem}
-.demo-head .t{font-family:var(--serif); font-weight:700; font-size:1.15rem}
-.demo-head .s{color:var(--muted); font-size:.9rem}
-.demo-btn{margin-left:auto; border:1px solid var(--ink); background:var(--ink); color:var(--paper); border-radius:99px; padding:.5rem 1.1rem; font:inherit; font-size:.92rem; font-weight:600; cursor:pointer}
-.demo-btn.ghost{background:transparent; color:var(--muted); border-color:var(--rule); margin-left:0}
-.demo-btn.ghost[aria-pressed="true"]{color:var(--paper); background:var(--ink); border-color:var(--ink)}
-.board{display:grid; grid-template-columns:repeat(4,1fr); gap:.8rem}
-.lane h4{font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); margin-bottom:.5rem}
-.card{background:var(--panel); border:1px solid var(--rule); border-radius:10px; padding:.7rem .75rem; font-size:.88rem; line-height:1.45; color:var(--muted); margin-bottom:.55rem; opacity:.35; transform:translateY(6px); transition:opacity .45s, transform .45s}
-.card b{color:var(--ink); display:block; font-size:.92rem}
-.card.on{opacity:1; transform:none}
-.card .stamp{display:inline-block; margin-top:.4rem; font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; padding:.12rem .5rem; border-radius:99px; border:1px solid var(--ok); color:var(--ok)}
-.card .stamp.block{border-color:var(--miss); color:var(--miss)}
-.gate-flow{display:flex; flex-direction:column; gap:.55rem}
-.gate-step{display:flex; gap:.8rem; align-items:flex-start; background:var(--panel); border:1px solid var(--rule); border-radius:10px; padding:.75rem .9rem; opacity:.35; transform:translateY(6px); transition:opacity .45s, transform .45s}
-.gate-step.on{opacity:1; transform:none}
-.gate-step svg{width:19px; height:19px; flex:none; margin-top:.15rem; color:var(--accent)}
-.gate-step p{color:var(--muted); font-size:.97rem}
-.gate-step p b{color:var(--ink)}
-.gate-verdict{font-family:var(--mono); font-size:.8rem; letter-spacing:.08em; margin-top:.7rem; min-height:1.2em; color:var(--ink)}
-
-/* walkthrough video */
-.walk{background:var(--paper2); border:1px solid var(--rule); border-radius:14px; padding:1.1rem}
-.walk video{width:100%; display:block; border-radius:10px; background:#000; aspect-ratio:8/5}
-.chapters{list-style:none; margin-top:1rem; display:grid; grid-template-columns:1fr 1fr; gap:.4rem}
-.chapters button{display:flex; gap:.7rem; align-items:baseline; width:100%; text-align:left; font:inherit; font-size:.95rem; color:var(--muted); background:var(--panel); border:1px solid var(--rule); border-radius:9px; padding:.55rem .8rem; cursor:pointer; transition:color .2s,border-color .2s}
-.chapters button:hover{color:var(--ink)}
-.chapters button.on{color:var(--ink); border-color:var(--accent)}
-.chapters .ct{font-family:var(--mono); font-size:.78rem; color:var(--accent); flex:none}
-.walk-note{margin-top:1rem; color:var(--muted); font-size:.95rem; max-width:44em}
-.walk-note b{color:var(--ink)}
-@media (max-width:760px){ .chapters{grid-template-columns:1fr} }
-
-/* footer */
-.subfoot{border-top:3px double var(--rule); padding:1.6rem 0 2.6rem; display:flex; gap:1.6rem; flex-wrap:wrap; align-items:center; font-size:.95rem}
-.subfoot a{text-decoration:none; font-weight:600}
-.subfoot .back{color:var(--muted); font-weight:400}
-/* settings — the appearance switch lives here, quiet, per the owner's rule */
-.settings{margin-left:auto; display:flex; align-items:center; gap:.5rem; font-size:.85rem; color:var(--faint)}
-.settings .set-label{font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase}
-.theme-btn{font:inherit; font-size:.85rem; background:none; border:1px solid var(--rule); color:var(--muted); border-radius:99px; padding:.28rem .8rem; cursor:pointer; transition:color .2s,border-color .2s,background .2s}
-.theme-btn:hover{color:var(--ink)}
-.theme-btn[aria-pressed="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
-
-/* scroll animation — GSAP-style beats, vanilla JS */
-[data-anim]{opacity:0}
-[data-anim="up"]{transform:translateY(26px)}
-[data-anim="left"]{transform:translateX(-26px)}
-[data-anim="zoom"]{transform:scale(.965)}
-[data-anim].in{opacity:1; transform:none; transition:opacity .8s cubic-bezier(.22,.8,.3,1), transform .8s cubic-bezier(.22,.8,.3,1)}
-[data-anim].in.d1{transition-delay:.1s} [data-anim].in.d2{transition-delay:.22s} [data-anim].in.d3{transition-delay:.34s}
-.shots [data-anim]{opacity:1 !important; transform:none !important; transition:none !important}
-@media (prefers-reduced-motion: reduce){
-  [data-anim]{opacity:1; transform:none; transition:none}
-  html{scroll-behavior:auto}
-}
-
-@media (max-width:760px){
-  .blocks{grid-template-columns:1fr}
-  .board{grid-template-columns:1fr 1fr}
-  .checked{gap:.9rem}
-  table.data th{width:48%}
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DSH Fleet — Cayleb Alvarez-James</title>
+  <meta name="description" content="DSH Fleet v0.3.0: Parallel Coding-Agent Mission Control Board in a single Rust + Rune binary — isolated git worktrees, independent check-command verification receipts, and Needs-you inbox.">
+  <link rel="canonical" href="https://cayleb-james2008.github.io/projects/dsh-fleet.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cayleb Alvarez-James">
+  <meta property="og:title" content="DSH Fleet — Cayleb Alvarez-James">
+  <meta property="og:description" content="Parallel coding-agent mission control — git worktrees, Rune policy scripts, and verified-done check receipts (v0.3.0).">
+  <meta property="og:url" content="https://cayleb-james2008.github.io/projects/dsh-fleet.html">
+  <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f2f5">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e1013">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <script src="../site/house/theme.js"></script>
+  <script src="../site/house/pages.js" defer></script>
+  <link rel="stylesheet" href="../site/house/tokens.css">
+  <link rel="stylesheet" href="../site/house/base.css">
+  <link rel="stylesheet" href="../site/house/project.css">
 </head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-<div class="progress" aria-hidden="true"><i></i></div>
-<header class="wrap masthead">
-  <a class="wm" href="../index.html">Cayleb<i>.</i>AJ</a>
-  <span class="issue">The product pages — plain edition</span>
-  <nav><a href="index.html">Projects</a><a href="../resume.html">Résumé</a></nav>
-</header>
-<main id="main" class="wrap">
-  <div class="hero">
-    <p class="kicker" data-anim="up">Fleet — your agents, under one screen</p>
-    <h1 data-anim="up">Hand out the work. It comes back verified.</h1>
-    <p class="lead" data-anim="up">Fleet is a control board for coding agents — opencode, Claude Code, Codex — each driven through an adapter in its real non-interactive form, never a terminal UI left hanging in a pipe. Each task becomes a session in its own git worktree. When the agent stops, Fleet runs <b>your</b> check command itself, on the exact commit a merge would land — and the session is done only when that check passes. Everything else lands in a Needs-you inbox with the reason attached. You can steer a session while it works, stop one that runs away, and name the next job at hand-out: it starts on its own the moment this one is verified done. Nothing is babysat, and nothing calls itself done without the receipt.</p>
-    <div class="checked" data-anim="up"><span><b>Status —</b>rebuilt in Rust; the check kit passes end to end</span><span><b>Done means —</b>Fleet's own run of your check, passed on the committed tree</span><span><b>Sessions —</b>persist across restarts; a run interrupted mid-work comes back as Needs you, with the reason</span></div>
-  </div>
+<body class="project-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="sub-masthead">
+    <a class="sub-wordmark" href="../index.html" aria-label="Cayleb Alvarez-James, home">Cayleb<span class="wm-dot">.</span>AJ</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="../index.html#summary">Résumé</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#live-demos">Live demos</a></li>
+      </ul>
+    </nav>
+    <a class="sub-resume" href="../Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf" download>Résumé PDF</a>
+  </header>
 
-  <section aria-label="The board">
-    <p class="sec-label" data-anim="left">The board — try the states</p>
-    <h2 data-anim="up">Three groups, one rule.</h2>
-    <p class="plain" data-anim="up">Working, Done, Needs you. A done session's row carries its check line — the command and its verdict — as part of its identity, not a green badge. This miniature runs the same states with scripted agents; the real board runs your agents and your check.</p>
-    <div class="demo" id="board" data-anim="up" style="margin-top:1.2rem">
-      <div class="demo-head">
-        <span class="t">The board, in miniature</span><span class="s">Hand out two sessions. One's work passes its check; the other's check fails — watch where each lands.</span>
-        <button class="demo-btn" id="board-run" type="button">Hand out the sessions</button>
+  <main id="main">
+    <header class="project-hero">
+      <div class="wrap project-hero__main">
+        <a class="project-back" href="./">← All project pages</a>
+        <p class="case-hero__meta">Flagship v0.3.0 · Rust + Rune + House Frontend · checked 21 November 2026</p>
+        <h1 class="case-hero__title">Hand out the work. It comes back verified.</h1>
+        <p class="case-hero__out">DSH Fleet is a parallel coding-agent mission control board served from a single Rust + Rune binary. Each task runs non-interactively in its own git worktree (`opencode`, `Claude Code`, `Codex`). When an agent stops, Fleet commits the tree and runs your check command itself — marking the session Done only when that check passes on the exact commit a merge would land.</p>
+        <ul class="project-status" aria-label="Verification">
+          <li><span class="checked-dot" aria-hidden="true"></span>v0.3.0 single-binary build · 52/52 Rust tests · 23/23 .loop/verify adversarial suite · 34/34 UI gate &amp; 32/32 replay passing.</li>
+          <li><span class="chip chip--current">v0.3.0 public</span></li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn-primary" href="../demos/dsh-fleet/">Launch interactive fixture demo ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/dsh-fleet" target="_blank" rel="noreferrer noopener">Source on GitHub ↗</a>
+        </div>
       </div>
-      <div id="board-rows"></div>
-      <p class="gate-verdict" id="board-log" aria-live="polite"></p>
+    </header>
+
+    <div class="wrap project-top">
+      <nav class="project-index" aria-label="On this page">
+        <a href="#figures">interface &amp; walkthrough</a>
+        <a href="#schematic">board states</a>
+        <a href="#capabilities">how it works</a>
+        <a href="#record">what is proven</a>
+        <a href="#limits">honest boundaries</a>
+      </nav>
+
+      <section class="project-figures" id="figures" aria-labelledby="figures-h">
+        <h2 class="vis-kicker" id="figures-h">v0.3.0 mission control board &amp; recorded walkthrough</h2>
+        <div class="figure-grid">
+          <figure class="viz viz--shot">
+            <div class="viz__head viz__head--shot">
+              <span class="viz__title">DSH Fleet v0.3.0 — Parallel Coding-Agent Mission Control</span>
+              <span class="viz__live">example fixture</span>
+              <span class="viz__note">House Frontend · switches with page theme</span>
+            </div>
+            <div class="viz__media">
+              <a class="shot-light" href="../assets/projects/captures/fleet-v030-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of DSH Fleet v0.3.0">
+                <img src="../assets/projects/captures/fleet-v030-light.png" alt="DSH Fleet v0.3.0 Mission Control in the light House Frontend theme: top command bar with Needs-you inbox, 32-session Tremor outcome tracker, Hero Verified Receipt, three-lane board, and Transcript · Diff · Receipt inspector badged fixture demo." width="1440" height="900" loading="eager" decoding="async">
+              </a>
+              <a class="shot-dark" href="../assets/projects/captures/fleet-v030-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of DSH Fleet v0.3.0">
+                <img src="../assets/projects/captures/fleet-v030-dark.png" alt="DSH Fleet v0.3.0 Mission Control in the dark House Frontend theme: top command bar, Tremor outcome tracker, Hero Verified Receipt, three-lane board, and session inspector badged fixture demo." width="1440" height="900" loading="eager" decoding="async">
+              </a>
+            </div>
+            <figcaption class="viz__cap">
+              <p class="viz__caption">Captured directly from the DSH Fleet v0.3.0 build at 1440×900 in both House Frontend themes, showing verified-done receipts alongside a refused session caught by <code>test -s output.txt</code>, badged in-frame as fixture data.</p>
+              <p class="viz__source">Source: cayleb-james2008/dsh-fleet v0.3.0 · interactive build available at /demos/dsh-fleet/</p>
+              <p class="viz__action">
+                <a class="viz__open" href="../demos/dsh-fleet/">open interactive fixture demo ↗</a>
+              </p>
+            </figcaption>
+          </figure>
+
+          <figure class="viz" id="schematic">
+            <div class="viz__body">
+              <div class="sim-head">
+                <div class="sim-head__copy">
+                  <span class="sim-head__title">Three lanes, one mechanical rule</span>
+                  <span class="sim-head__sub">Dispatch two scripted sessions: one passes its check command on the committed tree; the other’s check fails and lands in Needs you.</span>
+                </div>
+                <button class="btn-outline" id="board-run" type="button">Dispatch two sessions</button>
+              </div>
+              <div class="sim-rows" id="board-rows">
+                <div class="sim-row">
+                  <span><span class="sim-row__task">Add CSV export endpoint</span> <span class="sim-row__agent">· opencode</span></span>
+                  <span class="sim-row__state">Ready to dispatch</span>
+                </div>
+                <div class="sim-row">
+                  <span><span class="sim-row__task">Fix invoice totals rounding</span> <span class="sim-row__agent">· claude</span></span>
+                  <span class="sim-row__state">Ready to dispatch</span>
+                </div>
+              </div>
+              <p class="sim-verdict" id="board-log" aria-live="polite">No sessions dispatched yet — press “Dispatch two sessions” to trace the check gate.</p>
+            </div>
+          </figure>
+
+          <figure class="viz">
+            <div class="viz__body">
+              <div class="viz__head">
+                <span class="viz__title">Recorded end-to-end walkthrough</span>
+                <span class="viz__note">real binary + Remotion chapter package</span>
+              </div>
+              <div style="margin-top:16px">
+                <video class="walk-video" controls preload="metadata" playsinline poster="../assets/video/dsh-fleet-poster.jpg" src="../assets/video/dsh-fleet.mp4">
+                  <track kind="chapters" label="Chapters" srclang="en" default src="../assets/video/dsh-fleet-chapters.vtt">
+                </video>
+                <ol class="chapters">
+                  <li><button type="button" data-t="5.80"><span class="ct">0:05</span>Hand out parallel sessions</button></li>
+                  <li><button type="button" data-t="17.29"><span class="ct">0:17</span>Steer a running session mid-work</button></li>
+                  <li><button type="button" data-t="24.00"><span class="ct">0:24</span>Verified done triggers chained job</button></li>
+                  <li><button type="button" data-t="31.47"><span class="ct">0:31</span>Stop terminates whole process group</button></li>
+                  <li><button type="button" data-t="41.90"><span class="ct">0:41</span>Inspect diff &amp; verified receipt</button></li>
+                </ol>
+              </div>
+            </div>
+            <figcaption class="viz__cap">
+              <p class="viz__caption">Recorded on a scratch git repository with stand-in CLI agents labelled test mode; worktree isolation, steering, process-group kill, chaining, diff and receipt verification are all Fleet’s own execution.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
     </div>
-  </section>
 
-  <section aria-label="Watch it work">
-    <p class="sec-label" data-anim="left">Watch it work — two jobs at once, recorded on the real app</p>
-    <div class="walk" data-anim="zoom">
-      <video controls preload="metadata" playsinline poster="../assets/video/dsh-fleet-poster.jpg" src="../assets/video/dsh-fleet.mp4">
-        <track kind="chapters" label="Chapters" srclang="en" default src="../assets/video/dsh-fleet-chapters.vtt">
-      </video>
-      <ol class="chapters">
-        <li><button type="button" data-t="5.80"><span class="ct">0:05</span>Hand out the work</button></li>
-        <li><button type="button" data-t="17.29"><span class="ct">0:17</span>Steer it while it works</button></li>
-        <li><button type="button" data-t="24.00"><span class="ct">0:24</span>Done fires the next job itself</button></li>
-        <li><button type="button" data-t="31.47"><span class="ct">0:31</span>Stop means stop</button></li>
-        <li><button type="button" data-t="41.90"><span class="ct">0:41</span>Verified done carries its receipt</button></li>
-      </ol>
-      <p class="walk-note"><b>What you are watching:</b> the real Fleet app on a scratch repo, with stand-in command-line agents as fixtures. The hand-out, the steering, the check that gates &ldquo;done&rdquo;, the chain firing itself, the stop and the diff are Fleet's own, recorded on the completed, elevated board. No live engine runs in that environment — the board says which engines the machine has, and a live run needs a signed-in host. This cut wraps the same unedited capture in a graphics package composed with Remotion — an animated title, a flow diagram and chapter graphics.</p>
+    <div class="wrap project-layout">
+      <article class="project-content">
+        <div class="project-prose">
+          <section id="capabilities">
+            <h2>How it works</h2>
+            <div class="project-prose__body">
+              <p>Fleet coordinates parallel coding-agent runs locally against your own git repositories, configured by editable Rune policy scripts for parallel caps and per-project check commands.</p>
+              <div class="cap-grid">
+                <div class="cap-card">
+                  <span class="cap-card__tag">01 · Git worktrees</span>
+                  <h3>One session, one branch</h3>
+                  <p>Every dispatched session runs in an isolated git worktree. Engine binaries are verified on PATH before a worktree is created, and excess sessions queue cleanly.</p>
+                </div>
+                <div class="cap-card">
+                  <span class="cap-card__tag">02 · Pristine check</span>
+                  <h3>Grader is never the agent</h3>
+                  <p>Fleet commits the agent’s tree and runs your check command in a clean checkout of that exact commit; merging lands the verified commit SHA itself, never an unchecked later tip.</p>
+                </div>
+                <div class="cap-card">
+                  <span class="cap-card__tag">03 · Steer, stop, chain</span>
+                  <h3>Full operator control</h3>
+                  <p>Continuation steering runs before commit and check; Stop sweeps the Unix process group; chained follow-up sessions fire automatically on verified done alone.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="record">
+            <h2>What is proven</h2>
+            <div class="project-prose__body">
+              <p>Checked directly against <code>cayleb-james2008/dsh-fleet</code> at release <code>v0.3.0</code>, including its 23-check adversarial verification battery (<code>.loop/verify</code>).</p>
+              <table class="record-table">
+                <tbody>
+                  <tr><th>Rust &amp; committed-tree proof</th><td><b>52 of 52</b> Rust tests (43 unit + 9 CLI) and <b>23 of 23</b> <code>.loop/verify</code> checks pass — defending against gitignored outputs, nested repos, escaping symlinks, git index hiding bits, detached <code>setsid</code> children, and checks that mutate files during grading.</td></tr>
+                  <tr><th>Crash &amp; kill -9 recovery</th><td>Hard-killing the server mid-run preserves verified receipts, diffs and transcripts across restart and moves interrupted runs into <code>Needs you</code> with the restart stated.</td></tr>
+                  <tr><th>Defensive merges</th><td>Dirty targets, mid-merge repos, detached HEADs and content conflicts abort cleanly without corrupting the target branch.</td></tr>
+                  <tr><th>Engine adapters</th><td>Non-interactive invocation shapes proven for <code>opencode run</code>, <code>claude -p</code> and <code>codex exec</code> (including continuation resume flags for steering); custom binary paths are explicitly badged test mode.</td></tr>
+                  <tr><th>House Frontend UI</th><td><b>v0.3.0</b> — Top command bar with <code>/</code> search and Needs-you popover, SlidingNumber counters, Tremor 32-session outcome tracker, Hero Verified Receipt, three-lane board, and arrow-key roving Transcript · Diff · Receipt tabs.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <section class="project-limits" id="limits" aria-labelledby="limits-h">
+          <h2 id="limits-h">what is not verified</h2>
+          <ul>
+            <li><b>Local operator boundary:</b> Fleet is a local Unix tool (using POSIX process groups for runaway containment) that trusts the operator’s machine and executes the check commands configured by the operator.</li>
+            <li><b>Signed-in CLI credentials:</b> running real third-party coding agents requires local authentication for those CLIs on the host; CI exercises the exact adapter invocation shapes with stand-in binaries labelled test mode.</li>
+          </ul>
+        </section>
+      </article>
+
+      <aside class="project-aside">
+        <h2>Evidence</h2>
+        <dl class="repo-facts">
+          <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/dsh-fleet">cayleb-james2008/dsh-fleet</a> <span>(public)</span></dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.3.0</b> · Rust + Rune</dd></div>
+          <div class="repo-facts__row"><dt>checked</dt><dd>21 Nov 2026</dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.3.0</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/dsh-fleet/">Fixture demo</a> · <a href="https://github.com/cayleb-james2008/dsh-fleet">GitHub</a> · <a href="https://github.com/cayleb-james2008/dsh-fleet/releases">Releases</a></dd></div>
+        </dl>
+        <p class="project-aside__more"><a href="../index.html">← Back to the interactive résumé</a></p>
+      </aside>
     </div>
-  </section>
+  </main>
 
-  <section aria-label="How Fleet works">
-    <p class="sec-label" data-anim="left">How it works</p>
-    <div class="blocks">
-      <div class="block" data-anim="up">
-        <p class="n">01 — The hand-out</p>
-        <h3>One session, one worktree</h3>
-        <p>Each session gets its own git worktree and branch in your repo, and runs the agent your project names. Agents are detected, never assumed: a name counts only when it resolves to a real executable on the machine, and asking for one that is not there is refused before any worktree exists. Sessions beyond the parallel cap queue, with their positions shown.</p>
-      </div>
-      <div class="block" data-anim="up d1">
-        <p class="n">02 — The check</p>
-        <h3>The grader is never the agent</h3>
-        <p>When the agent stops, Fleet commits its work and runs your check in a pristine checkout of that exact commit. Files the check itself writes cannot change what it judges; work hidden by git index bits is committed for real or the session is refused; files your repo gitignores are named, because they can never land. Merging consumes the verified commit itself — never the branch's later tip — and names the branch it lands on.</p>
-      </div>
-      <div class="block" data-anim="up d2">
-        <p class="n">03 — The inbox</p>
-        <h3>Needs you, with the reason</h3>
-        <p>A failed check, a timeout, a refused merge, a detached process still holding the worktree — each lands in one inbox across all sessions, with the reason in plain words and the full transcript one click away. Retry hands the session back to its agent in the same worktree, with the failure attached. Runs are bounded: a timeout kills the whole process group, and processes that detach to escape it are swept if they still hold the worktree.</p>
-      </div>
-      <div class="block" data-anim="up d2">
-        <p class="n">04 — The conversation</p>
-        <h3>Steer it, stop it, chain it</h3>
-        <p>A session is not out of reach once it starts. A steering message is delivered to the agent as a continuation run — using the engine's own resume form — before anything is committed or checked, so "done" never describes a tree you have since steered away from. Stop kills a runaway session's whole process group and lands it in Needs you, stopped by you. And a hand-out can name what comes next: the successor starts on its own when, and only when, this session is verified done — failed work never cascades into the next job.</p>
-      </div>
-    </div>
-  </section>
+  <footer class="sub-footer">
+    <p>© 2026 Cayleb Alvarez-James.</p>
+    <ul aria-label="Elsewhere">
+      <li><a href="../index.html">Résumé</a></li>
+      <li><a href="./">All projects</a></li>
+      <li><a href="https://github.com/cayleb-james2008/dsh-fleet">GitHub</a></li>
+      <li><a href="mailto:caylebalvarezjames@gmail.com">Email</a></li>
+    </ul>
+  </footer>
 
-  <section aria-label="What is proven">
-    <p class="sec-label" data-anim="left">What is proven</p>
-    <h2 data-anim="up">Checked by a kit, not by assertion.</h2>
-    <p class="plain" data-anim="up">The build carries its own check kit — shell checks against the running server, plus the Rust tests — re-run after every change. Each row names what the kit does, in plain terms.</p>
-    <table class="data" data-anim="up" style="margin-top:1rem">
-      <tr><th>Verified means the committed tree</th><td>The kit attacks the claim from every side found in three adversarial review rounds: gitignored directories, nested repos, escaping symlinks — including one with a non-ASCII name — index bits that hide work from the commit, checks that write files, checks that commit. Done survives only when the checked tree is the tree a merge lands.</td></tr>
-      <tr><th>Sessions survive a hard kill</th><td>The kit kills the server with <b>kill -9</b> mid-work and restarts it: done sessions keep their status, check receipt, diff and transcript; the interrupted session returns as Needs you with the restart named; a lost session store is recovered from the per-session logs, with the loss stated.</td></tr>
-      <tr><th>Merges are defensive</th><td>Dirty repos, merges already in progress, detached HEADs and content conflicts are refused or aborted clean, with nothing landed and the session still mergeable. Two sessions merged at once: one wins, the other gets an honest refusal.</td></tr>
-      <tr><th>Runs are bounded</th><td>Hung agents and checks time out into Needs you with the timeout named and their slot freed. Floods — thousands of lines, one 20&nbsp;MB line — are capped in the view and kept whole in the on-disk log. A request that dribbles its body a byte at a time is dropped at the whole-request deadline.</td></tr>
-      <tr><th>Real engines, driven properly</th><td>The kit records a stand-in binary's argv and proves the adapter's exact invocation: opencode as <b>run</b> with the house model from the policies file (DeepSeek V4.1 Flash via OpenCode Go, one config point), Claude Code with <b>-p</b>, Codex with <b>exec</b> — and the same shapes with each engine's resume form for steering. With the machine's real Codex present but signed out, the session spawns the real process, streams its output, and lands in Needs you naming the failure — never done, never hung. An agent given as a plain path is labelled "custom command — test mode" in the API and on the board; a stand-in never wears a real engine's name.</td></tr>
-      <tr><th>Steering lands before the check</th><td>The kit steers a working session and proves the continuation run happened before the commit: the final tree carries the steered change, the transcript shows the operator's message, and the session still had to pass its check to be done. A stop posted mid-run kills the session within seconds — long before the agent's own sleep would have ended. A two-step chain fires in order, each successor on verified done alone; a session that lands in Needs you fires nothing.</td></tr>
-      <tr><th>The board is honest on its face</th><td>A session whose check passed but whose work was refused wears an amber "check passed — but this session needs you", never the green verified-done claim. Before the first answer from the server, the board shows no count it does not know. Both themes ship — light and dark, dark by default, the switch in Settings — and icons are drawn symbols, never letters.</td></tr>
-    </table>
-  </section>
-
-  <section class="status" aria-label="Status">
-    <p class="sec-label" data-anim="left">Status, plainly</p>
-    <p data-anim="up"><b>A local tool, on purpose.</b> Fleet runs on the operator's own machine, against their own repos, with the agents they already have. It makes one promise and keeps it mechanically: work is done when the check the operator chose passes on the exact commit that would merge — proven by a kit that includes three rounds of adversarial review findings, each reproduced before it was fixed.</p>
-    <p data-anim="up"><b>The honest limit:</b> Fleet trusts the machine it runs on. Its store is a file in its data directory, and its checks are the operator's own commands. And a real-engine run needs a machine with a signed-in agent credential: on the build machine the adapter is proven to that wall — its Codex is installed but signed out, and opencode lives on Cayleb's desktop, signed into OpenCode Go — so the kit's positive path runs through the adapter's exact invocation shape with fixtures that are labelled test mode wherever they appear. Within those boundaries, every claim above is exercised by the kit on every change.</p>
-  </section>
-</main>
-<footer class="wrap subfoot"><a href="../index.html">← Résumé</a><a href="index.html">All projects</a><span class="back">Built and written by Cayleb Alvarez-James. Every figure on this page is from the product's own records.</span><span class="settings"><span class="set-label">Settings · Appearance</span><button class="theme-btn" type="button" data-set-theme="dark" aria-pressed="true">Dark</button><button class="theme-btn" type="button" data-set-theme="light" aria-pressed="false">Light</button></span></footer>
-<script>
-(function(){
-  var root=document.documentElement;
-  if(location.search.indexOf('shots')>-1){root.classList.add('shots');}
-  var themeBtns=document.querySelectorAll('.theme-btn');
-  function syncThemeBtns(){var cur=root.getAttribute('data-theme')==='light'?'light':'dark';themeBtns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-set-theme')===cur?'true':'false');});}
-  themeBtns.forEach(function(b){b.addEventListener('click',function(){
-    var next=b.getAttribute('data-set-theme');
-    root.setAttribute('data-theme',next);
-    try{localStorage.setItem('theme',next);}catch(e){}
-    syncThemeBtns();
-  });});
-  syncThemeBtns();
-  var bar=document.querySelector('.progress i');
-  function prog(){var h=document.body.scrollHeight-innerHeight;var p=h>0?(scrollY/h):0;root.style.setProperty('--p',p);if(bar){bar.style.transform='scaleX('+p+')';}}
-  addEventListener('scroll',prog,{passive:true}); prog();
-  var io=('IntersectionObserver' in window)&&!root.classList.contains('shots')?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12}):null;
-  document.querySelectorAll('[data-anim]').forEach(function(el){if(io){io.observe(el);}else{el.classList.add('in');}});
-  /* board miniature — the real board's states with scripted agents:
-     a session is Working while its agent runs, then Fleet runs the
-     check; pass -> Done (the row carries the check line), fail ->
-     Needs you with the reason. Merge consumes the done session. */
-  var runBtn=document.getElementById('board-run');
-  if(runBtn){
-    var rowsEl=document.getElementById('board-rows'), logEl=document.getElementById('board-log');
-    var SESSIONS=[
-      {task:'Add the export button', agent:'opencode', check:'npm test', verdict:'pass', line:'24 passed in 3.1s'},
-      {task:'Fix the totals rounding', agent:'claude', check:'npm test', verdict:'fail', line:'2 failed — totals.test.js: expected 41.20, got 41.19'}
-    ];
-    function row(s, group, extra){
-      return '<div style="display:flex;justify-content:space-between;gap:1rem;padding:.45rem 0;border-bottom:1px solid var(--rule)">'
-        +'<span>'+s.task+' <span style="color:var(--faint)">· '+s.agent+'</span></span>'
-        +'<span style="font-family:var(--mono);font-size:.85em">'+group+(extra?' — '+extra:'')+'</span></div>';
+  <script>
+  (function () {
+    var runBtn = document.getElementById("board-run");
+    var rowsEl = document.getElementById("board-rows");
+    var logEl = document.getElementById("board-log");
+    if (runBtn && rowsEl && logEl) {
+      var SESSIONS = [
+        { task: "Add CSV export endpoint", agent: "opencode", check: "npm test", ok: true, detail: "Done · npm test — 24 passed in 3.1s" },
+        { task: "Fix invoice totals rounding", agent: "claude", check: "npm test", ok: false, detail: "Needs you · npm test — expected 41.20, got 41.19" }
+      ];
+      var renderRows = function (items) {
+        rowsEl.innerHTML = items.map(function (s) {
+          var cls = s.tone ? " sim-row--" + s.tone : "";
+          return '<div class="sim-row' + cls + '">'
+            + '<span><span class="sim-row__task">' + s.task + '</span> <span class="sim-row__agent">· ' + s.agent + '</span></span>'
+            + '<span class="sim-row__state">' + s.state + '</span></div>';
+        }).join("");
+      };
+      var reduced = function () { try { return matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } };
+      runBtn.addEventListener("click", function () {
+        if (reduced()) {
+          renderRows(SESSIONS.map(function (s) { return { task: s.task, agent: s.agent, state: s.detail, tone: s.ok ? "ok" : "warn" }; }));
+          logEl.textContent = "Result: 1 verified done with check receipt; 1 routed to Needs you with exact failure line.";
+          return;
+        }
+        runBtn.disabled = true;
+        renderRows(SESSIONS.map(function (s) { return { task: s.task, agent: s.agent, state: "Working · agent running in worktree", tone: "" }; }));
+        logEl.textContent = "Two sessions dispatched — each isolated in its own git worktree.";
+        setTimeout(function () {
+          renderRows(SESSIONS.map(function (s) { return { task: s.task, agent: s.agent, state: "Checking · Fleet running " + s.check, tone: "" }; }));
+          logEl.textContent = "Agents exited. Fleet commits each tree and runs the check command in a clean checkout.";
+        }, 550);
+        setTimeout(function () {
+          renderRows(SESSIONS.map(function (s) { return { task: s.task, agent: s.agent, state: s.detail, tone: s.ok ? "ok" : "warn" }; }));
+          logEl.textContent = "Result: 1 verified done with check receipt; 1 routed to Needs you with exact failure line.";
+          runBtn.disabled = false;
+          runBtn.textContent = "Dispatch again";
+        }, 1150);
+      });
     }
-    function render(state){
-      var h='';
-      state.forEach(function(s){ h+=row(s, s.group, s.extra); });
-      rowsEl.innerHTML=h || '<p style="color:var(--faint);margin:.6rem 0">No sessions yet — hand some out.</p>';
-    }
-    var state=[];
-    render(state);
-    runBtn.addEventListener('click',function(){
-      runBtn.disabled=true;
-      state=SESSIONS.map(function(s){return {task:s.task,agent:s.agent,check:s.check,verdict:s.verdict,line:s.line,group:'Working',extra:'agent running'};});
-      render(state);
-      logEl.textContent='Two sessions handed out — each in its own worktree.';
-      setTimeout(function(){
-        state.forEach(function(s){ s.extra='Fleet is running the check: '+s.check; });
-        render(state);
-        logEl.textContent='Agents stopped. Fleet runs the check itself, on the committed tree.';
-      },1100);
-      setTimeout(function(){
-        state.forEach(function(s){
-          if(s.verdict==='pass'){ s.group='Done'; s.extra=s.check+' — '+s.line; }
-          else { s.group='Needs you'; s.extra='check failed: '+s.line; }
+    var video = document.querySelector(".walk-video");
+    var cbtns = document.querySelectorAll(".chapters button");
+    if (video && cbtns.length) {
+      if (video.textTracks && video.textTracks.length) video.textTracks[0].mode = "hidden";
+      cbtns.forEach(function (b) {
+        b.addEventListener("click", function () {
+          video.currentTime = parseFloat(b.getAttribute("data-t"));
+          if (video.paused) video.play();
         });
-        render(state);
-        logEl.textContent='One verified done — its row carries the check line. One needs you, with the reason attached. Nothing was babysat.';
-        runBtn.disabled=false;
-        runBtn.textContent='Hand them out again';
-      },2400);
-    });
-  }
-})();
-</script>
-
-<script>
-/* walkthrough chapters: click a chapter to jump the video to it */
-(function(){
-  var walk=document.querySelector('.walk'); if(!walk){return;}
-  var video=walk.querySelector('video'), btns=walk.querySelectorAll('.chapters button');
-  if(video.textTracks.length){video.textTracks[0].mode='hidden';}
-  btns.forEach(function(b){b.addEventListener('click',function(){
-    video.currentTime=parseFloat(b.getAttribute('data-t'));
-    if(video.paused){video.play();}
-  });});
-  video.addEventListener('timeupdate',function(){
-    var t=video.currentTime, cur=null;
-    btns.forEach(function(b){if(parseFloat(b.getAttribute('data-t'))<=t+0.05){cur=b;}});
-    btns.forEach(function(b){b.classList.toggle('on',b===cur);});
-  });
-})();
-</script>
+      });
+      video.addEventListener("timeupdate", function () {
+        var t = video.currentTime, cur = null;
+        cbtns.forEach(function (b) { if (parseFloat(b.getAttribute("data-t")) <= t + 0.05) cur = b; });
+        cbtns.forEach(function (b) { b.classList.toggle("on", b === cur); });
+      });
+    }
+  })();
+  </script>
 </body>
 </html>

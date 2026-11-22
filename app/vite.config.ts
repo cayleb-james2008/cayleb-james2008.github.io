@@ -4,14 +4,35 @@ import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
-// The page is one file of the site GitHub Pages serves from the repo root. After the build, copy the rest of that site next to it
-// (not app/, .git or the old build), so that dist/ opens as the whole site: the demos, the PDF, the fonts, the project pages.
-const stageSite = (): Plugin => ({
-  name: "stage-site",
+// The page is the root of the GitHub Pages site served from `..`. After Vite builds `dist/`:
+// 1. Sync `dist/index.html` -> `../index.html` and `dist/assets/index-*` -> `../assets/` (removing stale `../assets/index-*`),
+//    so `cd app && npm run build` deterministically updates the repo root in one command.
+// 2. Stage the rest of the root static site (`projects/`, `demos/`, `lab/`, `site/`, `fonts/`, `assets/`, PDF, etc.) into `dist/`,
+//    so `node app/scripts/render-check.mjs` opens `dist/` as the complete site.
+const stageAndPublishSite = (): Plugin => ({
+  name: "stage-and-publish-site",
   apply: "build",
   closeBundle() {
     const root = path.resolve(import.meta.dirname, "..");
     const dist = path.resolve(import.meta.dirname, "dist");
+    const rootAssets = path.join(root, "assets");
+    const distAssets = path.join(dist, "assets");
+
+    fs.mkdirSync(rootAssets, { recursive: true });
+    for (const f of fs.readdirSync(rootAssets)) {
+      if (/^index-[^/]+\.(js|css|map)$/.test(f)) {
+        fs.rmSync(path.join(rootAssets, f), { force: true });
+      }
+    }
+    fs.copyFileSync(path.join(dist, "index.html"), path.join(root, "index.html"));
+    if (fs.existsSync(distAssets)) {
+      for (const f of fs.readdirSync(distAssets)) {
+        if (/^index-[^/]+$/.test(f)) {
+          fs.copyFileSync(path.join(distAssets, f), path.join(rootAssets, f));
+        }
+      }
+    }
+
     for (const name of fs.readdirSync(root)) {
       if (/^(app|\.git|node_modules|index\.html)$/.test(name)) continue;
       fs.cpSync(path.join(root, name), path.join(dist, name), {
@@ -23,8 +44,7 @@ const stageSite = (): Plugin => ({
 });
 
 export default defineConfig({
-  plugins: [react(), tailwindcss(), stageSite()],
+  plugins: [react(), tailwindcss(), stageAndPublishSite()],
   resolve: { alias: { "@": path.resolve(import.meta.dirname, "src") } },
-  // tokens.css lives in ../references (the skill folder) and is imported by src/index.css
   server: { fs: { allow: [path.resolve(import.meta.dirname, "..")] } },
 });

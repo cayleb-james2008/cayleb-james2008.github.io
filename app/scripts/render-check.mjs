@@ -137,13 +137,71 @@ if (!fs.existsSync(path.join(dist, "index.html"))) {
 fs.mkdirSync(shots, { recursive: true });
 for (const f of fs.readdirSync(shots)) if (f.endsWith(".png")) fs.rmSync(path.join(shots, f)); // pictures of an older run would mislead
 
-const MIME = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".svg": "image/svg+xml", ".json": "application/json", ".woff2": "font/woff2", ".png": "image/png" };
+const MIME = {
+  ".html": "text/html; charset=utf-8",
+  ".js": "text/javascript; charset=utf-8",
+  ".css": "text/css; charset=utf-8",
+  ".svg": "image/svg+xml",
+  ".json": "application/json; charset=utf-8",
+  ".woff2": "font/woff2",
+  ".ttf": "font/ttf",
+  ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".webp": "image/webp",
+  ".pdf": "application/pdf",
+  ".mp4": "video/mp4",
+  ".vtt": "text/vtt; charset=utf-8",
+  ".txt": "text/plain; charset=utf-8",
+};
+const fileCache = new Map();
 const server = http.createServer((req, res) => {
-  const url = new URL(req.url, "http://x");
-  let file = path.join(dist, decodeURIComponent(url.pathname));
-  if (!file.startsWith(dist) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) file = path.join(dist, "index.html");
-  res.writeHead(200, { "content-type": MIME[path.extname(file)] ?? "application/octet-stream" });
-  fs.createReadStream(file).pipe(res);
+  const url = new URL(req.url, "http://127.0.0.1");
+  const rel = decodeURIComponent(url.pathname);
+  let file = path.resolve(dist, "." + rel);
+  if (!file.startsWith(dist + path.sep) && file !== dist) {
+    res.writeHead(403); res.end(); return;
+  }
+  if (fs.existsSync(file) && fs.statSync(file).isDirectory()) {
+    file = path.join(file, "index.html");
+  }
+  if (!fs.existsSync(file) || !fs.statSync(file).isFile()) {
+    if (path.extname(rel)) {
+      res.writeHead(404); res.end("Not found"); return;
+    }
+    file = path.join(dist, "index.html");
+  }
+  let buf = fileCache.get(file);
+  if (!buf) {
+    buf = fs.readFileSync(file);
+    fileCache.set(file, buf);
+  }
+  const type = MIME[path.extname(file).toLowerCase()] ?? "application/octet-stream";
+  const range = req.headers.range;
+  if (range && /^bytes=\d*-\d*$/.test(range)) {
+    const [s, e] = range.slice(6).split("-");
+    const start = s ? Math.min(Number(s), buf.length) : 0;
+    const end = e ? Math.min(Number(e), buf.length - 1) : buf.length - 1;
+    if (start <= end && start < buf.length) {
+      const chunk = buf.subarray(start, end + 1);
+      res.writeHead(206, {
+        "content-type": type,
+        "content-length": chunk.length,
+        "content-range": `bytes ${start}-${end}/${buf.length}`,
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=3600",
+      });
+      res.end(req.method === "HEAD" ? undefined : chunk);
+      return;
+    }
+  }
+  res.writeHead(200, {
+    "content-type": type,
+    "content-length": buf.length,
+    "accept-ranges": "bytes",
+    "cache-control": "public, max-age=3600",
+  });
+  res.end(req.method === "HEAD" ? undefined : buf);
 });
 await new Promise((r) => server.listen(0, "127.0.0.1", r)); // port 0 = a free port
 const base = `http://127.0.0.1:${server.address().port}/`;
@@ -762,7 +820,21 @@ const markControls = (page) => page.evaluate((sel) => {
   return names;
 }, CONTROLS);
 
-const reload = async (page) => { await page.reload({ waitUntil: "networkidle" }); await page.evaluate(() => document.fonts.ready); await page.waitForTimeout(700); };
+const reload = async (page) => {
+  await page.waitForLoadState("load", { timeout: 2000 }).catch(() => {});
+  await page.evaluate(() => {
+    try { localStorage.clear(); sessionStorage.clear(); } catch {}
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  }).catch(() => {});
+  page.__reloading = true;
+  try {
+    await page.reload({ waitUntil: "load" });
+  } finally {
+    page.__reloading = false;
+  }
+  await page.evaluate(() => { window.scrollTo(0, 0); return document.fonts.ready; });
+  await page.waitForTimeout(300);
+};
 
 // P1. Every question answered inside the first screenful, or one press away from it.
 async function checkFirstFold(page, cfg, questions, width) {
@@ -852,10 +924,14 @@ async function runProduct(browser) {
     for (const scheme of ["light", "dark"]) {
       const cfg = `${width}-${scheme}`;
       const ctx = await browser.newContext({ viewport: { width, height: VH[width] }, colorScheme: scheme, deviceScaleFactor: 1, hasTouch: width < 500 });
+      await ctx.addInitScript(() => { if ("scrollRestoration" in history) history.scrollRestoration = "manual"; });
       const page = await ctx.newPage();
       page.on("console", (m) => { if (m.type() === "error") fail(cfg, `console error: ${m.text()}`); });
       page.on("pageerror", (e) => fail(cfg, `page error: ${e.message}`));
-      page.on("requestfailed", (r) => fail(cfg, `request failed: ${r.url()} ${r.failure()?.errorText}`));
+      page.on("requestfailed", (r) => {
+        if (page.__reloading && r.failure()?.errorText === "net::ERR_ABORTED") return;
+        fail(cfg, `request failed: ${r.url()} ${r.failure()?.errorText}`);
+      });
       page.on("response", (r) => { if (r.url().startsWith(base) && r.status() >= 400) fail(cfg, `HTTP ${r.status()} ${r.url()}`); });
       await page.goto(base, { waitUntil: "networkidle" });
       await page.evaluate(() => document.fonts.ready);

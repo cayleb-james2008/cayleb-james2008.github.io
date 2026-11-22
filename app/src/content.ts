@@ -169,33 +169,35 @@ export const projects: Project[] = [
   },
 ];
 
-// The four product pages (static pages under /projects/, built 16 November 2026). The pitches are the page's own
-// words — each is grounded in its project's repository and logged in NEW-TEXT.md. Open-Ro Studio is not a résumé
-// record; it joins the other three here because its product page does.
-export type ProductPage = { name: string; href: string; pitch: string; img?: string; alt: string };
+// The three flagship product pages (static pages under /projects/, updated for v0.3.0). Open-Ro Studio is not a résumé
+// record; it joins Ergon and DSH Fleet here because its product page and interactive fixture demo do.
+export type ProductPage = { name: string; href: string; pitch: string; img: string; darkImg?: string; alt: string };
 export const productPagesHead = "the three products, in full";
 export const productPageLink = "the full product page ↗";
 export const productPages: ProductPage[] = [
   {
     name: "Ergon",
     href: "/projects/ergon.html",
-    pitch: "An AI agent for every employee — personal to each person, it learns how they work and finishes their digital work autonomously, end to end. No approval ceremony in the middle.",
-    img: "/assets/projects/captures/ergon-rs-main.png",
-    alt: "Capture of the current Ergon build: a finished task in the thread — the agent read two messy note files, wrote Summary.md, updated its memory of how its person works, and reported done, its tool steps shown as a ledger",
+    pitch: "An AI agent for every employee — personal to each person, it learns how they work and finishes their digital work autonomously, end to end. Single Rust binary + Rune runtime.",
+    img: "/assets/projects/captures/ergon-v030-light.png",
+    darkImg: "/assets/projects/captures/ergon-v030-dark.png",
+    alt: "Capture of Ergon v0.3.0 in the House Frontend workspace: conversation rail with memory ledger and Rune skill triggers, Chat · Today · Work Graph views, and completed task entries badged fixture demo",
   },
   {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
-    pitch: "You describe the game, it builds it — a proactive creative agent in a plain chat window, full access by default: it writes the scripts, playtests its own work, fixes what breaks, and every change can be reverted.",
-    img: "/assets/projects/captures/openro-rs-main.png",
-    alt: "Capture of the current OpenRO build: a chat where the agent wrote a round manager for the game Neon Harbor, the playtest failed, it read the console and repaired the script, and the playtest passed — Studio connected, and a Revert button under the thread",
+    pitch: "You describe the game, it builds it — a local-first Rust + Rune creative agent for Roblox Studio that writes Luau scripts, playtests its own work, repairs console faults, and checkpoints every ask.",
+    img: "/assets/projects/captures/openro-v030-light.png",
+    darkImg: "/assets/projects/captures/openro-v030-dark.png",
+    alt: "Capture of OpenRO v0.3.0 in the House Frontend workspace: game-chat rail with Starter Blueprints, Studio Build Trace with Playtest Verdict, and In Your Game Explorer shelf badged fixture demo",
   },
   {
     name: "DSH Fleet",
     href: "/projects/dsh-fleet.html",
-    pitch: "Your agents working in parallel under one screen — hand out the work, and it comes back verified done: Fleet runs your check command itself, and everything else lands in a Needs-you inbox with the reason. Nothing is babysat.",
-    img: "/assets/projects/captures/fleet-rs-main.png",
-    alt: "Capture of the current DSH Fleet build: a session marked 'Check passed — verified done', its transcript and diff on screen and its work ready to merge, with a second session waiting in the Needs-you inbox",
+    pitch: "Your agents working in parallel under one Mission Control screen — hand out the work, Fleet runs the mechanical check command itself, and unverified work lands in a Needs-you inbox with the receipt.",
+    img: "/assets/projects/captures/fleet-v030-light.png",
+    darkImg: "/assets/projects/captures/fleet-v030-dark.png",
+    alt: "Capture of DSH Fleet v0.3.0 Mission Control in the House Frontend workspace: Needs-you inbox, 32-session Tremor outcome tracker, verified receipt card, three-lane board, and diff inspector badged fixture demo",
   },
 ];
 
@@ -246,7 +248,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. This page is its interactive edition, and every capture on it is a still of the current build \u2014 taken from the app itself, not a mockup.",
+  line: "The plain PDF is the submission copy. This page is its interactive edition: the three v0.3.0 fixture demos below run the real House Frontend app UIs against in-browser fixture data (badged fixture demo), paired with full-resolution captures from the apps.",
 };
 
 export type LiveDemo = {
@@ -254,39 +256,80 @@ export type LiveDemo = {
   tag: string; // DEMO-01 ...
   title: string;
   blurb: string;
+  url: string;
   img: string;
+  darkImg?: string;
+  page: string;
+  repo: string;
+  storagePrefix?: string;
   action: string;
   provenance: { label: string; text: string }[];
 };
 
-// The words around the captures, as the live page prints them.
-export const demoWords = { count: "captures \u00b7 3", running: "shown", idle: "capture", eyebrow: "a still of the current build", tryIt: "In the frame:", provenance: "provenance", noCalls: "\u00b7 no third-party calls" };
+// The words around the three interactive v0.3.0 fixture demos.
+export const demoWords = {
+  count: "live demos \u00b7 3",
+  running: "running",
+  idle: "fixture demo",
+  eyebrow: "interactive v0.3.0 fixture build \u00b7 badged fixture demo",
+  tryIt: "Try in the frame:",
+  provenance: "provenance",
+  noCalls: "\u00b7 fixture demo \u00b7 zero third-party network calls",
+};
 
 export const liveDemos: LiveDemo[] = [
   {
     key: "Ergon",
-    tag: "CAPTURE-01",
-    title: "Ergon — the current build",
-    blurb: "The current Ergon build at work: a second finished task in the same running copy — a plain-words ask, the agent's steps as a ledger in the thread, a finished spreadsheet, and the summary it reported. No approval step sits in the middle.",
-    img: "/assets/projects/captures/ergon-rs-demo.png",
-    action: "the expenses task, finished end to end; the first task in the sidebar turned two messy note files into Summary.md and updated what the agent has learned about its person.",
+    tag: "DEMO-01",
+    title: "Ergon v0.3.0 — personal employee-agent workspace",
+    blurb: "The v0.3.0 House Frontend workspace for Ergon's single-binary Rust + Rune daemon: conversation rail with learned preferences and Rune skill triggers, Chat \u00b7 Today \u00b7 Work Graph views, and multi-step tool ledgers.",
+    url: "/demos/ergon/",
+    img: "/assets/projects/captures/ergon-v030-light.png",
+    darkImg: "/assets/projects/captures/ergon-v030-dark.png",
+    page: "/projects/ergon.html",
+    repo: "https://github.com/cayleb-james2008/ergon",
+    storagePrefix: "ergon",
+    action: "switch between Chat, Today, and Work Graph, inspect the agent's memory and Rune skill suite in the rail, or post a task prompt against the in-browser fixture store.",
     provenance: [
-      { label: "What is shown:", text: "a capture of ergon-rs, the Rust rebuild, running on the owner's machine — taken 18 November 2026 at the app's own 1280×800, in the dark theme it ships with." },
-      { label: "What is fixture:", text: "the tasks and files are fixture work seeded for the capture, and the model answering the agent was a scripted stand-in on the same machine: this environment holds no live model key for the app, and the app refuses honestly when it has none. The interface, the tools and the files produced are the app's own." },
-      { label: "Why it is here:", text: "the résumé claims the app works; the capture shows its current interface doing a task end to end. The interactive demo that used to run in this frame was the retired build, and it has been removed." },
+      { label: "What runs:", text: "the v0.3.0 House Frontend UI compiled from cayleb-james2008/ergon (apps/ergon-ui), served directly from /demos/ergon/ with zero external network calls." },
+      { label: "What is fixture:", text: "the conversations, learned preferences, Work Graph nodes, and Rune skill outputs come from an in-browser fixture adapter (badged fixture demo inside the UI) rather than a live LLM key or local SQLite daemon." },
+      { label: "Why it is here:", text: "the r\u00e9sum\u00e9 claims Ergon's employee-agent loop is built and verified against simulated companies; both the interactive UI and the v0.3.0 desktop captures are inspectable here." },
+    ],
+  },
+  {
+    key: "Open-Ro",
+    tag: "DEMO-02",
+    title: "Open-Ro Studio v0.3.0 — local-first Roblox agent studio",
+    blurb: "The v0.3.0 House Frontend Game Builder Studio Workbench for OpenRO's single-binary Rust + Rune companion: Starter Blueprints, Studio Build Trace with Playtest Verdict and Luau console, In Your Game Explorer shelf, and one-click Undo.",
+    url: "/demos/open-ro/",
+    img: "/assets/projects/captures/openro-v030-light.png",
+    darkImg: "/assets/projects/captures/openro-v030-dark.png",
+    page: "/projects/openro.html",
+    repo: "https://github.com/cayleb-james2008/open-ro",
+    storagePrefix: "openro",
+    action: "switch between Skyline Obby + Speed Shop and Starter Blueprints in the rail, inspect the Playtest Verdict and In Your Game Explorer shelf, or send a prompt and test Undo.",
+    provenance: [
+      { label: "What runs:", text: "the v0.3.0 House Frontend UI compiled from cayleb-james2008/open-ro, served directly from /demos/open-ro/ with zero external network calls." },
+      { label: "What is fixture:", text: "Roblox Studio MCP responses, Workspace parts, Luau scripts, playtest console logs, and Undo checkpoints are served by an in-browser fixture adapter (badged fixture demo inside the UI)." },
+      { label: "Why it is here:", text: "Open-Ro Studio pairs with Ergon and DSH Fleet as the third public v0.3.0 Rust + Rune build; its interactive workspace and v0.3.0 captures are shown together here." },
     ],
   },
   {
     key: "DSH Fleet",
-    tag: "CAPTURE-02",
-    title: "DSH Fleet — the current build",
-    blurb: "The current Fleet build catching a claim: the agent said its work was finished, Fleet ran the task's check itself on the committed tree, the check failed — so the session sits in Needs-you with the reason and a Retry button, not in Done.",
-    img: "/assets/projects/captures/fleet-rs-demo.png",
-    action: "the failed session, with the two verified-done sessions behind it in the sidebar; the check — test -s output.txt — is the project's own, from its policies file.",
+    tag: "DEMO-03",
+    title: "DSH Fleet v0.3.0 — Mission Control for parallel coding agents",
+    blurb: "The v0.3.0 House Frontend Mission Control for DSH Fleet's single-binary Rust + Rune orchestrator: Needs-you inbox, 32-session Tremor outcome tracker, mechanical check receipts, three-lane board, and diff inspector.",
+    url: "/demos/dsh-fleet/",
+    img: "/assets/projects/captures/fleet-v030-light.png",
+    darkImg: "/assets/projects/captures/fleet-v030-dark.png",
+    page: "/projects/dsh-fleet.html",
+    repo: "https://github.com/cayleb-james2008/dsh-fleet",
+    storagePrefix: "fleet",
+    action: "inspect verified vs refused sessions across the Needs-you, Running, and Verified lanes, switch between Transcript, Diff, and Receipt tabs, or dispatch/retry a fixture session.",
     provenance: [
-      { label: "What is shown:", text: "a capture of fleet-rs, the Rust rebuild, running on the owner's machine — taken 18 November 2026 at 1280×800, in the dark theme it ships with." },
-      { label: "What is fixture:", text: "the three sessions are fixture tasks handed out through the app's own API, run by a fixture agent against a fixture repository. The statuses, the transcript and the failed check are the app's real verdicts on that work." },
-      { label: "Why it is here:", text: "the résumé claims Fleet verifies work before calling it done; the capture shows a claim being refused. The dashboard snapshot that used to sit in this frame was the retired build, and it has been removed." },
+      { label: "What runs:", text: "the v0.3.0 House Frontend UI compiled from cayleb-james2008/dsh-fleet (apps/fleet-ui), served directly from /demos/dsh-fleet/ with zero external network calls." },
+      { label: "What is fixture:", text: "the sessions, git worktree diffs, and mechanical check verdicts are driven by an in-browser fixture adapter (badged fixture demo inside the UI) rather than live worker processes." },
+      { label: "Why it is here:", text: "the r\u00e9sum\u00e9 claims Fleet gates agent claims behind mechanical verification; the demo lets a reader inspect both verified receipts and refused Needs-you sessions directly." },
     ],
   },
 ];

@@ -1,3 +1,4 @@
+import { useTheme } from "@/chrome/theme";
 import { Pill, PillIndicator, PillStatus } from "@/components/kibo-ui/pill";
 import { BarList } from "@/components/BarList/BarList";
 import {
@@ -11,7 +12,6 @@ import { open } from "@/motion";
 
 // Region F: selected projects. The three flagship projects lead with a still of the real capture; the others with their stated
 // numbers. Every bullet stays on the page; the steps open as a morphing detail on a press.
-const DSH_REPO = "github.com/cayleb-james2008/dsh-fleet";
 
 function CaptureFigure({ c, onOpenDemo }: { c: Capture; onOpenDemo: () => void }) {
   return (
@@ -86,19 +86,9 @@ function ProjectCard({ p, onOpenDemo }: { p: Project; onOpenDemo: (key: string) 
         ) : null}
         {p.figure ? <span className="w-fit max-w-full rounded-[6px] bg-track px-2 py-1 font-mono text-xs text-ink-2">{p.figure}</span> : null}
         {p.repo ? (
-          p.repo === DSH_REPO ? (
-            <p className="flex flex-wrap items-center gap-2 font-mono text-xs text-ink-2">
-              <span>{p.repo}</span>
-              <span className="text-ink-2">private repository</span>
-              <a className={`${tapTarget} underline-offset-4 hover:underline active:text-blue`} href="https://github.com/cayleb-james2008" target="_blank" rel="noreferrer noopener">
-                public profile ↗
-              </a>
-            </p>
-          ) : (
-            <a className={`${tapTarget} w-fit font-mono text-xs text-ink-2 underline-offset-4 hover:text-ink hover:underline active:text-blue`} href={`https://${p.repo}`} target="_blank" rel="noreferrer noopener">
-              {p.repo}
-            </a>
-          )
+          <a className={`${tapTarget} w-fit font-mono text-xs text-ink-2 underline-offset-4 hover:text-ink hover:underline active:text-blue`} href={`https://${p.repo}`} target="_blank" rel="noreferrer noopener">
+            {p.repo}
+          </a>
         ) : null}
       </div>
       {p.capture ? (
@@ -151,13 +141,13 @@ function ProjectCard({ p, onOpenDemo }: { p: Project; onOpenDemo: (key: string) 
 // All four product cards carry a capture of the current build. (The Fleet card's drawn model was retired in the
 // capture pass, 18 November 2026, once a real capture of fleet-rs existed to take its place.)
 
-function ProductPageCard({ p }: { p: ProductPage }) {
+function ProductPageCard({ p, dark }: { p: ProductPage; dark: boolean }) {
   return (
     <a
       href={p.href}
       className="group grid content-start overflow-hidden rounded-[14px] border border-hairline bg-surface outline-none hover:bg-board focus-visible:ring-2 focus-visible:ring-blue active:bg-track"
     >
-      <img src={p.img} alt={p.alt} width={1280} height={800} loading="lazy" className="aspect-[16/10] w-full border-b border-hairline object-cover object-top" />
+      <img src={dark && p.darkImg ? p.darkImg : p.img} alt={p.alt} width={1440} height={900} loading="eager" className="aspect-[16/10] w-full border-b border-hairline object-cover object-top" />
       <span className="grid gap-1.5 p-4">
         <span className="text-ui font-medium text-ink">{p.name}</span>
         <span className="text-pretty text-sm leading-relaxed text-ink-2">{p.pitch}</span>
@@ -168,6 +158,7 @@ function ProductPageCard({ p }: { p: ProductPage }) {
 }
 
 export function Projects({ onOpenDemo }: { onOpenDemo: (key: string) => void }) {
+  const { theme } = useTheme();
   return (
     <InView>
       <section id="projects" aria-labelledby="projects-label" className="scroll-mt-6 grid gap-6 border-t border-hairline py-12 grid-cols-1 md:grid-cols-[12rem_1fr] md:gap-10">
@@ -175,9 +166,9 @@ export function Projects({ onOpenDemo }: { onOpenDemo: (key: string) => void }) 
         <div className="grid gap-5 grid-cols-1 md:grid-cols-2">
           <div className="grid gap-4 md:col-span-2">
             <p className="font-mono text-xs uppercase tracking-wider text-ink-2">{productPagesHead}</p>
-            <div className="grid gap-5 grid-cols-1 sm:grid-cols-2">
+            <div className="grid gap-5 grid-cols-1 md:grid-cols-3">
               {productPages.map((p) => (
-                <ProductPageCard key={p.name} p={p} />
+                <ProductPageCard key={p.name} p={p} dark={theme === "dark"} />
               ))}
             </div>
           </div>

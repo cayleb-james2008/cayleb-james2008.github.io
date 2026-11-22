@@ -1,291 +1,263 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Open-Ro Studio — Cayleb Alvarez-James</title>
-<meta name="description" content="You describe the game, it builds it — a proactive creative agent in a plain chat window, full access by default, that can one-shot a game.">
-<script>
-/* Theme before first paint: dark by default until the person chooses; the choice is kept in
-   localStorage, key "theme" — the same key the home page reads, so one choice covers the site. */
-try{var t=null;try{t=localStorage.getItem("theme");}catch(e){}
-if(t!=="light"&&t!=="dark")t="dark";document.documentElement.setAttribute("data-theme",t);
-}catch(e){document.documentElement.setAttribute("data-theme","dark");}
-</script>
-<style>:root{--accent:#e0a458;}[data-theme="light"]{--accent:#8f5a14;}
-@font-face { font-family:"Fraunces"; src:url("../assets/editorial/fonts/fraunces-normal-500.woff2") format("woff2"); font-weight:100 900; font-display:swap; }
-@font-face { font-family:"Fraunces"; src:url("../assets/editorial/fonts/fraunces-italic-500.woff2") format("woff2"); font-weight:100 900; font-style:italic; font-display:swap; }
-@font-face { font-family:"Archivo"; src:url("../assets/editorial/fonts/archivo-400.woff2") format("woff2"); font-weight:400; font-display:swap; }
-@font-face { font-family:"Archivo"; src:url("../assets/editorial/fonts/archivo-500.woff2") format("woff2"); font-weight:500; font-display:swap; }
-@font-face { font-family:"Archivo"; src:url("../assets/editorial/fonts/archivo-600.woff2") format("woff2"); font-weight:600; font-display:swap; }
-@font-face { font-family:"Plex Mono"; src:url("../assets/editorial/fonts/ibm-plex-mono-400.woff2") format("woff2"); font-weight:400; font-display:swap; }
-
-:root{
-  color-scheme:dark;
-  --paper:#161310; --paper2:#1e1a15; --panel:#221e17; --ink:#f0e9da; --muted:#b6ab94; --faint:#968a70;
-  --rule:#3a342a; --rule-dark:#0c0a08; --frame:#0d0b09;
-  --ok:#9fc97f; --miss:#e0a458; --sel:#14100a;
-  --serif:"Fraunces",Georgia,serif; --sans:"Archivo",system-ui,sans-serif; --mono:"Plex Mono",ui-monospace,monospace;
-}
-[data-theme="light"]{
-  color-scheme:light;
-  --paper:#f3eddc; --paper2:#eae1c9; --panel:#faf6ea; --ink:#221a0e; --muted:#5c4c2c; --faint:#6d5c39;
-  --rule:#c8b995; --rule-dark:#a5936e;
-  --ok:#3d6b1f; --miss:#8f5410; --sel:#f7f2e4;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:17.5px; line-height:1.6; -webkit-font-smoothing:antialiased}
-::selection{background:var(--accent); color:var(--sel)}
-a{color:var(--accent)}
-:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
-.skip-link{position:fixed; left:16px; top:-60px; z-index:70; background:var(--ink); color:var(--paper); padding:.55rem 1rem; border-radius:99px; font-weight:600; text-decoration:none; transition:top .2s}
-.skip-link:focus{top:14px}
-.progress{position:fixed; top:0; left:0; right:0; height:3px; z-index:60}
-.progress i{display:block; height:100%; background:var(--accent); transform-origin:left; transform:scaleX(var(--p,0))}
-
-.wrap{width:min(1180px,100% - 2.5rem); margin:0 auto}
-.narrow{width:min(760px,100% - 2.5rem); margin:0 auto}
-
-/* masthead */
-.masthead{border-bottom:3px double var(--rule); padding:1.1rem 0 .9rem; display:flex; align-items:baseline; gap:1.2rem; flex-wrap:wrap}
-.masthead .wm{font-family:var(--serif); font-weight:900; font-size:1.35rem; color:var(--ink); text-decoration:none; letter-spacing:-.01em}
-.masthead .wm i{color:var(--accent); font-style:normal}
-.masthead .issue{color:var(--muted); font-size:.85rem}
-.masthead nav{margin-left:auto; display:flex; gap:1.3rem; font-size:.88rem}
-.masthead nav a{color:var(--muted); text-decoration:none}
-.masthead nav a:hover{color:var(--ink)}
-
-/* hero */
-.hero{padding:3.2rem 0 1.4rem}
-.kicker{font-family:var(--mono); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent)}
-.hero h1{font-family:var(--serif); font-weight:900; font-size:clamp(2.6rem,6vw,4.4rem); line-height:1.02; letter-spacing:-.015em; margin:.55rem 0 .8rem}
-.hero .lead{font-size:clamp(1.15rem,2.4vw,1.45rem); line-height:1.45; color:var(--ink); max-width:34em}
-.checked{margin-top:1.4rem; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:.7rem 0; display:flex; gap:2rem; flex-wrap:wrap; font-size:.9rem; color:var(--muted)}
-.checked b{color:var(--ink); font-weight:600}
-.checked span b{margin-right:.4rem}
-
-/* sections */
-section{padding:2.6rem 0}
-.sec-label{font-family:var(--mono); font-size:.75rem; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-bottom:1.1rem; display:flex; align-items:center; gap:.8rem}
-.sec-label::after{content:""; flex:1; height:1px; background:var(--rule)}
-h2{font-family:var(--serif); font-weight:700; font-size:clamp(1.5rem,3vw,2rem); line-height:1.15; margin-bottom:.6rem}
-p.plain{color:var(--muted); max-width:38em}
-p.plain b, li b{color:var(--ink)}
-
-/* three plain blocks */
-.blocks{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
-.block{background:var(--panel); border:1px solid var(--rule); border-radius:12px; padding:1.2rem 1.15rem}
-.block .n{font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; color:var(--accent); text-transform:uppercase}
-.block h3{font-family:var(--serif); font-size:1.22rem; font-weight:700; margin:.45rem 0 .4rem; line-height:1.2}
-.block p{color:var(--muted); font-size:.99rem; line-height:1.55}
-.note{margin-top:1rem; color:var(--muted); font-size:.95rem}
-.note b{color:var(--ink)}
-
-/* data table */
-table.data{width:100%; border-collapse:collapse; font-size:1rem}
-table.data th, table.data td{padding:.75rem .6rem; text-align:left; border-bottom:1px solid var(--rule); vertical-align:top}
-table.data th{font-weight:600; color:var(--ink); width:42%}
-table.data td{color:var(--muted)}
-table.data td b{color:var(--ink)}
-table.data tr:last-child th, table.data tr:last-child td{border-bottom:none}
-table.data .ok{color:var(--ok); font-weight:600}
-table.data .miss{color:var(--miss); font-weight:600}
-
-/* status */
-.status p{color:var(--muted); max-width:40em; margin-bottom:.7rem}
-.status p b{color:var(--ink)}
-
-/* mini demo */
-.demo{background:var(--paper2); border:1px solid var(--rule); border-radius:14px; padding:1.1rem}
-.demo-head{display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:1rem}
-.demo-head .t{font-family:var(--serif); font-weight:700; font-size:1.15rem}
-.demo-head .s{color:var(--muted); font-size:.9rem}
-.demo-btn{margin-left:auto; border:1px solid var(--ink); background:var(--ink); color:var(--paper); border-radius:99px; padding:.5rem 1.1rem; font:inherit; font-size:.92rem; font-weight:600; cursor:pointer}
-.gate-flow{display:flex; flex-direction:column; gap:.55rem}
-.gate-step{display:flex; gap:.8rem; align-items:flex-start; background:var(--panel); border:1px solid var(--rule); border-radius:10px; padding:.75rem .9rem; opacity:.35; transform:translateY(6px); transition:opacity .45s, transform .45s}
-.gate-step.on{opacity:1; transform:none}
-.gate-step svg{width:19px; height:19px; flex:none; margin-top:.15rem; color:var(--accent)}
-.gate-step p{color:var(--muted); font-size:.97rem}
-.gate-step p b{color:var(--ink)}
-.gate-verdict{font-family:var(--mono); font-size:.8rem; letter-spacing:.08em; margin-top:.7rem; min-height:1.2em; color:var(--ink)}
-
-/* walkthrough video */
-.walk{background:var(--paper2); border:1px solid var(--rule); border-radius:14px; padding:1.1rem}
-.walk video{width:100%; display:block; border-radius:10px; background:#000; aspect-ratio:8/5}
-.chapters{list-style:none; margin-top:1rem; display:grid; grid-template-columns:1fr 1fr; gap:.4rem}
-.chapters button{display:flex; gap:.7rem; align-items:baseline; width:100%; text-align:left; font:inherit; font-size:.95rem; color:var(--muted); background:var(--panel); border:1px solid var(--rule); border-radius:9px; padding:.55rem .8rem; cursor:pointer; transition:color .2s,border-color .2s}
-.chapters button:hover{color:var(--ink)}
-.chapters button.on{color:var(--ink); border-color:var(--accent)}
-.chapters .ct{font-family:var(--mono); font-size:.78rem; color:var(--accent); flex:none}
-.walk-note{margin-top:1rem; color:var(--muted); font-size:.95rem; max-width:44em}
-.walk-note b{color:var(--ink)}
-@media (max-width:760px){ .chapters{grid-template-columns:1fr} }
-
-/* footer */
-.subfoot{border-top:3px double var(--rule); padding:1.6rem 0 2.6rem; display:flex; gap:1.6rem; flex-wrap:wrap; align-items:center; font-size:.95rem}
-.subfoot a{text-decoration:none; font-weight:600}
-.subfoot .back{color:var(--muted); font-weight:400}
-.settings{margin-left:auto; display:flex; align-items:center; gap:.5rem; font-size:.85rem; color:var(--faint)}
-.settings .set-label{font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase}
-.theme-btn{font:inherit; font-size:.85rem; background:none; border:1px solid var(--rule); color:var(--muted); border-radius:99px; padding:.28rem .8rem; cursor:pointer; transition:color .2s,border-color .2s,background .2s}
-.theme-btn:hover{color:var(--ink)}
-.theme-btn[aria-pressed="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
-
-/* scroll animation */
-[data-anim]{opacity:0}
-[data-anim="up"]{transform:translateY(26px)}
-[data-anim="left"]{transform:translateX(-26px)}
-[data-anim="zoom"]{transform:scale(.965)}
-[data-anim].in{opacity:1; transform:none; transition:opacity .8s cubic-bezier(.22,.8,.3,1), transform .8s cubic-bezier(.22,.8,.3,1)}
-[data-anim].in.d1{transition-delay:.1s} [data-anim].in.d2{transition-delay:.22s} [data-anim].in.d3{transition-delay:.34s}
-.shots [data-anim]{opacity:1 !important; transform:none !important; transition:none !important}
-@media (prefers-reduced-motion: reduce){
-  [data-anim]{opacity:1; transform:none; transition:none}
-  html{scroll-behavior:auto}
-}
-
-@media (max-width:760px){
-  .blocks{grid-template-columns:1fr}
-  .checked{gap:.9rem}
-  table.data th{width:48%}
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Open-Ro Studio — Cayleb Alvarez-James</title>
+  <meta name="description" content="OpenRO v0.3.0: Game Builder Studio Workbench for Roblox in a single Rust + Rune binary — starter blueprints, Luau generation, MCP Studio bridge, self-repair playtest loop, and one-click Undo.">
+  <link rel="canonical" href="https://cayleb-james2008.github.io/projects/openro.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cayleb Alvarez-James">
+  <meta property="og:title" content="Open-Ro Studio — Cayleb Alvarez-James">
+  <meta property="og:description" content="AI game builder workbench for Roblox Studio — Rune Luau skills, MCP bridge, self-repair playtest loop, and one-click Undo (v0.3.0).">
+  <meta property="og:url" content="https://cayleb-james2008.github.io/projects/openro.html">
+  <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f2f5">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e1013">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <script src="../site/house/theme.js"></script>
+  <script src="../site/house/pages.js" defer></script>
+  <link rel="stylesheet" href="../site/house/tokens.css">
+  <link rel="stylesheet" href="../site/house/base.css">
+  <link rel="stylesheet" href="../site/house/project.css">
 </head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-<div class="progress" aria-hidden="true"><i></i></div>
-<header class="wrap masthead">
-  <a class="wm" href="../index.html">Cayleb<i>.</i>AJ</a>
-  <span class="issue">The product pages — plain edition</span>
-  <nav><a href="index.html">Projects</a><a href="../resume.html">Résumé</a></nav>
-</header>
-<main id="main" class="wrap">
-  <div class="hero">
-    <p class="kicker" data-anim="up">OpenRO — you describe the game, it builds it</p>
-    <h1 data-anim="up">Say the game. It builds it.</h1>
-    <p class="lead" data-anim="up">A creative agent in a plain chat window. Describe the game in your own words; it writes the scripts, places the pieces, playtests its own work, fixes what breaks — and every change it makes can be reverted.</p>
-    <div class="checked" data-anim="up"><span><b>Status —</b>built, verified end to end</span><span><b>Tests —</b>57 of 57 passing</span><span><b>Sealed exam —</b>14 of 14</span><span><b>Studio —</b>mock-proven, real bridge drops in</span></div>
-  </div>
+<body class="project-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="sub-masthead">
+    <a class="sub-wordmark" href="../index.html" aria-label="Cayleb Alvarez-James, home">Cayleb<span class="wm-dot">.</span>AJ</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="../index.html#summary">Résumé</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#live-demos">Live demos</a></li>
+      </ul>
+    </nav>
+    <a class="sub-resume" href="../Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf" download>Résumé PDF</a>
+  </header>
 
-  <section aria-label="How a build runs">
-    <p class="sec-label" data-anim="left">How a build runs — the build's own integration test, step for step</p>
-    <div class="demo" data-anim="zoom">
-      <div class="demo-head"><span class="t">“Make a round-based obby with a leaderboard.”</span><span class="s">Schematic — the steps below are the exact flow the integration suite drives and asserts, repair included.</span><button class="demo-btn" id="gate-run" type="button">Run it</button></div>
-      <div class="gate-flow" id="gate">
-        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg><p><b>Generate the code.</b> Rune skills write the Luau — a round manager and a leaderboard. Game code only ever comes from the skills, never from raw model output.</p></div>
-        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>Write it into the place.</b> The scripts land in the game's tree through the Studio bridge, and every change is checkpointed as it succeeds.</p></div>
-        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5m0 3.5v.5M10.3 3.8L2.6 17a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 3.8a2 2 0 0 0-3.4 0z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>The playtest fails.</b> The console says why: the round script reaches for a Round object nothing created. The agent reads the actual console output — it doesn't guess.</p></div>
-        <div class="gate-step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>Repair, retest, done.</b> The missing piece is generated and written, the playtest passes, and only then is the build called done. If it can't fix it, it says so — and the whole ask can still be reverted.</p></div>
+  <main id="main">
+    <header class="project-hero">
+      <div class="wrap project-hero__main">
+        <a class="project-back" href="./">← All project pages</a>
+        <p class="case-hero__meta">Flagship v0.3.0 · Rust + Rune + House Frontend · checked 21 November 2026</p>
+        <h1 class="case-hero__title">Say the game. It builds it.</h1>
+        <p class="case-hero__out">Open-Ro Studio (OpenRO) is a Game Builder Studio Workbench for Roblox served from a single Rust + Rune binary. Describe a game in plain words or launch a starter blueprint: Rune skills generate the Luau and place instances over MCP, run a playtest, read the Luau console to repair failures, and keep every ask reversible.</p>
+        <ul class="project-status" aria-label="Verification">
+          <li><span class="checked-dot" aria-hidden="true"></span>v0.3.0 single-binary build · 107/107 Rust &amp; .loop/verify tests · 78/78 UI gate &amp; 32/32 replay · MCP Studio bridge.</li>
+          <li><span class="chip chip--current">v0.3.0 public</span></li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn-primary" href="../demos/open-ro/">Launch interactive fixture demo ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/open-ro" target="_blank" rel="noreferrer noopener">Source on GitHub ↗</a>
+        </div>
       </div>
-      <p class="gate-verdict" id="gate-verdict" aria-live="polite"></p>
+    </header>
+
+    <div class="wrap project-top">
+      <nav class="project-index" aria-label="On this page">
+        <a href="#figures">interface &amp; walkthrough</a>
+        <a href="#schematic">how a build runs</a>
+        <a href="#capabilities">what it does</a>
+        <a href="#record">verification record</a>
+        <a href="#limits">honest boundaries</a>
+      </nav>
+
+      <section class="project-figures" id="figures" aria-labelledby="figures-h">
+        <h2 class="vis-kicker" id="figures-h">v0.3.0 studio workbench &amp; recorded walkthrough</h2>
+        <div class="figure-grid">
+          <figure class="viz viz--shot">
+            <div class="viz__head viz__head--shot">
+              <span class="viz__title">OpenRO v0.3.0 — Game Builder Studio Workbench</span>
+              <span class="viz__live">example fixture</span>
+              <span class="viz__note">House Frontend · switches with page theme</span>
+            </div>
+            <div class="viz__media">
+              <a class="shot-light" href="../assets/projects/captures/openro-v030-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of OpenRO v0.3.0">
+                <img src="../assets/projects/captures/openro-v030-light.png" alt="OpenRO v0.3.0 Game Builder Studio Workbench in the light House Frontend theme: left game-chat rail with Studio Connected pill, center Studio Build Trace with Playtest Verdict, and right In Your Game Explorer shelf badged fixture demo." width="1440" height="900" loading="eager" decoding="async">
+              </a>
+              <a class="shot-dark" href="../assets/projects/captures/openro-v030-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of OpenRO v0.3.0">
+                <img src="../assets/projects/captures/openro-v030-dark.png" alt="OpenRO v0.3.0 Game Builder Studio Workbench in the dark House Frontend theme: left game-chat rail, center Studio Build Trace, and right In Your Game Explorer shelf badged fixture demo." width="1440" height="900" loading="eager" decoding="async">
+              </a>
+            </div>
+            <figcaption class="viz__cap">
+              <p class="viz__caption">Captured directly from the OpenRO v0.3.0 build at 1440×900 in both House Frontend themes, seeded with a realistic Roblox build against the MCP Studio fixture and badged in-frame.</p>
+              <p class="viz__source">Source: cayleb-james2008/open-ro v0.3.0 · interactive build available at /demos/open-ro/</p>
+              <p class="viz__action">
+                <a class="viz__open" href="../demos/open-ro/">open interactive fixture demo ↗</a>
+              </p>
+            </figcaption>
+          </figure>
+
+          <figure class="viz" id="schematic">
+            <div class="viz__body">
+              <div class="sim-head">
+                <div class="sim-head__copy">
+                  <span class="sim-head__title">“Make a round-based obby with a leaderboard.”</span>
+                  <span class="sim-head__sub">Step-by-step schematic of the build → playtest → console inspect → self-repair loop asserted in the integration suite.</span>
+                </div>
+                <button class="btn-outline" id="gate-run" type="button">Step through build</button>
+              </div>
+              <ol class="sim-steps" id="gate">
+                <li class="sim-step"><span class="sim-step__num">01</span><p><b>Generate Luau via Rune skills.</b> Dedicated Rune skills produce the round manager and leaderboard scripts; game code comes strictly from compiled skills rather than raw unguarded text.</p></li>
+                <li class="sim-step"><span class="sim-step__num">02</span><p><b>Apply &amp; checkpoint over MCP.</b> Scripts and Workspace parts land in the place hierarchy through the Studio MCP bridge, recording prior state in an atomic checkpoint.</p></li>
+                <li class="sim-step"><span class="sim-step__num">03</span><p><b>Playtest catches a missing instance.</b> Studio runs the game and reports a Luau error when the round script references an uncreated <code>Round</code> value — OpenRO reads the real console log.</p></li>
+                <li class="sim-step"><span class="sim-step__num">04</span><p><b>Self-repair, re-playtest, verified done.</b> The missing piece is generated, the playtest passes, and the entire prompt remains reversible via one-click Undo.</p></li>
+              </ol>
+              <p class="sim-verdict" id="gate-verdict" aria-live="polite">Ready — press “Step through build” to trace each verified stage.</p>
+            </div>
+          </figure>
+
+          <figure class="viz">
+            <div class="viz__body">
+              <div class="viz__head">
+                <span class="viz__title">Recorded end-to-end walkthrough</span>
+                <span class="viz__note">real binary + Remotion chapter package</span>
+              </div>
+              <div style="margin-top:16px">
+                <video class="walk-video" controls preload="metadata" playsinline poster="../assets/video/openro-poster.jpg" src="../assets/video/openro.mp4">
+                  <track kind="chapters" label="Chapters" srclang="en" default src="../assets/video/openro-chapters.vtt">
+                </video>
+                <ol class="chapters">
+                  <li><button type="button" data-t="5.80"><span class="ct">0:05</span>Starter game blueprints</button></li>
+                  <li><button type="button" data-t="15.34"><span class="ct">0:15</span>One click builds with zero model calls</button></li>
+                  <li><button type="button" data-t="20.35"><span class="ct">0:20</span>Prompting a complete multi-system game</button></li>
+                  <li><button type="button" data-t="39.37"><span class="ct">0:39</span>Playtest fails in console</button></li>
+                  <li><button type="button" data-t="42.40"><span class="ct">0:42</span>Automatic console-driven self-repair</button></li>
+                  <li><button type="button" data-t="46.05"><span class="ct">0:46</span>Next-feature suggestions</button></li>
+                  <li><button type="button" data-t="49.48"><span class="ct">0:49</span>One-click atomic Undo</button></li>
+                </ol>
+              </div>
+            </div>
+            <figcaption class="viz__cap">
+              <p class="viz__caption">Recorded against the strict MCP Studio fixture used by the test suite; a live Roblox Studio MCP server connects through the same stdio protocol via environment configuration.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
     </div>
-  </section>
 
-  <section aria-label="Watch it work">
-    <p class="sec-label" data-anim="left">Watch it work — describe it, it builds it, recorded on the real app</p>
-    <div class="walk" data-anim="zoom">
-      <video controls preload="metadata" playsinline poster="../assets/video/openro-poster.jpg" src="../assets/video/openro.mp4">
-        <track kind="chapters" label="Chapters" srclang="en" default src="../assets/video/openro-chapters.vtt">
-      </video>
-      <ol class="chapters">
-        <li><button type="button" data-t="5.80"><span class="ct">0:05</span>It pitches first</button></li>
-        <li><button type="button" data-t="15.34"><span class="ct">0:15</span>One tap builds a whole game</button></li>
-        <li><button type="button" data-t="20.35"><span class="ct">0:20</span>Or ask for a whole game at once</button></li>
-        <li><button type="button" data-t="39.37"><span class="ct">0:39</span>The playtest fails — for real</button></li>
-        <li><button type="button" data-t="42.40"><span class="ct">0:42</span>It repairs its own work</button></li>
-        <li><button type="button" data-t="46.05"><span class="ct">0:46</span>It keeps pitching</button></li>
-        <li><button type="button" data-t="49.48"><span class="ct">0:49</span>One tap reverts the ask</button></li>
-      </ol>
-      <p class="walk-note"><b>What you are watching:</b> the real OpenRO app, recorded against its mock Studio bridge — the same fixture the test suite drives. The build, the failed playtest, the self-repair and the revert are all the app's own work; a real Studio connection drops into the same bridge unchanged. This cut wraps the same unedited capture in a graphics package composed with Remotion — an animated title, a flow diagram and chapter graphics.</p>
+    <div class="wrap project-layout">
+      <article class="project-content">
+        <div class="project-prose">
+          <section id="capabilities">
+            <h2>What it does</h2>
+            <div class="project-prose__body">
+              <p>OpenRO v0.3.0 pairs a conversational build thread with a live Roblox Studio Explorer shelf so creators see every Workspace part and ServerScriptService / StarterPlayer script added to their game in real time.</p>
+              <div class="cap-grid">
+                <div class="cap-card">
+                  <span class="cap-card__tag">01 · Blueprints &amp; chat</span>
+                  <h3>Zero-setup game starts</h3>
+                  <p>Equal-height Game Blueprint starter cards build complete playable foundations in one click with zero LLM calls, or accept natural-language prompts in the composer dock.</p>
+                </div>
+                <div class="cap-card">
+                  <span class="cap-card__tag">02 · Ten Rune skills</span>
+                  <h3>Whole-place kit</h3>
+                  <p>Rounds, leaderboards, day/night lighting, kill bricks, spawn pads, persistent currency, shops, HUD screens, checkpoints and soundtracks — coordinated across the place tree.</p>
+                </div>
+                <div class="cap-card">
+                  <span class="cap-card__tag">03 · Playtest &amp; Undo</span>
+                  <h3>Proven or honest</h3>
+                  <p>Builds report Passed only when the playtest succeeds, expose expandable Luau console logs, and checkpoint every ask behind conflict-checked Undo confirmation.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="record">
+            <h2>Verification record</h2>
+            <div class="project-prose__body">
+              <p>Checked directly against <code>cayleb-james2008/open-ro</code> at release <code>v0.3.0</code>.</p>
+              <table class="record-table">
+                <tbody>
+                  <tr><th>Rust &amp; .loop/verify suite</th><td><b>107 of 107 passing</b> (17 unit + 90 integration) — Rune Luau skill generation, console-guided repair loop, exact checkpoint revert, conflict refusal, persistence, and honesty gates.</td></tr>
+                  <tr><th>UI &amp; worst-case replay</th><td><b>78 of 78</b> Playwright UI gate checks, <b>8 of 8</b> built-in replay scenarios, and <b>32 of 32</b> worst-case API resilience cases passing across 1440px and 390px.</td></tr>
+                  <tr><th>House Frontend UI</th><td><b>v0.3.0</b> — Left game rail, Studio Build Trace with SlidingNumber counts and ProgressCircle, expandable Luau console, MorphingDialog Undo confirmation, and right Studio Explorer shelf (Vaul drawers on mobile).</td></tr>
+                  <tr><th>Studio MCP contract</th><td>Seven-tool stdio MCP protocol; bridges missing any required capability are refused up front before mutating a place.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <section class="project-limits" id="limits" aria-labelledby="limits-h">
+          <h2 id="limits-h">what is not verified</h2>
+          <ul>
+            <li><b>Studio &amp; model fixtures in CI:</b> automated suites verify the protocol against a strict mock MCP Studio bridge and scripted OpenAI-compatible model endpoint; connecting a live Roblox Studio session and API key uses the exact same runtime flags on a creator’s machine.</li>
+            <li><b>No published user or download metrics:</b> OpenRO is a newly released v0.3.0 open-source build with no external adoption figures claimed.</li>
+          </ul>
+        </section>
+      </article>
+
+      <aside class="project-aside">
+        <h2>Evidence</h2>
+        <dl class="repo-facts">
+          <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/open-ro">cayleb-james2008/open-ro</a> <span>(public)</span></dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.3.0</b> · Rust + Rune</dd></div>
+          <div class="repo-facts__row"><dt>checked</dt><dd>21 Nov 2026</dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.3.0</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/open-ro/">Fixture demo</a> · <a href="https://github.com/cayleb-james2008/open-ro">GitHub</a> · <a href="https://github.com/cayleb-james2008/open-ro/releases">Releases</a></dd></div>
+        </dl>
+        <p class="project-aside__more"><a href="../index.html">← Back to the interactive résumé</a></p>
+      </aside>
     </div>
-  </section>
+  </main>
 
-  <section aria-label="What it does">
-    <p class="sec-label" data-anim="left">What it does</p>
-    <div class="blocks">
-      <div class="block" data-anim="up"><p class="n">One</p><h3>Describe it, it builds it</h3><p>A plain chat window, full access by default. No forms, no wizards, no approval queue — you say the game, the agent runs the whole loop itself. And it speaks first: on an empty chat it pitches complete games it can build in one go; after a build, it offers the feature that fits next. One tap builds the pitch.</p></div>
-      <div class="block" data-anim="up d1"><p class="n">Two</p><h3>Real game pieces</h3><p>Ten Rune generation skills — rounds, leaderboard, day/night cycle, kill bricks, spawn pads, a currency that saves, a shop, the game's own screen, checkpoints, a soundtrack — writing scripts and placing instances across the whole place tree, not one script at a time. Enough kit for a complete small game in a single run.</p></div>
-      <div class="block" data-anim="up d2"><p class="n">Three</p><h3>Every change reversible</h3><p>Each ask's changes are checkpointed into a set. Revert restores the exact state from before the ask — and refuses, out loud, if someone else changed the same piece in between.</p></div>
-    </div>
-  </section>
+  <footer class="sub-footer">
+    <p>© 2026 Cayleb Alvarez-James.</p>
+    <ul aria-label="Elsewhere">
+      <li><a href="../index.html">Résumé</a></li>
+      <li><a href="./">All projects</a></li>
+      <li><a href="https://github.com/cayleb-james2008/open-ro">GitHub</a></li>
+      <li><a href="mailto:caylebalvarezjames@gmail.com">Email</a></li>
+    </ul>
+  </footer>
 
-  <section aria-label="The record">
-    <p class="sec-label" data-anim="left">The record — from the build's own test runs</p>
-    <div data-anim="up">
-    <table class="data">
-      <tr><th>Automated tests</th><td><b>57 of 57</b> passing — generation, repair loop, revert exactness, persistence, honesty gates in both directions</td></tr>
-      <tr><th>Sealed acceptance exam</th><td><b>14 of 14</b> — written and run independently, black-box, against the unmodified binary</td></tr>
-      <tr><th>It pitches, too</th><td>On an empty chat it offers complete games it can build in one go; after a build it offers the feature that fits next. The exam proves a pitch builds with <b>zero model calls</b> — the plan runs the same playtest gate as everything else</td></tr>
-      <tr><th>One-shot, complete</th><td>A whole small game — currency that saves, shop, game screen, checkpoints, a round — generated, playtested, repaired and passing in a single run, proven end to end in the suite and the exam</td></tr>
-      <tr><th>Studio bridge</th><td>MCP over stdio, seven tools; a bridge missing one is refused up front, before any ask runs</td></tr>
-      <tr><th>Done means proven</th><td>A build is not called done until a playtest passes; a failed repair loop ends in an honest give-up, never a false claim</td></tr>
-    </table>
-    </div>
-  </section>
-
-  <section class="status" aria-label="Where it stands">
-    <p class="sec-label" data-anim="left">Where it stands</p>
-    <div data-anim="up">
-    <p><b>Built, and verified as above</b> — against a mock Studio fixture that plays by the same MCP protocol. A real Roblox Studio MCP server drops in through one environment variable, unchanged; that is the designed connection, not a rewrite.</p>
-    <p>The model route is real code that talks to any OpenAI-compatible endpoint. In the build environment it is proven against a scripted test model, because no live model key is available there — the honest limit, stated plainly.</p>
-    </div>
-  </section>
-
-</main>
-<footer class="wrap subfoot"><a href="../index.html">← Résumé</a><a href="index.html">All projects</a><a href="https://github.com/cayleb-james2008/open-ro">The code on GitHub ↗</a><span class="back">Built and written by Cayleb Alvarez-James. Every figure on this page is from the product's own records.</span><span class="settings"><span class="set-label">Settings · Appearance</span><button class="theme-btn" type="button" data-set-theme="dark" aria-pressed="true">Dark</button><button class="theme-btn" type="button" data-set-theme="light" aria-pressed="false">Light</button></span></footer>
-
-<script>
-(function(){
-  var root=document.documentElement;
-  if(location.search.indexOf('shots')>-1){root.classList.add('shots');}
-  var themeBtns=document.querySelectorAll('.theme-btn');
-  function syncThemeBtns(){var cur=root.getAttribute('data-theme')==='light'?'light':'dark';themeBtns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-set-theme')===cur?'true':'false');});}
-  themeBtns.forEach(function(b){b.addEventListener('click',function(){
-    var next=b.getAttribute('data-set-theme');
-    root.setAttribute('data-theme',next);
-    try{localStorage.setItem('theme',next);}catch(e){}
-    syncThemeBtns();
-  });});
-  syncThemeBtns();
-  var bar=document.querySelector('.progress i');
-  function prog(){var h=document.body.scrollHeight-innerHeight;var p=h>0?(scrollY/h):0;root.style.setProperty('--p',p);if(bar){bar.style.transform='scaleX('+p+')';}}
-  addEventListener('scroll',prog,{passive:true}); prog();
-  var io=('IntersectionObserver' in window)&&!root.classList.contains('shots')?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12}):null;
-  document.querySelectorAll('[data-anim]').forEach(function(el){if(io){io.observe(el);}else{el.classList.add('in');}});
-  /* build walk-through */
-  var gate=document.getElementById('gate');
-  if(gate){
-    var steps=gate.querySelectorAll('.gate-step'), verdict=document.getElementById('gate-verdict'), timers=[];
-    document.getElementById('gate-run').addEventListener('click',function(){
-      timers.forEach(clearTimeout); timers=[];
-      steps.forEach(function(s){s.classList.remove('on');});
-      verdict.textContent='';
-      steps.forEach(function(s,i){timers.push(setTimeout(function(){s.classList.add('on');},300*(i+1)));});
-      timers.push(setTimeout(function(){verdict.textContent='DONE — playtest passed after one repair; the whole ask stays revertable.';},300*(steps.length+1)));
-    });
-    if(root.classList.contains('shots')){steps.forEach(function(s){s.classList.add('on');});}
-  }
-})();
-</script>
-
-
-<script>
-/* walkthrough chapters: click a chapter to jump the video to it */
-(function(){
-  var walk=document.querySelector('.walk'); if(!walk){return;}
-  var video=walk.querySelector('video'), btns=walk.querySelectorAll('.chapters button');
-  if(video.textTracks.length){video.textTracks[0].mode='hidden';}
-  btns.forEach(function(b){b.addEventListener('click',function(){
-    video.currentTime=parseFloat(b.getAttribute('data-t'));
-    if(video.paused){video.play();}
-  });});
-  video.addEventListener('timeupdate',function(){
-    var t=video.currentTime, cur=null;
-    btns.forEach(function(b){if(parseFloat(b.getAttribute('data-t'))<=t+0.05){cur=b;}});
-    btns.forEach(function(b){b.classList.toggle('on',b===cur);});
-  });
-})();
-</script>
+  <script>
+  (function () {
+    var gate = document.getElementById("gate");
+    var btn = document.getElementById("gate-run");
+    var verdict = document.getElementById("gate-verdict");
+    if (gate && btn && verdict) {
+      var steps = gate.querySelectorAll(".sim-step");
+      var timers = [];
+      var reduced = function () { try { return matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } };
+      btn.addEventListener("click", function () {
+        timers.forEach(clearTimeout);
+        timers = [];
+        steps.forEach(function (s) { s.classList.remove("on"); });
+        if (reduced()) {
+          steps.forEach(function (s) { s.classList.add("on"); });
+          verdict.textContent = "DONE — playtest passed after one self-repair; full ask checkpointed for one-click Undo.";
+          return;
+        }
+        verdict.textContent = "Running build trace…";
+        steps.forEach(function (s, i) {
+          timers.push(setTimeout(function () { s.classList.add("on"); }, 220 * (i + 1)));
+        });
+        timers.push(setTimeout(function () {
+          verdict.textContent = "DONE — playtest passed after one self-repair; full ask checkpointed for one-click Undo.";
+        }, 220 * (steps.length + 1)));
+      });
+    }
+    var video = document.querySelector(".walk-video");
+    var cbtns = document.querySelectorAll(".chapters button");
+    if (video && cbtns.length) {
+      if (video.textTracks && video.textTracks.length) video.textTracks[0].mode = "hidden";
+      cbtns.forEach(function (b) {
+        b.addEventListener("click", function () {
+          video.currentTime = parseFloat(b.getAttribute("data-t"));
+          if (video.paused) video.play();
+        });
+      });
+      video.addEventListener("timeupdate", function () {
+        var t = video.currentTime, cur = null;
+        cbtns.forEach(function (b) { if (parseFloat(b.getAttribute("data-t")) <= t + 0.05) cur = b; });
+        cbtns.forEach(function (b) { b.classList.toggle("on", b === cur); });
+      });
+    }
+  })();
+  </script>
 </body>
 </html>
