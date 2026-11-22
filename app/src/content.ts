@@ -186,10 +186,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
-    pitch: "You describe the game, it builds it — 28 Roblox game systems, playable Anime Card Battles: Rebirth — Apex Edition with Card Art Studio, Anime Homage Style Guide, Static Luau Prover, and bidirectional .rbxlx XML.",
-    img: "/assets/projects/captures/openro-v060-light.png",
-    darkImg: "/assets/projects/captures/openro-v060-dark.png",
-    alt: "Live capture of OpenRO v0.6.0 in the House Frontend workspace: playable Anime Card Battles Apex Roll Pack and Boss Tower Arena with cel-shaded card art, Static Luau Audit Clean badge, and 49 Roblox Place instances",
+    pitch: "You describe the game, it builds it — embedded realtime Roblox Studio 3D Viewport with live Agent Builder Drone & Replay Build, Live Studio MCP Frame Feed, playable Anime Card Battles Apex, Card Art Studio, 28 game systems, and bidirectional .rbxlx XML.",
+    img: "/assets/projects/captures/openro-v070-light.png",
+    darkImg: "/assets/projects/captures/openro-v070-dark.png",
+    alt: "Live capture of OpenRO v0.7.0 in the House Frontend workspace: embedded realtime Roblox Studio 3D Viewport with perspective-mapped cel-shaded card billboards, interactive 3D gizmos, Agent Builder laser beam, Studio Output stream, and Static Luau Audit Clean",
   },
   {
     name: "DSH Fleet",
@@ -248,7 +248,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. This page is its interactive edition: press Cmd+K to jump anywhere, or run the three v0.6.0 browser engines below (3-company-hardened Ergon, playable Anime Card Battles Open-Ro Studio, Auto-Heal & Playbooks DSH Fleet) with optional BYOK LLM or local binary connection.",
+  line: "The plain PDF is the submission copy. This page is its interactive edition: press Cmd+K to jump anywhere, or run the three live browser engines below (3-company-hardened Ergon v0.6.0, realtime 3D Roblox Studio Viewport Open-Ro v0.7.0, Auto-Heal & Playbooks DSH Fleet v0.6.0) with optional BYOK LLM or local binary connection.",
 };
 
 export type LiveDemo = {
@@ -266,12 +266,12 @@ export type LiveDemo = {
   provenance: { label: string; text: string }[];
 };
 
-// The words around the three real interactive v0.6.0 web apps.
+// The words around the three real interactive web apps (Ergon v0.6.0, Open-Ro v0.7.0, DSH Fleet v0.6.0).
 export const demoWords = {
   count: "live apps \u00b7 3",
   running: "running",
   idle: "interactive",
-  eyebrow: "interactive v0.6.0 web engine \u00b7 runs locally in your browser",
+  eyebrow: "interactive web engine \u00b7 runs locally in your browser",
   tryIt: "Try in the frame:",
   provenance: "how it runs",
   noCalls: "\u00b7 client-side engine \u00b7 optional BYOK or local Rust binary",
@@ -299,19 +299,19 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Open-Ro",
     tag: "APP-02",
-    title: "Open-Ro Studio v0.6.0 — Roblox game builder & Anime Card Battles Apex",
-    blurb: "Real client-side Roblox Place engine paired with the v0.6.0 single-binary Rust Studio companion: 28 Roblox game systems, playable Anime Card Battles: Rebirth — Apex Edition (Roll Pack, Deck & Fusion, 50-Floor Boss & Tower Arena with real cel-shaded card art), Card Art Studio, Anime Homage Style Guide, Static Luau Prover, and bidirectional .rbxlx XML.",
+    title: "Open-Ro Studio v0.7.0 — realtime 3D Roblox Studio viewer & game builder",
+    blurb: "Real client-side Roblox Place & realtime 3D Studio Viewport paired with the v0.7.0 single-binary Rust Studio companion: watch the agent build parts live with an animated Builder Drone & Laser Beam, orbit/pan/zoom & manipulate 3D gizmos (Select/Move/Scale/Rotate), Replay Build step-by-step, switch to Live Studio MCP Feed or Playable Anime Card Battles Apex, and export bidirectional .rbxlx XML.",
     url: "/demos/open-ro/",
-    img: "/assets/projects/captures/openro-v060-light.png",
-    darkImg: "/assets/projects/captures/openro-v060-dark.png",
+    img: "/assets/projects/captures/openro-v070-light.png",
+    darkImg: "/assets/projects/captures/openro-v070-dark.png",
     page: "/projects/openro.html",
     repo: "https://github.com/cayleb-james2008/open-ro",
     storagePrefix: "openro",
-    action: "launch Anime Card Battles: Rebirth — Apex Edition to roll packs, fuse cards, and fight the Boss & Tower Arena right in the stage, inspect Card Art Studio & Static Luau Audit Clean in Explorer, or export a real .rbxlx file.",
+    action: "launch Anime Card Battles: Apex to orbit the live 3D Roblox Studio Viewport with 3D Card Billboards, click Replay Build to watch the Agent Drone place parts step-by-step, inspect the Studio Output stream, switch to Playable Stage to roll & fight bosses, or export .rbxlx.",
     provenance: [
-      { label: "What runs:", text: "the v0.6.0 House Frontend UI compiled from cayleb-james2008/open-ro (frontend/) with 28 Roblox game systems, embedded cel-shaded card art portraits, playable Card Battles + 60fps Obby stage, Static Luau Prover, and bidirectional .rbxlx XML codec at /demos/open-ro/." },
-      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you configure a BYOK LLM key, Gemini/OpenAI Image API, or connect to a local openro-rs daemon on 127.0.0.1." },
-      { label: "Why it is here:", text: "visitors can build and play a complete Anime Card Battles Roblox game end to end, verify Static Luau checks, inspect real card art bindings, and export genuine Studio .rbxlx place files right here." },
+      { label: "What runs:", text: "the v0.7.0 House Frontend UI compiled from cayleb-james2008/open-ro (frontend/) with a zero-dependency interactive 3D Roblox Studio perspective viewport, live agent action stream & Replay Build, 28 Roblox game systems, embedded cel-shaded card art, playable Card Battles stage, Static Luau Prover, and bidirectional .rbxlx XML codec at /demos/open-ro/." },
+      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you configure a BYOK LLM key, Gemini/OpenAI Image API, or connect to a local openro-rs 0.7.0 daemon (with live Roblox Studio MCP screen-capture Feed) on 127.0.0.1." },
+      { label: "Why it is here:", text: "visitors can watch an AI agent build and playtest a Roblox world live inside an embedded 3D Studio viewport, manipulate parts directly, switch to playable Anime Card Battles, and export genuine Studio .rbxlx files right here." },
     ],
   },
   {

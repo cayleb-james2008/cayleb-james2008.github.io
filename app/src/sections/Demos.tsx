@@ -65,10 +65,10 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
         <div className="grid content-start gap-2">
           <h2 id="demos-label" className="font-mono text-xs uppercase tracking-wider text-ink-2" data-answers="4">live apps</h2>
           <p className="font-mono text-xs text-ink-2">{demoWords.count}</p>
-          <p className="max-w-[28ch] text-sm text-ink-2">Real interactive v0.6.0 web engines running directly in your browser (3-company-hardened Ergon, playable Anime Card Battles Open-Ro Studio, Auto-Heal &amp; Playbooks DSH Fleet) with optional BYOK or local Rust binary connection.</p>
+          <p className="max-w-[28ch] text-sm text-ink-2">Real interactive web engines running directly in your browser (3-company-hardened Ergon v0.6.0, realtime 3D Roblox Studio Viewport Open-Ro v0.7.0, Auto-Heal &amp; Playbooks DSH Fleet v0.6.0) with optional BYOK or local Rust binary connection.</p>
         </div>
         <Tabs value={tab} onValueChange={(v) => onTab(String(v))}>
-          <TabsList aria-label="Interactive v0.6.0 web apps" className="max-w-full flex-wrap">
+          <TabsList aria-label="Interactive web apps" className="max-w-full flex-wrap">
             {liveDemos.map((d, i) => (
               <TabsTab key={d.key} value={d.key} className="gap-2 whitespace-nowrap max-sm:min-h-11">
                 <span className="font-mono text-xs text-ink-2">{String(i + 1).padStart(2, "0")}</span>
