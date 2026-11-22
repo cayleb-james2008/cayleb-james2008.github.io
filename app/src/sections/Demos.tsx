@@ -35,8 +35,8 @@ function DemoFrame({ title, src }: { title: string; src: string }) {
   );
 }
 
-// Region G: the three real interactive v0.4.0 House Frontend web apps (Ergon, Open-Ro, DSH Fleet), paired with links to their
-// standalone full-screen routes, live v0.4.0 captures, product pages, and GitHub repositories.
+// Region G: the three real interactive v0.5.0 House Frontend web apps (Ergon, Open-Ro, DSH Fleet), paired with links to their
+// standalone full-screen routes, live v0.5.0 captures, product pages, and GitHub repositories.
 export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => void }) {
   const { theme } = useTheme();
   const [runs, setRuns] = useState<Record<string, number>>({});
@@ -65,10 +65,10 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
         <div className="grid content-start gap-2">
           <h2 id="demos-label" className="font-mono text-xs uppercase tracking-wider text-ink-2" data-answers="4">live apps</h2>
           <p className="font-mono text-xs text-ink-2">{demoWords.count}</p>
-          <p className="max-w-[28ch] text-sm text-ink-2">Real interactive v0.4.0 web engines running directly in your browser (IndexedDB workspaces, Luau/.rbxlx compiler, Web Worker check runner) with optional BYOK or local Rust binary connection.</p>
+          <p className="max-w-[28ch] text-sm text-ink-2">Real interactive v0.5.0 web engines running directly in your browser (IndexedDB workspaces, 22-system Luau/.rbxlx studio, DAG Web Worker check runner) with optional BYOK or local Rust binary connection.</p>
         </div>
         <Tabs value={tab} onValueChange={(v) => onTab(String(v))}>
-          <TabsList aria-label="Interactive v0.4.0 web apps" className="max-w-full flex-wrap">
+          <TabsList aria-label="Interactive v0.5.0 web apps" className="max-w-full flex-wrap">
             {liveDemos.map((d, i) => (
               <TabsTab key={d.key} value={d.key} className="gap-2 whitespace-nowrap max-sm:min-h-11">
                 <span className="font-mono text-xs text-ink-2">{String(i + 1).padStart(2, "0")}</span>

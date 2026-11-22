@@ -62,7 +62,7 @@ a, button, summary, [role="button"], input, select, textarea {
 .sub-masthead nav a:active { background: var(--hairline); }
 
 /* Settings popover trigger (Light/Dark Appearance lives inside Settings, never cluttering the main masthead) */
-.settings-wrap { grid-area: theme; position: relative; }
+.settings-wrap { grid-area: theme; position: relative; display: inline-flex; align-items: center; gap: 8px; }
 .settings-trigger {
   appearance: none; display: inline-flex; align-items: center; justify-content: center;
   width: 44px; height: 44px; padding: 0; cursor: pointer;
@@ -114,6 +114,40 @@ a, button, summary, [role="button"], input, select, textarea {
 .sub-footer a { display: inline-flex; align-items: center; min-height: var(--target); color: var(--ink-2); font: 400 var(--text-xs)/var(--text-xs-lh) var(--font-mono); text-underline-offset: 4px; }
 .sub-footer a:hover { color: var(--ink); text-decoration: underline; }
 .sub-footer a:active { color: var(--blue); }
+
+/* Static-page Cmd+K Quick Jump dialog (non-lab pages) */
+.cmdk-backdrop[hidden] { display: none; }
+.cmdk-backdrop {
+  position: fixed; inset: 0; z-index: 90;
+  display: flex; align-items: flex-start; justify-content: center; padding: min(14vh, 96px) 16px 24px;
+  background: rgb(15 23 42 / 0.48);
+}
+.cmdk-dialog {
+  width: min(540px, 100%); max-height: 75vh; display: flex; flex-direction: column; overflow: hidden;
+  border: 1px solid var(--hairline); border-radius: var(--radius-card);
+  background: var(--surface); color: var(--ink); box-shadow: var(--elev-lift);
+}
+.cmdk-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--hairline); }
+.cmdk-input {
+  flex: 1; min-width: 0; min-height: 36px; border: 0; background: transparent; color: var(--ink);
+  font: 400 var(--text-sm)/1.4 var(--font-sans); outline: none;
+}
+.cmdk-input::placeholder { color: var(--ink-2); }
+.cmdk-close {
+  appearance: none; min-height: 32px; padding: 0 10px; border: 1px solid var(--hairline); border-radius: var(--radius-chip);
+  background: var(--board); color: var(--ink-2); font: 400 var(--text-xs)/1 var(--font-mono); cursor: pointer;
+}
+.cmdk-close:hover { color: var(--ink); }
+.cmdk-list { overflow-y: auto; padding: 8px; }
+.cmdk-group { margin: 8px 8px 4px; color: var(--ink-2); font: 500 var(--text-xs)/1.4 var(--font-mono); }
+.cmdk-item {
+  appearance: none; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  min-height: 40px; padding: 8px 10px; border: 0; border-radius: var(--radius-control);
+  background: transparent; color: var(--ink); font: 400 var(--text-sm)/1.35 var(--font-sans); text-align: left; cursor: pointer;
+}
+.cmdk-item[aria-selected="true"] { background: var(--board); }
+.cmdk-item__meta { flex: none; color: var(--ink-2); font: 400 var(--text-xs)/1 var(--font-mono); }
+.cmdk-empty { padding: 24px 12px; text-align: center; color: var(--ink-2); font-size: var(--text-sm); }
 
 /* ---------- the phone ---------- */
 @media (max-width: 899px) {

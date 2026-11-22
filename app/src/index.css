@@ -44,12 +44,13 @@
 /* Vaul ignores prefers-reduced-motion: its sheet and overlay travel with CSS *animations* (slideFromBottom,
    slideToBottom, fadeIn, fadeOut) and a transform transition. Both durations are cut on the real attributes. */
 @media (prefers-reduced-motion: reduce) {
-  [data-vaul-drawer], [data-vaul-overlay] { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  [data-vaul-drawer], [data-vaul-overlay], [role="dialog"], [data-state] { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
 /* A control that sets no transition of its own still eases its colour, surface, border and ring on the house timing (a utility class on the
    control outranks this: it sits in the base layer). Below the fold the links and buttons otherwise flip with no easing at all. */
 @layer base {
+  html, body { overflow-x: clip; }
   a, button, [role="tab"], [role="button"], input, summary {
     transition: color var(--dur-press) var(--ease-house), background-color var(--dur-press) var(--ease-house), border-color var(--dur-press) var(--ease-house), box-shadow var(--dur-press) var(--ease-house);
   }

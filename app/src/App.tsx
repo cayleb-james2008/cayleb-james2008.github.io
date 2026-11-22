@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Toaster } from "sonner";
+import { CommandPalette } from "@/chrome/CommandPalette";
 import { ThemeProvider, useTheme } from "@/chrome/theme";
 import { Masthead } from "@/sections/Masthead";
 import { Ledger } from "@/sections/Ledger";
@@ -19,6 +20,7 @@ function Shell() {
   const phone = useMediaQuery("(max-width: 639px)");
   // "open the live demo" on a project card selects that project's demo and goes to the demos; the address stays as it was.
   const [demo, setDemo] = useState(liveDemos[0].key);
+  const [paletteOpen, setPaletteOpen] = useState(false);
   const openDemo = (key: string) => { setDemo(key); document.getElementById("live-demos")?.scrollIntoView({ block: "start" }); };
   return (
     <>
@@ -28,7 +30,7 @@ function Shell() {
       <div className="mx-auto flex w-full max-w-[1120px] flex-col px-5 pb-8 md:px-10">
         <Masthead />
         <div className="mt-8 flex flex-col gap-6">
-          <Index />
+          <Index onOpenPalette={() => setPaletteOpen(true)} />
           <Ledger />
         </div>
         <main className="mt-6 flex flex-col">
@@ -41,6 +43,7 @@ function Shell() {
         </main>
         <Footer />
       </div>
+      <CommandPalette open={paletteOpen} onOpenChange={setPaletteOpen} onOpenDemo={openDemo} />
       <Toaster position={phone ? "top-center" : "bottom-right"} theme={theme} />
     </>
   );

@@ -2,6 +2,8 @@
 
 Everything in the résumé sections (`summary`, `experience`, `projects`, `skills`, `additional`, `education`) is locked to the submission PDF (`/Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf`). The lines below document the UI labels, control names, product-page cards, and live web app captions added around the résumé text.
 
+Quick jump
+⌘K
 Settings
 Appearance
 Dark
@@ -32,7 +34,7 @@ The DSH Fleet local workspace is reset to its starting state.
 - **Open-Ro Studio** (`/projects/openro.html`)
 - **DSH Fleet** (`/projects/dsh-fleet.html`)
 
-## Three interactive v0.4.0 web apps (`app/src/content.ts` `liveDemos`)
+## Three interactive v0.5.x web apps (`app/src/content.ts` `liveDemos`)
 
-- `live apps · 3`, `running`, `interactive`, `interactive v0.4.0 web engine · runs locally in your browser`, `Try in the frame:`, `Open full-screen app ↗`, `Open live capture ↗`, `Source on GitHub ↗`
-- Entries: `APP-01` (`Ergon` → `/demos/ergon/`), `APP-02` (`Open-Ro` → `/demos/open-ro/`), `APP-03` (`DSH Fleet` → `/demos/dsh-fleet/`), each paired with its live v0.4.0 capture in `/assets/projects/captures/` and three provenance lines (`What runs:`, `Local & BYOK options:`, `Why it is here:`).
+- `live apps · 3`, `running`, `interactive`, `interactive v0.5.0 web engine · runs locally in your browser`, `Try in the frame:`, `Open full-screen app ↗`, `Open live capture ↗`, `Source on GitHub ↗`
+- Entries: `APP-01` (`Ergon` → `/demos/ergon/`), `APP-02` (`Open-Ro` → `/demos/open-ro/`), `APP-03` (`DSH Fleet` → `/demos/dsh-fleet/`), each paired with its live v0.5.0 capture in `/assets/projects/captures/` and three provenance lines (`What runs:`, `Local & BYOK options:`, `Why it is here:`).
