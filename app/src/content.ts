@@ -169,20 +169,12 @@ export const projects: Project[] = [
   },
 ];
 
-// The three flagship product pages (static pages under /projects/, updated for Ergon v0.7.0, Open-Ro v0.10.0, Fleet v0.8.0).
-// Open-Ro Studio is not a résumé record; it joins Ergon and Fleet here because its product page and interactive web app do.
+// The three flagship product pages (static pages under /projects/):
+// 1. Open-Ro Studio (v0.10.0), 2. OpenBell (v0.8.0), 3. Fleet (v0.8.0). Ergon (v0.7.0) stays accessible at /projects/ergon.html & /demos/ergon/.
 export type ProductPage = { name: string; href: string; pitch: string; img: string; darkImg?: string; alt: string };
 export const productPagesHead = "the three products, in full";
 export const productPageLink = "the full product page ↗";
 export const productPages: ProductPage[] = [
-  {
-    name: "Ergon",
-    href: "/projects/ergon.html",
-    pitch: "An AI agent for every employee — background cadence routine scheduler, automatic .history/ file version diff & restore, tamper-evident Field-Book audit bundle, 3-company switcher, 12 workflows, and chromeless desktop app in one Rust binary.",
-    img: "/assets/projects/captures/ergon-v070-light.png",
-    darkImg: "/assets/projects/captures/ergon-v070-dark.png",
-    alt: "Live capture of Ergon v0.7.0 in the House Frontend workspace: Today operations desk with Export Audit Bundle, Recent run outcomes, 12 built-in workflows, scheduled Routines, Commands Cmd+K, and Workspace files rail",
-  },
   {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
@@ -190,6 +182,14 @@ export const productPages: ProductPage[] = [
     img: "/assets/projects/captures/openro-v0100-light.png",
     darkImg: "/assets/projects/captures/openro-v0100-dark.png",
     alt: "Live capture of OpenRO v0.10.0 RoPilot 3-pane Roblox Studio AI IDE in the House Frontend workspace: Explorer DataModel dock, Studio 3D and Code & Diff workspace, Studio MCP Tools (13) bottom drawer, and Agent/Plan/Ask Copilot pane",
+  },
+  {
+    name: "OpenBell",
+    href: "/projects/openbell.html",
+    pitch: "Live-connected Kalshi Trade API v2 trading & quant desktop app in Rust — fail-closed Hard Risk Rails (disarmed on every boot), Emergency Kill Switch, Out-of-Sample Strategy Tournament, 12×12 Correlation & 5×4 Regime Heatmaps, PAV Isotonic Calibration, and $500/Day Capital Scaling Engine.",
+    img: "/assets/projects/captures/openbell-v080-light.png",
+    darkImg: "/assets/projects/captures/openbell-v080-dark.png",
+    alt: "Live capture of OpenBell v0.8.0 Kalshi v2 trading and quant desk in the House Frontend workspace: Paper Compounding Curve, Kalshi DEMO risk-rails bar with Arm Live and Emergency Kill Switch, 5-Series 15m Tape, and Quant Lab Readiness Gate",
   },
   {
     name: "Fleet",
@@ -248,7 +248,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. This page is its interactive edition: press Cmd+K to jump anywhere, or run the three live browser engines below (Ergon v0.7.0, RoPilot 3-pane Roblox Studio AI IDE Open-Ro v0.10.0, multi-wave DAG & PR Preview Fleet v0.8.0) with optional BYOK LLM or local binary connection.",
+  line: "The plain PDF is the submission copy. This page is its interactive edition: press Cmd+K to jump anywhere, or run the three flagship live browser engines below (RoPilot 3-pane Studio IDE Open-Ro v0.10.0, Kalshi v2 risk-rails & quant sandbox OpenBell v0.8.0, multi-wave DAG & PR Preview Fleet v0.8.0) with zero external requests by default.",
 };
 
 export type LiveDemo = {
@@ -266,7 +266,7 @@ export type LiveDemo = {
   provenance: { label: string; text: string }[];
 };
 
-// The words around the three real interactive web apps (Ergon v0.7.0, Open-Ro v0.10.0, Fleet v0.8.0).
+// The words around the three flagship interactive web apps (Open-Ro v0.10.0, OpenBell v0.8.0, Fleet v0.8.0).
 export const demoWords = {
   count: "live apps \u00b7 3",
   running: "running",
@@ -274,31 +274,13 @@ export const demoWords = {
   eyebrow: "interactive web engine \u00b7 runs locally in your browser",
   tryIt: "Try in the frame:",
   provenance: "how it runs",
-  noCalls: "\u00b7 client-side engine \u00b7 optional BYOK or local Rust binary",
+  noCalls: "\u00b7 100% client-side sandbox \u00b7 optional local Rust binary",
 };
 
 export const liveDemos: LiveDemo[] = [
   {
-    key: "Ergon",
-    tag: "APP-01",
-    title: "Ergon v0.7.0 — personal employee-agent workspace",
-    blurb: "Real client-side Ergon workspace paired with the v0.7.0 single-binary Rust desktop & web app: background cadence routine scheduler (Pause/Resume + Run History), automatic .history/ file version diff & Restore, tamper-evident Field-Book Audit Bundle export, 3-company switcher, 12 built-in workflows, SHA-256 receipts, Today approvals, and Cmd+K.",
-    url: "/demos/ergon/",
-    img: "/assets/projects/captures/ergon-v070-light.png",
-    darkImg: "/assets/projects/captures/ergon-v070-dark.png",
-    page: "/projects/ergon.html",
-    repo: "https://github.com/cayleb-james2008/ergon",
-    storagePrefix: "ergon",
-    action: "upload or drop a CSV or Markdown file, inspect file Version History & unified diff restore, Pause/Resume a scheduled cadence routine, export a tamper-evident Field-Book Audit Bundle, or approve a parked deletion in Today.",
-    provenance: [
-      { label: "What runs:", text: "the v0.7.0 House Frontend UI compiled from cayleb-james2008/ergon (frontend/) backed by a real IndexedDB workspace, 12-workflow execution engine, cadence routine scheduler, .history/ version diffing, and Field-Book Audit Bundle exporter at /demos/ergon/." },
-      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you connect a BYOK OpenAI-compatible key (sessionStorage only) or a local ergon v0.7.0 binary on 127.0.0.1." },
-      { label: "Why it is here:", text: "every file write, diff restore, routine schedule toggle, SHA-256 audit export, and Today deletion approval executes genuinely on your own inputs right in the frame." },
-    ],
-  },
-  {
     key: "Open-Ro",
-    tag: "APP-02",
+    tag: "APP-01",
     title: "Open-Ro Studio v0.10.0 — RoPilot 3-pane Roblox Studio AI IDE",
     blurb: "Real client-side 3-pane Roblox Studio Copilot IDE paired with the v0.10.0 single-binary Rust app (directly embedded live Roblox Studio + auto-synced Explorer, Companion Studio Plugin, and all 13 official MCP tools): switch between Agent, Plan (staged unified Luau diffs), and Ask modes, inspect green/red hunks in Code & Diff, co-build in Studio 3D, browse the 8-pack Tool Library & Market Taste Craft Radar, and export .rbxlx XML or Rojo Ship Pack (.zip).",
     url: "/demos/open-ro/",
@@ -312,6 +294,24 @@ export const liveDemos: LiveDemo[] = [
       { label: "What runs:", text: "the v0.10.0 RoPilot 3-pane House Frontend IDE compiled from cayleb-james2008/open-ro (frontend/) with Explorer/Chats left dock, Embedded Studio / Studio 3D / Code & Diff / Playable Stage center workspace, Output / Agent Trace / Studio MCP Tools (13) / Properties drawer, Agent|Plan|Ask Copilot composer, 8-pack Tool Library, Market Taste Craft Radar, and .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
       { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you add a BYOK LLM key or connect to a local openro-rs 0.10.0 binary (with directly embedded live Roblox Studio, auto-synced Explorer, OpenRoCompanion.lua plugin, all 13 MCP tools, Blender 3D .obj, and procedural .wav synthesis) on 127.0.0.1." },
       { label: "Why it is here:", text: "visitors can experience the full 3-pane RoPilot Studio workflow — staging unified Luau diffs, co-building in 3D, proving scripts, inspecting the Tool Library & Market Taste Radar, and exporting genuine Studio .rbxlx and Rojo .zip packages right here." },
+    ],
+  },
+  {
+    key: "OpenBell",
+    tag: "APP-02",
+    title: "OpenBell v0.8.0 — Kalshi v2 trading & quant desk (offline sandbox)",
+    blurb: "100% client-side offline simulation of the v0.8.0 single-binary Rust trading & quant desk (synthetic 15m crypto markets, zero real API keys, zero private trading data, zero external network calls): test fail-closed Hard Risk Rails (disarmed on boot, Arm Live confirmation, cap rejections, risk-reducing SELL pass-through, Emergency Kill Switch), Strategy Sandbox backtesting, and Quant Lab ($500/Day Scale Planner, 5-Gate Scorecard, Strategy Tournament, 12×12 Corr & 5×4 Regime Heatmaps, PAV Calibration).",
+    url: "/demos/openbell/",
+    img: "/assets/projects/captures/openbell-v080-light.png",
+    darkImg: "/assets/projects/captures/openbell-v080-dark.png",
+    page: "/projects/openbell.html",
+    repo: "https://github.com/cayleb-james2008/openbell",
+    storagePrefix: "openbell",
+    action: "click Arm Live to test fail-closed Hard Risk Rails in the Order Ticket (try an oversized order to see rail rejections, then trigger Emergency Kill Switch), run Collect now on synthetic 15m markets, or open Quant Lab for the $500/Day Scale Planner, 5-Gate Scorecard, and Strategy Tournament.",
+    provenance: [
+      { label: "What runs:", text: "the v0.8.0 House Frontend UI compiled from cayleb-james2008/openbell (frontend/) paired with an in-browser offline simulation engine (synthetic 15m crypto markets across BTC/ETH/SOL/XRP/DOGE, in-memory fail-closed risk rails, Strategy Sandbox, Tournament, PAV Calibration, and Monte Carlo Scale Engine) at /demos/openbell/." },
+      { label: "Zero keys / local binary:", text: "contains zero real API credentials, zero real private trading data, and makes zero external network requests; real Kalshi Demo/Prod connectivity only exists when you run the compiled openbell-rs v0.8.0 desktop binary locally with your own 0600 RSA-PSS key." },
+      { label: "Why it is here:", text: "visitors can test OpenBell's fail-closed risk-rail enforcement, Kill Switch, Strategy Tournament, and capital-scaling analytics interactively in complete safety." },
     ],
   },
   {
