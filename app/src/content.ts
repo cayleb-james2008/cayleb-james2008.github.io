@@ -169,7 +169,7 @@ export const projects: Project[] = [
   },
 ];
 
-// The three flagship product pages (static pages under /projects/, updated for v0.5.0). Open-Ro Studio is not a résumé
+// The three flagship product pages (static pages under /projects/, updated for v0.6.0). Open-Ro Studio is not a résumé
 // record; it joins Ergon and DSH Fleet here because its product page and interactive web app do.
 export type ProductPage = { name: string; href: string; pitch: string; img: string; darkImg?: string; alt: string };
 export const productPagesHead = "the three products, in full";
@@ -178,26 +178,26 @@ export const productPages: ProductPage[] = [
   {
     name: "Ergon",
     href: "/projects/ergon.html",
-    pitch: "An AI agent for every employee — 12 built-in workflows, live SSE run streaming, indexed 5,000-receipt search, standing routines, SHA-256 Field-Book receipts, and Cmd+K workspace navigation in a single Rust desktop and web binary.",
-    img: "/assets/projects/captures/ergon-v050-light.png",
-    darkImg: "/assets/projects/captures/ergon-v050-dark.png",
-    alt: "Live capture of Ergon v0.5.0 in the House Frontend workspace: Commands Cmd+K, 12 built-in workflows, Routines, Today brief with parked approval and SHA-256 receipts, and live searchable Workspace files rail",
+    pitch: "An AI agent for every employee — 12 built-in workflows, live SSE run streaming, indexed 5,000-receipt search, standing routines, SHA-256 receipts, and 3-company live E2E hardening in one Rust binary.",
+    img: "/assets/projects/captures/ergon-v060-light.png",
+    darkImg: "/assets/projects/captures/ergon-v060-dark.png",
+    alt: "Live capture of Ergon v0.6.0 in the House Frontend workspace: Ironwood Commercial Mechanical live Today desk with 12 built-in workflows, Routines, SHA-256 receipts, Commands Cmd+K, and searchable Workspace files rail",
   },
   {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
-    pitch: "You describe the game, it builds it — 22 Roblox game systems, Static Luau Prover, 60fps interactive Playable Stage, bidirectional Studio .rbxlx XML import/export, versioned snapshots, and live SSE build streaming.",
-    img: "/assets/projects/captures/openro-v050-light.png",
-    darkImg: "/assets/projects/captures/openro-v050-dark.png",
-    alt: "Live capture of OpenRO v0.5.1 in the House Frontend workspace: Command palette Cmd+K, Top-Down and Side-View 60fps Playable Stage, Static Luau Audit Clean badge, Build Diff, and .rbxlx Import/Export",
+    pitch: "You describe the game, it builds it — 28 Roblox game systems, playable Anime Card Battles: Rebirth — Apex Edition with Card Art Studio, Anime Homage Style Guide, Static Luau Prover, and bidirectional .rbxlx XML.",
+    img: "/assets/projects/captures/openro-v060-light.png",
+    darkImg: "/assets/projects/captures/openro-v060-dark.png",
+    alt: "Live capture of OpenRO v0.6.0 in the House Frontend workspace: playable Anime Card Battles Apex Roll Pack and Boss Tower Arena with cel-shaded card art, Static Luau Audit Clean badge, and 49 Roblox Place instances",
   },
   {
     name: "DSH Fleet",
     href: "/projects/dsh-fleet.html",
-    pitch: "Parallel coding-agent Mission Control — DAG session dependencies, multi-step check pipelines, file-scope guardrails, pre-merge conflict dry-run, side-by-side split diffs, 50k-line virtualized transcripts, and live SSE event streaming.",
-    img: "/assets/projects/captures/fleet-v050-light.png",
-    darkImg: "/assets/projects/captures/fleet-v050-dark.png",
-    alt: "Live capture of DSH Fleet v0.5.0 Mission Control in the House Frontend workspace: concurrency slot cap, DAG dependency badges, multi-step check receipts, multi-select toolbar, and Cmd+K palette",
+    pitch: "Parallel coding-agent Mission Control — autonomous Auto-Heal feedback loop, reusable Playbook templates, live Board Telemetry strip, DAG dependencies, multi-step checks, file-scope guardrails, and split diffs.",
+    img: "/assets/projects/captures/fleet-v060-light.png",
+    darkImg: "/assets/projects/captures/fleet-v060-dark.png",
+    alt: "Live capture of DSH Fleet v0.6.0 Mission Control in the House Frontend workspace: Board Telemetry strip with First-pass and Auto-healed metrics, Healed 1/2 badge, file-scope guardrail block, and 3-repo parallel wave board",
   },
 ];
 
@@ -248,7 +248,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. This page is its interactive edition: press Cmd+K to jump anywhere, or run the three v0.5.0 browser engines below (IndexedDB workspaces, 22-system Luau/.rbxlx studio, DAG Web Worker check runner) with optional BYOK LLM or local binary connection.",
+  line: "The plain PDF is the submission copy. This page is its interactive edition: press Cmd+K to jump anywhere, or run the three v0.6.0 browser engines below (3-company-hardened Ergon, playable Anime Card Battles Open-Ro Studio, Auto-Heal & Playbooks DSH Fleet) with optional BYOK LLM or local binary connection.",
 };
 
 export type LiveDemo = {
@@ -266,12 +266,12 @@ export type LiveDemo = {
   provenance: { label: string; text: string }[];
 };
 
-// The words around the three real interactive v0.5.0 web apps.
+// The words around the three real interactive v0.6.0 web apps.
 export const demoWords = {
   count: "live apps \u00b7 3",
   running: "running",
   idle: "interactive",
-  eyebrow: "interactive v0.5.0 web engine \u00b7 runs locally in your browser",
+  eyebrow: "interactive v0.6.0 web engine \u00b7 runs locally in your browser",
   tryIt: "Try in the frame:",
   provenance: "how it runs",
   noCalls: "\u00b7 client-side engine \u00b7 optional BYOK or local Rust binary",
@@ -281,17 +281,17 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Ergon",
     tag: "APP-01",
-    title: "Ergon v0.5.0 — personal employee-agent workspace",
-    blurb: "Real client-side Ergon workspace paired with the v0.5.0 single-binary Rust server: 12 built-in workflows, drag-and-drop CSV/Markdown/JSON files in IndexedDB, interactive table sorting & SHA-256 receipt exports, standing routines, Today deletion approvals, Cmd+K palette, and optional BYOK or local ergon server.",
+    title: "Ergon v0.6.0 — personal employee-agent workspace",
+    blurb: "Real client-side Ergon workspace paired with the v0.6.0 single-binary Rust server (hardened across a 96/96 3-company live LLM torture campaign): 12 built-in workflows, accounting-negative CSV cleaning, zero host-path leakage, drag-and-drop IndexedDB files, SHA-256 receipt exports, standing routines, Today approvals, and Cmd+K.",
     url: "/demos/ergon/",
-    img: "/assets/projects/captures/ergon-v050-light.png",
-    darkImg: "/assets/projects/captures/ergon-v050-dark.png",
+    img: "/assets/projects/captures/ergon-v060-light.png",
+    darkImg: "/assets/projects/captures/ergon-v060-dark.png",
     page: "/projects/ergon.html",
     repo: "https://github.com/cayleb-james2008/ergon",
     storagePrefix: "ergon",
     action: "upload or drop a CSV or Markdown file, run a reconciliation or any of the 12 built-in workflows, export the SHA-256 receipt, press Cmd+K to jump across workspace files, or approve a parked deletion in Today.",
     provenance: [
-      { label: "What runs:", text: "the v0.5.0 House Frontend UI compiled from cayleb-james2008/ergon (frontend/) backed by a real IndexedDB workspace, 12-workflow execution engine, routines runner, and SHA-256 receipt exporter at /demos/ergon/." },
+      { label: "What runs:", text: "the v0.6.0 House Frontend UI compiled from cayleb-james2008/ergon (frontend/) backed by a real IndexedDB workspace, 12-workflow execution engine, routines runner, and SHA-256 receipt exporter at /demos/ergon/." },
       { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you connect a BYOK OpenAI-compatible key (sessionStorage only) or a local ergon binary on 127.0.0.1." },
       { label: "Why it is here:", text: "every file write, reconciliation calculation, SHA-256 receipt export, routine run, and Today deletion approval executes genuinely on your own inputs right in the frame." },
     ],
@@ -299,37 +299,37 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Open-Ro",
     tag: "APP-02",
-    title: "Open-Ro Studio v0.5.1 — local-first Roblox game builder",
-    blurb: "Real client-side Roblox Place engine paired with the v0.5.1 single-binary Rust Studio companion: 22 Roblox game systems, Static Luau Prover, 60fps WASD/Space Playable Stage (Top-Down & Side-View), bidirectional .rbxlx XML import/export, inline property editing, IndexedDB snapshots, and Cmd+K command palette.",
+    title: "Open-Ro Studio v0.6.0 — Roblox game builder & Anime Card Battles Apex",
+    blurb: "Real client-side Roblox Place engine paired with the v0.6.0 single-binary Rust Studio companion: 28 Roblox game systems, playable Anime Card Battles: Rebirth — Apex Edition (Roll Pack, Deck & Fusion, 50-Floor Boss & Tower Arena with real cel-shaded card art), Card Art Studio, Anime Homage Style Guide, Static Luau Prover, and bidirectional .rbxlx XML.",
     url: "/demos/open-ro/",
-    img: "/assets/projects/captures/openro-v050-light.png",
-    darkImg: "/assets/projects/captures/openro-v050-dark.png",
+    img: "/assets/projects/captures/openro-v060-light.png",
+    darkImg: "/assets/projects/captures/openro-v060-dark.png",
     page: "/projects/openro.html",
     repo: "https://github.com/cayleb-james2008/open-ro",
     storagePrefix: "openro",
-    action: "type a custom game idea or pick from the 22 game systems via Cmd+K, playtest in the 60fps stage, inspect Static Luau Audit & syntax-highlighted scripts in Explorer, and click Export .rbxlx (or drop a .rbxlx to import).",
+    action: "launch Anime Card Battles: Rebirth — Apex Edition to roll packs, fuse cards, and fight the Boss & Tower Arena right in the stage, inspect Card Art Studio & Static Luau Audit Clean in Explorer, or export a real .rbxlx file.",
     provenance: [
-      { label: "What runs:", text: "the v0.5.1 House Frontend UI compiled from cayleb-james2008/open-ro (frontend/) backed by a real 22-system Luau generator, static Luau prover, 60fps playable stage, IndexedDB snapshots, and bidirectional .rbxlx XML codec at /demos/open-ro/." },
-      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you add a BYOK LLM key (sessionStorage only) or connect directly to a local openro-rs daemon on 127.0.0.1." },
-      { label: "Why it is here:", text: "visitors can prompt real custom mechanics, playtest parts live, verify Static Luau checks, and import/export genuine Roblox Studio .rbxlx place files directly from this page." },
+      { label: "What runs:", text: "the v0.6.0 House Frontend UI compiled from cayleb-james2008/open-ro (frontend/) with 28 Roblox game systems, embedded cel-shaded card art portraits, playable Card Battles + 60fps Obby stage, Static Luau Prover, and bidirectional .rbxlx XML codec at /demos/open-ro/." },
+      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you configure a BYOK LLM key, Gemini/OpenAI Image API, or connect to a local openro-rs daemon on 127.0.0.1." },
+      { label: "Why it is here:", text: "visitors can build and play a complete Anime Card Battles Roblox game end to end, verify Static Luau checks, inspect real card art bindings, and export genuine Studio .rbxlx place files right here." },
     ],
   },
   {
     key: "DSH Fleet",
     tag: "APP-03",
-    title: "DSH Fleet v0.5.0 — Mission Control for parallel coding agents",
-    blurb: "Real in-browser git worktree, DAG batch scheduler, and multi-step Web Worker check-runner engine paired with the v0.5.0 single-binary Rust orchestrator: dispatch dependent branches, inspect unified or side-by-side split diffs, dry-run merge conflicts, export .patch files, test routing rules, and merge verified commits into main.",
+    title: "DSH Fleet v0.6.0 — Mission Control with Auto-Heal, Playbooks & Telemetry",
+    blurb: "Real in-browser git worktree, DAG batch scheduler, autonomous Auto-Heal feedback loop, reusable Playbook templates, Board Telemetry strip, and multi-step Web Worker check-runner engine paired with the v0.6.0 single-binary Rust orchestrator: inspect Auto-heal timelines, Split Diffs, merge dry-runs, .patch exports, and verified merges.",
     url: "/demos/dsh-fleet/",
-    img: "/assets/projects/captures/fleet-v050-light.png",
-    darkImg: "/assets/projects/captures/fleet-v050-dark.png",
+    img: "/assets/projects/captures/fleet-v060-light.png",
+    darkImg: "/assets/projects/captures/fleet-v060-dark.png",
     page: "/projects/dsh-fleet.html",
     repo: "https://github.com/cayleb-james2008/dsh-fleet",
     storagePrefix: "fleet",
-    action: "dispatch a failing session or DAG batch, inspect real Web Worker exit-1 stderr in Needs you, steer or edit branch files until multi-step checks exit 0, inspect Split Diff & .patch export, and click Merge to land on main.",
+    action: "inspect Board Telemetry and Auto-heal attempt timelines, pick or save a Playbook in Composer or Cmd+K, dispatch a failing session or DAG batch, steer until multi-step checks exit 0, and merge verified commits into main.",
     provenance: [
-      { label: "What runs:", text: "the v0.5.0 House Frontend UI compiled from cayleb-james2008/dsh-fleet (frontend/) backed by a real IndexedDB virtual git worktree store, DAG scheduler, unified/split diff engine, and multi-step Web Worker check runner at /demos/dsh-fleet/." },
+      { label: "What runs:", text: "the v0.6.0 House Frontend UI compiled from cayleb-james2008/dsh-fleet (frontend/) backed by a real IndexedDB virtual git worktree store, Auto-Heal & Playbooks engine, Board Telemetry strip, DAG scheduler, unified/split diff viewer, and multi-step Web Worker check runner at /demos/dsh-fleet/." },
       { label: "Local & BYOK options:", text: "executes real isolated branch checks locally in your browser by default; Settings lets you run the Policy Tester, add a BYOK coding model (sessionStorage only), or connect to a local fleet-rs daemon on 127.0.0.1." },
-      { label: "Why it is here:", text: "Fleet's core promise is mechanical verification before merging — you can trigger real check failures, inspect side-by-side diffs and guardrails, fix the branch, and land a verified commit right here." },
+      { label: "Why it is here:", text: "Fleet's core promise is autonomous check-driven delivery without weakening guardrails — you can watch Auto-Heal timelines, save Playbooks, trigger real check failures, inspect diffs, and land verified commits right here." },
     ],
   },
 ];

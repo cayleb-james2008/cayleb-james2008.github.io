@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>DSH Fleet — Cayleb Alvarez-James</title>
-  <meta name="description" content="DSH Fleet v0.5.0: Parallel Coding-Agent Mission Control Board in a single Rust desktop and web binary — DAG dependencies, multi-step check pipelines, file-scope guardrails, pre-merge conflict dry-run, split diffs, 50k-line virtualized transcripts, and SSE streaming.">
+  <meta name="description" content="DSH Fleet v0.6.0: Parallel Coding-Agent Mission Control Board in a single Rust desktop and web binary — autonomous Auto-Heal feedback loop, reusable Playbook templates, live Board Telemetry, DAG dependencies, multi-step check pipelines, and file-scope guardrails.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/dsh-fleet.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="DSH Fleet — Cayleb Alvarez-James">
-  <meta property="og:description" content="Parallel coding-agent mission control — DAG session dependencies, multi-step check pipelines, file-scope guardrails, pre-merge dry-run, split diffs, and verified check receipts (v0.5.0).">
+  <meta property="og:description" content="Parallel coding-agent mission control — autonomous Auto-Heal, reusable Playbook templates, Board Telemetry, DAG dependencies, multi-step checks, file-scope guardrails, and verified receipts (v0.6.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/dsh-fleet.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -41,12 +41,12 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Flagship v0.5.0 · Single-Binary Rust Desktop &amp; Web App · checked 22 November 2026</p>
+        <p class="case-hero__meta">Flagship v0.6.0 · Single-Binary Rust Desktop &amp; Web App · checked 22 November 2026</p>
         <h1 class="case-hero__title">Hand out the work. It comes back verified.</h1>
-        <p class="case-hero__out">DSH Fleet is a parallel coding-agent mission control board served from a single Rust binary. Each task runs non-interactively in its own git worktree (<code>opencode</code>, <code>Claude Code</code>, <code>Codex</code>) with DAG session dependencies, file-scope guardrails, multi-step check pipelines, live SSE event streaming, pre-merge conflict dry-runs, and side-by-side split diffs — marking work Done only when every check passes on the exact commit a merge would land.</p>
+        <p class="case-hero__out">DSH Fleet is a parallel coding-agent mission control board served from a single Rust binary. Each task runs non-interactively in its own git worktree (<code>opencode</code>, <code>Claude Code</code>, <code>Codex</code>) with an autonomous Auto-Heal feedback loop (re-steering failing checks with diagnostic stderr up to budget, guarded by a SHA-256 identical-error loop breaker), reusable Playbook templates, live Board Telemetry, DAG session dependencies, file-scope guardrails, and multi-step check pipelines — marking work Done only when every check passes on the exact commit a merge would land.</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>v0.5.0 single-binary build · DAG scheduling &amp; multi-step checks · 2,000-session / 50k-line scale · real CLI agent E2E.</li>
-          <li><span class="chip chip--current">v0.5.0 public</span></li>
+          <li><span class="checked-dot" aria-hidden="true"></span>v0.6.0 single-binary build · Autonomous Auto-Heal, Playbooks &amp; Telemetry · 35/35 3-repo live CLI campaign · 2,000-session scale.</li>
+          <li><span class="chip chip--current">v0.6.0 public</span></li>
         </ul>
         <div class="hero-actions">
           <a class="btn-primary" href="../demos/dsh-fleet/">Launch live web app ↗</a>
@@ -65,25 +65,25 @@
       </nav>
 
       <section class="project-figures" id="figures" aria-labelledby="figures-h">
-        <h2 class="vis-kicker" id="figures-h">v0.5.0 live mission control board &amp; recorded walkthrough</h2>
+        <h2 class="vis-kicker" id="figures-h">v0.6.0 live mission control board &amp; recorded walkthrough</h2>
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">DSH Fleet v0.5.0 — Parallel Coding-Agent Mission Control</span>
+              <span class="viz__title">DSH Fleet v0.6.0 — Parallel Coding-Agent Mission Control</span>
               <span class="viz__live">live capture</span>
               <span class="viz__note">House Frontend · Appearance inside Settings</span>
             </div>
             <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/fleet-v050-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of DSH Fleet v0.5.0">
-                <img src="../assets/projects/captures/fleet-v050-light.png" alt="Live capture of DSH Fleet v0.5.0 Mission Control in the light House Frontend theme: top command bar with Cmd+K, concurrency slots, DAG dependency badges, multi-step check receipts, and multi-select toolbar." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-light" href="../assets/projects/captures/fleet-v060-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of DSH Fleet v0.6.0">
+                <img src="../assets/projects/captures/fleet-v060-light.png" alt="Live capture of DSH Fleet v0.6.0 Mission Control in the light House Frontend theme: Board Telemetry strip with First-pass and Auto-healed counts, 3-repo parallel campaign, and file-scope guardrail block in Needs you." width="1440" height="900" loading="eager" decoding="async">
               </a>
-              <a class="shot-dark" href="../assets/projects/captures/fleet-v050-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of DSH Fleet v0.5.0">
-                <img src="../assets/projects/captures/fleet-v050-dark.png" alt="Live capture of DSH Fleet v0.5.0 Mission Control in the dark House Frontend theme: top command bar with Cmd+K, concurrency slots, DAG dependency badges, multi-step check receipts, and multi-select toolbar." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-dark" href="../assets/projects/captures/fleet-v060-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of DSH Fleet v0.6.0">
+                <img src="../assets/projects/captures/fleet-v060-dark.png" alt="Live capture of DSH Fleet v0.6.0 Mission Control in the dark House Frontend theme: Board Telemetry strip, Auto-healed counter, By repo breakdown, and verified DAG receipts." width="1440" height="900" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured directly from DSH Fleet v0.5.0 at 1440×900 in both House Frontend themes. Try the real client-side virtual git worktree, DAG batch scheduler, Split Diff viewer, Policy Tester, and multi-step Web Worker check runner at <code>/demos/dsh-fleet/</code>.</p>
-              <p class="viz__source">Source: cayleb-james2008/dsh-fleet v0.5.0 · interactive browser engine at /demos/dsh-fleet/</p>
+              <p class="viz__caption">Captured directly from DSH Fleet v0.6.0 at 1440×900 in both House Frontend themes. Try the real client-side virtual git worktree, Auto-Heal timeline, Playbooks CRUD, Board Telemetry strip, DAG batch scheduler, Split Diff viewer, and Web Worker check runner at <code>/demos/dsh-fleet/</code>.</p>
+              <p class="viz__source">Source: cayleb-james2008/dsh-fleet v0.6.0 · interactive browser engine at /demos/dsh-fleet/</p>
               <p class="viz__action">
                 <a class="viz__open" href="../demos/dsh-fleet/">open live web app ↗</a>
               </p>
@@ -146,22 +146,22 @@
           <section id="capabilities">
             <h2>How it works</h2>
             <div class="project-prose__body">
-              <p>Fleet coordinates parallel coding-agent runs locally against your own git repositories, configured by automated routing and policy rules for concurrency caps, file-scope guardrails, and per-project multi-step check pipelines.</p>
+              <p>Fleet coordinates parallel coding-agent runs locally against your own git repositories, combining reusable Playbook templates, autonomous Auto-Heal check steering, live Board Telemetry, and strict file-scope &amp; committed-tree verification.</p>
               <div class="cap-grid">
                 <div class="cap-card">
-                  <span class="cap-card__tag">01 · Git worktrees &amp; DAG</span>
-                  <h3>Parallel waves &amp; dependencies</h3>
-                  <p>Every session runs in an isolated git worktree with configurable slot caps, batch fan-out, and DAG dependency chains (<code>depends_on</code>) that unblock downstream work only after upstream checks verify.</p>
+                  <span class="cap-card__tag">01 · Auto-Heal &amp; guardrails</span>
+                  <h3>Self-healing checks, hard fences</h3>
+                  <p>On healable check failures within <code>auto_steer_budget</code>, Fleet builds a deterministic ANSI-stripped stderr prompt and resumes the agent via <code>--continue</code> with a SHA-256 identical-error loop guard — never bypassing file-scope or commit refusals.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">02 · Guardrails &amp; multi-step checks</span>
-                  <h3>Grader is never the agent</h3>
-                  <p>Fleet checks allowed/forbidden file globs, runs timed multi-step check pipelines in a pristine checkout of the exact committed tree, and runs pre-merge conflict dry-runs before landing.</p>
+                  <span class="cap-card__tag">02 · Playbooks &amp; DAG waves</span>
+                  <h3>Reusable multi-repo delivery</h3>
+                  <p>Launch saved engineering Playbook templates from Composer or Cmd+K, run parallel worktree waves with configurable slot caps and <code>depends_on</code> DAG chains, and dry-run merge conflicts before landing.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">03 · Split diff, SSE &amp; 50k transcripts</span>
-                  <h3>Full operator control</h3>
-                  <p>Live SSE streaming, 50k-line virtualized transcripts with Jump-to-Error, unified and side-by-side split diffs, <code>.patch</code> export, Policy Tester, Cmd+K palette, and POSIX process-group cancellation.</p>
+                  <span class="cap-card__tag">03 · Board Telemetry &amp; Split Diff</span>
+                  <h3>Full operator visibility</h3>
+                  <p>Single-pass cached Telemetry strip (<code>First-pass %</code>, <code>Auto-healed</code>, <code>Median check</code>, per-repo breakdown), expandable Auto-heal timelines, 50k-line virtualized transcripts, unified/split diffs, <code>.patch</code> export, and POSIX process-group stops.</p>
                 </div>
               </div>
             </div>
@@ -170,15 +170,14 @@
           <section id="record">
             <h2>What is proven</h2>
             <div class="project-prose__body">
-              <p>Cold-verified and scale-audited against <code>cayleb-james2008/dsh-fleet</code> at release <code>v0.5.0</code>, including its 23-check adversarial verification battery (<code>.loop/verify</code>) and real CLI agent end-to-end verification.</p>
+              <p>Cold-verified, 3-repo live-campaign-tested, and scale-audited against <code>cayleb-james2008/dsh-fleet</code> at release <code>v0.6.0</code>, including its 23-check adversarial verification battery (<code>.loop/verify</code>).</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Rust &amp; committed-tree proof</th><td><b>87 of 87 Rust tests</b> (11 lib + 56 main + 9 CLI + 11 engine), <code>0</code> clippy warnings, and <b>23 of 23</b> <code>.loop/verify</code> checks passing — defending against gitignored outputs, nested repos, escaping symlinks, git index hiding bits, detached <code>setsid</code> children, out-of-scope file edits, and checks that mutate files during grading.</td></tr>
-                  <tr><th>Scale &amp; security audit</th><td><b>2,000 sessions / 50,000 transcript lines / 1,000-node DAG</b> verified under 30 concurrent clients + 5 SSE subscribers: <code>GET /api/sessions</code> <b>21.30ms p95</b> (1,928 req/s), <code>GET /api/repos</code> <b>10.21ms p95</b> (3,907 req/s), 1,000-node DAG/cycle validation <b>4.05ms / 3.91ms</b>, <code>58.2 MB</code> peak RSS, and <b>21/21</b> policy fuzz checks passing (<code>0</code> 500s).</td></tr>
-                  <tr><th>UI, live agent &amp; web app</th><td><b>48 of 48</b> Playwright UI gate checks (incl. 55,000-line virtualized transcript &lt;150 DOM nodes), <b>6 of 6</b> built-in replays, Hallmark <code>sloplint</code> <b>0 FAIL / 0 REFLEX</b>, <b>31 of 31</b> real <code>opencode</code> CLI E2E checks, and <b>19 of 19</b> standalone live web-app checks passing.</td></tr>
-                  <tr><th>Crash &amp; kill -9 recovery</th><td>Hard-killing the server mid-run preserves verified receipts, diffs and transcripts across restart and moves interrupted runs into <code>Needs you</code> with the restart stated.</td></tr>
-                  <tr><th>Defensive merges &amp; dry-run</th><td>Pre-merge conflict dry-run (<code>/api/sessions/:id/merge-check</code>) and merge/squash/ff strategies guard dirty targets, detached HEADs and conflicts cleanly without corrupting the target branch.</td></tr>
-                  <tr><th>Real CLI agents &amp; repo picker</th><td>Real repository discovery (<code>/api/repos</code>) and live non-interactive dispatch proven for <code>opencode run</code>, <code>claude -p</code> and <code>codex exec</code> (with continuation resume steering, concurrency slot caps, and Policy Tester).</td></tr>
+                  <tr><th>Rust &amp; committed-tree proof</th><td><b>102 of 102 Rust tests</b> (18 lib + 60 bin + 9 CLI + 11 <code>engine_v050</code> + 4 <code>engine_v060</code>), <code>0</code> clippy warnings, and <b>23 of 23</b> <code>.loop/verify</code> checks passing — proving Auto-Heal loop breaking, atomic Playbooks persistence, same-origin CSRF guards, and committed-tree verification defending against gitignored outputs, symlinks, and out-of-scope edits.</td></tr>
+                  <tr><th>3-Repo live CLI campaign</th><td><b>35 of 35 checks passed</b> in 52s against real <code>opencode</code> CLI (zero shims) across <code>py-ledger-api</code>, <code>node-cli-tools</code>, and <code>sh-ops-kit</code> — proving parallel Wave 1, <b>real autonomous Auto-Heal</b> recovering a failing <code>SCHEMA_MISMATCH</code> check in 14.5s into verified <code>done</code>, Wave 2 <code>depends_on</code> auto-launch, file-scope guardrail refusal in <code>Needs you</code>, conflict detection, and 3 clean squash merges (independently cold-reproduced <code>17/17</code>).</td></tr>
+                  <tr><th>Scale &amp; security audit</th><td><b>2,000 sessions / 50,000 transcript lines / 1,000-node DAG</b> verified under 30 concurrent clients + 5 SSE subscribers: <code>GET /api/metrics</code> <b>4.54ms p95</b> (6,891 req/s), <code>GET /api/templates</code> <b>5.09ms p95</b> (6,343 req/s), <code>GET /api/sessions</code> <b>16.61ms p95</b> (3,021 req/s), <code>54.2 MB</code> peak RSS, and <b>22/22</b> policy &amp; template traversal fuzz checks passing (<code>0</code> 500s).</td></tr>
+                  <tr><th>UI &amp; standalone web app</th><td><b>52 of 52</b> Playwright UI gate checks, <b>6 of 6</b> built-in replays, Hallmark <code>sloplint</code> <b>0 FAIL / 0 REFLEX</b>, and <b>24 of 24</b> standalone browser engine checks passing (Board Telemetry strip, Auto-Heal timeline, Playbooks CRUD, Split Diff, and Settings-only Dark at 390/320px).</td></tr>
+                  <tr><th>Crash &amp; merge safety</th><td>Hard-killing the server mid-run preserves verified receipts, diffs and transcripts across restart; pre-merge dry-run (<code>/api/sessions/:id/merge-check</code>) guards dirty targets and conflicts without corrupting branches.</td></tr>
                 </tbody>
               </table>
             </div>
@@ -198,9 +197,9 @@
         <h2>Evidence</h2>
         <dl class="repo-facts">
           <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/dsh-fleet">cayleb-james2008/dsh-fleet</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.5.0</b> · Single-binary Rust</dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.6.0</b> · Single-binary Rust</dd></div>
           <div class="repo-facts__row"><dt>checked</dt><dd>22 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.5.0</span></dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.6.0</span></dd></div>
           <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/dsh-fleet/">Live web app</a> · <a href="https://github.com/cayleb-james2008/dsh-fleet">GitHub</a> · <a href="https://github.com/cayleb-james2008/dsh-fleet/releases">Releases</a></dd></div>
         </dl>
         <p class="project-aside__more"><a href="../index.html">← Back to the interactive résumé</a></p>
