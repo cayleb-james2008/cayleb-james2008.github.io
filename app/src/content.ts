@@ -16,7 +16,7 @@ export const identity = {
 export const PDF = {
   href: "/Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf",
   name: "Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf",
-  size: "49 KB",
+  size: "51 KB",
   note: "the plain PDF, the submission copy",
 };
 
@@ -328,7 +328,7 @@ export const liveDemos: LiveDemo[] = [
     action: "switch between Board and DAG Graph views to inspect multi-wave dependencies, open PR Preview on a verified session, inspect active Worktrees & Daily Budget guardrails, pick a Playbook via Cmd+K, or steer & merge verified commits.",
     provenance: [
       { label: "What runs:", text: "the v0.8.0 House Frontend UI compiled from cayleb-james2008/fleet (frontend/) backed by a real IndexedDB virtual git worktree store, interactive DAG Graph visualizer, PR Preview modal, Worktrees Inspector, Daily Budget guardrails, Auto-Heal & Playbooks engine, Split Diff viewer, and Web Worker check runner at /demos/fleet/." },
-      { label: "Local & BYOK options:", text: "executes real isolated branch checks locally in your browser by default; Settings lets you run the Policy Tester, inspect Worktrees and Daily Budget limits, add a BYOK coding model (sessionStorage only), or connect to a local fleet-rs v0.8.0 binary on 127.0.0.1." },
+      { label: "Local & BYOK options:", text: "executes real isolated branch checks locally in your browser by default; Settings lets you run the Policy Tester, inspect Worktrees and Daily Budget limits, add a BYOK coding model (sessionStorage only), or connect to a local fleet v0.8.0 binary on 127.0.0.1." },
       { label: "Why it is here:", text: "Fleet's core promise is autonomous check-driven multi-wave delivery without weakening guardrails — you can inspect DAG waves, preview PRs, prune worktrees, trigger real check failures, and land verified commits right here." },
     ],
   },
