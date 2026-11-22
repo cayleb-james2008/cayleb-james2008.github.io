@@ -21,7 +21,7 @@ export const PDF = {
 };
 
 export const summary = [
-  "AI agent systems engineer and technical founder. I have spent the past year on agentic systems and harness engineering, starting while I was finishing high school, where I was also wrestling team captain for two years. For most of that stretch I worked 13 to 14 hours a day on it, around school, my job and wrestling. I work across several harnesses instead of just one: OpenCode and DeepSeek Harness, Claude Desktop and Duet, Gemini Antigravity, Freebuff, ChatGPT Codex and Claude Code. I pick whichever has usage left and fits the job. Right now most of the work runs through Muse, Claude Duet and the DSH Fleet I am finishing. Two systems make up most of it. Ergon\u2019s employee agents are built to set themselves up \u2014 to watch how someone works, ask targeted questions, learn the role and keep a memory of the person, adding skills and tools as it goes. That loop is built and verified against simulated companies; the live model connection is the remaining piece before a first install. The DSH Fleet runs dynamic swarms across desktop, virtual machine and browser surfaces, takes its tickets through Slack, and improves its own workflows, skills and plugin behaviour through a governed, checker-gated improvement programme run in rounds.",
+  "AI agent systems engineer and technical founder. I have spent the past year on agentic systems and harness engineering, starting while I was finishing high school, where I was also wrestling team captain for two years. For most of that stretch I worked 13 to 14 hours a day on it, around school, my job and wrestling. I work across several harnesses instead of just one: OpenCode and DeepSeek Harness, Claude Desktop and Duet, Gemini Antigravity, Freebuff, ChatGPT Codex and Claude Code. I pick whichever has usage left and fits the job. Right now most of the work runs through Muse, Claude Duet and Fleet. Two systems make up most of it. Ergon\u2019s employee agents are built to set themselves up \u2014 to watch how someone works, ask targeted questions, learn the role and keep a memory of the person, adding skills and tools as it goes. That loop is built and verified against simulated companies; the live model connection is the remaining piece before a first install. Fleet runs dynamic swarms across desktop, virtual machine and browser surfaces, takes its tickets through Slack, and improves its own workflows, skills and plugin behaviour through a governed, checker-gated improvement programme run in rounds.",
   "1,200+ GitHub contributions in the last year. 4,000+ automated tests across five shipped systems.",
 ];
 
@@ -46,7 +46,7 @@ export const experience = [
     org: "Founder \u00b7 Independent AI Agent Systems",
     bullets: [
       "Built Ergon as a self-configuring employee-agent platform. After installation, the agent is built to learn the employee\u2019s role by watching their recurring work and asking targeted questions, then propose capabilities it can take over. A learned skill or tool has to pass evaluation and review before the agent can use it, so nobody has to map the role in advance or keep adjusting the agent by hand. The self-setup loop is built and verified against simulated companies; the live model connection is the remaining piece before a first install.",
-      "Built the DSH Fleet. A dynamic swarm forms around each objective, execution runs across desktop, Windows VM, phone VM and browser surfaces, and tickets are coordinated through Slack under the same coordination and outcome rules. The coordination protocol is designed to let outside agents join through it as well \u2014 a design goal, not yet an observed practice. Slack was not the original integration layer. I was going to build my own, but I kept getting flagged by the existing guardrails on Muse and the other platforms I build on, so I used Slack for that layer instead.",
+      "Built Fleet. A dynamic swarm forms around each objective, execution runs across desktop, Windows VM, phone VM and browser surfaces, and tickets are coordinated through Slack under the same coordination and outcome rules. The coordination protocol is designed to let outside agents join through it as well \u2014 a design goal, not yet an observed practice. Slack was not the original integration layer. I was going to build my own, but I kept getting flagged by the existing guardrails on Muse and the other platforms I build on, so I used Slack for that layer instead.",
       "The Omni Loop is the fleet\u2019s self-improvement method, run as a governed programme in rounds, and every change it makes is gated: results from finished jobs drive proposed revisions to the workflows, plugin, skills and the loop itself, and a revision ships only when a fresh checker measures it better than the current version on a fixed scorecard, checked against a frozen set of past tickets. Every change is versioned and can be rolled back.",
     ],
   },
@@ -169,8 +169,8 @@ export const projects: Project[] = [
   },
 ];
 
-// The three flagship product pages (static pages under /projects/, updated for v0.6.0). Open-Ro Studio is not a résumé
-// record; it joins Ergon and DSH Fleet here because its product page and interactive web app do.
+// The three flagship product pages (static pages under /projects/, updated for Ergon v0.7.0, Open-Ro v0.10.0, Fleet v0.8.0).
+// Open-Ro Studio is not a résumé record; it joins Ergon and Fleet here because its product page and interactive web app do.
 export type ProductPage = { name: string; href: string; pitch: string; img: string; darkImg?: string; alt: string };
 export const productPagesHead = "the three products, in full";
 export const productPageLink = "the full product page ↗";
@@ -178,26 +178,26 @@ export const productPages: ProductPage[] = [
   {
     name: "Ergon",
     href: "/projects/ergon.html",
-    pitch: "An AI agent for every employee — 12 built-in workflows, live SSE run streaming, indexed 5,000-receipt search, standing routines, SHA-256 receipts, and 3-company live E2E hardening in one Rust binary.",
-    img: "/assets/projects/captures/ergon-v060-light.png",
-    darkImg: "/assets/projects/captures/ergon-v060-dark.png",
-    alt: "Live capture of Ergon v0.6.0 in the House Frontend workspace: Ironwood Commercial Mechanical live Today desk with 12 built-in workflows, Routines, SHA-256 receipts, Commands Cmd+K, and searchable Workspace files rail",
+    pitch: "An AI agent for every employee — background cadence routine scheduler, automatic .history/ file version diff & restore, tamper-evident Field-Book audit bundle, 3-company switcher, 12 workflows, and chromeless desktop app in one Rust binary.",
+    img: "/assets/projects/captures/ergon-v070-light.png",
+    darkImg: "/assets/projects/captures/ergon-v070-dark.png",
+    alt: "Live capture of Ergon v0.7.0 in the House Frontend workspace: Today operations desk with Export Audit Bundle, Recent run outcomes, 12 built-in workflows, scheduled Routines, Commands Cmd+K, and Workspace files rail",
   },
   {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
-    pitch: "You describe the game, it builds it — embedded realtime Roblox Studio 3D Viewport with live Agent Builder Drone & Replay Build, Live Studio MCP Frame Feed, playable Anime Card Battles Apex, Card Art Studio, 28 game systems, and bidirectional .rbxlx XML.",
-    img: "/assets/projects/captures/openro-v070-light.png",
-    darkImg: "/assets/projects/captures/openro-v070-dark.png",
-    alt: "Live capture of OpenRO v0.7.0 in the House Frontend workspace: embedded realtime Roblox Studio 3D Viewport with perspective-mapped cel-shaded card billboards, interactive 3D gizmos, Agent Builder laser beam, Studio Output stream, and Static Luau Audit Clean",
+    pitch: "RoPilot-grade 3-pane Roblox Studio AI IDE — Agent/Plan/Ask modes with reviewable unified Luau diffs, directly embedded live Roblox Studio + auto-synced Explorer, Companion Studio Plugin, all 13 official MCP tools, 8-pack Tool Library, Market Taste Craft Radar, and Rojo .zip export.",
+    img: "/assets/projects/captures/openro-v0100-light.png",
+    darkImg: "/assets/projects/captures/openro-v0100-dark.png",
+    alt: "Live capture of OpenRO v0.10.0 RoPilot 3-pane Roblox Studio AI IDE in the House Frontend workspace: Explorer DataModel dock, Studio 3D and Code & Diff workspace, Studio MCP Tools (13) bottom drawer, and Agent/Plan/Ask Copilot pane",
   },
   {
-    name: "DSH Fleet",
-    href: "/projects/dsh-fleet.html",
-    pitch: "Parallel coding-agent Mission Control — autonomous Auto-Heal feedback loop, reusable Playbook templates, live Board Telemetry strip, DAG dependencies, multi-step checks, file-scope guardrails, and split diffs.",
-    img: "/assets/projects/captures/fleet-v060-light.png",
-    darkImg: "/assets/projects/captures/fleet-v060-dark.png",
-    alt: "Live capture of DSH Fleet v0.6.0 Mission Control in the House Frontend workspace: Board Telemetry strip with First-pass and Auto-healed metrics, Healed 1/2 badge, file-scope guardrail block, and 3-repo parallel wave board",
+    name: "Fleet",
+    href: "/projects/fleet.html",
+    pitch: "Parallel coding-agent Mission Control — interactive multi-wave Board / DAG Graph toggle, PR Preview & confirmation-gated GitHub PR creator, Worktrees Inspector, Daily Dispatch Budget guardrails, Auto-Heal, Playbooks, and native Windows support.",
+    img: "/assets/projects/captures/fleet-v080-light.png",
+    darkImg: "/assets/projects/captures/fleet-v080-dark.png",
+    alt: "Live capture of Fleet v0.8.0 Mission Control in the House Frontend workspace: Board Telemetry strip with Daily budget, Board / DAG Graph toggle, Multi-wave execution DAG linking Wave 1 to Wave 2, and verified receipt inspection",
   },
 ];
 
@@ -248,7 +248,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. This page is its interactive edition: press Cmd+K to jump anywhere, or run the three live browser engines below (3-company-hardened Ergon v0.6.0, realtime 3D Roblox Studio Viewport Open-Ro v0.7.0, Auto-Heal & Playbooks DSH Fleet v0.6.0) with optional BYOK LLM or local binary connection.",
+  line: "The plain PDF is the submission copy. This page is its interactive edition: press Cmd+K to jump anywhere, or run the three live browser engines below (Ergon v0.7.0, RoPilot 3-pane Roblox Studio AI IDE Open-Ro v0.10.0, multi-wave DAG & PR Preview Fleet v0.8.0) with optional BYOK LLM or local binary connection.",
 };
 
 export type LiveDemo = {
@@ -266,7 +266,7 @@ export type LiveDemo = {
   provenance: { label: string; text: string }[];
 };
 
-// The words around the three real interactive web apps (Ergon v0.6.0, Open-Ro v0.7.0, DSH Fleet v0.6.0).
+// The words around the three real interactive web apps (Ergon v0.7.0, Open-Ro v0.10.0, Fleet v0.8.0).
 export const demoWords = {
   count: "live apps \u00b7 3",
   running: "running",
@@ -281,55 +281,55 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Ergon",
     tag: "APP-01",
-    title: "Ergon v0.6.0 — personal employee-agent workspace",
-    blurb: "Real client-side Ergon workspace paired with the v0.6.0 single-binary Rust server (hardened across a 96/96 3-company live LLM torture campaign): 12 built-in workflows, accounting-negative CSV cleaning, zero host-path leakage, drag-and-drop IndexedDB files, SHA-256 receipt exports, standing routines, Today approvals, and Cmd+K.",
+    title: "Ergon v0.7.0 — personal employee-agent workspace",
+    blurb: "Real client-side Ergon workspace paired with the v0.7.0 single-binary Rust desktop & web app: background cadence routine scheduler (Pause/Resume + Run History), automatic .history/ file version diff & Restore, tamper-evident Field-Book Audit Bundle export, 3-company switcher, 12 built-in workflows, SHA-256 receipts, Today approvals, and Cmd+K.",
     url: "/demos/ergon/",
-    img: "/assets/projects/captures/ergon-v060-light.png",
-    darkImg: "/assets/projects/captures/ergon-v060-dark.png",
+    img: "/assets/projects/captures/ergon-v070-light.png",
+    darkImg: "/assets/projects/captures/ergon-v070-dark.png",
     page: "/projects/ergon.html",
     repo: "https://github.com/cayleb-james2008/ergon",
     storagePrefix: "ergon",
-    action: "upload or drop a CSV or Markdown file, run a reconciliation or any of the 12 built-in workflows, export the SHA-256 receipt, press Cmd+K to jump across workspace files, or approve a parked deletion in Today.",
+    action: "upload or drop a CSV or Markdown file, inspect file Version History & unified diff restore, Pause/Resume a scheduled cadence routine, export a tamper-evident Field-Book Audit Bundle, or approve a parked deletion in Today.",
     provenance: [
-      { label: "What runs:", text: "the v0.6.0 House Frontend UI compiled from cayleb-james2008/ergon (frontend/) backed by a real IndexedDB workspace, 12-workflow execution engine, routines runner, and SHA-256 receipt exporter at /demos/ergon/." },
-      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you connect a BYOK OpenAI-compatible key (sessionStorage only) or a local ergon binary on 127.0.0.1." },
-      { label: "Why it is here:", text: "every file write, reconciliation calculation, SHA-256 receipt export, routine run, and Today deletion approval executes genuinely on your own inputs right in the frame." },
+      { label: "What runs:", text: "the v0.7.0 House Frontend UI compiled from cayleb-james2008/ergon (frontend/) backed by a real IndexedDB workspace, 12-workflow execution engine, cadence routine scheduler, .history/ version diffing, and Field-Book Audit Bundle exporter at /demos/ergon/." },
+      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you connect a BYOK OpenAI-compatible key (sessionStorage only) or a local ergon v0.7.0 binary on 127.0.0.1." },
+      { label: "Why it is here:", text: "every file write, diff restore, routine schedule toggle, SHA-256 audit export, and Today deletion approval executes genuinely on your own inputs right in the frame." },
     ],
   },
   {
     key: "Open-Ro",
     tag: "APP-02",
-    title: "Open-Ro Studio v0.7.0 — realtime 3D Roblox Studio viewer & game builder",
-    blurb: "Real client-side Roblox Place & realtime 3D Studio Viewport paired with the v0.7.0 single-binary Rust Studio companion: watch the agent build parts live with an animated Builder Drone & Laser Beam, orbit/pan/zoom & manipulate 3D gizmos (Select/Move/Scale/Rotate), Replay Build step-by-step, switch to Live Studio MCP Feed or Playable Anime Card Battles Apex, and export bidirectional .rbxlx XML.",
+    title: "Open-Ro Studio v0.10.0 — RoPilot 3-pane Roblox Studio AI IDE",
+    blurb: "Real client-side 3-pane Roblox Studio Copilot IDE paired with the v0.10.0 single-binary Rust app (directly embedded live Roblox Studio + auto-synced Explorer, Companion Studio Plugin, and all 13 official MCP tools): switch between Agent, Plan (staged unified Luau diffs), and Ask modes, inspect green/red hunks in Code & Diff, co-build in Studio 3D, browse the 8-pack Tool Library & Market Taste Craft Radar, and export .rbxlx XML or Rojo Ship Pack (.zip).",
     url: "/demos/open-ro/",
-    img: "/assets/projects/captures/openro-v070-light.png",
-    darkImg: "/assets/projects/captures/openro-v070-dark.png",
+    img: "/assets/projects/captures/openro-v0100-light.png",
+    darkImg: "/assets/projects/captures/openro-v0100-dark.png",
     page: "/projects/openro.html",
     repo: "https://github.com/cayleb-james2008/open-ro",
     storagePrefix: "openro",
-    action: "launch Anime Card Battles: Apex to orbit the live 3D Roblox Studio Viewport with 3D Card Billboards, click Replay Build to watch the Agent Drone place parts step-by-step, inspect the Studio Output stream, switch to Playable Stage to roll & fight bosses, or export .rbxlx.",
+    action: "open Starters to build a Roblox game in Studio 3D, switch to Plan mode to stage reviewable unified Luau diffs in Code & Diff (Accept & Apply or Reject), open the Studio MCP Tools (13) bottom drawer, explore Tool Library & Market Taste, or export Rojo .zip / .rbxlx.",
     provenance: [
-      { label: "What runs:", text: "the v0.7.0 House Frontend UI compiled from cayleb-james2008/open-ro (frontend/) with a zero-dependency interactive 3D Roblox Studio perspective viewport, live agent action stream & Replay Build, 28 Roblox game systems, embedded cel-shaded card art, playable Card Battles stage, Static Luau Prover, and bidirectional .rbxlx XML codec at /demos/open-ro/." },
-      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you configure a BYOK LLM key, Gemini/OpenAI Image API, or connect to a local openro-rs 0.7.0 daemon (with live Roblox Studio MCP screen-capture Feed) on 127.0.0.1." },
-      { label: "Why it is here:", text: "visitors can watch an AI agent build and playtest a Roblox world live inside an embedded 3D Studio viewport, manipulate parts directly, switch to playable Anime Card Battles, and export genuine Studio .rbxlx files right here." },
+      { label: "What runs:", text: "the v0.10.0 RoPilot 3-pane House Frontend IDE compiled from cayleb-james2008/open-ro (frontend/) with Explorer/Chats left dock, Embedded Studio / Studio 3D / Code & Diff / Playable Stage center workspace, Output / Agent Trace / Studio MCP Tools (13) / Properties drawer, Agent|Plan|Ask Copilot composer, 8-pack Tool Library, Market Taste Craft Radar, and .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
+      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you add a BYOK LLM key or connect to a local openro-rs 0.10.0 binary (with directly embedded live Roblox Studio, auto-synced Explorer, OpenRoCompanion.lua plugin, all 13 MCP tools, Blender 3D .obj, and procedural .wav synthesis) on 127.0.0.1." },
+      { label: "Why it is here:", text: "visitors can experience the full 3-pane RoPilot Studio workflow — staging unified Luau diffs, co-building in 3D, proving scripts, inspecting the Tool Library & Market Taste Radar, and exporting genuine Studio .rbxlx and Rojo .zip packages right here." },
     ],
   },
   {
-    key: "DSH Fleet",
+    key: "Fleet",
     tag: "APP-03",
-    title: "DSH Fleet v0.6.0 — Mission Control with Auto-Heal, Playbooks & Telemetry",
-    blurb: "Real in-browser git worktree, DAG batch scheduler, autonomous Auto-Heal feedback loop, reusable Playbook templates, Board Telemetry strip, and multi-step Web Worker check-runner engine paired with the v0.6.0 single-binary Rust orchestrator: inspect Auto-heal timelines, Split Diffs, merge dry-runs, .patch exports, and verified merges.",
-    url: "/demos/dsh-fleet/",
-    img: "/assets/projects/captures/fleet-v060-light.png",
-    darkImg: "/assets/projects/captures/fleet-v060-dark.png",
-    page: "/projects/dsh-fleet.html",
-    repo: "https://github.com/cayleb-james2008/dsh-fleet",
+    title: "Fleet v0.8.0 — Mission Control with DAG Graph, PR Preview & Budget Guardrails",
+    blurb: "Real in-browser git worktree, interactive multi-wave Board / DAG Graph toggle, PR Preview & GitHub PR payload builder, Worktrees Inspector, Daily Dispatch Budget guardrails, Autonomous Auto-Heal feedback loop, reusable Playbooks, Board Telemetry, and multi-step Web Worker check runner paired with the v0.8.0 single-binary Rust orchestrator.",
+    url: "/demos/fleet/",
+    img: "/assets/projects/captures/fleet-v080-light.png",
+    darkImg: "/assets/projects/captures/fleet-v080-dark.png",
+    page: "/projects/fleet.html",
+    repo: "https://github.com/cayleb-james2008/fleet",
     storagePrefix: "fleet",
-    action: "inspect Board Telemetry and Auto-heal attempt timelines, pick or save a Playbook in Composer or Cmd+K, dispatch a failing session or DAG batch, steer until multi-step checks exit 0, and merge verified commits into main.",
+    action: "switch between Board and DAG Graph views to inspect multi-wave dependencies, open PR Preview on a verified session, inspect active Worktrees & Daily Budget guardrails, pick a Playbook via Cmd+K, or steer & merge verified commits.",
     provenance: [
-      { label: "What runs:", text: "the v0.6.0 House Frontend UI compiled from cayleb-james2008/dsh-fleet (frontend/) backed by a real IndexedDB virtual git worktree store, Auto-Heal & Playbooks engine, Board Telemetry strip, DAG scheduler, unified/split diff viewer, and multi-step Web Worker check runner at /demos/dsh-fleet/." },
-      { label: "Local & BYOK options:", text: "executes real isolated branch checks locally in your browser by default; Settings lets you run the Policy Tester, add a BYOK coding model (sessionStorage only), or connect to a local fleet-rs daemon on 127.0.0.1." },
-      { label: "Why it is here:", text: "Fleet's core promise is autonomous check-driven delivery without weakening guardrails — you can watch Auto-Heal timelines, save Playbooks, trigger real check failures, inspect diffs, and land verified commits right here." },
+      { label: "What runs:", text: "the v0.8.0 House Frontend UI compiled from cayleb-james2008/fleet (frontend/) backed by a real IndexedDB virtual git worktree store, interactive DAG Graph visualizer, PR Preview modal, Worktrees Inspector, Daily Budget guardrails, Auto-Heal & Playbooks engine, Split Diff viewer, and Web Worker check runner at /demos/fleet/." },
+      { label: "Local & BYOK options:", text: "executes real isolated branch checks locally in your browser by default; Settings lets you run the Policy Tester, inspect Worktrees and Daily Budget limits, add a BYOK coding model (sessionStorage only), or connect to a local fleet-rs v0.8.0 binary on 127.0.0.1." },
+      { label: "Why it is here:", text: "Fleet's core promise is autonomous check-driven multi-wave delivery without weakening guardrails — you can inspect DAG waves, preview PRs, prune worktrees, trigger real check failures, and land verified commits right here." },
     ],
   },
 ];

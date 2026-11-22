@@ -31,14 +31,14 @@
   var rootPrefix = inProjects ? "../" : "./";
   var ITEMS = [
     { group: "Live web apps", title: "Ergon — live browser workspace", meta: "/demos/ergon/", href: rootPrefix + "demos/ergon/" },
-    { group: "Live web apps", title: "Open-Ro Studio — Roblox Luau & .rbxlx", meta: "/demos/open-ro/", href: rootPrefix + "demos/open-ro/" },
-    { group: "Live web apps", title: "DSH Fleet — parallel worktree board", meta: "/demos/dsh-fleet/", href: rootPrefix + "demos/dsh-fleet/" },
+    { group: "Live web apps", title: "Open-Ro Studio — Roblox Studio AI IDE", meta: "/demos/open-ro/", href: rootPrefix + "demos/open-ro/" },
+    { group: "Live web apps", title: "Fleet — parallel worktree & DAG board", meta: "/demos/fleet/", href: rootPrefix + "demos/fleet/" },
     { group: "Live web apps", title: "Industry AI Suite /lab/ — 10-tool workbench", meta: "/lab/", href: rootPrefix + "lab/" },
     { group: "Pages", title: "Interactive Résumé Home", meta: "/", href: rootPrefix + "index.html" },
-    { group: "Pages", title: "All 18 Project Pages", meta: "/projects/", href: rootPrefix + "projects/" },
+    { group: "Pages", title: "All 17 Project Pages", meta: "/projects/", href: rootPrefix + "projects/" },
     { group: "Pages", title: "Ergon Product Page", meta: "flagship", href: rootPrefix + "projects/ergon.html" },
     { group: "Pages", title: "Open-Ro Studio Product Page", meta: "flagship", href: rootPrefix + "projects/openro.html" },
-    { group: "Pages", title: "DSH Fleet Product Page", meta: "flagship", href: rootPrefix + "projects/dsh-fleet.html" },
+    { group: "Pages", title: "Fleet Product Page", meta: "flagship", href: rootPrefix + "projects/fleet.html" },
     { group: "Pages", title: "Industry AI Suite Overview", meta: "suite", href: rootPrefix + "projects/industry-ai-suite.html" },
     { group: "Pages", title: "Sophos — Coding-Agent Desktop App", meta: "desktop", href: rootPrefix + "projects/sophos.html" },
     { group: "Pages", title: "dotz — Multi-Agent Harness Desktop", meta: "desktop", href: rootPrefix + "projects/dotz.html" },

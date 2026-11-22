@@ -10,7 +10,7 @@ Not carried: the region arrangement (masthead side by side, label-left rows). Pe
   is composed fresh (DESIGN-PLAN.md region map).
 Reading reconciled (CONTRACT section 3): the Gate's copy-in applies to the carryable source; the region arrangement is fresh.
 Text source: the RENDERED text is the authority (it carries the 17:31Z humanize edit); the older site-src content.ts differs in
-  places (e.g. the DSH Fleet paragraph) and is used only as a cross-check.
+  places (e.g. the Fleet paragraph) and is used only as a cross-check.
 Comparison (SKILL.md step 4, gates §9): the live apex and its region map (masthead identity|figures, index line, label|body rows),
   the starter's bench (its own layout), and the house pieces (dock, island, instrument) were compared region by region with the
   DESIGN-PLAN map; the plan matches none of them in order and proportion.

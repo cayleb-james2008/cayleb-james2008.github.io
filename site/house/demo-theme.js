@@ -1,4 +1,4 @@
-/* Theme synchronization for the three embedded v0.4.0 live web apps (Ergon, Open-Ro, DSH Fleet).
+/* Theme synchronization for the three embedded live web apps (Ergon, Open-Ro, Fleet).
    - Inside an iframe on cayleb-james2008.github.io: follows the parent page's <html data-theme> live via MutationObserver.
    - Opened standalone at /demos/<app>/: respects the app's own Settings choice (data-key), then the site's localStorage("theme"), then prefers-color-scheme.
    Runs synchronously in <head> before React mounts so first paint and React state agree. */

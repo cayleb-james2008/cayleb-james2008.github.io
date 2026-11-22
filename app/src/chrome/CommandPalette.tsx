@@ -23,13 +23,13 @@ type Props = {
 
 const PROJECT_PAGES = [
   { label: "Ergon — Employee Agent Desk", href: "/projects/ergon.html", meta: "flagship" },
-  { label: "Open-Ro Studio — Roblox Game Builder", href: "/projects/openro.html", meta: "flagship" },
-  { label: "DSH Fleet — Parallel Coding Agents", href: "/projects/dsh-fleet.html", meta: "flagship" },
+  { label: "Open-Ro Studio — Roblox Studio AI IDE", href: "/projects/openro.html", meta: "flagship" },
+  { label: "Fleet — Parallel Coding Agents", href: "/projects/fleet.html", meta: "flagship" },
   { label: "Industry AI Suite — 10 Review Tools", href: "/projects/industry-ai-suite.html", meta: "suite" },
   { label: "Sophos — Coding-Agent Desktop App", href: "/projects/sophos.html", meta: "desktop" },
   { label: "dotz — Multi-Agent Harness Desktop", href: "/projects/dotz.html", meta: "desktop" },
   { label: "Asmodeus — Chronological Backtesting", href: "/projects/asmodeus.html", meta: "research" },
-  { label: "All 18 Project Pages", href: "/projects/", meta: "index" },
+  { label: "All 17 Project Pages", href: "/projects/", meta: "index" },
 ];
 
 export function CommandPalette({ open, onOpenChange, onOpenDemo }: Props) {

@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fleet — Cayleb Alvarez-James</title>
+  <meta name="description" content="Fleet v0.8.0: Parallel Coding-Agent Mission Control Board in a single Rust desktop and web binary — interactive multi-wave Board / DAG Graph toggle, PR Preview &amp; confirmation-gated GitHub PR creator, Worktrees Inspector, Daily Dispatch Budget guardrails, Auto-Heal, Playbooks, and native Windows support.">
+  <link rel="canonical" href="https://cayleb-james2008.github.io/projects/fleet.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cayleb Alvarez-James">
+  <meta property="og:title" content="Fleet — Cayleb Alvarez-James">
+  <meta property="og:description" content="Parallel coding-agent mission control — interactive multi-wave DAG Graph, PR Preview &amp; GitHub PR creator, Worktrees Inspector, Daily Budget guardrails, Auto-Heal, Playbooks, and verified receipts (v0.8.0).">
+  <meta property="og:url" content="https://cayleb-james2008.github.io/projects/fleet.html">
+  <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f2f5">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e1013">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <script src="../site/house/theme.js"></script>
+  <script src="../site/house/pages.js" defer></script>
+  <link rel="stylesheet" href="../site/house/tokens.css">
+  <link rel="stylesheet" href="../site/house/base.css">
+  <link rel="stylesheet" href="../site/house/project.css">
+</head>
+<body class="project-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="sub-masthead">
+    <a class="sub-wordmark" href="../index.html" aria-label="Cayleb Alvarez-James, home">Cayleb<span class="wm-dot">.</span>AJ</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="../index.html#summary">Résumé</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#live-demos">Live apps</a></li>
+      </ul>
+    </nav>
+    <a class="sub-resume" href="../Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf" download>Résumé PDF</a>
+  </header>
+
+  <main id="main">
+    <header class="project-hero">
+      <div class="wrap project-hero__main">
+        <a class="project-back" href="./">← All project pages</a>
+        <p class="case-hero__meta">Flagship v0.8.0 · Single-Binary Rust Desktop &amp; Web App · checked 22 November 2026</p>
+        <h1 class="case-hero__title">Hand out the work. It comes back verified.</h1>
+        <p class="case-hero__out">Fleet is a parallel coding-agent mission control board served from a single cross-platform Rust binary (Linux, macOS, and native Windows <code>.exe</code> with chromeless desktop app launch). Each task runs non-interactively in its own git worktree (<code>opencode</code>, <code>Claude Code</code>, <code>Codex</code>) with an interactive multi-wave <b>Board / DAG Graph</b> toggle, <b>PR Preview &amp; confirmation-gated GitHub PR creator</b>, <b>Worktrees Inspector</b> with safe non-main orphan pruning, <b>Daily Dispatch Budget guardrails</b> (<code>429</code> on cap), autonomous <b>Auto-Heal</b> feedback steering, reusable Playbooks, live Board Telemetry, and committed-tree verification.</p>
+        <ul class="project-status" aria-label="Verification">
+          <li><span class="checked-dot" aria-hidden="true"></span>v0.8.0 single-binary build · Multi-wave DAG Graph, PR Preview, Worktree Inspector &amp; Daily Budget · 42/42 cold live CLI E2E · 2,000-session scale.</li>
+          <li><span class="chip chip--current">v0.8.0 public</span></li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn-primary" href="../demos/fleet/">Launch live web app ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/fleet" target="_blank" rel="noreferrer noopener">Source on GitHub ↗</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap project-top">
+      <nav class="project-index" aria-label="On this page">
+        <a href="#figures">interface &amp; walkthrough</a>
+        <a href="#schematic">board states</a>
+        <a href="#capabilities">how it works</a>
+        <a href="#record">what is proven</a>
+        <a href="#limits">honest boundaries</a>
+      </nav>
+
+      <section class="project-figures" id="figures" aria-labelledby="figures-h">
+        <h2 class="vis-kicker" id="figures-h">v0.8.0 live mission control board &amp; recorded walkthrough</h2>
+        <div class="figure-grid">
+          <figure class="viz viz--shot">
+            <div class="viz__head viz__head--shot">
+              <span class="viz__title">Fleet v0.8.0 — Parallel Coding-Agent Mission Control</span>
+              <span class="viz__live">live capture</span>
+              <span class="viz__note">House Frontend · Appearance inside Settings</span>
+            </div>
+            <div class="viz__media">
+              <a class="shot-light" href="../assets/projects/captures/fleet-v080-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Fleet v0.8.0">
+                <img src="../assets/projects/captures/fleet-v080-light.png" alt="Live capture of Fleet v0.8.0 Mission Control in the light House Frontend theme: Board Telemetry strip with Daily budget 3/3, Board and DAG Graph toggle, Multi-wave execution DAG linking Wave 1 to Wave 2, and verified receipt card." width="1440" height="900" loading="eager" decoding="async">
+              </a>
+              <a class="shot-dark" href="../assets/projects/captures/fleet-v080-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Fleet v0.8.0">
+                <img src="../assets/projects/captures/fleet-v080-dark.png" alt="Live capture of Fleet v0.8.0 Mission Control in the dark House Frontend theme: Board Telemetry strip, Daily budget counter, interactive Multi-wave execution DAG, and verified receipts." width="1440" height="900" loading="eager" decoding="async">
+              </a>
+            </div>
+            <figcaption class="viz__cap">
+              <p class="viz__caption">Captured directly from Fleet v0.8.0 running a live multi-wave <code>opencode</code> campaign at 1440×900 in both House Frontend themes. Try the real client-side virtual git worktree, Board / DAG Graph toggle, PR Preview modal, Worktrees Inspector, Daily Budget guardrails, Auto-Heal timeline, Playbooks, Split Diff viewer, and Web Worker check runner at <code>/demos/fleet/</code>.</p>
+              <p class="viz__source">Source: cayleb-james2008/fleet v0.8.0 · interactive browser engine at /demos/fleet/</p>
+              <p class="viz__action">
+                <a class="viz__open" href="../demos/fleet/">open live web app ↗</a>
+              </p>
+            </figcaption>
+          </figure>
+
+          <figure class="viz" id="schematic">
+            <div class="viz__body">
+              <div class="sim-head">
+                <div class="sim-head__copy">
+                  <span class="sim-head__title">Three lanes, one mechanical rule</span>
+                  <span class="sim-head__sub">Dispatch two scripted sessions: one passes its check command on the committed tree; the other’s check fails and lands in Needs you.</span>
+                </div>
+                <button class="btn-outline" id="board-run" type="button">Dispatch two sessions</button>
+              </div>
+              <div class="sim-rows" id="board-rows">
+                <div class="sim-row">
+                  <span><span class="sim-row__task">Add CSV export endpoint</span> <span class="sim-row__agent">· opencode</span></span>
+                  <span class="sim-row__state">Ready to dispatch</span>
+                </div>
+                <div class="sim-row">
+                  <span><span class="sim-row__task">Fix invoice totals rounding</span> <span class="sim-row__agent">· claude</span></span>
+                  <span class="sim-row__state">Ready to dispatch</span>
+                </div>
+              </div>
+              <p class="sim-verdict" id="board-log" aria-live="polite">No sessions dispatched yet — press “Dispatch two sessions” to trace the check gate.</p>
+            </div>
+          </figure>
+
+          <figure class="viz">
+            <div class="viz__body">
+              <div class="viz__head">
+                <span class="viz__title">Recorded end-to-end walkthrough</span>
+                <span class="viz__note">real binary + OpenMotion chapter package</span>
+              </div>
+              <div style="margin-top:16px">
+                <video class="walk-video" controls preload="metadata" playsinline poster="../assets/video/fleet-poster.jpg" src="../assets/video/fleet.mp4">
+                  <track kind="chapters" label="Chapters" srclang="en" default src="../assets/video/fleet-chapters.vtt">
+                </video>
+                <ol class="chapters">
+                  <li><button type="button" data-t="0.00"><span class="ct">0:00</span>Fleet v0.8.0 Intro</button></li>
+                  <li><button type="button" data-t="4.00"><span class="ct">0:04</span>Parallel Board Telemetry &amp; Multi-Wave Dispatch</button></li>
+                  <li><button type="button" data-t="13.00"><span class="ct">0:13</span>Interactive DAG Graph &amp; Wave Dependencies</button></li>
+                  <li><button type="button" data-t="20.50"><span class="ct">0:20</span>Session Inspector, Split Diff, Auto-Heal &amp; PR Preview</button></li>
+                  <li><button type="button" data-t="29.70"><span class="ct">0:29</span>Worktree Inspector, Daily Budget Guardrails &amp; Dark Mode</button></li>
+                  <li><button type="button" data-t="38.70"><span class="ct">0:38</span>Fleet v0.8.0 Verified Facts Summary</button></li>
+                </ol>
+              </div>
+            </div>
+            <figcaption class="viz__cap">
+              <p class="viz__caption">Recorded end-to-end walkthrough of Fleet v0.8.0 showing parallel Board Telemetry, multi-wave DAG dependencies, Split Diff &amp; Auto-Heal inspection, confirmation-gated PR Preview, Worktree Inspector, Daily Budget guardrails, and Dark mode.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+    </div>
+
+    <div class="wrap project-layout">
+      <article class="project-content">
+        <div class="project-prose">
+          <section id="capabilities">
+            <h2>How it works</h2>
+            <div class="project-prose__body">
+              <p>Fleet coordinates parallel coding-agent runs locally across Linux, macOS, and Windows against your own git repositories, combining interactive multi-wave DAG orchestration, confirmation-gated GitHub PR previews, safe worktree lifecycle management, daily dispatch caps, autonomous Auto-Heal steering, and strict committed-tree verification.</p>
+              <div class="cap-grid">
+                <div class="cap-card">
+                  <span class="cap-card__tag">01 · Interactive DAG &amp; Auto-Heal</span>
+                  <h3>Multi-wave delivery with hard fences</h3>
+                  <p>Switch between <code>Board</code> and interactive <code>DAG Graph</code> views to inspect <code>depends_on</code> waves, while healable check failures automatically steer via <code>--continue</code> with a SHA-256 identical-error loop breaker — never bypassing file-scope or commit refusals.</p>
+                </div>
+                <div class="cap-card">
+                  <span class="cap-card__tag">02 · PR Preview &amp; Playbooks</span>
+                  <h3>One-click verified shipping</h3>
+                  <p>Generate structured PR titles, bodies, and diff summaries from verified receipts before confirmation-gated <code>gh pr create</code> execution, dry-run merges against dirty targets, or launch reusable engineering Playbooks via <code>Cmd+K</code>.</p>
+                </div>
+                <div class="cap-card">
+                  <span class="cap-card__tag">03 · Worktrees, Budget &amp; Windows</span>
+                  <h3>Safe resource governance</h3>
+                  <p>Inspect every git worktree across repos and safely prune stale non-main orphans (never touching active sessions or <code>main</code>), enforce configurable <code>Daily Dispatch Budget</code> caps (<code>429</code> on overrun), and run natively on Linux, macOS, and Windows.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="record">
+            <h2>What is proven</h2>
+            <div class="project-prose__body">
+              <p>Cold-verified, multi-wave live-CLI-tested, and scale-audited against <code>cayleb-james2008/fleet</code> at release <code>v0.8.0</code>, including its 23-check adversarial verification battery (<code>.loop/verify</code>).</p>
+              <table class="record-table">
+                <tbody>
+                  <tr><th>Rust, Windows &amp; .loop/verify</th><td><b>116 of 116 Rust tests</b>, <code>0</code> clippy warnings, <code>0</code> Windows cross-check errors (<code>cargo xwin check --target x86_64-pc-windows-msvc</code>), and <b>23 of 23</b> <code>.loop/verify</code> checks passing — proving DAG waves, confirmation-gated PR preview, safe non-main worktree pruning, daily dispatch budget <code>429</code> enforcement, Auto-Heal loop breaking, and committed-tree verification.</td></tr>
+                  <tr><th>Cold live CLI campaign</th><td><b>42 of 42 cold live checks passed</b> against real <code>opencode</code> CLI (zero shims) — proving parallel Wave 1, Wave 2 <code>depends_on</code> auto-launch, interactive DAG graph rendering, PR Preview payload generation, Worktree Inspector &amp; prune safety, Daily Budget cap enforcement, autonomous Auto-Heal recovery, and clean verified squash merges.</td></tr>
+                  <tr><th>Scale &amp; security audit</th><td><b>2,000 sessions / 50,000 transcript lines / 1,000-node DAG</b> verified under 30 concurrent clients + 5 SSE subscribers: <b>16.04ms max p95</b> across all endpoints (<code>/api/worktrees</code> optimized <code>267.8ms → 16.0ms</code>, <b>6,848 req/s</b>), <code>45.20 MB</code> peak RSS, and <b>27/27</b> security fuzz checks passing (path traversal, main-branch prune guard, CSRF, budget bypass — <code>0</code> 500s).</td></tr>
+                  <tr><th>UI &amp; standalone web app</th><td><b>57 of 57</b> Playwright UI gate checks, <b>6 of 6</b> built-in replays, Hallmark <code>sloplint</code> <b>0 FAIL / 0 REFLEX</b>, and standalone browser engine verified at desktop and 390/320px mobile with <code>0</code> external requests.</td></tr>
+                  <tr><th>Cross-platform packaging</th><td>Single Rust binary + chromeless desktop app launch (<code>--app</code>) across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> + <code>SHA256SUMS</code>; crash-safe receipts survive hard server kills.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <section class="project-limits" id="limits" aria-labelledby="limits-h">
+          <h2 id="limits-h">what is not verified</h2>
+          <ul>
+            <li><b>Local operator boundary:</b> Fleet runs locally on the operator’s machine (Unix process groups + Windows job-object containment) and executes the check commands configured by the operator.</li>
+            <li><b>Signed-in CLI credentials:</b> running real third-party coding agents or publishing GitHub PRs requires local authentication for those CLIs on the host; PR creation always stops at explicit preview + confirmation.</li>
+          </ul>
+        </section>
+      </article>
+
+      <aside class="project-aside">
+        <h2>Evidence</h2>
+        <dl class="repo-facts">
+          <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/fleet">cayleb-james2008/fleet</a> <span>(public)</span></dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.8.0</b> · Single-binary Rust</dd></div>
+          <div class="repo-facts__row"><dt>checked</dt><dd>22 Nov 2026</dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.8.0</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/fleet/">Live web app</a> · <a href="https://github.com/cayleb-james2008/fleet">GitHub</a> · <a href="https://github.com/cayleb-james2008/fleet/releases">Releases</a></dd></div>
+        </dl>
+        <p class="project-aside__more"><a href="../index.html">← Back to the interactive résumé</a></p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="sub-footer">
+    <p>© 2026 Cayleb Alvarez-James.</p>
+    <ul aria-label="Elsewhere">
+      <li><a href="../index.html">Résumé</a></li>
+      <li><a href="./">All projects</a></li>
+      <li><a href="https://github.com/cayleb-james2008/fleet">GitHub</a></li>
+      <li><a href="mailto:caylebalvarezjames@gmail.com">Email</a></li>
+    </ul>
+  </footer>
+
+  <script>
+  (function () {
+    var runBtn = document.getElementById("board-run");
+    var rowsEl = document.getElementById("board-rows");
+    var logEl = document.getElementById("board-log");
+    if (runBtn && rowsEl && logEl) {
+      var SESSIONS = [
+        { task: "Add CSV export endpoint", agent: "opencode", check: "npm test", ok: true, detail: "Done · npm test — 24 passed in 3.1s" },
+        { task: "Fix invoice totals rounding", agent: "claude", check: "npm test", ok: false, detail: "Needs you · npm test — expected 41.20, got 41.19" }
+      ];
+      var renderRows = function (items) {
+        rowsEl.innerHTML = items.map(function (s) {
+          var cls = s.tone ? " sim-row--" + s.tone : "";
+          return '<div class="sim-row' + cls + '">'
+            + '<span><span class="sim-row__task">' + s.task + '</span> <span class="sim-row__agent">· ' + s.agent + '</span></span>'
+            + '<span class="sim-row__state">' + s.state + '</span></div>';
+        }).join("");
+      };
+      var reduced = function () { try { return matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } };
+      runBtn.addEventListener("click", function () {
+        if (reduced()) {
+          renderRows(SESSIONS.map(function (s) { return { task: s.task, agent: s.agent, state: s.detail, tone: s.ok ? "ok" : "warn" }; }));
+          logEl.textContent = "Result: 1 verified done with check receipt; 1 routed to Needs you with exact failure line.";
+          return;
+        }
+        runBtn.disabled = true;
+        renderRows(SESSIONS.map(function (s) { return { task: s.task, agent: s.agent, state: "Working · agent running in worktree", tone: "" }; }));
+        logEl.textContent = "Two sessions dispatched — each isolated in its own git worktree.";
+        setTimeout(function () {
+          renderRows(SESSIONS.map(function (s) { return { task: s.task, agent: s.agent, state: "Checking · Fleet running " + s.check, tone: "" }; }));
+          logEl.textContent = "Agents exited. Fleet commits each tree and runs the check command in a clean checkout.";
+        }, 550);
+        setTimeout(function () {
+          renderRows(SESSIONS.map(function (s) { return { task: s.task, agent: s.agent, state: s.detail, tone: s.ok ? "ok" : "warn" }; }));
+          logEl.textContent = "Result: 1 verified done with check receipt; 1 routed to Needs you with exact failure line.";
+          runBtn.disabled = false;
+          runBtn.textContent = "Dispatch again";
+        }, 1150);
+      });
+    }
+    var video = document.querySelector(".walk-video");
+    var cbtns = document.querySelectorAll(".chapters button");
+    if (video && cbtns.length) {
+      if (video.textTracks && video.textTracks.length) video.textTracks[0].mode = "hidden";
+      cbtns.forEach(function (b) {
+        b.addEventListener("click", function () {
+          video.currentTime = parseFloat(b.getAttribute("data-t"));
+          if (video.paused) video.play();
+        });
+      });
+      video.addEventListener("timeupdate", function () {
+        var t = video.currentTime, cur = null;
+        cbtns.forEach(function (b) { if (parseFloat(b.getAttribute("data-t")) <= t + 0.05) cur = b; });
+        cbtns.forEach(function (b) { b.classList.toggle("on", b === cur); });
+      });
+    }
+  })();
+  </script>
+</body>
+</html>

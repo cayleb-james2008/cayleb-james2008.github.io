@@ -35,8 +35,8 @@ function DemoFrame({ title, src }: { title: string; src: string }) {
   );
 }
 
-// Region G: the three real interactive v0.6.0 House Frontend web apps (Ergon, Open-Ro, DSH Fleet), paired with links to their
-// standalone full-screen routes, live v0.6.0 captures, product pages, and GitHub repositories.
+// Region G: the three real interactive House Frontend web apps (Ergon v0.7.0, Open-Ro v0.10.0, Fleet v0.8.0), paired with links to their
+// standalone full-screen routes, live captures, product pages, and GitHub repositories.
 export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => void }) {
   const { theme } = useTheme();
   const [runs, setRuns] = useState<Record<string, number>>({});
@@ -65,7 +65,7 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
         <div className="grid content-start gap-2">
           <h2 id="demos-label" className="font-mono text-xs uppercase tracking-wider text-ink-2" data-answers="4">live apps</h2>
           <p className="font-mono text-xs text-ink-2">{demoWords.count}</p>
-          <p className="max-w-[28ch] text-sm text-ink-2">Real interactive web engines running directly in your browser (3-company-hardened Ergon v0.6.0, realtime 3D Roblox Studio Viewport Open-Ro v0.7.0, Auto-Heal &amp; Playbooks DSH Fleet v0.6.0) with optional BYOK or local Rust binary connection.</p>
+          <p className="max-w-[28ch] text-sm text-ink-2">Real interactive web engines running directly in your browser (Ergon v0.7.0, RoPilot 3-pane Studio IDE Open-Ro v0.10.0, multi-wave DAG &amp; PR Preview Fleet v0.8.0) with optional BYOK or local Rust binary connection.</p>
         </div>
         <Tabs value={tab} onValueChange={(v) => onTab(String(v))}>
           <TabsList aria-label="Interactive web apps" className="max-w-full flex-wrap">
