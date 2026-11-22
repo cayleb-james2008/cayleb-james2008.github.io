@@ -291,7 +291,7 @@ export const liveDemos: LiveDemo[] = [
     storagePrefix: "ergon",
     action: "switch between Chat, Today, and Work Graph, inspect the agent's memory and Rune skill suite in the rail, or post a task prompt against the in-browser fixture store.",
     provenance: [
-      { label: "What runs:", text: "the v0.3.0 House Frontend UI compiled from cayleb-james2008/ergon (apps/ergon-ui), served directly from /demos/ergon/ with zero external network calls." },
+      { label: "What runs:", text: "the v0.3.0 House Frontend UI compiled from cayleb-james2008/ergon (frontend/), served directly from /demos/ergon/ with zero external network calls." },
       { label: "What is fixture:", text: "the conversations, learned preferences, Work Graph nodes, and Rune skill outputs come from an in-browser fixture adapter (badged fixture demo inside the UI) rather than a live LLM key or local SQLite daemon." },
       { label: "Why it is here:", text: "the r\u00e9sum\u00e9 claims Ergon's employee-agent loop is built and verified against simulated companies; both the interactive UI and the v0.3.0 desktop captures are inspectable here." },
     ],
@@ -309,7 +309,7 @@ export const liveDemos: LiveDemo[] = [
     storagePrefix: "openro",
     action: "switch between Skyline Obby + Speed Shop and Starter Blueprints in the rail, inspect the Playtest Verdict and In Your Game Explorer shelf, or send a prompt and test Undo.",
     provenance: [
-      { label: "What runs:", text: "the v0.3.0 House Frontend UI compiled from cayleb-james2008/open-ro, served directly from /demos/open-ro/ with zero external network calls." },
+      { label: "What runs:", text: "the v0.3.0 House Frontend UI compiled from cayleb-james2008/open-ro (frontend/), served directly from /demos/open-ro/ with zero external network calls." },
       { label: "What is fixture:", text: "Roblox Studio MCP responses, Workspace parts, Luau scripts, playtest console logs, and Undo checkpoints are served by an in-browser fixture adapter (badged fixture demo inside the UI)." },
       { label: "Why it is here:", text: "Open-Ro Studio pairs with Ergon and DSH Fleet as the third public v0.3.0 Rust + Rune build; its interactive workspace and v0.3.0 captures are shown together here." },
     ],
@@ -327,7 +327,7 @@ export const liveDemos: LiveDemo[] = [
     storagePrefix: "fleet",
     action: "inspect verified vs refused sessions across the Needs-you, Running, and Verified lanes, switch between Transcript, Diff, and Receipt tabs, or dispatch/retry a fixture session.",
     provenance: [
-      { label: "What runs:", text: "the v0.3.0 House Frontend UI compiled from cayleb-james2008/dsh-fleet (apps/fleet-ui), served directly from /demos/dsh-fleet/ with zero external network calls." },
+      { label: "What runs:", text: "the v0.3.0 House Frontend UI compiled from cayleb-james2008/dsh-fleet (frontend/), served directly from /demos/dsh-fleet/ with zero external network calls." },
       { label: "What is fixture:", text: "the sessions, git worktree diffs, and mechanical check verdicts are driven by an in-browser fixture adapter (badged fixture demo inside the UI) rather than live worker processes." },
       { label: "Why it is here:", text: "the r\u00e9sum\u00e9 claims Fleet gates agent claims behind mechanical verification; the demo lets a reader inspect both verified receipts and refused Needs-you sessions directly." },
     ],
