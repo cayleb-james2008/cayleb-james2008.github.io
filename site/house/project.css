@@ -104,7 +104,8 @@ body.project-page {
 .project-prose__body p { max-width: 72ch; color: var(--ink); font: 400 var(--text-ui)/var(--text-ui-lh) var(--font-sans); }
 .project-prose__body p + p { margin-top: 12px; }
 .project-prose__body strong { font-weight: 500; }
-.project-prose__body code, .project-limits code { padding: 1px 6px; border-radius: var(--radius-chip); background: var(--track); color: var(--ink); font: 400 var(--text-xs)/1.4 var(--font-mono); overflow-wrap: anywhere; }
+.project-prose__body code, .project-limits code, .viz__caption code { padding: 1px 6px; border-radius: var(--radius-chip); background: var(--track); color: var(--ink); font: 400 var(--text-xs)/1.4 var(--font-mono); overflow-wrap: anywhere; }
+.case-hero__out code { padding: 1px 6px; border-radius: var(--radius-chip); background: var(--track); color: var(--ink); font: 400 0.88em/1.35 var(--font-mono); }
 .project-prose__body ul { display: grid; gap: 8px; margin-top: 12px; padding: 0; list-style: none; }
 .project-prose__body li { position: relative; max-width: 72ch; padding-left: 20px; color: var(--ink-2); font: 400 var(--text-sm)/22px var(--font-sans); }
 .project-prose__body li::before, .project-limits li::before { content: ""; position: absolute; left: 0; top: 11px; width: 8px; height: 1px; background: var(--line-strong); }
