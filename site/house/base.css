@@ -61,14 +61,37 @@ a, button, summary, [role="button"], input, select, textarea {
 .sub-masthead nav a:hover { color: var(--ink); background: var(--track); }
 .sub-masthead nav a:active { background: var(--hairline); }
 
-/* the theme switch: an outline button, one height with the primary action beside it */
-.theme-switch {
-  grid-area: theme; appearance: none; min-height: 44px; padding: 0 16px; cursor: pointer;
+/* Settings popover trigger (Light/Dark Appearance lives inside Settings, never cluttering the main masthead) */
+.settings-wrap { grid-area: theme; position: relative; }
+.settings-trigger {
+  appearance: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; padding: 0; cursor: pointer;
   border: 1px solid var(--hairline); border-radius: var(--radius-control); background: var(--surface); color: var(--ink);
-  font: 500 var(--text-sm)/1 var(--font-sans); box-shadow: 0 1px 2px rgb(16 24 40 / 0.05);
+  box-shadow: 0 1px 2px rgb(16 24 40 / 0.05);
 }
-.theme-switch:hover { background: var(--board); }
-.theme-switch:active { background: var(--track); box-shadow: none; }
+.settings-trigger:hover { background: var(--board); }
+.settings-trigger:active { background: var(--track); box-shadow: none; }
+.settings-popover {
+  position: absolute; right: 0; top: calc(100% + 8px); z-index: 60;
+  width: 248px; padding: 16px; border: 1px solid var(--hairline); border-radius: var(--radius-card);
+  background: var(--surface); color: var(--ink); box-shadow: var(--elev-lift);
+}
+.settings-popover__head {
+  margin: 0 0 12px; color: var(--ink-2);
+  font: 400 var(--text-xs)/var(--text-xs-lh) var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em;
+}
+.settings-popover__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.settings-popover__label { color: var(--ink); font: 500 var(--text-sm)/var(--text-sm-lh) var(--font-sans); }
+.settings-seg {
+  display: inline-flex; align-items: center; gap: 2px; padding: 2px;
+  border-radius: var(--radius-control); background: var(--track);
+}
+.settings-seg__btn {
+  appearance: none; min-height: 32px; padding: 0 10px; border: 0; border-radius: 7px; cursor: pointer;
+  background: transparent; color: var(--ink-2); font: 500 var(--text-xs)/1 var(--font-sans);
+}
+.settings-seg__btn:hover { color: var(--ink); }
+.settings-seg__btn[aria-pressed="true"] { background: var(--raised); color: var(--ink); box-shadow: 0 1px 2px rgb(16 24 40 / 0.08); }
 
 /* the primary action: the texture slab (black in light, white in dark), the résumé page's one primary control */
 .sub-resume {
@@ -99,7 +122,6 @@ a, button, summary, [role="button"], input, select, textarea {
 }
 @media (max-width: 639px) {
   .sub-masthead nav a { min-height: 44px; padding: 0 8px; }
-  .theme-switch { padding: 0 14px; }
   .sub-resume { padding: 0 16px; }
 }
 @media (max-width: 359px) {

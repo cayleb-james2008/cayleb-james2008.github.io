@@ -169,8 +169,8 @@ export const projects: Project[] = [
   },
 ];
 
-// The three flagship product pages (static pages under /projects/, updated for v0.3.0). Open-Ro Studio is not a résumé
-// record; it joins Ergon and DSH Fleet here because its product page and interactive fixture demo do.
+// The three flagship product pages (static pages under /projects/, updated for v0.4.0). Open-Ro Studio is not a résumé
+// record; it joins Ergon and DSH Fleet here because its product page and interactive web app do.
 export type ProductPage = { name: string; href: string; pitch: string; img: string; darkImg?: string; alt: string };
 export const productPagesHead = "the three products, in full";
 export const productPageLink = "the full product page ↗";
@@ -178,26 +178,26 @@ export const productPages: ProductPage[] = [
   {
     name: "Ergon",
     href: "/projects/ergon.html",
-    pitch: "An AI agent for every employee — personal to each person, it learns how they work and finishes their digital work autonomously, end to end. Single Rust binary + Rune runtime.",
-    img: "/assets/projects/captures/ergon-v030-light.png",
-    darkImg: "/assets/projects/captures/ergon-v030-dark.png",
-    alt: "Capture of Ergon v0.3.0 in the House Frontend workspace: conversation rail with memory ledger and Rune skill triggers, Chat · Today · Work Graph views, and completed task entries badged fixture demo",
+    pitch: "An AI agent for every employee — personal to each person, it learns how they work and finishes real file work end to end. Single Rust + Rune binary and live browser workspace.",
+    img: "/assets/projects/captures/ergon-v040-light.png",
+    darkImg: "/assets/projects/captures/ergon-v040-dark.png",
+    alt: "Live capture of Ergon v0.4.0 in the House Frontend workspace: conversation rail with memory ledger and Rune skill triggers, Chat · Today · Work Graph views, and real file reconciliation outputs",
   },
   {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
-    pitch: "You describe the game, it builds it — a local-first Rust + Rune creative agent for Roblox Studio that writes Luau scripts, playtests its own work, repairs console faults, and checkpoints every ask.",
-    img: "/assets/projects/captures/openro-v030-light.png",
-    darkImg: "/assets/projects/captures/openro-v030-dark.png",
-    alt: "Capture of OpenRO v0.3.0 in the House Frontend workspace: game-chat rail with Starter Blueprints, Studio Build Trace with Playtest Verdict, and In Your Game Explorer shelf badged fixture demo",
+    pitch: "You describe the game, it builds it — a local-first Rust + Rune creative agent for Roblox Studio that compiles real Luau scripts, runs playtest validation, checkpoints Undo, and exports real .rbxlx files.",
+    img: "/assets/projects/captures/openro-v040-light.png",
+    darkImg: "/assets/projects/captures/openro-v040-dark.png",
+    alt: "Live capture of OpenRO v0.4.0 in the House Frontend workspace: game-chat rail with Starter Blueprints, Studio Build Trace with Playtest Verdict, and In Your Game Explorer shelf with .rbxlx export",
   },
   {
     name: "DSH Fleet",
     href: "/projects/dsh-fleet.html",
-    pitch: "Your agents working in parallel under one Mission Control screen — hand out the work, Fleet runs the mechanical check command itself, and unverified work lands in a Needs-you inbox with the receipt.",
-    img: "/assets/projects/captures/fleet-v030-light.png",
-    darkImg: "/assets/projects/captures/fleet-v030-dark.png",
-    alt: "Capture of DSH Fleet v0.3.0 Mission Control in the House Frontend workspace: Needs-you inbox, 32-session Tremor outcome tracker, verified receipt card, three-lane board, and diff inspector badged fixture demo",
+    pitch: "Your agents working in parallel under one Mission Control screen — hand out real tasks across isolated git worktrees, Fleet runs your check command itself, and failures land in Needs you with the receipt.",
+    img: "/assets/projects/captures/fleet-v040-light.png",
+    darkImg: "/assets/projects/captures/fleet-v040-dark.png",
+    alt: "Live capture of DSH Fleet v0.4.0 Mission Control in the House Frontend workspace: Needs-you inbox, 32-session Tremor outcome tracker, verified receipt card, three-lane board, and live diff inspector",
   },
 ];
 
@@ -248,12 +248,12 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. This page is its interactive edition: the three v0.3.0 fixture demos below run the real House Frontend app UIs against in-browser fixture data (badged fixture demo), paired with full-resolution captures from the apps.",
+  line: "The plain PDF is the submission copy. This page is its interactive edition: the three v0.4.0 web apps below run real in-browser engines (IndexedDB workspaces, Luau/.rbxlx compiler, Web Worker check runner) with optional BYOK LLM or local binary connection.",
 };
 
 export type LiveDemo = {
   key: string;
-  tag: string; // DEMO-01 ...
+  tag: string; // APP-01 ...
   title: string;
   blurb: string;
   url: string;
@@ -266,70 +266,70 @@ export type LiveDemo = {
   provenance: { label: string; text: string }[];
 };
 
-// The words around the three interactive v0.3.0 fixture demos.
+// The words around the three real interactive v0.4.0 web apps.
 export const demoWords = {
-  count: "live demos \u00b7 3",
+  count: "live apps \u00b7 3",
   running: "running",
-  idle: "fixture demo",
-  eyebrow: "interactive v0.3.0 fixture build \u00b7 badged fixture demo",
+  idle: "interactive",
+  eyebrow: "interactive v0.4.0 web engine \u00b7 runs locally in your browser",
   tryIt: "Try in the frame:",
-  provenance: "provenance",
-  noCalls: "\u00b7 fixture demo \u00b7 zero third-party network calls",
+  provenance: "how it runs",
+  noCalls: "\u00b7 client-side engine \u00b7 optional BYOK or local Rust binary",
 };
 
 export const liveDemos: LiveDemo[] = [
   {
     key: "Ergon",
-    tag: "DEMO-01",
-    title: "Ergon v0.3.0 — personal employee-agent workspace",
-    blurb: "The v0.3.0 House Frontend workspace for Ergon's single-binary Rust + Rune daemon: conversation rail with learned preferences and Rune skill triggers, Chat \u00b7 Today \u00b7 Work Graph views, and multi-step tool ledgers.",
+    tag: "APP-01",
+    title: "Ergon v0.4.0 — personal employee-agent workspace",
+    blurb: "Real client-side Ergon workspace paired with the v0.4.0 Rust + Rune daemon: upload or create real CSV/Markdown/JSON files in IndexedDB, run deterministic reconciliation and summary tools, approve real file deletions in Today, or connect an OpenAI-compatible BYOK key or local ergon server.",
     url: "/demos/ergon/",
-    img: "/assets/projects/captures/ergon-v030-light.png",
-    darkImg: "/assets/projects/captures/ergon-v030-dark.png",
+    img: "/assets/projects/captures/ergon-v040-light.png",
+    darkImg: "/assets/projects/captures/ergon-v040-dark.png",
     page: "/projects/ergon.html",
     repo: "https://github.com/cayleb-james2008/ergon",
     storagePrefix: "ergon",
-    action: "switch between Chat, Today, and Work Graph, inspect the agent's memory and Rune skill suite in the rail, or post a task prompt against the in-browser fixture store.",
+    action: "upload or create a CSV or Markdown file, ask Ergon to reconcile or summarize it, download the computed output file, inspect Work Graph, or approve a parked deletion in Today.",
     provenance: [
-      { label: "What runs:", text: "the v0.3.0 House Frontend UI compiled from cayleb-james2008/ergon (frontend/), served directly from /demos/ergon/ with zero external network calls." },
-      { label: "What is fixture:", text: "the conversations, learned preferences, Work Graph nodes, and Rune skill outputs come from an in-browser fixture adapter (badged fixture demo inside the UI) rather than a live LLM key or local SQLite daemon." },
-      { label: "Why it is here:", text: "the r\u00e9sum\u00e9 claims Ergon's employee-agent loop is built and verified against simulated companies; both the interactive UI and the v0.3.0 desktop captures are inspectable here." },
+      { label: "What runs:", text: "the v0.4.0 House Frontend UI compiled from cayleb-james2008/ergon (frontend/) backed by a real IndexedDB workspace and deterministic CSV/Markdown/JSON execution engine at /demos/ergon/." },
+      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you connect a BYOK OpenAI-compatible key (sessionStorage only) or a local ergon binary on 127.0.0.1." },
+      { label: "Why it is here:", text: "every file write, reconciliation calculation, download, memory update, and Today deletion approval executes genuinely on your own inputs right in the frame." },
     ],
   },
   {
     key: "Open-Ro",
-    tag: "DEMO-02",
-    title: "Open-Ro Studio v0.3.0 — local-first Roblox agent studio",
-    blurb: "The v0.3.0 House Frontend Game Builder Studio Workbench for OpenRO's single-binary Rust + Rune companion: Starter Blueprints, Studio Build Trace with Playtest Verdict and Luau console, In Your Game Explorer shelf, and one-click Undo.",
+    tag: "APP-02",
+    title: "Open-Ro Studio v0.4.0 — local-first Roblox game builder",
+    blurb: "Real client-side Roblox Place engine paired with the v0.4.0 Rust + Rune Studio companion: type any custom game prompt to compile genuine Luau scripts and Workspace instances, preview the interactive stage, run static playtest validation, undo checkpoints, and export a real .rbxlx XML file.",
     url: "/demos/open-ro/",
-    img: "/assets/projects/captures/openro-v030-light.png",
-    darkImg: "/assets/projects/captures/openro-v030-dark.png",
+    img: "/assets/projects/captures/openro-v040-light.png",
+    darkImg: "/assets/projects/captures/openro-v040-dark.png",
     page: "/projects/openro.html",
     repo: "https://github.com/cayleb-james2008/open-ro",
     storagePrefix: "openro",
-    action: "switch between Skyline Obby + Speed Shop and Starter Blueprints in the rail, inspect the Playtest Verdict and In Your Game Explorer shelf, or send a prompt and test Undo.",
+    action: "type your own game idea (e.g. a neon ice parkour obby with jump pads and coins), inspect the compiled Luau scripts in In Your Game, test Undo, and click Export .rbxlx to download valid Roblox Studio XML.",
     provenance: [
-      { label: "What runs:", text: "the v0.3.0 House Frontend UI compiled from cayleb-james2008/open-ro (frontend/), served directly from /demos/open-ro/ with zero external network calls." },
-      { label: "What is fixture:", text: "Roblox Studio MCP responses, Workspace parts, Luau scripts, playtest console logs, and Undo checkpoints are served by an in-browser fixture adapter (badged fixture demo inside the UI)." },
-      { label: "Why it is here:", text: "Open-Ro Studio pairs with Ergon and DSH Fleet as the third public v0.3.0 Rust + Rune build; its interactive workspace and v0.3.0 captures are shown together here." },
+      { label: "What runs:", text: "the v0.4.0 House Frontend UI compiled from cayleb-james2008/open-ro (frontend/) backed by a real parametric Luau compiler, interactive stage preview, IndexedDB checkpoints, and .rbxlx XML exporter at /demos/open-ro/." },
+      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you add a BYOK LLM key (sessionStorage only) or connect directly to a local openro-rs daemon on 127.0.0.1." },
+      { label: "Why it is here:", text: "visitors can prompt real custom mechanics, inspect generated Luau source, validate playtest checks, and download a real .rbxlx place file directly from this page." },
     ],
   },
   {
     key: "DSH Fleet",
-    tag: "DEMO-03",
-    title: "DSH Fleet v0.3.0 — Mission Control for parallel coding agents",
-    blurb: "The v0.3.0 House Frontend Mission Control for DSH Fleet's single-binary Rust + Rune orchestrator: Needs-you inbox, 32-session Tremor outcome tracker, mechanical check receipts, three-lane board, and diff inspector.",
+    tag: "APP-03",
+    title: "DSH Fleet v0.4.0 — Mission Control for parallel coding agents",
+    blurb: "Real in-browser git worktree and Web Worker check-runner engine paired with the v0.4.0 Rust + Rune orchestrator: dispatch branches against a virtual repository, execute real JavaScript/expression checks in an isolated Web Worker, catch exit-1 failures in Needs you, patch and retry to exit 0, and merge real unified diffs into main.",
     url: "/demos/dsh-fleet/",
-    img: "/assets/projects/captures/fleet-v030-light.png",
-    darkImg: "/assets/projects/captures/fleet-v030-dark.png",
+    img: "/assets/projects/captures/fleet-v040-light.png",
+    darkImg: "/assets/projects/captures/fleet-v040-dark.png",
     page: "/projects/dsh-fleet.html",
     repo: "https://github.com/cayleb-james2008/dsh-fleet",
     storagePrefix: "fleet",
-    action: "inspect verified vs refused sessions across the Needs-you, Running, and Verified lanes, switch between Transcript, Diff, and Receipt tabs, or dispatch/retry a fixture session.",
+    action: "dispatch a new session with a failing check, inspect the real Web Worker exit-1 stderr in Needs you, edit/steer or retry until the check exits 0, inspect the unified diff, and click Merge to land on main.",
     provenance: [
-      { label: "What runs:", text: "the v0.3.0 House Frontend UI compiled from cayleb-james2008/dsh-fleet (frontend/), served directly from /demos/dsh-fleet/ with zero external network calls." },
-      { label: "What is fixture:", text: "the sessions, git worktree diffs, and mechanical check verdicts are driven by an in-browser fixture adapter (badged fixture demo inside the UI) rather than live worker processes." },
-      { label: "Why it is here:", text: "the r\u00e9sum\u00e9 claims Fleet gates agent claims behind mechanical verification; the demo lets a reader inspect both verified receipts and refused Needs-you sessions directly." },
+      { label: "What runs:", text: "the v0.4.0 House Frontend UI compiled from cayleb-james2008/dsh-fleet (frontend/) backed by a real IndexedDB virtual git worktree store, unified diff engine, and Web Worker check runner at /demos/dsh-fleet/." },
+      { label: "Local & BYOK options:", text: "executes real isolated branch checks locally in your browser by default; Settings lets you add a BYOK coding model (sessionStorage only) or connect to a local fleet-rs daemon on 127.0.0.1." },
+      { label: "Why it is here:", text: "Fleet's core promise is mechanical verification before merging — you can trigger a real check failure, inspect real stderr and diffs, fix the branch, and land a verified commit right here." },
     ],
   },
 ];

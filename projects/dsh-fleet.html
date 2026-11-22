@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>DSH Fleet — Cayleb Alvarez-James</title>
-  <meta name="description" content="DSH Fleet v0.3.0: Parallel Coding-Agent Mission Control Board in a single Rust + Rune binary — isolated git worktrees, independent check-command verification receipts, and Needs-you inbox.">
+  <meta name="description" content="DSH Fleet v0.4.0: Parallel Coding-Agent Mission Control Board in a single Rust + Rune binary — real repo picker, real CLI agents in isolated git worktrees, independent check-command verification receipts, and Needs-you inbox.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/dsh-fleet.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="DSH Fleet — Cayleb Alvarez-James">
-  <meta property="og:description" content="Parallel coding-agent mission control — git worktrees, Rune policy scripts, and verified-done check receipts (v0.3.0).">
+  <meta property="og:description" content="Parallel coding-agent mission control — real git worktrees, real CLI agents, Rune policy scripts, and verified-done check receipts (v0.4.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/dsh-fleet.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -31,7 +31,7 @@
         <li><a href="../index.html#summary">Résumé</a></li>
         <li><a href="../index.html#experience">Experience</a></li>
         <li><a href="../index.html#projects">Projects</a></li>
-        <li><a href="../index.html#live-demos">Live demos</a></li>
+        <li><a href="../index.html#live-demos">Live apps</a></li>
       </ul>
     </nav>
     <a class="sub-resume" href="../Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf" download>Résumé PDF</a>
@@ -41,15 +41,15 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Flagship v0.3.0 · Rust + Rune + House Frontend · checked 21 November 2026</p>
+        <p class="case-hero__meta">Flagship v0.4.0 · Rust + Rune + House Frontend · checked 21 November 2026</p>
         <h1 class="case-hero__title">Hand out the work. It comes back verified.</h1>
         <p class="case-hero__out">DSH Fleet is a parallel coding-agent mission control board served from a single Rust + Rune binary. Each task runs non-interactively in its own git worktree (<code>opencode</code>, <code>Claude Code</code>, <code>Codex</code>). When an agent stops, Fleet commits the tree and runs your check command itself — marking the session Done only when that check passes on the exact commit a merge would land.</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>v0.3.0 single-binary build · 52/52 Rust tests · 23/23 .loop/verify adversarial suite · 34/34 UI gate &amp; 32/32 replay passing.</li>
-          <li><span class="chip chip--current">v0.3.0 public</span></li>
+          <li><span class="checked-dot" aria-hidden="true"></span>v0.4.0 single-binary build · real CLI agent E2E verified · real repo picker &amp; Web Worker browser check runner.</li>
+          <li><span class="chip chip--current">v0.4.0 public</span></li>
         </ul>
         <div class="hero-actions">
-          <a class="btn-primary" href="../demos/dsh-fleet/">Launch interactive fixture demo ↗</a>
+          <a class="btn-primary" href="../demos/dsh-fleet/">Launch live web app ↗</a>
           <a class="btn-outline" href="https://github.com/cayleb-james2008/dsh-fleet" target="_blank" rel="noreferrer noopener">Source on GitHub ↗</a>
         </div>
       </div>
@@ -65,27 +65,27 @@
       </nav>
 
       <section class="project-figures" id="figures" aria-labelledby="figures-h">
-        <h2 class="vis-kicker" id="figures-h">v0.3.0 mission control board &amp; recorded walkthrough</h2>
+        <h2 class="vis-kicker" id="figures-h">v0.4.0 live mission control board &amp; recorded walkthrough</h2>
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">DSH Fleet v0.3.0 — Parallel Coding-Agent Mission Control</span>
-              <span class="viz__live">example fixture</span>
-              <span class="viz__note">House Frontend · switches with page theme</span>
+              <span class="viz__title">DSH Fleet v0.4.0 — Parallel Coding-Agent Mission Control</span>
+              <span class="viz__live">live capture</span>
+              <span class="viz__note">House Frontend · Appearance inside Settings</span>
             </div>
             <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/fleet-v030-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of DSH Fleet v0.3.0">
-                <img src="../assets/projects/captures/fleet-v030-light.png" alt="DSH Fleet v0.3.0 Mission Control in the light House Frontend theme: top command bar with Needs-you inbox, 32-session Tremor outcome tracker, Hero Verified Receipt, three-lane board, and Transcript · Diff · Receipt inspector badged fixture demo." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-light" href="../assets/projects/captures/fleet-v040-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of DSH Fleet v0.4.0">
+                <img src="../assets/projects/captures/fleet-v040-light.png" alt="Live capture of DSH Fleet v0.4.0 Mission Control in the light House Frontend theme: top command bar with Needs-you inbox and Settings, 32-session Tremor outcome tracker, Hero Verified Receipt, three-lane board, and Transcript · Diff · Receipt inspector." width="1440" height="900" loading="eager" decoding="async">
               </a>
-              <a class="shot-dark" href="../assets/projects/captures/fleet-v030-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of DSH Fleet v0.3.0">
-                <img src="../assets/projects/captures/fleet-v030-dark.png" alt="DSH Fleet v0.3.0 Mission Control in the dark House Frontend theme: top command bar, Tremor outcome tracker, Hero Verified Receipt, three-lane board, and session inspector badged fixture demo." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-dark" href="../assets/projects/captures/fleet-v040-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of DSH Fleet v0.4.0">
+                <img src="../assets/projects/captures/fleet-v040-dark.png" alt="Live capture of DSH Fleet v0.4.0 Mission Control in the dark House Frontend theme: top command bar, Tremor outcome tracker, Hero Verified Receipt, three-lane board, and session inspector." width="1440" height="900" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured directly from the DSH Fleet v0.3.0 build at 1440×900 in both House Frontend themes, showing verified-done receipts alongside a refused session caught by <code>test -s output.txt</code>, badged in-frame as fixture data.</p>
-              <p class="viz__source">Source: cayleb-james2008/dsh-fleet v0.3.0 · interactive build available at /demos/dsh-fleet/</p>
+              <p class="viz__caption">Captured directly from DSH Fleet v0.4.0 running real coding-agent worktree sessions at 1440×900 in both House Frontend themes. Try the real client-side virtual git worktree and Web Worker check runner at <code>/demos/dsh-fleet/</code>.</p>
+              <p class="viz__source">Source: cayleb-james2008/dsh-fleet v0.4.0 · interactive browser engine at /demos/dsh-fleet/</p>
               <p class="viz__action">
-                <a class="viz__open" href="../demos/dsh-fleet/">open interactive fixture demo ↗</a>
+                <a class="viz__open" href="../demos/dsh-fleet/">open live web app ↗</a>
               </p>
             </figcaption>
           </figure>
@@ -170,14 +170,15 @@
           <section id="record">
             <h2>What is proven</h2>
             <div class="project-prose__body">
-              <p>Checked directly against <code>cayleb-james2008/dsh-fleet</code> at release <code>v0.3.0</code>, including its 23-check adversarial verification battery (<code>.loop/verify</code>).</p>
+              <p>Checked directly against <code>cayleb-james2008/dsh-fleet</code> at release <code>v0.4.0</code>, including its 23-check adversarial verification battery (<code>.loop/verify</code>) and live CLI agent end-to-end verification.</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Rust &amp; committed-tree proof</th><td><b>52 of 52</b> Rust tests (43 unit + 9 CLI) and <b>23 of 23</b> <code>.loop/verify</code> checks pass — defending against gitignored outputs, nested repos, escaping symlinks, git index hiding bits, detached <code>setsid</code> children, and checks that mutate files during grading.</td></tr>
+                  <tr><th>Rust &amp; committed-tree proof</th><td><b>54 of 54 Rust tests</b> (45 unit + 9 CLI) and <b>23 of 23</b> <code>.loop/verify</code> checks passing — defending against gitignored outputs, nested repos, escaping symlinks, git index hiding bits, detached <code>setsid</code> children, and checks that mutate files during grading.</td></tr>
+                  <tr><th>UI, live agent &amp; web app</th><td><b>37 of 37</b> Playwright UI gate checks, <b>6 of 6</b> built-in replays, <b>36 of 36</b> worst-case API resilience cases, <b>13 of 13</b> live <code>opencode</code> CLI E2E checks (including real merge + worktree cleanup and continuation <code>Steer</code>), and <b>14 of 14</b> standalone live web-app checks passing.</td></tr>
                   <tr><th>Crash &amp; kill -9 recovery</th><td>Hard-killing the server mid-run preserves verified receipts, diffs and transcripts across restart and moves interrupted runs into <code>Needs you</code> with the restart stated.</td></tr>
                   <tr><th>Defensive merges</th><td>Dirty targets, mid-merge repos, detached HEADs and content conflicts abort cleanly without corrupting the target branch.</td></tr>
-                  <tr><th>Engine adapters</th><td>Non-interactive invocation shapes proven for <code>opencode run</code>, <code>claude -p</code> and <code>codex exec</code> (including continuation resume flags for steering); custom binary paths are explicitly badged test mode.</td></tr>
-                  <tr><th>House Frontend UI</th><td><b>v0.3.0</b> — Top command bar with <code>/</code> search and Needs-you popover, SlidingNumber counters, Tremor 32-session outcome tracker, Hero Verified Receipt, three-lane board, and arrow-key roving Transcript · Diff · Receipt tabs.</td></tr>
+                  <tr><th>Real CLI agents &amp; repo picker</th><td>Real repository discovery (<code>/api/repos</code>) and live non-interactive dispatch proven for <code>opencode run</code>, <code>claude -p</code> and <code>codex exec</code> (with continuation resume steering and per-engine model configuration).</td></tr>
+                  <tr><th>House Frontend UI</th><td><b>v0.4.0</b> — Top command bar with <code>/</code> search, Needs-you popover and Appearance inside Settings, SlidingNumber counters, Tremor 32-session outcome tracker, Hero Verified Receipt, three-lane board, and arrow-key roving Transcript · Diff · Receipt tabs.</td></tr>
                 </tbody>
               </table>
             </div>
@@ -197,10 +198,10 @@
         <h2>Evidence</h2>
         <dl class="repo-facts">
           <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/dsh-fleet">cayleb-james2008/dsh-fleet</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.3.0</b> · Rust + Rune</dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.4.0</b> · Rust + Rune</dd></div>
           <div class="repo-facts__row"><dt>checked</dt><dd>21 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.3.0</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/dsh-fleet/">Fixture demo</a> · <a href="https://github.com/cayleb-james2008/dsh-fleet">GitHub</a> · <a href="https://github.com/cayleb-james2008/dsh-fleet/releases">Releases</a></dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.4.0</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/dsh-fleet/">Live web app</a> · <a href="https://github.com/cayleb-james2008/dsh-fleet">GitHub</a> · <a href="https://github.com/cayleb-james2008/dsh-fleet/releases">Releases</a></dd></div>
         </dl>
         <p class="project-aside__more"><a href="../index.html">← Back to the interactive résumé</a></p>
       </aside>

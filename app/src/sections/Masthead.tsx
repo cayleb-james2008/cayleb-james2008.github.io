@@ -1,15 +1,17 @@
-import { Copy } from "lucide-react";
+import { Copy, Moon, Settings, Sun } from "lucide-react";
 import { toast } from "sonner";
 import { Drawer } from "vaul";
 import { Button } from "@/components/ui/button";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { SegmentedControl, SegmentedControlItem } from "@/components/ui/segmented-control";
 import { TextureButton } from "@/components/ui/texture-button";
 import { useTheme } from "@/chrome/theme";
 import { identity, PDF } from "@/content";
 import { tapTarget } from "@/lib/utils";
 
-// Region B1: the name row. Who he is, how to reach him, the PDF. Nothing else sits here.
+// Region B1: the name row. Who he is, how to reach him, the PDF, and a quiet Settings popover for Appearance.
 export function Masthead() {
-  const { theme, toggle } = useTheme();
+  const { theme, setTheme } = useTheme();
   // The surname keeps its hyphen on one line: the name breaks between the words, never inside "Alvarez-James".
   const [first, ...rest] = identity.name.split(" ");
   const copyEmail = async () => {
@@ -59,9 +61,39 @@ export function Masthead() {
               Download PDF
             </a>
           </TextureButton>
-          <Button variant="outline" size="sm" className="h-12 text-sm md:h-11" onClick={toggle} aria-label={theme === "dark" ? "Switch to the light theme" : "Switch to the dark theme"}>
-            {theme === "dark" ? "Light" : "Dark"}
-          </Button>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button variant="outline" size="icon-sm" className="size-12 md:size-11" aria-label="Settings">
+                <Settings className="size-4" strokeWidth={1.5} aria-hidden />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent align="end" sideOffset={8} className="w-64 rounded-[14px] border-hairline bg-surface p-4 text-ink shadow-lift">
+              <p className="font-mono text-xs uppercase tracking-wider text-ink-2">Settings</p>
+              <div className="mt-3 flex items-center justify-between gap-3">
+                <span className="text-sm font-medium text-ink">Appearance</span>
+                <SegmentedControl size="sm" aria-label="Appearance" id="themeBtn">
+                  <SegmentedControlItem
+                    aria-pressed={theme === "light"}
+                    data-pressed={theme === "light" ? "" : undefined}
+                    onClick={() => setTheme("light")}
+                    className="gap-1.5 px-2.5 text-xs"
+                  >
+                    <Sun className="size-3.5" strokeWidth={1.5} aria-hidden />
+                    Light
+                  </SegmentedControlItem>
+                  <SegmentedControlItem
+                    aria-pressed={theme === "dark"}
+                    data-pressed={theme === "dark" ? "" : undefined}
+                    onClick={() => setTheme("dark")}
+                    className="gap-1.5 px-2.5 text-xs"
+                  >
+                    <Moon className="size-3.5" strokeWidth={1.5} aria-hidden />
+                    Dark
+                  </SegmentedControlItem>
+                </SegmentedControl>
+              </div>
+            </PopoverContent>
+          </Popover>
           <Drawer.Root autoFocus>
             <Drawer.Trigger asChild>
               <Button variant="outline" size="sm" className="h-12 text-sm sm:hidden">

@@ -1,36 +1,219 @@
 <!doctype html>
-<html lang="en" data-mode="recorded">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Industry AI Suite — recorded journeys</title>
-  <meta name="description" content="Ten recorded Industry AI Suite journeys by Cayleb Alvarez-James. Each shows its source, the actual output and the decision left with a person. Read-only replays, not live runs."><link rel="canonical" href="https://cayleb-james2008.github.io/lab/"><meta property="og:type" content="website"><meta property="og:site_name" content="Cayleb Alvarez-James"><meta property="og:title" content="Industry AI Suite — recorded journeys"><meta property="og:description" content="Ten recorded Industry AI Suite journeys by Cayleb Alvarez-James. Each shows its source, the actual output and the decision left with a person. Read-only replays, not live runs."><meta property="og:url" content="https://cayleb-james2008.github.io/lab/"><meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Share card: Cayleb Alvarez-James, AI Agent Systems Engineer."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Industry AI Suite — recorded journeys"><meta name="twitter:description" content="Ten recorded Industry AI Suite journeys by Cayleb Alvarez-James. Each shows its source, the actual output and the decision left with a person. Read-only replays, not live runs."><meta name="twitter:image" content="https://cayleb-james2008.github.io/assets/og/card.png"><meta name="twitter:image:alt" content="Share card: Cayleb Alvarez-James, AI Agent Systems Engineer."><meta name="color-scheme" content="light dark"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f2f5"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e1013"><link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Industry AI Suite — Source-Grounded Document Review Workbench</title>
+  <meta name="description" content="Ten real client-side document review workflows by Cayleb Alvarez-James. Upload or paste any file to run deterministic line-by-line analysis with exact [L##] verbatim citations, hard source gates that halt uncited drafts, optional BYOK LLM synthesis, and Markdown/JSON report export.">
+  <link rel="canonical" href="https://cayleb-james2008.github.io/lab/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cayleb Alvarez-James">
+  <meta property="og:title" content="Industry AI Suite — Source-Grounded Document Review Workbench">
+  <meta property="og:description" content="Upload or paste any document to run 10 real client-side review analyzers with exact [L##] verbatim citations and strict missing-source draft halts.">
+  <meta property="og:url" content="https://cayleb-james2008.github.io/lab/">
+  <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Share card: Cayleb Alvarez-James, AI Agent Systems Engineer.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Industry AI Suite — Source-Grounded Document Review Workbench">
+  <meta name="twitter:description" content="Upload or paste any document to run 10 real client-side review analyzers with exact [L##] verbatim citations and strict missing-source draft halts.">
+  <meta name="twitter:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
+  <meta name="twitter:image:alt" content="Share card: Cayleb Alvarez-James, AI Agent Systems Engineer.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f2f5">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e1013">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <script src="../site/house/theme.js"></script>
-  <script src="app.js?v=wording-20260927-1" defer></script>
+  <script src="app.js?v=live-20261121-1" defer></script>
   <script src="../site/house/pages.js" defer></script>
-  <link rel="stylesheet" href="../site/house/tokens.css"><link rel="stylesheet" href="../site/house/base.css"><link rel="stylesheet" href="lab.css">
+  <link rel="stylesheet" href="../site/house/tokens.css">
+  <link rel="stylesheet" href="../site/house/base.css">
+  <link rel="stylesheet" href="lab.css">
 </head>
 <body>
-  <a class="skip-link" href="#workflow">Skip to workflow</a>
-  <header class="sub-masthead"><a class="sub-wordmark" href="../index.html" aria-label="Cayleb Alvarez-James, home">Cayleb<span class="wm-dot">.</span>AJ</a><nav aria-label="Primary"><ul><li><a href="../index.html#summary">Résumé</a></li><li><a href="../index.html#experience">Experience</a></li><li><a href="../index.html#projects">Projects</a></li><li><a href="../index.html#live-demos">Live demos</a></li></ul></nav><a class="sub-resume" href="../Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf" download>Résumé PDF</a></header><aside class="lab-strip" aria-label="Lab status"><span class="lab-strip__edition">Industry AI Suite · recorded journeys</span><span class="lab-strip__status">example fixture · recorded read-only replay</span></aside>
+  <a class="skip-link" href="#workflow">Skip to workbench</a>
+  <header class="sub-masthead">
+    <a class="sub-wordmark" href="../index.html" aria-label="Cayleb Alvarez-James, home">Cayleb<span class="wm-dot">.</span>AJ</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="../index.html#summary">Résumé</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#live-demos">Live apps</a></li>
+      </ul>
+    </nav>
+    <a class="sub-resume" href="../Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf" download>Résumé PDF</a>
+  </header>
+
+  <aside class="lab-strip" aria-label="Workbench runtime">
+    <span class="lab-strip__edition">Industry AI Suite · 10-tool document review workbench</span>
+    <span class="lab-strip__status">In-browser deterministic engine · files never leave your browser unless BYOK is enabled</span>
+  </aside>
+
   <main class="shell">
-    <aside class="rail" aria-label="Suite navigation">
-      <div class="rail__intro"><p class="eyebrow">TEN DISTINCT WORKFLOWS</p><h1>Useful work.<br><em>Visible limits.</em></h1><p>Ten dated results. Each shows its source, its real output, and the call left to a person.</p></div>
-      <nav aria-label="Choose a workflow"><div id="workflow-nav" class="workflow-nav"></div></nav>
-      <p class="rail__foot" id="rail-note">These are dated public results, not fresh source requests. For current data or permitted local input, run the workbench from the public repository.</p>
-    </aside>
-    <section id="workflow" class="workspace">
-      <div class="workspace__topline"><span id="category">PUBLIC DATA / HUMAN REVIEW</span><span id="index">01 / 10</span></div>
-      <div class="workspace__hero"><div><p id="signal" class="signal">01 · FINANCE OPERATIONS</p><h2 id="title">LedgerBridge</h2><p id="description" class="workspace__description"></p></div><div id="status-stamp" class="status-stamp">SOURCE → RESULT → REVIEW</div></div>
-      <div class="workflow-grid">
-        <section class="panel input-panel" aria-labelledby="input-heading"><div class="panel__header"><span class="step-number">01</span><div><p class="eyebrow">INPUT</p><h3 id="input-heading">Choose the evidence</h3></div></div><p id="input-help" class="panel__help"></p><form id="run-form" novalidate><div id="form-fields"></div><button id="run-button" class="button button--primary" type="submit">Run review <span aria-hidden="true">↗</span></button></form><p class="micro">These files are dated snapshots. Opening them makes no new source request or external change.</p></section>
-        <section class="panel boundary-panel" aria-labelledby="boundary-heading"><div class="panel__header"><span class="step-number">02</span><div><p class="eyebrow">BOUNDARY</p><h3 id="boundary-heading">What this can establish</h3></div></div><p id="outcome"></p><div class="boundary-rule"></div><p class="eyebrow">WHAT STILL NEEDS A PERSON</p><p id="boundary"></p></section>
+    <aside class="rail" aria-label="Review tools">
+      <div class="rail__intro">
+        <p class="eyebrow">TEN REVIEW WORKFLOWS</p>
+        <h1>Real analysis.<br><em>Strict evidence.</em></h1>
+        <p>Upload or paste any file. Every finding cites exact <code>[L##]</code> line numbers and verbatim text; drafts halt when required sources are missing.</p>
       </div>
-      <section id="result-panel" class="result-panel" aria-labelledby="result-heading"><div class="result-panel__head"><div><p class="eyebrow">03 / OUTPUT</p><h3 id="result-heading">Result and next action</h3></div><span id="result-state" class="result-state" role="status">READY TO RUN</span></div><div id="result-content"><div class="empty-state"><span aria-hidden="true">↳</span><p>Choose an input and run this workflow. The cited result will appear here.</p></div></div><div id="result-actions" class="result-actions" hidden><button id="download-button" class="button button--secondary" type="button">Download receipt</button><button id="review-button" class="button button--secondary" type="button">Mark locally reviewed</button></div></section>
-      <footer class="workspace__foot"><span>PUBLIC DATA ≠ COMPANY RECORDS</span><span>A DRAFT ≠ A DECISION</span></footer>
+      <nav aria-label="Choose a review tool">
+        <div id="workflow-nav" class="workflow-nav"></div>
+      </nav>
+      <p class="rail__foot" id="rail-note">Runs 100% locally in your browser with zero external requests. Optional BYOK LLM credentials stay in sessionStorage for this tab only.</p>
+    </aside>
+
+    <section id="workflow" class="workspace">
+      <div class="workspace__topline">
+        <span id="category">FINANCE OPERATIONS</span>
+        <span id="index">01 / 10</span>
+      </div>
+
+      <div class="workspace__hero">
+        <div>
+          <p id="signal" class="signal">01 · FINANCE OPERATIONS</p>
+          <h2 id="title">LedgerBridge</h2>
+          <p id="description" class="workspace__description"></p>
+        </div>
+        <div id="status-stamp" class="status-stamp">SOURCE → VERIFY → REVIEW</div>
+      </div>
+
+      <div class="workflow-grid">
+        <section class="panel input-panel" aria-labelledby="input-heading">
+          <div class="panel__header">
+            <span class="step-number">01</span>
+            <div>
+              <p class="eyebrow">DOCUMENT INPUT</p>
+              <h3 id="input-heading">Upload or paste source document</h3>
+            </div>
+          </div>
+          <p id="input-help" class="panel__help"></p>
+
+          <form id="run-form" novalidate>
+            <div class="upload-bar" id="drop-zone">
+              <div class="upload-bar__actions">
+                <button id="upload-trigger" class="button button--secondary" type="button">Upload file</button>
+                <button id="sample-button" class="button button--secondary" type="button">Load starter sample</button>
+                <button id="clear-button" class="button button--secondary" type="button">Clear</button>
+              </div>
+              <input id="file-input" type="file" accept=".txt,.md,.csv,.tsv,.json,.log,.py,.ts,.tsx,.js,.jsx,.rs,.html,.htm,.toml,.yaml,.yml,.env" hidden>
+              <span id="file-meta" class="file-meta">No file loaded · paste text below or drop a file here</span>
+            </div>
+
+            <div class="field">
+              <div class="field__row">
+                <label for="doc-input">Source document</label>
+                <span id="doc-stats" class="doc-stats">0 lines · 0 chars</span>
+              </div>
+              <textarea id="doc-input" spellcheck="false" rows="10" placeholder="Paste any CSV, Markdown, JSON, log, HTML, policy, or source code file here — or click Upload file above."></textarea>
+            </div>
+
+            <div id="extra-fields"></div>
+
+            <div class="run-bar">
+              <button id="run-button" class="button button--primary" type="submit">Run line-by-line review <span aria-hidden="true">↗</span></button>
+              <button id="byok-toggle" class="button button--secondary" type="button" aria-expanded="false" aria-controls="byok-panel">BYOK LLM (optional)</button>
+            </div>
+          </form>
+
+          <div id="byok-panel" class="byok-panel" hidden>
+            <p class="eyebrow">OPTIONAL BYOK OPENAI-COMPATIBLE SYNTHESIS</p>
+            <p class="micro" style="margin-top:0">Stored strictly in <code>sessionStorage</code> (cleared when this tab closes). Never contacted unless you click <strong>Run BYOK synthesis</strong> after a deterministic review.</p>
+            <div class="byok-grid">
+              <div class="field">
+                <label for="byok-url">API Base URL</label>
+                <input id="byok-url" type="url" placeholder="http://127.0.0.1:11434/v1">
+              </div>
+              <div class="field">
+                <label for="byok-model">Model</label>
+                <input id="byok-model" type="text" placeholder="qwen2.5:3b">
+              </div>
+            </div>
+            <div class="field">
+              <label for="byok-key">API Key (optional for localhost)</label>
+              <input id="byok-key" type="password" autocomplete="off" placeholder="sk-... (kept in sessionStorage only)">
+            </div>
+            <div class="enterprise-actions">
+              <button id="byok-save" class="button button--secondary" type="button">Save for this tab</button>
+              <button id="byok-clear" class="button button--secondary" type="button">Clear credentials</button>
+              <button id="byok-run" class="button button--secondary" type="button">Run BYOK synthesis</button>
+            </div>
+            <p id="byok-status" class="micro" role="status"></p>
+          </div>
+        </section>
+
+        <section class="panel boundary-panel" aria-labelledby="boundary-heading">
+          <div class="panel__header">
+            <span class="step-number">02</span>
+            <div>
+              <p class="eyebrow">EVIDENCE CONTRACT</p>
+              <h3 id="boundary-heading">Checks &amp; halt rules</h3>
+            </div>
+          </div>
+          <p id="outcome"></p>
+          <div class="boundary-rule"></div>
+          <p class="eyebrow">WHEN DRAFTS HALT</p>
+          <p id="halt-rule"></p>
+          <div class="boundary-rule"></div>
+          <p class="eyebrow">WHAT STILL NEEDS A PERSON</p>
+          <p id="boundary"></p>
+          <div class="boundary-rule"></div>
+          <div class="source-inspector-head">
+            <p class="eyebrow" style="margin:0">NUMBERED SOURCE INSPECTOR</p>
+            <span id="inspector-hint" class="doc-stats">Click any [L##] finding to jump</span>
+          </div>
+          <div id="source-lines" class="source-lines" aria-label="Numbered source lines">
+            <p class="source-lines__empty">Lines appear numbered here as soon as you paste or upload a document.</p>
+          </div>
+        </section>
+      </div>
+
+      <section id="result-panel" class="result-panel" aria-labelledby="result-heading">
+        <div class="result-panel__head">
+          <div>
+            <p class="eyebrow">03 / DETERMINISTIC OUTPUT</p>
+            <h3 id="result-heading">Findings, citations &amp; review gate</h3>
+          </div>
+          <span id="result-state" class="result-state" role="status">READY TO ANALYZE</span>
+        </div>
+
+        <div id="result-content">
+          <div class="empty-state">
+            <span aria-hidden="true">↳</span>
+            <p>Upload or paste a document (or load the editable starter sample) and run the review. Every finding will cite exact <code>[L##]</code> line numbers and verbatim text.</p>
+          </div>
+        </div>
+
+        <div id="byok-output" class="result-section" hidden>
+          <h4>Optional BYOK LLM synthesis</h4>
+          <div id="byok-output-body"></div>
+        </div>
+
+        <div id="result-actions" class="result-actions" hidden>
+          <button id="download-md-button" class="button button--secondary" type="button">Export Markdown (.md)</button>
+          <button id="download-json-button" class="button button--secondary" type="button">Export JSON (.json)</button>
+          <button id="review-button" class="button button--secondary" type="button">Mark locally reviewed</button>
+        </div>
+      </section>
+
+      <footer class="workspace__foot">
+        <span>EVERY FINDING CITES [L##] VERBATIM</span>
+        <span>MISSING SOURCES → DRAFT HALTS</span>
+      </footer>
     </section>
   </main>
-  <noscript><p class="noscript">Turn on JavaScript to explore the recorded results.</p></noscript>
-  <footer class="sub-footer"><p>© 2026 Cayleb Alvarez-James.</p><ul aria-label="Elsewhere"><li><a href="https://github.com/cayleb-james2008">GitHub</a></li><li><a href="mailto:caylebalvarezjames@gmail.com">Email</a></li></ul></footer>
+
+  <noscript><p class="noscript">Enable JavaScript to run the in-browser document review workbench.</p></noscript>
+
+  <footer class="sub-footer">
+    <p>© 2026 Cayleb Alvarez-James.</p>
+    <ul aria-label="Elsewhere">
+      <li><a href="../index.html">Résumé</a></li>
+      <li><a href="../projects/">Project pages</a></li>
+      <li><a href="https://github.com/cayleb-james2008">GitHub</a></li>
+      <li><a href="mailto:caylebalvarezjames@gmail.com">Email</a></li>
+    </ul>
+  </footer>
 </body>
 </html>

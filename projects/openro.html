@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Open-Ro Studio — Cayleb Alvarez-James</title>
-  <meta name="description" content="OpenRO v0.3.0: Game Builder Studio Workbench for Roblox in a single Rust + Rune binary — starter blueprints, Luau generation, MCP Studio bridge, self-repair playtest loop, and one-click Undo.">
+  <meta name="description" content="OpenRO v0.4.0: Game Builder Studio Workbench for Roblox in a single Rust + Rune binary — live model connectivity, local Place engine with real .rbxlx XML export, Studio MCP bridge, playtest repair loop, and one-click Undo.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/openro.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="Open-Ro Studio — Cayleb Alvarez-James">
-  <meta property="og:description" content="AI game builder workbench for Roblox Studio — Rune Luau skills, MCP bridge, self-repair playtest loop, and one-click Undo (v0.3.0).">
+  <meta property="og:description" content="AI game builder workbench for Roblox Studio — live model connectivity, real Luau/.rbxlx place engine, MCP bridge, self-repair playtest loop, and one-click Undo (v0.4.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/openro.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -31,7 +31,7 @@
         <li><a href="../index.html#summary">Résumé</a></li>
         <li><a href="../index.html#experience">Experience</a></li>
         <li><a href="../index.html#projects">Projects</a></li>
-        <li><a href="../index.html#live-demos">Live demos</a></li>
+        <li><a href="../index.html#live-demos">Live apps</a></li>
       </ul>
     </nav>
     <a class="sub-resume" href="../Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf" download>Résumé PDF</a>
@@ -41,15 +41,15 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Flagship v0.3.0 · Rust + Rune + House Frontend · checked 21 November 2026</p>
+        <p class="case-hero__meta">Flagship v0.4.0 · Rust + Rune + House Frontend · checked 21 November 2026</p>
         <h1 class="case-hero__title">Say the game. It builds it.</h1>
-        <p class="case-hero__out">Open-Ro Studio (OpenRO) is a Game Builder Studio Workbench for Roblox served from a single Rust + Rune binary. Describe a game in plain words or launch a starter blueprint: Rune skills generate the Luau and place instances over MCP, run a playtest, read the Luau console to repair failures, and keep every ask reversible.</p>
+        <p class="case-hero__out">Open-Ro Studio (OpenRO) is a Game Builder Studio Workbench for Roblox served from a single Rust + Rune binary with live model connectivity, a persistent local Place engine with valid <code>.rbxlx</code> XML export, and live Studio MCP integration. Describe a game in plain words or launch a starter blueprint: Rune skills generate real Luau and Workspace instances, validate playtest runs, and keep every ask reversible.</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>v0.3.0 single-binary build · 107/107 Rust &amp; .loop/verify tests · 78/78 UI gate &amp; 32/32 replay · MCP Studio bridge.</li>
-          <li><span class="chip chip--current">v0.3.0 public</span></li>
+          <li><span class="checked-dot" aria-hidden="true"></span>v0.4.0 single-binary build · live local LLM E2E verified · real Luau &amp; .rbxlx XML export · MCP Studio bridge.</li>
+          <li><span class="chip chip--current">v0.4.0 public</span></li>
         </ul>
         <div class="hero-actions">
-          <a class="btn-primary" href="../demos/open-ro/">Launch interactive fixture demo ↗</a>
+          <a class="btn-primary" href="../demos/open-ro/">Launch live web app ↗</a>
           <a class="btn-outline" href="https://github.com/cayleb-james2008/open-ro" target="_blank" rel="noreferrer noopener">Source on GitHub ↗</a>
         </div>
       </div>
@@ -65,27 +65,27 @@
       </nav>
 
       <section class="project-figures" id="figures" aria-labelledby="figures-h">
-        <h2 class="vis-kicker" id="figures-h">v0.3.0 studio workbench &amp; recorded walkthrough</h2>
+        <h2 class="vis-kicker" id="figures-h">v0.4.0 live studio workbench &amp; recorded walkthrough</h2>
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">OpenRO v0.3.0 — Game Builder Studio Workbench</span>
-              <span class="viz__live">example fixture</span>
-              <span class="viz__note">House Frontend · switches with page theme</span>
+              <span class="viz__title">OpenRO v0.4.0 — Game Builder Studio Workbench</span>
+              <span class="viz__live">live capture</span>
+              <span class="viz__note">House Frontend · Appearance inside Settings</span>
             </div>
             <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/openro-v030-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of OpenRO v0.3.0">
-                <img src="../assets/projects/captures/openro-v030-light.png" alt="OpenRO v0.3.0 Game Builder Studio Workbench in the light House Frontend theme: left game-chat rail with Studio Connected pill, center Studio Build Trace with Playtest Verdict, and right In Your Game Explorer shelf badged fixture demo." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-light" href="../assets/projects/captures/openro-v040-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of OpenRO v0.4.0">
+                <img src="../assets/projects/captures/openro-v040-light.png" alt="Live capture of OpenRO v0.4.0 Game Builder Studio Workbench in the light House Frontend theme: left game-chat rail with Settings, center Studio Build Trace with Playtest Verdict, and right In Your Game Explorer shelf with .rbxlx export." width="1440" height="900" loading="eager" decoding="async">
               </a>
-              <a class="shot-dark" href="../assets/projects/captures/openro-v030-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of OpenRO v0.3.0">
-                <img src="../assets/projects/captures/openro-v030-dark.png" alt="OpenRO v0.3.0 Game Builder Studio Workbench in the dark House Frontend theme: left game-chat rail, center Studio Build Trace, and right In Your Game Explorer shelf badged fixture demo." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-dark" href="../assets/projects/captures/openro-v040-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of OpenRO v0.4.0">
+                <img src="../assets/projects/captures/openro-v040-dark.png" alt="Live capture of OpenRO v0.4.0 Game Builder Studio Workbench in the dark House Frontend theme: left game-chat rail, center Studio Build Trace, and right In Your Game Explorer shelf with .rbxlx export." width="1440" height="900" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured directly from the OpenRO v0.3.0 build at 1440×900 in both House Frontend themes, seeded with a realistic Roblox build against the MCP Studio fixture and badged in-frame.</p>
-              <p class="viz__source">Source: cayleb-james2008/open-ro v0.3.0 · interactive build available at /demos/open-ro/</p>
+              <p class="viz__caption">Captured directly from OpenRO v0.4.0 running against a live local model at 1440×900 in both House Frontend themes. Try the real client-side Place engine (parametric Luau compiler, playable stage preview, Undo checkpoints, and genuine <code>.rbxlx</code> XML export) at <code>/demos/open-ro/</code>.</p>
+              <p class="viz__source">Source: cayleb-james2008/open-ro v0.4.0 · interactive browser engine at /demos/open-ro/</p>
               <p class="viz__action">
-                <a class="viz__open" href="../demos/open-ro/">open interactive fixture demo ↗</a>
+                <a class="viz__open" href="../demos/open-ro/">open live web app ↗</a>
               </p>
             </figcaption>
           </figure>
@@ -144,7 +144,7 @@
           <section id="capabilities">
             <h2>What it does</h2>
             <div class="project-prose__body">
-              <p>OpenRO v0.3.0 pairs a conversational build thread with a live Roblox Studio Explorer shelf so creators see every Workspace part and ServerScriptService / StarterPlayer script added to their game in real time.</p>
+              <p>OpenRO v0.4.0 pairs a conversational build thread with a persistent local Place engine (exporting genuine <code>.rbxlx</code> XML) and a live Roblox Studio Explorer shelf so creators inspect every Workspace part and Luau script in real time.</p>
               <div class="cap-grid">
                 <div class="cap-card">
                   <span class="cap-card__tag">01 · Blueprints &amp; chat</span>
@@ -168,13 +168,13 @@
           <section id="record">
             <h2>Verification record</h2>
             <div class="project-prose__body">
-              <p>Checked directly against <code>cayleb-james2008/open-ro</code> at release <code>v0.3.0</code>.</p>
+              <p>Checked directly against <code>cayleb-james2008/open-ro</code> at release <code>v0.4.0</code>.</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Rust &amp; .loop/verify suite</th><td><b>107 of 107 passing</b> (17 unit + 90 integration) — Rune Luau skill generation, console-guided repair loop, exact checkpoint revert, conflict refusal, persistence, and honesty gates.</td></tr>
-                  <tr><th>UI &amp; worst-case replay</th><td><b>78 of 78</b> Playwright UI gate checks, <b>8 of 8</b> built-in replay scenarios, and <b>32 of 32</b> worst-case API resilience cases passing across 1440px and 390px.</td></tr>
-                  <tr><th>House Frontend UI</th><td><b>v0.3.0</b> — Left game rail, Studio Build Trace with SlidingNumber counts and ProgressCircle, expandable Luau console, MorphingDialog Undo confirmation, and right Studio Explorer shelf (Vaul drawers on mobile).</td></tr>
-                  <tr><th>Studio MCP contract</th><td>Seven-tool stdio MCP protocol; bridges missing any required capability are refused up front before mutating a place.</td></tr>
+                  <tr><th>Rust &amp; .loop/verify suite</th><td><b>114 of 114 Rust tests</b> and <code>.loop/verify</code> passing — Rune Luau skill generation, local Place engine + valid <code>.rbxlx</code> XML export, console-guided repair loop, exact checkpoint revert, conflict refusal, persistence, and honesty gates.</td></tr>
+                  <tr><th>UI, live LLM &amp; web app</th><td><b>83 of 83</b> Playwright UI gate checks, <b>36 of 36</b> worst-case API resilience replays, <b>13 of 13</b> live Ollama LLM E2E checks (including <code>/api/export/rbxlx</code> XML validation), and <b>16 of 16</b> standalone live web-app checks passing.</td></tr>
+                  <tr><th>House Frontend UI</th><td><b>v0.4.0</b> — Left game rail with live Settings (Model, Studio &amp; Light/Dark Appearance), Studio Build Trace with SlidingNumber counts and ProgressCircle, expandable Luau console, MorphingDialog Undo confirmation, and right Studio Explorer shelf with Luau source viewer and <code>Export .rbxlx</code>.</td></tr>
+                  <tr><th>Studio MCP &amp; local Place</th><td>Auto-detects live Roblox Studio MCP when running, and runs a full persistent local <code>game.rbxlx</code> Place workspace seamlessly whenever Studio is closed.</td></tr>
                 </tbody>
               </table>
             </div>
@@ -184,8 +184,8 @@
         <section class="project-limits" id="limits" aria-labelledby="limits-h">
           <h2 id="limits-h">what is not verified</h2>
           <ul>
-            <li><b>Studio &amp; model fixtures in CI:</b> automated suites verify the protocol against a strict mock MCP Studio bridge and scripted OpenAI-compatible model endpoint; connecting a live Roblox Studio session and API key uses the exact same runtime flags on a creator’s machine.</li>
-            <li><b>No published user or download metrics:</b> OpenRO is a newly released v0.3.0 open-source build with no external adoption figures claimed.</li>
+            <li><b>Local Studio &amp; model boundary:</b> v0.4.0 auto-connects to local OpenAI-compatible gateways on loopback (or any provider configured in Settings) and exports valid Roblox Studio <code>.rbxlx</code> XML; live Roblox Studio viewport playtesting requires Roblox Studio running alongside the MCP bridge.</li>
+            <li><b>No published user or download metrics:</b> OpenRO is a newly released v0.4.0 open-source build with no external adoption figures claimed.</li>
           </ul>
         </section>
       </article>
@@ -194,10 +194,10 @@
         <h2>Evidence</h2>
         <dl class="repo-facts">
           <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/open-ro">cayleb-james2008/open-ro</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.3.0</b> · Rust + Rune</dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.4.0</b> · Rust + Rune</dd></div>
           <div class="repo-facts__row"><dt>checked</dt><dd>21 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.3.0</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/open-ro/">Fixture demo</a> · <a href="https://github.com/cayleb-james2008/open-ro">GitHub</a> · <a href="https://github.com/cayleb-james2008/open-ro/releases">Releases</a></dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.4.0</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/open-ro/">Live web app</a> · <a href="https://github.com/cayleb-james2008/open-ro">GitHub</a> · <a href="https://github.com/cayleb-james2008/open-ro/releases">Releases</a></dd></div>
         </dl>
         <p class="project-aside__more"><a href="../index.html">← Back to the interactive résumé</a></p>
       </aside>

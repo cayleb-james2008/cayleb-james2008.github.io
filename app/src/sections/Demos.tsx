@@ -35,32 +35,40 @@ function DemoFrame({ title, src }: { title: string; src: string }) {
   );
 }
 
-// Region G: the three v0.3.0 House Frontend fixture demos (Ergon, Open-Ro, DSH Fleet), paired with links to their
-// standalone full-screen demo routes, full-resolution v0.3.0 captures, product pages, and GitHub repositories.
+// Region G: the three real interactive v0.4.0 House Frontend web apps (Ergon, Open-Ro, DSH Fleet), paired with links to their
+// standalone full-screen routes, live v0.4.0 captures, product pages, and GitHub repositories.
 export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => void }) {
   const { theme } = useTheme();
   const [runs, setRuns] = useState<Record<string, number>>({});
-  const resetDemo = (key: string, prefix?: string) => {
+  const resetDemo = async (key: string, prefix?: string) => {
     try {
       if (prefix) {
         for (const k of Object.keys(localStorage)) {
           if (k !== "theme" && k.toLowerCase().includes(prefix)) localStorage.removeItem(k);
         }
+        if (typeof indexedDB !== "undefined" && typeof indexedDB.databases === "function") {
+          const dbs = await indexedDB.databases();
+          for (const db of dbs) {
+            if (db.name && db.name.toLowerCase().includes(prefix)) {
+              indexedDB.deleteDatabase(db.name);
+            }
+          }
+        }
       }
     } catch { /* storage blocked: remounting the iframe still resets in-memory state */ }
     setRuns((prev) => ({ ...prev, [key]: (prev[key] ?? 0) + 1 }));
-    toast(`The ${key} fixture demo is reset to its starting state.`);
+    toast(`The ${key} local workspace is reset to its starting state.`);
   };
   return (
     <InView>
       <section id="live-demos" aria-labelledby="demos-label" className="scroll-mt-6 grid gap-6 border-t border-hairline py-12 grid-cols-1 md:grid-cols-[12rem_1fr] md:gap-10">
         <div className="grid content-start gap-2">
-          <h2 id="demos-label" className="font-mono text-xs uppercase tracking-wider text-ink-2" data-answers="4">demos</h2>
+          <h2 id="demos-label" className="font-mono text-xs uppercase tracking-wider text-ink-2" data-answers="4">live apps</h2>
           <p className="font-mono text-xs text-ink-2">{demoWords.count}</p>
-          <p className="max-w-[28ch] text-sm text-ink-2">Interactive v0.3.0 House Frontend UIs served from this site against in-browser fixture data (badged fixture demo), paired with v0.3.0 captures.</p>
+          <p className="max-w-[28ch] text-sm text-ink-2">Real interactive v0.4.0 web engines running directly in your browser (IndexedDB workspaces, Luau/.rbxlx compiler, Web Worker check runner) with optional BYOK or local Rust binary connection.</p>
         </div>
         <Tabs value={tab} onValueChange={(v) => onTab(String(v))}>
-          <TabsList aria-label="Live v0.3.0 fixture demos" className="max-w-full flex-wrap">
+          <TabsList aria-label="Interactive v0.4.0 web apps" className="max-w-full flex-wrap">
             {liveDemos.map((d, i) => (
               <TabsTab key={d.key} value={d.key} className="gap-2 whitespace-nowrap max-sm:min-h-11">
                 <span className="font-mono text-xs text-ink-2">{String(i + 1).padStart(2, "0")}</span>
@@ -105,7 +113,7 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
                       target="_blank"
                       rel="noreferrer noopener"
                     >
-                      Open full-screen demo ↗
+                      Open full-screen app ↗
                     </a>
                     <a
                       className={`${tapTarget} w-fit rounded-[4px] font-mono text-xs text-ink-2 underline-offset-4 outline-none hover:text-ink hover:underline active:text-blue focus-visible:ring-2 focus-visible:ring-blue`}
@@ -113,7 +121,7 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
                       target="_blank"
                       rel="noreferrer noopener"
                     >
-                      Open v0.3.0 capture ↗
+                      Open live capture ↗
                     </a>
                     <a
                       className={`${tapTarget} w-fit rounded-[4px] font-mono text-xs text-ink-2 underline-offset-4 outline-none hover:text-ink hover:underline active:text-blue focus-visible:ring-2 focus-visible:ring-blue`}
@@ -135,7 +143,7 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
                       onClick={() => resetDemo(d.key, d.storagePrefix)}
                       className="h-6 w-fit px-0 font-mono text-xs font-normal text-ink-2 hover:text-ink active:text-blue max-sm:h-11"
                     >
-                      reset the demo
+                      reset workspace
                     </Button>
                   </div>
                 </motion.div>
