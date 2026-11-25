@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Fleet — Cayleb Alvarez-James</title>
-  <meta name="description" content="Fleet v0.10.0: Codex/Linear Parallel Agent Workbench in a single Rust desktop and web binary (8.27 MB, -24.8% binary, 6,256 req/s, 9.0ms p95) — Goal-to-DAG planner, 1-click Batch Merge with git merge-tree preflight, enriched Auto-Heal, instant keyboard triage, PR Preview &amp; confirmation-gated GitHub PR creator, Worktrees Inspector, and Daily Dispatch Budget guardrails.">
+  <meta name="description" content="Fleet v0.11.0: Codex/Linear Parallel Agent Workbench in a single Rust desktop and web binary (15.4ms cold boot 10x faster, 7,048 req/s, 5.73ms p95) — Wave Preflight &amp; confirmation-gated Batch PR, Auto-Heal Failure Classifier, Goal-to-DAG planner, instant keyboard triage, Worktrees Inspector, and 123/123 Rust tests.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/fleet.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="Fleet — Cayleb Alvarez-James">
-  <meta property="og:description" content="Codex/Linear parallel agent workbench — Goal-to-DAG planner, 1-click Batch Merge with git merge-tree preflight, enriched Auto-Heal, instant keyboard triage, gzip/ETag serving (6,256 req/s, 9.0ms p95), and verified receipts (v0.10.0).">
+  <meta property="og:description" content="Codex/Linear parallel agent workbench — 15.4ms cold boot (10x faster), Wave Preflight &amp; Batch PR, Auto-Heal Failure Classifier, gzip/ETag serving (7,048 req/s, 5.73ms p95), and 0/0/0 sloplint (v0.11.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/fleet.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -41,16 +41,16 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Flagship v0.10.0 · Single-Binary Rust Desktop &amp; Web App · checked 25 November 2026</p>
+        <p class="case-hero__meta">Flagship v0.11.0 · Single-Binary Rust Desktop &amp; Web App · checked 25 November 2026</p>
         <h1 class="case-hero__title">Hand out the work. It comes back verified.</h1>
-        <p class="case-hero__out">Fleet is a <b>Codex/Linear parallel coding-agent workbench</b> served from a single cross-platform Rust binary (<code>8.27 MB</code>, <code>-24.8%</code> vs v0.9.0; Linux, macOS, and native Windows <code>.exe</code> with chromeless desktop app launch). Each task runs non-interactively in its own git worktree (<code>opencode</code>, <code>Claude Code</code>, <code>Codex</code>) with <b>gzip + ETag/304 static serving</b> (<code>421.2 KB</code> wire, <code>6,255.9 req/s</code>, <code>9.00 ms</code> p95), a <b>Goal-to-DAG planner</b>, <b>1-click Batch Merge with <code>git merge-tree</code> conflict preflight</b>, <b>enriched Auto-Heal</b> (modified files, diff hunks, prior failures), <b>instant keyboard triage</b> (<code>y</code>/<code>x</code>/<code>m</code>/<code>s</code>/<code>[</code>/<code>]</code>/<code>1–4</code>), live duration &amp; budget headroom, <b>PR Preview &amp; confirmation-gated GitHub PR creator</b>, and <b>Worktrees Inspector</b>.</p>
+        <p class="case-hero__out">Fleet is a <b>Codex/Linear parallel coding-agent workbench</b> served from a single cross-platform Rust binary (<code>8.44 MB</code>; Linux, macOS, and native Windows <code>.exe</code> with chromeless desktop app launch). Each task runs non-interactively in its own git worktree (<code>opencode</code>, <code>Claude Code</code>, <code>Codex</code>) with <b>15.42 ms cold boot</b> (<code>-90.0%</code>, 10x faster via in-process <code>$PATH</code> scan, single-pass <code>PersistedStore</code>, and background hydration), <b>gzip + ETag/304 static serving</b> (<code>7,048.0 req/s</code>, <code>5.73 ms</code> p95), <b>Wave Preflight &amp; confirmation-gated Batch PR</b> (<code>WaveShipModal</code> + <code>POST /api/sessions/batch-pr</code>), and an <b>Auto-Heal Failure Classifier</b> (<code>CompileError</code>, <code>TestAssertion</code>, <code>LintOrFormat</code>, <code>ScopeGuardrail</code>, <code>Timeout</code>, <code>TransientFlake</code>).</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>v0.10.0 single-binary build · 8.27 MB (-24.8%), Batch Merge Preflight &amp; Enriched Auto-Heal · 121/121 Rust tests · 6,256 req/s (9.0ms p95) · 15/15 cold security fuzz PASS.</li>
-          <li><span class="chip chip--current">v0.10.0 public</span></li>
+          <li><span class="checked-dot" aria-hidden="true"></span>v0.11.0 single-binary build · 15.4ms Cold Boot (10x), Wave Preflight &amp; Batch PR · 123/123 Rust tests · 7,048 req/s (5.73ms p95) · 15/15 cold security fuzz PASS.</li>
+          <li><span class="chip chip--current">v0.11.0 public</span></li>
         </ul>
         <div class="hero-actions">
           <a class="btn-primary" href="../demos/fleet/">Launch live web app ↗</a>
-          <a class="btn-outline" href="https://github.com/cayleb-james2008/fleet/releases/tag/v0.10.0" target="_blank" rel="noreferrer noopener">Release v0.10.0 on GitHub ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/fleet/releases/tag/v0.11.0" target="_blank" rel="noreferrer noopener">Release v0.11.0 on GitHub ↗</a>
         </div>
       </div>
     </header>
@@ -65,25 +65,25 @@
       </nav>
 
       <section class="project-figures" id="figures" aria-labelledby="figures-h">
-        <h2 class="vis-kicker" id="figures-h">v0.10.0 live mission control workbench &amp; recorded walkthrough</h2>
+        <h2 class="vis-kicker" id="figures-h">v0.11.0 live mission control workbench &amp; recorded walkthrough</h2>
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">Fleet v0.10.0 — Codex/Linear Parallel Agent Workbench</span>
+              <span class="viz__title">Fleet v0.11.0 — Codex/Linear Parallel Agent Workbench</span>
               <span class="viz__live">live capture</span>
               <span class="viz__note">Codex/Linear Workbench · Appearance inside Settings</span>
             </div>
             <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/fleet-v0100-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Fleet v0.10.0">
-                <img src="../assets/projects/captures/fleet-v0100-light.png" alt="Live capture of Fleet v0.10.0 Codex/Linear 3-pane workbench in Light theme: monochrome CTAs, clean inbox rows, Merge verified wave action, Goal-to-DAG execution, and verified receipt card." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-light" href="../assets/projects/captures/fleet-v0110-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Fleet v0.11.0">
+                <img src="../assets/projects/captures/fleet-v0110-light.png" alt="Live capture of Fleet v0.11.0 Codex/Linear 3-pane workbench in Light theme: monochrome CTAs, clean inbox rows, Wave Ship Preflight &amp; Batch PR, Auto-Heal failure classifier badges, and verified receipt card." width="1440" height="900" loading="eager" decoding="async">
               </a>
-              <a class="shot-dark" href="../assets/projects/captures/fleet-v0100-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Fleet v0.10.0">
-                <img src="../assets/projects/captures/fleet-v0100-dark.png" alt="Live capture of Fleet v0.10.0 Carbon Dark 3-pane workbench: Batch Merge preflight, interactive multi-wave execution DAG, and verified receipts." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-dark" href="../assets/projects/captures/fleet-v0110-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Fleet v0.11.0">
+                <img src="../assets/projects/captures/fleet-v0110-dark.png" alt="Live capture of Fleet v0.11.0 Carbon Dark 3-pane workbench: Wave Preflight modal, interactive multi-wave execution DAG, and verified receipts." width="1440" height="900" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured directly from Fleet v0.10.0 at 1440×900 in Light and Carbon Dark. Try the real client-side virtual git worktree, Goal-to-DAG planner, Batch Merge preflight, Board / DAG Graph toggle, PR Preview modal, Worktrees Inspector, Daily Budget guardrails, Auto-Heal timeline, Playbooks, Split Diff viewer, and Web Worker check runner at <code>/demos/fleet/</code>.</p>
-              <p class="viz__source">Source: cayleb-james2008/fleet v0.10.0 · interactive browser engine at /demos/fleet/</p>
+              <p class="viz__caption">Captured directly from Fleet v0.11.0 at 1440×900 in Light and Carbon Dark. Try the real client-side virtual git worktree, Goal-to-DAG planner, Wave Ship Preflight &amp; Batch PR modal, Auto-Heal Failure Classifier, Board / DAG Graph toggle, Worktrees Inspector, Daily Budget guardrails, Split Diff viewer, and Web Worker check runner at <code>/demos/fleet/</code>.</p>
+              <p class="viz__source">Source: cayleb-james2008/fleet v0.11.0 · interactive browser engine at /demos/fleet/</p>
               <p class="viz__action">
                 <a class="viz__open" href="../demos/fleet/">open live web app ↗</a>
               </p>
@@ -147,22 +147,22 @@
           <section id="capabilities">
             <h2>How it works</h2>
             <div class="project-prose__body">
-              <p>Fleet v0.10.0 coordinates parallel coding-agent runs locally across Linux, macOS, and Windows in an <code>8.27 MB</code> Rust binary with gzip/ETag static serving (<code>421.2 KB</code> wire, <code>6,255.9 req/s</code>, <code>9.00 ms</code> p95), Goal-to-DAG orchestration, 1-click Batch Merge with <code>git merge-tree</code> conflict preflight, enriched Auto-Heal steering, instant keyboard triage, and strict committed-tree verification.</p>
+              <p>Fleet v0.11.0 coordinates parallel coding-agent runs locally across Linux, macOS, and Windows in an <code>8.44 MB</code> Rust binary with <b>15.42 ms cold boot</b> (<code>10.0x</code> faster than v0.10.0), gzip/ETag static serving (<code>7,048.0 req/s</code>, <code>5.73 ms</code> p95), Wave Preflight &amp; confirmation-gated Batch PR, Auto-Heal Failure Classification, and strict committed-tree verification.</p>
               <div class="cap-grid">
                 <div class="cap-card">
-                  <span class="cap-card__tag">01 · Goal-to-DAG &amp; Enriched Auto-Heal</span>
-                  <h3>Multi-wave delivery with hard fences</h3>
-                  <p>Decompose goals into wave-gated tasks across <code>Board</code> and <code>DAG Graph</code> views while enriched Auto-Heal injects modified worktree files, bounded diff excerpts, and prior failed attempt context under a SHA-256 loop breaker.</p>
+                  <span class="cap-card__tag">01 · 10x Faster Boot &amp; Auto-Heal Classifier</span>
+                  <h3>Zero-lag startup &amp; targeted repair</h3>
+                  <p>In-process <code>$PATH</code> agent discovery and background hydration boot in <code>15.42 ms</code> even with 2,000 sessions, while <code>classify_failure</code> categorizes check failures (<code>CompileError</code>, <code>TestAssertion</code>, <code>LintOrFormat</code>, <code>ScopeGuardrail</code>, <code>Timeout</code>, <code>TransientFlake</code>) for tailored Auto-Heal prompts.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">02 · Batch Merge &amp; Keyboard Triage</span>
+                  <span class="cap-card__tag">02 · Wave Preflight &amp; Batch PR</span>
                   <h3>One-click verified wave shipping</h3>
-                  <p>Run <code>POST /api/sessions/batch-merge</code> with non-destructive <code>git merge-tree</code> conflict preflight from the toolbar, DAG Graph, or <code>Cmd+K</code>, triage Needs you via <code>y</code>/<code>x</code>/<code>m</code>/<code>s</code>/<code>[</code>/<code>]</code>, and gate GitHub PRs behind explicit preview + confirmation.</p>
+                  <p><code>WaveShipModal</code> previews non-destructive <code>git merge-tree</code> clean vs conflicting files per session with strategy selection (<code>merge</code> / <code>squash</code> / <code>ff</code>), 1-click <b>Merge clean</b>, and confirmation-gated <code>POST /api/sessions/batch-pr</code>.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">03 · Worktrees, Headroom &amp; Security</span>
+                  <span class="cap-card__tag">03 · Worktrees, Triage &amp; Security</span>
                   <h3>Safe resource governance</h3>
-                  <p>Inspect live session duration, timeout/heal/daily budget headroom, prune non-main orphan worktrees with CWE-59 symlink checks, block traversal/invalid session IDs, and return prompt <code>413</code> on open client write halves.</p>
+                  <p>Instant keyboard triage (<code>y</code>/<code>x</code>/<code>m</code>/<code>s</code>/<code>[</code>/<code>]</code>/<code>1–4</code>), CWE-59 symlink checks before worktree removal, strict session ID &amp; <code>..</code>/NUL repo guards, prompt <code>413</code> on open client write halves, and Host-403 isolation.</p>
                 </div>
               </div>
             </div>
@@ -171,14 +171,14 @@
           <section id="record">
             <h2>What is proven</h2>
             <div class="project-prose__body">
-              <p>Cold-verified, scale-audited, and cross-compiled against <code>cayleb-james2008/fleet</code> at release <code>v0.10.0</code> (<code>61938a06</code>).</p>
+              <p>Cold-verified, scale-audited, and cross-compiled against <code>cayleb-james2008/fleet</code> at release <code>v0.11.0</code> (<code>e647b090</code>).</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Rust, Windows &amp; Clippy</th><td><b>121 of 121 Rust tests</b> (<code>cargo test</code>: 26 lib + 65 bin + 12 cli + 11 engine_v050 + 4 engine_v060 + 3 engine_v070), <code>0</code> clippy warnings (<code>-D warnings</code>), and <code>0</code> Windows cross-check errors (<code>cargo check --target x86_64-pc-windows-msvc</code>).</td></tr>
-                  <tr><th>DAG, Worktrees &amp; Safety Gates</th><td>1k-node acyclic+cyclic DAG validation (<code>400</code> on cycles), CWE-59 symlink guard before worktree removal, strict session ID &amp; <code>..</code>/NUL repo guards (<code>403</code>), PR creation confirmation gate (<code>confirm:false</code> → <code>400</code>), prompt <code>413</code> with open write half, <code>415</code>, and Host-403 isolation verified.</td></tr>
-                  <tr><th>Scale &amp; Cold Fuzz Audit</th><td>Cold scale &amp; security audit on release binary (<code>8.27 MB</code>, <code>-24.8%</code> vs v0.9.0): <b>6,255.9 req/s</b> (<code>+154.7%</code>), <b>9.00 ms p95</b> (<code>4.23 ms</code> p50, <code>11.89 ms</code> p99, <code>-70.2%</code> p95 across 31,293 reqs, <code>0</code> err), <code>55.98 MB</code> peak RSS, <b>5/5 (100.0%)</b> SSE survival, and <b>15/15</b> cold raw-TCP security fuzz checks passing (<code>0</code> 500s).</td></tr>
-                  <tr><th>UI &amp; standalone web app</th><td><b>52 of 52</b> Playwright UI gate checks, <b>6 of 6</b> built-in replays, <code>sloplint --scope app --render</code> <b>0 FAIL / 0 REFLEX / 0 WARN</b>, <code>0</code> console errors across <code>1440×900</code> &amp; <code>390×844</code> Light &amp; Dark, and standalone live-web bundle (<code>955 kB</code>) passing <code>test-live-web.mjs</code> <code>30/30</code> with <code>0</code> external requests.</td></tr>
-                  <tr><th>Cross-platform packaging</th><td>Single Rust binary + chromeless desktop app launch (<code>--app</code>) across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> + <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/fleet/releases/tag/v0.10.0" target="_blank" rel="noreferrer noopener">v0.10.0 Release</a>).</td></tr>
+                  <tr><th>Rust, Windows &amp; Clippy</th><td><b>123 of 123 Rust tests</b> (<code>cargo test</code>: 27 lib + 66 bin + 12 cli + 11 engine_v050 + 4 engine_v060 + 3 engine_v070), <code>0</code> clippy warnings (<code>-D warnings</code>), and <code>0</code> Windows cross-check errors (<code>cargo check --target x86_64-pc-windows-msvc</code>).</td></tr>
+                  <tr><th>DAG, Worktrees &amp; Safety Gates</th><td>1k-node acyclic+cyclic DAG validation (<code>400</code> on cycles), CWE-59 symlink guard before worktree removal, strict session ID &amp; <code>..</code>/NUL repo guards (<code>403</code>), PR &amp; Batch PR confirmation gates (<code>confirm:false</code> → <code>400</code>), prompt <code>413</code> with open write half, <code>415</code>, and Host-403 isolation verified.</td></tr>
+                  <tr><th>Scale &amp; Cold Fuzz Audit</th><td>Cold scale &amp; security audit on release binary (<code>8.44 MB</code>, <code>894,880 B</code> raw / <code>424,105 B</code> gzip): <b>15.42 ms</b> cold boot (<code>-90.0%</code>), <b>7,048.0 req/s</b> (<code>+12.7%</code>), <b>5.73 ms p95</b> (<code>4.03 ms</code> p50, <code>7.98 ms</code> p99, <code>-36.3%</code> p95 across 35,255 reqs, <code>0</code> err), <code>58.19 MB</code> peak RSS, <b>5/5 (100.0%)</b> SSE survival, and <b>15/15</b> cold fuzz checks passing.</td></tr>
+                  <tr><th>UI &amp; standalone web app</th><td><b>52 of 52</b> Playwright UI gate checks, <b>6 of 6</b> built-in replays, <code>sloplint --scope app --render</code> <b>0 FAIL / 0 REFLEX / 0 WARN</b>, <code>0</code> console errors across <code>1440×900</code> &amp; <code>390×844</code> Light &amp; Dark, and standalone live-web bundle (<code>972 kB</code>) passing <code>test-live-web.mjs</code> <code>31/31</code> with <code>0</code> external requests.</td></tr>
+                  <tr><th>Cross-platform packaging</th><td>Single Rust binary + chromeless desktop app launch (<code>--app</code>) across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> + <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/fleet/releases/tag/v0.11.0" target="_blank" rel="noreferrer noopener">v0.11.0 Release</a>).</td></tr>
                 </tbody>
               </table>
             </div>
@@ -198,10 +198,10 @@
         <h2>Evidence</h2>
         <dl class="repo-facts">
           <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/fleet">cayleb-james2008/fleet</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.10.0</b> · Single-binary Rust</dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.11.0</b> · Single-binary Rust</dd></div>
           <div class="repo-facts__row"><dt>checked</dt><dd>25 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.10.0</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/fleet/">Live web app</a> · <a href="https://github.com/cayleb-james2008/fleet">GitHub</a> · <a href="https://github.com/cayleb-james2008/fleet/releases/tag/v0.10.0">Release v0.10.0</a></dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.11.0</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/fleet/">Live web app</a> · <a href="https://github.com/cayleb-james2008/fleet">GitHub</a> · <a href="https://github.com/cayleb-james2008/fleet/releases/tag/v0.11.0">Release v0.11.0</a></dd></div>
         </dl>
         <p class="project-aside__more"><a href="../index.html">← Back to the interactive résumé</a></p>
       </aside>
