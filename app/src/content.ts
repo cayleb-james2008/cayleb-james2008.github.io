@@ -170,7 +170,7 @@ export const projects: Project[] = [
 ];
 
 // The three flagship product pages (static pages under /projects/):
-// 1. Open-Ro Studio (v1.6.0), 2. OpenBell (v0.9.0), 3. Fleet (v1.1.0 Antigravity Plugin). Ergon (v0.15.0) stays accessible at /projects/ergon.html & /demos/ergon/.
+// 1. Open-Ro Studio (v1.6.0), 2. OpenBell (v0.9.0), 3. Fleet (v1.2.0 Antigravity Plugin). Ergon (v0.16.0) stays accessible at /projects/ergon.html & /demos/ergon/.
 export type ProductPage = { name: string; href: string; pitch: string; img: string; darkImg?: string; alt: string };
 export const productPagesHead = "the three products, in full";
 export const productPageLink = "the full product page ↗";
@@ -194,10 +194,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Fleet",
     href: "/projects/fleet.html",
-    pitch: "Antigravity-native Swarm Sidebar Plugin — 340–380px zero-clipping tabs, Worker Activity Peek, 1-click Copy Swarm Digest, incremental byte-offset JSONL tailing (129.0 MB RSS, 72.3ms boot), Needs-You Triage & plan.json gates, and 22/22 cold fuzz.",
-    img: "/assets/projects/captures/fleet-v110-light.png",
-    darkImg: "/assets/projects/captures/fleet-v110-dark.png",
-    alt: "Live capture of Fleet v1.1.0 Antigravity Swarm Sidebar Plugin (380x900): clean 5-tab bar, Needs-You triage inbox, plan.json workstream gates, Worker Activity Peek, and @mention graph",
+    pitch: "Antigravity-native Swarm Sidebar Plugin — 1-click Unstick/Resume triage presets, Open File in Aux Pane, Context & Token Pressure bars, Buffer-scanning store (60.1ms boot, 122.2 MB RSS, 1,797 req/s), 22/22 cold fuzz, and 0/0/0 sloplint.",
+    img: "/assets/projects/captures/fleet-v120-light.png",
+    darkImg: "/assets/projects/captures/fleet-v120-dark.png",
+    alt: "Live capture of Fleet v1.2.0 Antigravity Swarm Sidebar Plugin (380x900): 1-click triage presets, Open file in aux pane, Context & Token Pressure bars, and @Mention graph",
   },
 ];
 
@@ -248,7 +248,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. This page is its interactive edition: press Cmd+K to jump anywhere, or run the three flagship live browser engines below (Studio Copilot 3-pane IDE Open-Ro v1.6.0, Institutional Quant Terminal OpenBell v0.9.0, Antigravity Swarm Sidebar Plugin Fleet v1.1.0) with zero external requests by default.",
+  line: "The plain PDF is the submission copy. This page is its interactive edition: press Cmd+K to jump anywhere, or run the three flagship live browser engines below (Studio Copilot 3-pane IDE Open-Ro v1.6.0, Institutional Quant Terminal OpenBell v0.9.0, Antigravity Swarm Sidebar Plugin Fleet v1.2.0) with zero external requests by default.",
 };
 
 export type LiveDemo = {
@@ -266,7 +266,7 @@ export type LiveDemo = {
   provenance: { label: string; text: string }[];
 };
 
-// The words around the three flagship interactive web apps (Open-Ro v1.6.0, OpenBell v0.9.0, Fleet v1.1.0).
+// The words around the three flagship interactive web apps (Open-Ro v1.6.0, OpenBell v0.9.0, Fleet v1.2.0).
 export const demoWords = {
   count: "live apps \u00b7 3",
   running: "running",
@@ -317,19 +317,19 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Fleet",
     tag: "APP-03",
-    title: "Fleet v1.1.0 — Antigravity-Native Swarm Sidebar Plugin",
-    blurb: "Interactive offline preview of Fleet v1.1.0, pivoted from standalone binaries (v0.12.0 preserved in git history) to an Antigravity SIDECAR_UI_ENTRYPOINT_AUX_PANE plugin (~/.gemini/config/plugins/fleet/): 340–380px zero-clipping 5-tab bar, Worker Activity Peek, 1-click Copy Swarm Digest, incremental byte-offset JSONL tailing (129.0 MB RSS, 72.3ms boot, 1,497 req/s, 30.4ms p95), Needs-You Triage & plan.json gates, @mention Graph replay, and cached git worktrees (22/22 fuzz, 0 FAIL / 0 WARN sloplint).",
+    title: "Fleet v1.2.0 — Antigravity-Native Swarm Sidebar Plugin",
+    blurb: "Interactive offline preview of Fleet v1.2.0, pivoted from standalone binaries (v0.12.0 preserved in git history) to an Antigravity SIDECAR_UI_ENTRYPOINT_AUX_PANE plugin (~/.gemini/config/plugins/fleet/): 1-click Unstick/Resume/Ask triage presets, Open File in Aux Pane, Worker Context & Token Pressure saturation bars, zero-alloc Buffer-scanning JSONL store + fingerprint cache (60.1ms boot, 122.2 MB RSS, 1,797 req/s, 27.6ms p95), and 22/22 fuzz (0 FAIL / 0 WARN sloplint).",
     url: "/demos/fleet/",
-    img: "/assets/projects/captures/fleet-v110-light.png",
-    darkImg: "/assets/projects/captures/fleet-v110-dark.png",
+    img: "/assets/projects/captures/fleet-v120-light.png",
+    darkImg: "/assets/projects/captures/fleet-v120-dark.png",
     page: "/projects/fleet.html",
     repo: "https://github.com/cayleb-james2008/fleet",
     storagePrefix: "fleet",
-    action: "triage blockers & screenshot reels in Needs you, expand Worker Activity Peek for tool calls & token telemetry, click Copy swarm digest, scrub the @Mention graph replay, inspect Git worktrees, or open Settings for Light/Dark appearance.",
+    action: "trigger 1-click Unstick/Resume triage presets, click Open file on screenshot reels & paths, inspect Context & Token Pressure saturation bars + Activity Peek in Roster, click Copy swarm digest, scrub @Mention graph replay, or open Settings for Light/Dark appearance.",
     provenance: [
-      { label: "What runs:", text: "the v1.1.0 Antigravity Swarm Sidebar Plugin UI compiled from cayleb-james2008/fleet (frontend/ dist-live-web/index.html, 645.8 KB offline single-file simulator) modeling <appData>/brain/<conv> swarm telemetry, Needs you Triage, Swarm plan gates, Worker Activity Peek, @Mention graph replay, and Git worktree probes at /demos/fleet/." },
-      { label: "Local Antigravity install:", text: "runs 100% locally in your browser with zero external requests; install the live plugin into Antigravity via ./install.sh (~/.gemini/config/plugins/fleet/) to wire SidecarApp + /preload.js host bridges, /fleet skill presets, and incremental JSONL tailing in sidecars/fleet_pane/main.mjs." },
-      { label: "Why it is here:", text: "visitors can inspect Antigravity's native multi-agent swarm command center directly — peeking into worker tool calls & token breakdowns, copying Swarm Digests, triaging plan.json gates & screenshots, scrubbing @mention handoffs, and probing isolated git worktrees right here." },
+      { label: "What runs:", text: "the v1.2.0 Antigravity Swarm Sidebar Plugin UI compiled from cayleb-james2008/fleet (frontend/ dist-live-web/index.html, 650.5 KB offline single-file simulator) modeling <appData>/brain/<conv> swarm telemetry, Unstick presets, Context Pressure, Activity Peek, @Mention graph replay, and Git worktrees at /demos/fleet/." },
+      { label: "Local Antigravity install:", text: "runs 100% locally in your browser with zero external requests; install the live plugin into Antigravity via ./install.sh (~/.gemini/config/plugins/fleet/) to wire SidecarApp + /preload.js file/chat bridges, /fleet presets, and Buffer-scanning fingerprint caching in sidecars/fleet_pane/." },
+      { label: "Why it is here:", text: "visitors can experience Antigravity's native swarm sidebar — triaging stalls with 1-click presets, opening captured screenshots, checking worker context-window saturation & token telemetry, copying Swarm Digests, and scrubbing @mention handoffs right here." },
     ],
   },
 ];
