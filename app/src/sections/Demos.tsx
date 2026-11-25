@@ -35,7 +35,7 @@ function DemoFrame({ title, src }: { title: string; src: string }) {
   );
 }
 
-// Region G: the three flagship interactive House Frontend web apps (Open-Ro v0.10.0, OpenBell v0.8.0 sandbox, Fleet v0.8.0), paired with links to their
+// Region G: the three flagship interactive web apps (Open-Ro v1.1.0, OpenBell v0.9.0 sandbox, Fleet v0.9.0), paired with links to their
 // standalone full-screen routes, live captures, product pages, and GitHub repositories.
 export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => void }) {
   const { theme } = useTheme();
@@ -65,7 +65,7 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
         <div className="grid content-start gap-2">
           <h2 id="demos-label" className="font-mono text-xs uppercase tracking-wider text-ink-2" data-answers="4">live apps</h2>
           <p className="font-mono text-xs text-ink-2">{demoWords.count}</p>
-          <p className="max-w-[28ch] text-sm text-ink-2">Real interactive web engines running 100% locally in your browser (RoPilot 3-pane Studio IDE Open-Ro v0.10.0, Kalshi v2 risk-rails &amp; quant sandbox OpenBell v0.8.0, multi-wave DAG &amp; PR Preview Fleet v0.8.0) with zero external requests by default.</p>
+          <p className="max-w-[28ch] text-sm text-ink-2">Real interactive web engines running 100% locally in your browser (Studio Copilot 3-pane IDE Open-Ro v1.1.0, Institutional Quant Terminal OpenBell v0.9.0, Goal-to-DAG workbench Fleet v0.9.0) with zero external requests by default.</p>
         </div>
         <Tabs value={tab} onValueChange={(v) => onTab(String(v))}>
           <TabsList aria-label="Interactive web apps" className="max-w-full flex-wrap">

@@ -170,7 +170,7 @@ export const projects: Project[] = [
 ];
 
 // The three flagship product pages (static pages under /projects/):
-// 1. Open-Ro Studio (v0.10.0), 2. OpenBell (v0.8.0), 3. Fleet (v0.8.0). Ergon (v0.7.0) stays accessible at /projects/ergon.html & /demos/ergon/.
+// 1. Open-Ro Studio (v1.1.0), 2. OpenBell (v0.9.0), 3. Fleet (v0.9.0). Ergon (v0.10.0) stays accessible at /projects/ergon.html & /demos/ergon/.
 export type ProductPage = { name: string; href: string; pitch: string; img: string; darkImg?: string; alt: string };
 export const productPagesHead = "the three products, in full";
 export const productPageLink = "the full product page ↗";
@@ -178,26 +178,26 @@ export const productPages: ProductPage[] = [
   {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
-    pitch: "RoPilot-grade 3-pane Roblox Studio AI IDE — Agent/Plan/Ask modes with reviewable unified Luau diffs, directly embedded live Roblox Studio + auto-synced Explorer, Companion Studio Plugin, all 13 official MCP tools, 8-pack Tool Library, Market Taste Craft Radar, and Rojo .zip export.",
-    img: "/assets/projects/captures/openro-v0100-light.png",
-    darkImg: "/assets/projects/captures/openro-v0100-dark.png",
-    alt: "Live capture of OpenRO v0.10.0 RoPilot 3-pane Roblox Studio AI IDE in the House Frontend workspace: Explorer DataModel dock, Studio 3D and Code & Diff workspace, Studio MCP Tools (13) bottom drawer, and Agent/Plan/Ask Copilot pane",
+    pitch: "Studio Copilot 3-pane Roblox Studio AI IDE — Agent/Plan/Ask unified Luau diffs, Monetization & Retention Luau pack (ProcessReceipt idempotency, GamePass, Daily Streak), embedded live Roblox Studio + auto-synced Explorer, Companion Plugin, all 13 MCP tools, and Rojo .zip export.",
+    img: "/assets/projects/captures/openro-v110-light.png",
+    darkImg: "/assets/projects/captures/openro-v110-dark.png",
+    alt: "Live capture of OpenRO v1.1.0 Studio Copilot 3-pane Roblox Studio AI IDE: Explorer DataModel dock, Studio 3D and Code & Diff workspace, Studio MCP Tools (13) bottom drawer, and Agent/Plan/Ask Copilot pane",
   },
   {
     name: "OpenBell",
     href: "/projects/openbell.html",
-    pitch: "Live-connected Kalshi Trade API v2 trading & quant desktop app in Rust — fail-closed Hard Risk Rails (disarmed on every boot), Emergency Kill Switch, Out-of-Sample Strategy Tournament, 12×12 Correlation & 5×4 Regime Heatmaps, PAV Isotonic Calibration, and $500/Day Capital Scaling Engine.",
-    img: "/assets/projects/captures/openbell-v080-light.png",
-    darkImg: "/assets/projects/captures/openbell-v080-dark.png",
-    alt: "Live capture of OpenBell v0.8.0 Kalshi v2 trading and quant desk in the House Frontend workspace: Paper Compounding Curve, Kalshi DEMO risk-rails bar with Arm Live and Emergency Kill Switch, 5-Series 15m Tape, and Quant Lab Readiness Gate",
+    pitch: "Institutional Kalshi Trade API v2 quant terminal in Rust — 1-click Full Quant Edge Audit 5-stage Go/No-Go funnel + causal lookahead-canary tests, fail-closed Hard Risk Rails (disarmed on every boot), Emergency Kill Switch, Strategy Tournament, PAV Calibration, and $500/Day Capital Scaling Engine.",
+    img: "/assets/projects/captures/openbell-v090-light.png",
+    darkImg: "/assets/projects/captures/openbell-v090-dark.png",
+    alt: "Live capture of OpenBell v0.9.0 Institutional Quant Terminal: Paper Compounding Curve, Kalshi DEMO risk-rails bar with Arm Live and Emergency Kill Switch, 5-Series 15m Tape, and Full Quant Edge Audit funnel",
   },
   {
     name: "Fleet",
     href: "/projects/fleet.html",
-    pitch: "Parallel coding-agent Mission Control — interactive multi-wave Board / DAG Graph toggle, PR Preview & confirmation-gated GitHub PR creator, Worktrees Inspector, Daily Dispatch Budget guardrails, Auto-Heal, Playbooks, and native Windows support.",
-    img: "/assets/projects/captures/fleet-v080-light.png",
-    darkImg: "/assets/projects/captures/fleet-v080-dark.png",
-    alt: "Live capture of Fleet v0.8.0 Mission Control in the House Frontend workspace: Board Telemetry strip with Daily budget, Board / DAG Graph toggle, Multi-wave execution DAG linking Wave 1 to Wave 2, and verified receipt inspection",
+    pitch: "Parallel coding-agent workbench — Goal-to-DAG planner, interactive multi-wave Board / DAG Graph toggle, PR Preview & confirmation-gated GitHub PR creator, Worktrees Inspector, Daily Dispatch Budget guardrails, Auto-Heal, Playbooks, and native Windows support (-24.1% bundle).",
+    img: "/assets/projects/captures/fleet-v090-light.png",
+    darkImg: "/assets/projects/captures/fleet-v090-dark.png",
+    alt: "Live capture of Fleet v0.9.0 Mission Control workbench: Board Telemetry strip with Daily budget, Board / DAG Graph toggle, Goal-to-DAG multi-wave execution, and verified receipt inspection",
   },
 ];
 
@@ -248,7 +248,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. This page is its interactive edition: press Cmd+K to jump anywhere, or run the three flagship live browser engines below (RoPilot 3-pane Studio IDE Open-Ro v0.10.0, Kalshi v2 risk-rails & quant sandbox OpenBell v0.8.0, multi-wave DAG & PR Preview Fleet v0.8.0) with zero external requests by default.",
+  line: "The plain PDF is the submission copy. This page is its interactive edition: press Cmd+K to jump anywhere, or run the three flagship live browser engines below (Studio Copilot 3-pane IDE Open-Ro v1.1.0, Institutional Quant Terminal OpenBell v0.9.0, Goal-to-DAG workbench Fleet v0.9.0) with zero external requests by default.",
 };
 
 export type LiveDemo = {
@@ -266,7 +266,7 @@ export type LiveDemo = {
   provenance: { label: string; text: string }[];
 };
 
-// The words around the three flagship interactive web apps (Open-Ro v0.10.0, OpenBell v0.8.0, Fleet v0.8.0).
+// The words around the three flagship interactive web apps (Open-Ro v1.1.0, OpenBell v0.9.0, Fleet v0.9.0).
 export const demoWords = {
   count: "live apps \u00b7 3",
   running: "running",
@@ -281,55 +281,55 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Open-Ro",
     tag: "APP-01",
-    title: "Open-Ro Studio v0.10.0 — RoPilot 3-pane Roblox Studio AI IDE",
-    blurb: "Real client-side 3-pane Roblox Studio Copilot IDE paired with the v0.10.0 single-binary Rust app (directly embedded live Roblox Studio + auto-synced Explorer, Companion Studio Plugin, and all 13 official MCP tools): switch between Agent, Plan (staged unified Luau diffs), and Ask modes, inspect green/red hunks in Code & Diff, co-build in Studio 3D, browse the 8-pack Tool Library & Market Taste Craft Radar, and export .rbxlx XML or Rojo Ship Pack (.zip).",
+    title: "Open-Ro Studio v1.1.0 — Studio Copilot 3-pane Roblox Studio AI IDE",
+    blurb: "Real client-side 3-pane Studio Copilot IDE paired with the v1.1.0 single-binary Rust app (298/298 tests, Monetization & Retention Luau pack with ProcessReceipt idempotency, GamePass, Daily Streak, directly embedded live Roblox Studio + auto-synced Explorer, Companion Plugin, and all 13 MCP tools): switch between Agent, Plan (staged unified Luau diffs), and Ask modes, inspect green/red hunks in Code & Diff, co-build in Studio 3D, browse the Tool Library & Market Taste Craft Radar, and export .rbxlx XML or Rojo Ship Pack (.zip).",
     url: "/demos/open-ro/",
-    img: "/assets/projects/captures/openro-v0100-light.png",
-    darkImg: "/assets/projects/captures/openro-v0100-dark.png",
+    img: "/assets/projects/captures/openro-v110-light.png",
+    darkImg: "/assets/projects/captures/openro-v110-dark.png",
     page: "/projects/openro.html",
     repo: "https://github.com/cayleb-james2008/open-ro",
     storagePrefix: "openro",
-    action: "open Starters to build a Roblox game in Studio 3D, switch to Plan mode to stage reviewable unified Luau diffs in Code & Diff (Accept & Apply or Reject), open the Studio MCP Tools (13) bottom drawer, explore Tool Library & Market Taste, or export Rojo .zip / .rbxlx.",
+    action: "open Starters to build a Roblox game in Studio 3D, switch to Plan mode to stage reviewable unified Luau diffs in Code & Diff (Accept & Apply or Reject), open the Studio MCP Tools (13) bottom drawer, explore the Monetization & Retention pack & Market Taste, or export Rojo .zip / .rbxlx.",
     provenance: [
-      { label: "What runs:", text: "the v0.10.0 RoPilot 3-pane House Frontend IDE compiled from cayleb-james2008/open-ro (frontend/) with Explorer/Chats left dock, Embedded Studio / Studio 3D / Code & Diff / Playable Stage center workspace, Output / Agent Trace / Studio MCP Tools (13) / Properties drawer, Agent|Plan|Ask Copilot composer, 8-pack Tool Library, Market Taste Craft Radar, and .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
-      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you add a BYOK LLM key or connect to a local openro-rs 0.10.0 binary (with directly embedded live Roblox Studio, auto-synced Explorer, OpenRoCompanion.lua plugin, all 13 MCP tools, Blender 3D .obj, and procedural .wav synthesis) on 127.0.0.1." },
-      { label: "Why it is here:", text: "visitors can experience the full 3-pane RoPilot Studio workflow — staging unified Luau diffs, co-building in 3D, proving scripts, inspecting the Tool Library & Market Taste Radar, and exporting genuine Studio .rbxlx and Rojo .zip packages right here." },
+      { label: "What runs:", text: "the v1.1.0 Studio Copilot 3-pane IDE compiled from cayleb-james2008/open-ro (frontend/) with Explorer/Chats left dock, Embedded Studio / Studio 3D / Code & Diff / Playable Stage center workspace, Output / Agent Trace / Studio MCP Tools (13) / Properties drawer, Agent|Plan|Ask Copilot composer, Monetization & Retention pack, Market Taste Craft Radar, and .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
+      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you add a BYOK LLM key or connect to a local openro-rs 1.1.0 binary (with directly embedded live Roblox Studio, auto-synced Explorer, OpenRoCompanion.lua plugin, all 13 MCP tools, Blender 3D .obj, and procedural .wav synthesis) on 127.0.0.1." },
+      { label: "Why it is here:", text: "visitors can experience the full 3-pane Studio Copilot workflow — staging unified Luau diffs, co-building in 3D, proving scripts, inspecting the Monetization & Retention pack & Market Taste Radar, and exporting genuine Studio .rbxlx and Rojo .zip packages right here." },
     ],
   },
   {
     key: "OpenBell",
     tag: "APP-02",
-    title: "OpenBell v0.8.0 — Kalshi v2 trading & quant desk (offline sandbox)",
-    blurb: "100% client-side offline simulation of the v0.8.0 single-binary Rust trading & quant desk (synthetic 15m crypto markets, zero real API keys, zero private trading data, zero external network calls): test fail-closed Hard Risk Rails (disarmed on boot, Arm Live confirmation, cap rejections, risk-reducing SELL pass-through, Emergency Kill Switch), Strategy Sandbox backtesting, and Quant Lab ($500/Day Scale Planner, 5-Gate Scorecard, Strategy Tournament, 12×12 Corr & 5×4 Regime Heatmaps, PAV Calibration).",
+    title: "OpenBell v0.9.0 — Institutional Quant Terminal (offline sandbox)",
+    blurb: "100% client-side offline simulation of the v0.9.0 single-binary Rust institutional quant terminal (synthetic 15m crypto markets, zero real API keys, zero private trading data, zero external network calls): run the 1-click Full Quant Edge Audit 5-stage Go/No-Go funnel, test fail-closed Hard Risk Rails (disarmed on boot, Arm Live confirmation, cap rejections, risk-reducing SELL pass-through, Emergency Kill Switch), Strategy Sandbox backtesting, and Quant Lab ($500/Day Scale Planner, 5-Gate Scorecard, Strategy Tournament, 12×12 Corr & 5×4 Regime Heatmaps, PAV Calibration).",
     url: "/demos/openbell/",
-    img: "/assets/projects/captures/openbell-v080-light.png",
-    darkImg: "/assets/projects/captures/openbell-v080-dark.png",
+    img: "/assets/projects/captures/openbell-v090-light.png",
+    darkImg: "/assets/projects/captures/openbell-v090-dark.png",
     page: "/projects/openbell.html",
     repo: "https://github.com/cayleb-james2008/openbell",
     storagePrefix: "openbell",
-    action: "click Arm Live to test fail-closed Hard Risk Rails in the Order Ticket (try an oversized order to see rail rejections, then trigger Emergency Kill Switch), run Collect now on synthetic 15m markets, or open Quant Lab for the $500/Day Scale Planner, 5-Gate Scorecard, and Strategy Tournament.",
+    action: "run the 1-click Full Quant Edge Audit 5-stage Go/No-Go funnel, click Arm Live to test fail-closed Hard Risk Rails in the Order Ticket (try an oversized order to see rail rejections, then trigger Emergency Kill Switch), run Collect now on synthetic 15m markets, or open Quant Lab for the $500/Day Scale Planner & Strategy Tournament.",
     provenance: [
-      { label: "What runs:", text: "the v0.8.0 House Frontend UI compiled from cayleb-james2008/openbell (frontend/) paired with an in-browser offline simulation engine (synthetic 15m crypto markets across BTC/ETH/SOL/XRP/DOGE, in-memory fail-closed risk rails, Strategy Sandbox, Tournament, PAV Calibration, and Monte Carlo Scale Engine) at /demos/openbell/." },
-      { label: "Zero keys / local binary:", text: "contains zero real API credentials, zero real private trading data, and makes zero external network requests; real Kalshi Demo/Prod connectivity only exists when you run the compiled openbell-rs v0.8.0 desktop binary locally with your own 0600 RSA-PSS key." },
-      { label: "Why it is here:", text: "visitors can test OpenBell's fail-closed risk-rail enforcement, Kill Switch, Strategy Tournament, and capital-scaling analytics interactively in complete safety." },
+      { label: "What runs:", text: "the v0.9.0 Institutional Terminal UI compiled from cayleb-james2008/openbell (frontend/) paired with an in-browser offline simulation engine (synthetic 15m crypto markets across BTC/ETH/SOL/XRP/DOGE, 1-click Full Quant Edge Audit funnel, in-memory fail-closed risk rails, Strategy Sandbox, Tournament, PAV Calibration, and Monte Carlo Scale Engine) at /demos/openbell/." },
+      { label: "Zero keys / local binary:", text: "contains zero real API credentials, zero real private trading data, and makes zero external network requests; real Kalshi Demo/Prod connectivity only exists when you run the compiled openbell-rs v0.9.0 desktop binary locally with your own 0600 RSA-PSS key." },
+      { label: "Why it is here:", text: "visitors can test OpenBell's 5-stage Quant Edge Audit, fail-closed risk-rail enforcement, Kill Switch, Strategy Tournament, and capital-scaling analytics interactively in complete safety." },
     ],
   },
   {
     key: "Fleet",
     tag: "APP-03",
-    title: "Fleet v0.8.0 — Mission Control with DAG Graph, PR Preview & Budget Guardrails",
-    blurb: "Real in-browser git worktree, interactive multi-wave Board / DAG Graph toggle, PR Preview & GitHub PR payload builder, Worktrees Inspector, Daily Dispatch Budget guardrails, Autonomous Auto-Heal feedback loop, reusable Playbooks, Board Telemetry, and multi-step Web Worker check runner paired with the v0.8.0 single-binary Rust orchestrator.",
+    title: "Fleet v0.9.0 — Goal-to-DAG Parallel Agent Workbench",
+    blurb: "Real in-browser git worktree, Goal-to-DAG planner, interactive multi-wave Board / DAG Graph toggle, PR Preview & GitHub PR payload builder, Worktrees Inspector, Daily Dispatch Budget guardrails, Autonomous Auto-Heal feedback loop, reusable Playbooks, Board Telemetry, and multi-step Web Worker check runner paired with the v0.9.0 single-binary Rust orchestrator (-24.1% bundle, 117/117 Rust tests).",
     url: "/demos/fleet/",
-    img: "/assets/projects/captures/fleet-v080-light.png",
-    darkImg: "/assets/projects/captures/fleet-v080-dark.png",
+    img: "/assets/projects/captures/fleet-v090-light.png",
+    darkImg: "/assets/projects/captures/fleet-v090-dark.png",
     page: "/projects/fleet.html",
     repo: "https://github.com/cayleb-james2008/fleet",
     storagePrefix: "fleet",
-    action: "switch between Board and DAG Graph views to inspect multi-wave dependencies, open PR Preview on a verified session, inspect active Worktrees & Daily Budget guardrails, pick a Playbook via Cmd+K, or steer & merge verified commits.",
+    action: "decompose a goal with the Goal-to-DAG planner, switch between Board and DAG Graph views to inspect multi-wave dependencies, open PR Preview on a verified session, inspect active Worktrees & Daily Budget guardrails, pick a Playbook via Cmd+K, or steer & merge verified commits.",
     provenance: [
-      { label: "What runs:", text: "the v0.8.0 House Frontend UI compiled from cayleb-james2008/fleet (frontend/) backed by a real IndexedDB virtual git worktree store, interactive DAG Graph visualizer, PR Preview modal, Worktrees Inspector, Daily Budget guardrails, Auto-Heal & Playbooks engine, Split Diff viewer, and Web Worker check runner at /demos/fleet/." },
-      { label: "Local & BYOK options:", text: "executes real isolated branch checks locally in your browser by default; Settings lets you run the Policy Tester, inspect Worktrees and Daily Budget limits, add a BYOK coding model (sessionStorage only), or connect to a local fleet v0.8.0 binary on 127.0.0.1." },
-      { label: "Why it is here:", text: "Fleet's core promise is autonomous check-driven multi-wave delivery without weakening guardrails — you can inspect DAG waves, preview PRs, prune worktrees, trigger real check failures, and land verified commits right here." },
+      { label: "What runs:", text: "the v0.9.0 Codex/Linear workbench UI compiled from cayleb-james2008/fleet (frontend/) backed by a real IndexedDB virtual git worktree store, Goal-to-DAG planner, interactive DAG Graph visualizer, PR Preview modal, Worktrees Inspector, Daily Budget guardrails, Auto-Heal & Playbooks engine, Split Diff viewer, and Web Worker check runner at /demos/fleet/." },
+      { label: "Local & BYOK options:", text: "executes real isolated branch checks locally in your browser by default; Settings lets you run the Policy Tester, inspect Worktrees and Daily Budget limits, add a BYOK coding model (sessionStorage only), or connect to a local fleet v0.9.0 binary on 127.0.0.1." },
+      { label: "Why it is here:", text: "Fleet's core promise is autonomous check-driven multi-wave delivery without weakening guardrails — you can inspect Goal-to-DAG waves, preview PRs, prune worktrees, trigger real check failures, and land verified commits right here." },
     ],
   },
 ];
