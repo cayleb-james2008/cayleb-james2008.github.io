@@ -170,7 +170,7 @@ export const projects: Project[] = [
 ];
 
 // The three flagship product pages (static pages under /projects/):
-// 1. Open-Ro Studio (v1.3.0), 2. OpenBell (v0.9.0), 3. Fleet (v0.11.0). Ergon (v0.12.0) stays accessible at /projects/ergon.html & /demos/ergon/.
+// 1. Open-Ro Studio (v1.6.0), 2. OpenBell (v0.9.0), 3. Fleet (v1.1.0 Antigravity Plugin). Ergon (v0.15.0) stays accessible at /projects/ergon.html & /demos/ergon/.
 export type ProductPage = { name: string; href: string; pitch: string; img: string; darkImg?: string; alt: string };
 export const productPagesHead = "the three products, in full";
 export const productPageLink = "the full product page ↗";
@@ -178,10 +178,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
-    pitch: "Studio Copilot 3-pane Roblox Studio AI IDE — 95.5ms cold boot (-93.5%), 1-click Monetization & Economy Codegen, 7-gate Ship Autopilot, Agent/Plan/Ask unified Luau diffs, embedded live Roblox Studio + 12 FPS capture, and Rojo .zip export.",
-    img: "/assets/projects/captures/openro-v130-light.png",
-    darkImg: "/assets/projects/captures/openro-v130-dark.png",
-    alt: "Live capture of OpenRO v1.3.0 Studio Copilot 3-pane Roblox Studio AI IDE: Explorer DataModel dock, Studio 3D and Code & Diff workspace, Monetization & Economy Codegen, and Agent/Plan/Ask Copilot pane",
+    pitch: "Studio Copilot 3-pane Roblox Studio AI IDE — 19.05 MB Peak RSS (-83.5%), 113.7ms cold boot, Unified Pre-Publish Revenue & Playtest Gate + Auto-Fix cards, +Δ pts Autopilot score deltas, 17 pre-gzipped UI chunks, 5,610 req/s (7.4ms p95), and Rojo .zip export.",
+    img: "/assets/projects/captures/openro-v160-light.png",
+    darkImg: "/assets/projects/captures/openro-v160-dark.png",
+    alt: "Live capture of OpenRO v1.6.0 Studio Copilot 3-pane Roblox Studio AI IDE: Explorer DataModel dock, Studio 3D and Code & Diff workspace, Pre-Publish Revenue & Playtest Gate, and Agent/Plan/Ask Copilot pane",
   },
   {
     name: "OpenBell",
@@ -194,10 +194,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Fleet",
     href: "/projects/fleet.html",
-    pitch: "Parallel coding-agent workbench — 15.4ms cold boot (10x faster), Wave Preflight & confirmation-gated Batch PR, Auto-Heal Failure Classifier, Goal-to-DAG planner, keyboard triage, Worktrees Inspector, and 7,048 req/s (5.7ms p95).",
-    img: "/assets/projects/captures/fleet-v0110-light.png",
-    darkImg: "/assets/projects/captures/fleet-v0110-dark.png",
-    alt: "Live capture of Fleet v0.11.0 Mission Control workbench: Board Telemetry strip, Wave Preflight & Batch PR modal, Auto-Heal failure classifier badges, and verified receipt inspection",
+    pitch: "Antigravity-native Swarm Sidebar Plugin — 340–380px zero-clipping tabs, Worker Activity Peek, 1-click Copy Swarm Digest, incremental byte-offset JSONL tailing (129.0 MB RSS, 72.3ms boot), Needs-You Triage & plan.json gates, and 22/22 cold fuzz.",
+    img: "/assets/projects/captures/fleet-v110-light.png",
+    darkImg: "/assets/projects/captures/fleet-v110-dark.png",
+    alt: "Live capture of Fleet v1.1.0 Antigravity Swarm Sidebar Plugin (380x900): clean 5-tab bar, Needs-You triage inbox, plan.json workstream gates, Worker Activity Peek, and @mention graph",
   },
 ];
 
@@ -248,7 +248,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. This page is its interactive edition: press Cmd+K to jump anywhere, or run the three flagship live browser engines below (Studio Copilot 3-pane IDE Open-Ro v1.3.0, Institutional Quant Terminal OpenBell v0.9.0, Goal-to-DAG workbench Fleet v0.11.0) with zero external requests by default.",
+  line: "The plain PDF is the submission copy. This page is its interactive edition: press Cmd+K to jump anywhere, or run the three flagship live browser engines below (Studio Copilot 3-pane IDE Open-Ro v1.6.0, Institutional Quant Terminal OpenBell v0.9.0, Antigravity Swarm Sidebar Plugin Fleet v1.1.0) with zero external requests by default.",
 };
 
 export type LiveDemo = {
@@ -266,7 +266,7 @@ export type LiveDemo = {
   provenance: { label: string; text: string }[];
 };
 
-// The words around the three flagship interactive web apps (Open-Ro v1.3.0, OpenBell v0.9.0, Fleet v0.11.0).
+// The words around the three flagship interactive web apps (Open-Ro v1.6.0, OpenBell v0.9.0, Fleet v1.1.0).
 export const demoWords = {
   count: "live apps \u00b7 3",
   running: "running",
@@ -274,26 +274,26 @@ export const demoWords = {
   eyebrow: "interactive web engine \u00b7 runs locally in your browser",
   tryIt: "Try in the frame:",
   provenance: "how it runs",
-  noCalls: "\u00b7 100% client-side sandbox \u00b7 optional local Rust binary",
+  noCalls: "\u00b7 100% client-side sandbox \u00b7 optional local runtime",
 };
 
 export const liveDemos: LiveDemo[] = [
   {
     key: "Open-Ro",
     tag: "APP-01",
-    title: "Open-Ro Studio v1.3.0 — Studio Copilot 3-pane Roblox Studio AI IDE",
-    blurb: "Real client-side 3-pane Studio Copilot IDE paired with the v1.3.0 single-binary Rust app (95.5ms cold boot -93.5%, 89.3 MB RSS -22.5%, 1-click Monetization & Economy Codegen, 7-gate Ship Readiness Autopilot, 303/303 tests, 3,792 req/s, 12.9ms p95, and 0/0/0 sloplint): switch between Agent, Plan (staged unified Luau diffs), and Ask modes, inspect green/red hunks in Code & Diff, co-build in Studio 3D, browse the Tool Library & Market Taste Craft Radar, and export .rbxlx XML or Rojo Ship Pack (.zip).",
+    title: "Open-Ro Studio v1.6.0 — Studio Copilot 3-pane Roblox Studio AI IDE",
+    blurb: "Real client-side 3-pane Studio Copilot IDE paired with the v1.6.0 single-binary Rust app (19.05 MB Peak RSS -83.5%, 113.7ms cold boot, Unified Pre-Publish Revenue & Playtest Gate + 1-click Auto-Fix cards, +Δ pts Autopilot score deltas, 17 pre-gzipped UI chunks, 5,610 req/s, 7.42ms p95, 304/304 tests, and 0/0/0 sloplint): switch between Agent, Plan (staged unified Luau diffs), and Ask modes, inspect hunks in Code & Diff, co-build in Studio 3D, run Pre-Publish Gate, and export .rbxlx XML or CRC-32 verified Rojo Ship Pack (.zip).",
     url: "/demos/open-ro/",
-    img: "/assets/projects/captures/openro-v130-light.png",
-    darkImg: "/assets/projects/captures/openro-v130-dark.png",
+    img: "/assets/projects/captures/openro-v160-light.png",
+    darkImg: "/assets/projects/captures/openro-v160-dark.png",
     page: "/projects/openro.html",
     repo: "https://github.com/cayleb-james2008/open-ro",
     storagePrefix: "openro",
-    action: "open Starters to build a Roblox game in Studio 3D, switch to Plan mode to stage reviewable unified Luau diffs in Code & Diff, run 1-click Generate Shop & Economy or the 7-gate Ship Readiness Autopilot, open Studio MCP Tools (13), or export Rojo .zip / .rbxlx.",
+    action: "open Starters to build a Roblox game in Studio 3D, switch to Plan mode to stage reviewable unified Luau diffs in Code & Diff, run 1-click Fix All Blockers (+Δ pts) or the Unified Pre-Publish Revenue & Playtest Gate with Auto-Fix cards, open Studio MCP Tools (13), or export Rojo .zip / .rbxlx.",
     provenance: [
-      { label: "What runs:", text: "the v1.3.0 Studio Copilot 3-pane IDE compiled from cayleb-james2008/open-ro (frontend/) with Explorer/Chats left dock, Embedded Studio / Studio 3D / Code & Diff / Playable Stage / Ship Autopilot & Economy Codegen workspace, Output / Agent Trace / Studio MCP Tools (13) / Properties drawer, Agent|Plan|Ask Copilot composer, Market Taste Craft Radar, and .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
-      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you add a BYOK LLM key or connect to a local openro-rs 1.3.0 binary (with directly embedded live Roblox Studio, auto-synced Explorer, OpenRoCompanion.lua plugin, all 13 MCP tools, Blender 3D .obj, and procedural .wav synthesis) on 127.0.0.1." },
-      { label: "Why it is here:", text: "visitors can experience the full 3-pane Studio Copilot workflow — staging unified Luau diffs, co-building in 3D, generating MarketplaceService shop/economy handlers, running the 7-gate Ship Readiness Autopilot, and exporting genuine Studio .rbxlx and Rojo .zip packages right here." },
+      { label: "What runs:", text: "the v1.6.0 Studio Copilot 3-pane IDE compiled from cayleb-james2008/open-ro (frontend/) with Explorer/Chats left dock, Embedded Studio / Studio 3D / Code & Diff / Playable Stage / Pre-Publish Revenue & Playtest Gate workspace, Output / Agent Trace / Studio MCP Tools (13) / Properties drawer, Agent|Plan|Ask Copilot composer, Market Taste Craft Radar, and .rbxlx / CRC-32 Rojo .zip exporter at /demos/open-ro/." },
+      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you add a BYOK LLM key or connect to a local openro-rs 1.6.0 binary (with directly embedded live Roblox Studio, auto-synced Explorer, OpenRoCompanion.lua plugin, all 13 MCP tools, Blender 3D .obj, and procedural .wav synthesis) on 127.0.0.1." },
+      { label: "Why it is here:", text: "visitors can experience the full 3-pane Studio Copilot workflow — staging unified Luau diffs, co-building in 3D, running the Unified Pre-Publish Revenue & Playtest Gate with 1-click Auto-Fix cards, tracking +Δ pts readiness gains, and exporting genuine Studio .rbxlx and Rojo .zip packages right here." },
     ],
   },
   {
@@ -317,19 +317,19 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Fleet",
     tag: "APP-03",
-    title: "Fleet v0.11.0 — Goal-to-DAG Parallel Agent Workbench",
-    blurb: "Real in-browser git worktree, Goal-to-DAG planner, Wave Preflight conflict preview & confirmation-gated Batch PR, Auto-Heal Failure Classifier, instant keyboard triage, Worktrees Inspector, Daily Dispatch Budget guardrails, reusable Playbooks, and Web Worker check runner paired with the v0.11.0 single-binary Rust orchestrator (15.4ms cold boot 10x faster, 7,048 req/s, 5.73ms p95, 123/123 Rust tests).",
+    title: "Fleet v1.1.0 — Antigravity-Native Swarm Sidebar Plugin",
+    blurb: "Interactive offline preview of Fleet v1.1.0, pivoted from standalone binaries (v0.12.0 preserved in git history) to an Antigravity SIDECAR_UI_ENTRYPOINT_AUX_PANE plugin (~/.gemini/config/plugins/fleet/): 340–380px zero-clipping 5-tab bar, Worker Activity Peek, 1-click Copy Swarm Digest, incremental byte-offset JSONL tailing (129.0 MB RSS, 72.3ms boot, 1,497 req/s, 30.4ms p95), Needs-You Triage & plan.json gates, @mention Graph replay, and cached git worktrees (22/22 fuzz, 0 FAIL / 0 WARN sloplint).",
     url: "/demos/fleet/",
-    img: "/assets/projects/captures/fleet-v0110-light.png",
-    darkImg: "/assets/projects/captures/fleet-v0110-dark.png",
+    img: "/assets/projects/captures/fleet-v110-light.png",
+    darkImg: "/assets/projects/captures/fleet-v110-dark.png",
     page: "/projects/fleet.html",
     repo: "https://github.com/cayleb-james2008/fleet",
     storagePrefix: "fleet",
-    action: "decompose a goal with the Goal-to-DAG planner, open Wave Ship Preflight to inspect clean vs conflicting files and batch-merge or stage a Batch PR, inspect Auto-Heal failure-class badges, triage with y/x/m/s keys, or land verified commits.",
+    action: "triage blockers & screenshot reels in Needs you, expand Worker Activity Peek for tool calls & token telemetry, click Copy swarm digest, scrub the @Mention graph replay, inspect Git worktrees, or open Settings for Light/Dark appearance.",
     provenance: [
-      { label: "What runs:", text: "the v0.11.0 Codex/Linear workbench UI compiled from cayleb-james2008/fleet (frontend/) backed by a real IndexedDB virtual git worktree store, Goal-to-DAG planner, Wave Ship Preflight & Batch PR modal, Auto-Heal Failure Classifier, Worktrees Inspector, Daily Budget guardrails, Split Diff viewer, and Web Worker check runner at /demos/fleet/." },
-      { label: "Local & BYOK options:", text: "executes real isolated branch checks locally in your browser by default; Settings lets you run the Policy Tester, inspect Worktrees and Daily Budget limits, add a BYOK coding model (sessionStorage only), or connect to a local fleet v0.11.0 binary on 127.0.0.1." },
-      { label: "Why it is here:", text: "Fleet's core promise is autonomous check-driven multi-wave delivery without weakening guardrails — you can inspect Goal-to-DAG waves, preflight batch merges & wave PRs, inspect classified auto-heals, trigger real check failures, and land verified commits right here." },
+      { label: "What runs:", text: "the v1.1.0 Antigravity Swarm Sidebar Plugin UI compiled from cayleb-james2008/fleet (frontend/ dist-live-web/index.html, 645.8 KB offline single-file simulator) modeling <appData>/brain/<conv> swarm telemetry, Needs you Triage, Swarm plan gates, Worker Activity Peek, @Mention graph replay, and Git worktree probes at /demos/fleet/." },
+      { label: "Local Antigravity install:", text: "runs 100% locally in your browser with zero external requests; install the live plugin into Antigravity via ./install.sh (~/.gemini/config/plugins/fleet/) to wire SidecarApp + /preload.js host bridges, /fleet skill presets, and incremental JSONL tailing in sidecars/fleet_pane/main.mjs." },
+      { label: "Why it is here:", text: "visitors can inspect Antigravity's native multi-agent swarm command center directly — peeking into worker tool calls & token breakdowns, copying Swarm Digests, triaging plan.json gates & screenshots, scrubbing @mention handoffs, and probing isolated git worktrees right here." },
     ],
   },
 ];
