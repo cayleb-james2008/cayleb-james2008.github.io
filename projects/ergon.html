@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Ergon — Cayleb Alvarez-James</title>
-  <meta name="description" content="Ergon v0.17.0: Claude-Desktop employee agent desk in an 11.76 MB fat-LTO Rust binary (8.56ms boot, 26.19 MB VmHWM, 5,420 req/s pinned) — 1-Click Run/Receipt Comparison &amp; Delta Client Pack (.md), Unified Fuzzy Cmd+K Jump, [file:L##] Source Inspector, and 216/216 Rust tests.">
+  <meta name="description" content="Ergon v0.18.0: Claude-Desktop employee agent desk in a 9.31 MB Rust binary (-20.9%, -41.8% vs v0.10.0; 8.05ms boot, 22.14 MB VmHWM, 1,802 req/s pinned) — Citation Freshness Pre-Flight Gate &amp; Verified Client Handoff (.html), Run Comparison &amp; Delta Packs, and 217/217 Rust tests.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/ergon.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="Ergon — Cayleb Alvarez-James">
-  <meta property="og:description" content="Claude-Desktop employee agent desk — 11.76 MB fat-LTO binary, 26.19 MB VmHWM (-49.9% vs v0.11.0), 1-Click Run Comparison &amp; Delta Packs, Fuzzy Cmd+K jump, 5,420 req/s (3.94ms p95), and 0/0/0 sloplint (v0.17.0).">
+  <meta property="og:description" content="Claude-Desktop employee agent desk — 9.31 MB binary (-41.8% vs v0.10.0), 22.14 MB VmHWM (-57.6% vs v0.11.0), Citation Freshness Gate &amp; Client Handoff (.html), Run Delta Packs, and 0/0/0 sloplint (v0.18.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/ergon.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -41,16 +41,16 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Product v0.17.0 · Single-Binary Rust Desktop &amp; Web App · checked 25 November 2026</p>
+        <p class="case-hero__meta">Product v0.18.0 · Single-Binary Rust Desktop &amp; Web App · checked 25 November 2026</p>
         <h1 class="case-hero__title">Every employee gets an agent.</h1>
-        <p class="case-hero__out">Ergon is a <b>Claude-Desktop employee agent desk</b> served from one fat-LTO cross-platform Rust binary (<code>11.76 MB</code>, <code>-26.5%</code> vs v0.10.0; Linux, macOS, and Windows <code>.exe</code>) featuring <b>1-Click Run / Receipt Comparison &amp; Delta Client Packs</b> (<code>GET /api/receipts/compare</code> computing exact line deltas + unified Markdown diff blocks for <code>Client Pack (.md)</code>), <b>Unified Fuzzy <code>Cmd+K</code> Jump</b> across files, <code>[file:L##]</code> citations, playbooks, and receipts, <b>26.19 MB peak RSS</b> (<code>-49.9%</code> vs v0.11.0), <b>15 pre-gzipped <code>.rodata</code> <code>/chunks/*</code></b> (<code>33.4 KB</code> gzip initial shell), and <b>5,420.0 req/s</b> (<code>3.94 ms</code> p95 under 16w pinned isolation).</p>
+        <p class="case-hero__out">Ergon is a <b>Claude-Desktop employee agent desk</b> served from one cross-platform Rust binary (<code>9.31 MB</code>, <code>-20.9%</code> vs v0.17.0, <code>-41.8%</code> vs v0.10.0; Linux, macOS, and Windows <code>.exe</code>) featuring a <b>Citation Freshness Pre-Flight Gate</b> (verifying every <code>[file:L##]</code> reference against live SHA-256 digests and line content with <code>stale</code> vs <code>verified</code> drift detection), <b>1-Click Verified Client Handoff (`.html`)</b> with CSP lock &amp; SHA-256 deliverable manifest, <b>1-Click Run Comparison &amp; Delta Packs</b>, <b>Unified Fuzzy <code>Cmd+K</code></b>, <b>22.14 MB peak RSS</b> (<code>-15.5%</code>, <code>-57.6%</code> vs v0.11.0), and <code>8.05 ms</code> cold boot.</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>v0.17.0 single-binary build · 11.76 MB fat-LTO, Run/Receipt Delta Packs, Fuzzy Cmd+K, 26.19 MB VmHWM · 216/216 Rust tests · 5,420 req/s (3.94ms p95) · 25/25 cold fuzz PASS.</li>
-          <li><span class="chip chip--current">v0.17.0 public</span></li>
+          <li><span class="checked-dot" aria-hidden="true"></span>v0.18.0 single-binary build · 9.31 MB (-41.8% vs v0.10.0), Citation Freshness Gate &amp; Client Handoff (.html), 22.14 MB VmHWM · 217/217 Rust tests · 1,802 req/s 16w pinned · 25/25 cold fuzz PASS.</li>
+          <li><span class="chip chip--current">v0.18.0 public</span></li>
         </ul>
         <div class="hero-actions">
           <a class="btn-primary" href="../demos/ergon/">Launch live web app ↗</a>
-          <a class="btn-outline" href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.17.0" target="_blank" rel="noreferrer noopener">Release v0.17.0 on GitHub ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.18.0" target="_blank" rel="noreferrer noopener">Release v0.18.0 on GitHub ↗</a>
         </div>
       </div>
     </header>
@@ -65,25 +65,25 @@
       </nav>
 
       <section class="project-figures" id="figures" aria-labelledby="figures-h">
-        <h2 class="vis-kicker" id="figures-h">v0.17.0 live interface &amp; recorded walkthrough</h2>
+        <h2 class="vis-kicker" id="figures-h">v0.18.0 live interface &amp; recorded walkthrough</h2>
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">Ergon v0.17.0 — Claude-Desktop Employee Agent Desk</span>
+              <span class="viz__title">Ergon v0.18.0 — Claude-Desktop Employee Agent Desk</span>
               <span class="viz__live">live capture</span>
               <span class="viz__note">Alabaster &amp; Charcoal · Appearance inside Settings</span>
             </div>
             <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/ergon-v0170-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Ergon v0.17.0">
-                <img src="../assets/projects/captures/ergon-v0170-light.png" alt="Live capture of Ergon v0.17.0 desk in warm alabaster Light theme: 1-Click Run/Receipt Comparison, Fuzzy Cmd+K citation jump, clickable [file:L##] Source Inspector, and Workspace Inspector." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-light" href="../assets/projects/captures/ergon-v0180-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Ergon v0.18.0">
+                <img src="../assets/projects/captures/ergon-v0180-light.png" alt="Live capture of Ergon v0.18.0 desk in warm alabaster Light theme: Citation Freshness Pre-Flight Gate, Verified Client Handoff (.html), Run Comparison, and Workspace Inspector." width="1440" height="900" loading="eager" decoding="async">
               </a>
-              <a class="shot-dark" href="../assets/projects/captures/ergon-v0170-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Ergon v0.17.0">
-                <img src="../assets/projects/captures/ergon-v0170-dark.png" alt="Live capture of Ergon v0.17.0 desk in charcoal Dark theme: unified responsive SPA, Run Comparison &amp; Delta Client Pack export, verified citation pills, and Workspace Inspector." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-dark" href="../assets/projects/captures/ergon-v0180-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Ergon v0.18.0">
+                <img src="../assets/projects/captures/ergon-v0180-dark.png" alt="Live capture of Ergon v0.18.0 desk in charcoal Dark theme: Citation Freshness Gate, Verified Client Handoff export, verified citation pills, and Workspace Inspector." width="1440" height="900" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured directly from Ergon v0.17.0 at 1440×900 in warm alabaster Light and charcoal Dark. Try the real client-side IndexedDB web app (Run/Receipt Comparison &amp; Delta Client Pack export, Unified Fuzzy Cmd+K jump, clickable <code>[file:L##]</code> Source Inspector, Promote to Playbook, Deliverable Pre-Flight Check, Save as routine, and 12 built-in workflows) at <code>/demos/ergon/</code>.</p>
-              <p class="viz__source">Source: cayleb-james2008/ergon v0.17.0 · interactive browser workspace at /demos/ergon/</p>
+              <p class="viz__caption">Captured directly from Ergon v0.18.0 at 1440×900 in warm alabaster Light and charcoal Dark. Try the real client-side IndexedDB web app (Citation Freshness Pre-Flight Gate, 1-Click Verified Client Handoff <code>.html</code>, Run/Receipt Comparison &amp; Delta Client Pack export, Fuzzy Cmd+K jump, clickable <code>[file:L##]</code> Source Inspector, Promote to Playbook, and 12 built-in workflows) at <code>/demos/ergon/</code>.</p>
+              <p class="viz__source">Source: cayleb-james2008/ergon v0.18.0 · interactive browser workspace at /demos/ergon/</p>
               <p class="viz__action">
                 <a class="viz__open" href="../demos/ergon/">open live web app ↗</a>
               </p>
@@ -143,22 +143,22 @@
           <section id="capabilities">
             <h2>What it does</h2>
             <div class="project-prose__body">
-              <p>Ergon v0.17.0 ships as one <code>11.76 MB</code> fat-LTO cross-platform Rust executable (`-26.5%` vs v0.10.0) compiling `index.html.gz` + 15 pre-gzipped lazy `/chunks/*` into `.rodata` (`149,116 B` raw / `33,404 B` gzip initial shell), **1-Click Run / Receipt Comparison &amp; Delta Client Packs**, **Unified Fuzzy `Cmd+K` Jump**, Cross-File Citation Verification &amp; clickable `[file:L##]` Source Inspector, zero-DOM streaming Audit Bundle (`26.19 MB` peak RSS, `-49.9%` vs v0.11.0), and chromeless `--app` launch.</p>
+              <p>Ergon v0.18.0 ships as one <code>9.31 MB</code> cross-platform Rust executable (`-20.9%` vs v0.17.0, `-41.8%` vs v0.10.0) compiling `index.html.gz` + 15 pre-gzipped lazy `/chunks/*` into `.rodata` (`149,114 B` raw / `33,424 B` gzip initial shell), **Citation Freshness Pre-Flight Gate &amp; 1-Click Verified Client Handoff (`.html`)**, 1-Click Run / Receipt Comparison &amp; Delta Packs, Unified Fuzzy `Cmd+K` Jump, cached zero-alloc Audit Bundles (`22.14 MB` peak RSS, `-57.6%` vs v0.11.0), and chromeless `--app` launch.</p>
               <div class="cap-grid">
                 <div class="cap-card">
-                  <span class="cap-card__tag">01 · Run Comparison &amp; Delta Client Packs</span>
+                  <span class="cap-card__tag">01 · Citation Freshness &amp; HTML Client Handoff</span>
+                  <h3>Zero stale-line client proofs</h3>
+                  <p><code>verify_text_citations_against</code> &amp; <code>PackPreflight</code> check live file SHA-256s + line excerpts (`stale` vs `verified` gate), while <b>Client Handoff (.html)</b> emits a CSP-locked standalone deliverable with SHA-256 manifest.</p>
+                </div>
+                <div class="cap-card">
+                  <span class="cap-card__tag">02 · Run Comparison &amp; Fuzzy Cmd+K</span>
                   <h3>Exact diff proofs in one click</h3>
-                  <p><code>file_history::diff_texts</code> &amp; <code>GET /api/receipts/compare</code> compute exact <code>+added / -removed / % similarity</code> metrics and file deltas between any two runs or <code>.history/</code> revisions, with 1-click <b>Append Delta to Client Pack (.md)</b>.</p>
+                  <p><code>file_history::diff_texts</code> &amp; <code>GET /api/receipts/compare</code> compute exact line &amp; deliverable deltas, while <code>fuzzyScore</code> Cmd+K jumps straight to files, <code>[file:L##]</code> citations, playbooks, and receipts.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">02 · Fuzzy Cmd+K &amp; Source Inspector</span>
-                  <h3>Jump to files, [file:L##] &amp; playbooks</h3>
-                  <p>Unified <code>fuzzyScore</code> command palette searches workspace files, cited <code>[file:L##]</code> line ranges (opening highlighted inside <code>FileViewerModal</code>), multi-step playbooks &amp; routines, workflows, and receipts with zero hallucinated citations.</p>
-                </div>
-                <div class="cap-card">
-                  <span class="cap-card__tag">03 · 26.2 MB RSS &amp; 5,420 req/s Pinned</span>
-                  <h3>8.56ms boot &amp; 3.94ms p95</h3>
-                  <p>15 pre-gzipped <code>.rodata</code> chunks, zero-DOM streaming Audit Bundles, and atomic <code>0o600</code> persistence run at <code>5,420.0 req/s</code> (<code>3.94 ms</code> p95 across 16w pinned isolation) with <code>5/5</code> SSE survival and <code>25/25</code> fuzz pass.</p>
+                  <span class="cap-card__tag">03 · 9.31 MB Binary &amp; 22.1 MB RSS Diet</span>
+                  <h3>8.05ms boot &amp; -41.8% binary</h3>
+                  <p>Mixed dependency size optimization (<code>opt-level = "z"` on deps, <code>"3"</code> on hot core), <code>SearchCache::get_if_fresh</code>, and zero-alloc manifest SHA-256 hashing keep Peak RSS at <code>22.14 MB</code> (`25/25` fuzz, `5/5` SSE).</p>
                 </div>
               </div>
             </div>
@@ -167,14 +167,14 @@
           <section id="record">
             <h2>Verification record</h2>
             <div class="project-prose__body">
-              <p>Cold-verified, scale-audited, and cross-compiled against <code>cayleb-james2008/ergon</code> at release <code>v0.17.0</code> (<code>20d34768</code>).</p>
+              <p>Cold-verified, scale-audited, and cross-compiled against <code>cayleb-james2008/ergon</code> at release <code>v0.18.0</code> (<code>d2308691</code>).</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Rust, Windows &amp; Clippy</th><td><b>216 of 216 Rust tests</b> (<code>cargo test --locked</code> incl. receipt compare &amp; delta pack suites), <code>0</code> clippy warnings (<code>-D warnings</code>), and <code>0</code> Windows cross-check errors (<code>cargo xwin check --target x86_64-pc-windows-msvc</code>).</td></tr>
-                  <tr><th>Security &amp; Boundary Enforcement</th><td>Unique-temp atomic persistence (<code>0o600</code> config keys), Host-403 &amp; duplicate Host <code>400</code>, oversized <code>Content-Length</code> → <code>413</code> with open client write half, CWE-22/CWE-59 traversal &amp; symlink guards on <code>/api/files/pack</code> / <code>.history/</code> / upload, and ZIP-slip clean DOCX export.</td></tr>
-                  <tr><th>Scale &amp; Cold Fuzz Audit</th><td>Cold scale &amp; security audit on release binary (<code>11.76 MB</code>, <code>149,116 B</code> raw / <code>33,404 B</code> gzip initial shell + 15 pre-gz <code>/chunks/*</code>): <b>5,420.0 req/s</b> (16w pinned, <code>-46.9%</code> p95 vs v0.16.0), <b>3.94 ms p95</b> (<code>2.77 ms</code> p50, <code>4.84 ms</code> p99 across 13,556 reqs, <code>0</code> err), <code>8.56 ms</code> cold boot, <code>26.19 MB</code> peak RSS (<code>-49.9%</code> vs v0.11.0), <b>5/5 (100.0%)</b> SSE survival, and <b>25/25</b> cold raw-TCP fuzz vectors passing.</td></tr>
-                  <tr><th>UI &amp; standalone web app</th><td><b>74 of 74</b> Playwright UI gate checks, <b>6 of 6</b> Work Graph probes, <b>20 of 20</b> built-in replays, <code>sloplint --scope app --render</code> <b>0 FAIL / 0 REFLEX / 0 WARN</b>, <code>0</code> console errors across <code>1440×900</code> &amp; <code>390×844</code> Light &amp; Dark, and standalone <code>ergon-web.html</code> (<code>1,135 kB</code>) verified with <code>0</code> third-party requests.</td></tr>
-                  <tr><th>Cross-platform packaging</th><td>Single Rust binary + chromeless desktop app launch (<code>--app</code>) across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> + <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.17.0" target="_blank" rel="noreferrer noopener">v0.17.0 Release</a>).</td></tr>
+                  <tr><th>Rust, Windows &amp; Clippy</th><td><b>217 of 217 Rust tests</b> (<code>cargo test --locked</code> incl. citation freshness &amp; HTML handoff suites), <code>0</code> clippy warnings (<code>-D warnings</code>), and <code>0</code> Windows cross-check errors (<code>cargo xwin check --target x86_64-pc-windows-msvc</code>).</td></tr>
+                  <tr><th>Security &amp; Boundary Enforcement</th><td>Unique-temp atomic persistence (<code>0o600</code> config keys), Host-403 &amp; duplicate Host <code>400</code>, oversized <code>Content-Length</code> → <code>413</code> with open client write half, CWE-22/CWE-59 traversal &amp; symlink guards on <code>/api/files/pack</code> / <code>.history/</code> / upload, CSP-locked HTML handoffs, and ZIP-slip clean DOCX export.</td></tr>
+                  <tr><th>Scale &amp; Cold Fuzz Audit</th><td>Cold scale &amp; security audit on release binary (<code>9.31 MB</code>, <code>149,114 B</code> raw / <code>33,424 B</code> gzip initial shell + 15 pre-gz <code>/chunks/*</code>): <b>8.05 ms</b> cold boot (<code>-6.0%</code>), <b>22.14 MB</b> peak RSS (<code>-15.5%</code>, <code>-57.6%</code> vs v0.11.0), <b>1,801.8 req/s</b> (16w pinned, <code>6.43 ms</code> p50, <code>16.68 ms</code> p95 across <code>4,653</code> reqs, <code>0</code> err), <b>5/5 (100.0%)</b> SSE survival, and <b>25/25</b> cold raw-TCP fuzz vectors passing.</td></tr>
+                  <tr><th>UI &amp; standalone web app</th><td><b>74 of 74</b> Playwright UI gate checks, <b>6 of 6</b> Work Graph probes, <b>20 of 20</b> built-in replays, <code>sloplint --scope app --render</code> <b>0 FAIL / 0 REFLEX / 0 WARN</b>, <code>0</code> console errors across <code>1440×900</code> &amp; <code>390×844</code> Light &amp; Dark, and standalone <code>ergon-web.html</code> (<code>1,140 kB</code>) verified with <code>0</code> third-party requests.</td></tr>
+                  <tr><th>Cross-platform packaging</th><td>Single Rust binary + chromeless desktop app launch (<code>--app</code>) across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> + <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.18.0" target="_blank" rel="noreferrer noopener">v0.18.0 Release</a>).</td></tr>
                 </tbody>
               </table>
             </div>
@@ -185,7 +185,7 @@
           <h2 id="limits-h">what is not verified</h2>
           <ul>
             <li><b>No customer deployment yet:</b> Ergon is in development and is not deployed at any live company today; no customer, pricing or revenue claims exist.</li>
-            <li><b>Local model &amp; fail-closed boundary:</b> v0.17.0 auto-connects to running local OpenAI-compatible gateways on loopback (or any provider configured live inside Settings); when no local gateway or API key is available, Ergon fails closed honestly and refuses to fabricate output.</li>
+            <li><b>Local model &amp; fail-closed boundary:</b> v0.18.0 auto-connects to running local OpenAI-compatible gateways on loopback (or any provider configured live inside Settings); when no local gateway or API key is available, Ergon fails closed honestly and refuses to fabricate output.</li>
           </ul>
         </section>
       </article>
@@ -194,10 +194,10 @@
         <h2>Evidence</h2>
         <dl class="repo-facts">
           <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/ergon">cayleb-james2008/ergon</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.17.0</b> · Single-binary Rust</dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.18.0</b> · Single-binary Rust</dd></div>
           <div class="repo-facts__row"><dt>checked</dt><dd>25 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.17.0</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/ergon/">Live web app</a> · <a href="https://github.com/cayleb-james2008/ergon">GitHub</a> · <a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.17.0">Release v0.17.0</a></dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.18.0</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/ergon/">Live web app</a> · <a href="https://github.com/cayleb-james2008/ergon">GitHub</a> · <a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.18.0">Release v0.18.0</a></dd></div>
         </dl>
         <p class="project-aside__more"><a href="../index.html">← Back to the interactive résumé</a></p>
       </aside>

@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Open-Ro Studio — Cayleb Alvarez-James</title>
-  <meta name="description" content="OpenRO v1.8.0: Studio Copilot 3-pane Roblox Studio AI IDE in a single fat-LTO Rust binary (14.75 MB, 57.6 KB gzip shell -68.4%, 16.38 MB Peak RSS -85.8%, 7,501 req/s 16w pinned, 2.48ms p95) — Deterministic Playtest Assertion Suite + 1-Click Re-Run, Monetization Tier Presets, and 306/306 Rust tests.">
+  <meta name="description" content="OpenRO v1.9.0: Studio Copilot 3-pane Roblox Studio AI IDE in a single fat-LTO Rust binary (14.79 MB, 25.87ms cold boot -95.6%, 57.6 KB gzip shell, 16.68 MB RSS, 7,087 req/s 16w pinned, 3.00ms p95) — 1-Click Playtest Failure -> Targeted Luau Auto-Fix Plan, wrapped Code toolbar, and 307/307 Rust tests.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/openro.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="Open-Ro Studio — Cayleb Alvarez-James">
-  <meta property="og:description" content="Studio Copilot 3-pane Roblox Studio AI IDE — 57.6 KB gzip shell (-68.4%), 16.38 MB Peak RSS (-85.8%), Deterministic Playtest Assertion Suite, 7,501 req/s (2.48ms p95), and 0/0/0 sloplint (v1.8.0).">
+  <meta property="og:description" content="Studio Copilot 3-pane Roblox Studio AI IDE — 25.87ms cold boot (-95.6%), 57.6 KB gzip shell, 16.68 MB RSS, 1-Click Playtest Auto-Fix Plan, 7,087 req/s (3.00ms p95), and 0/0/0 sloplint (v1.9.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/openro.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -41,16 +41,16 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Flagship v1.8.0 · Single-Binary Rust Desktop &amp; Web App · checked 25 November 2026</p>
+        <p class="case-hero__meta">Flagship v1.9.0 · Single-Binary Rust Desktop &amp; Web App · checked 25 November 2026</p>
         <h1 class="case-hero__title">Say the game. Build it live in Roblox Studio.</h1>
-        <p class="case-hero__out">Open-Ro Studio (OpenRO) is a <b>Studio Copilot 3-pane Roblox Studio AI IDE</b> served from a single fat-LTO cross-platform Rust binary (<code>14.75 MB</code>; Linux, macOS, and Windows <code>.exe</code> with chromeless desktop app launch) featuring <b>57.6 KB gzip initial shell</b> (<code>-68.4%</code> via immutable pre-gzipped <code>/chunks/*.woff2</code> &amp; <code>/chunks/*.js</code>), <b>16.38 MB peak RSS</b> (<code>-16.3%</code>, <code>-85.8%</code> vs v1.2.0), a <b>Deterministic Playtest Assertion Suite + 1-Click Re-Run</b> (structured per-room <code>Luau</code>/<code>Runtime</code>/<code>Core Loop</code>/<code>Economy</code>/<code>Visuals</code> assertions, deterministic <code>assertion_diff</code>, <code>/play</code> route &amp; JSON export), <b>Monetization Tier Presets &amp; 48h Comeback Retention Curve Designer</b>, <b>Unified Pre-Publish Gate</b>, <b>7,501.0 req/s</b> (<code>2.48 ms</code> p95 under 16w pinned isolation), and <code>OpenRoCompanion.lua</code>.</p>
+        <p class="case-hero__out">Open-Ro Studio (OpenRO) is a <b>Studio Copilot 3-pane Roblox Studio AI IDE</b> served from a single fat-LTO cross-platform Rust binary (<code>14.79 MB</code>; Linux, macOS, and Windows <code>.exe</code> with chromeless desktop app launch) featuring <b>25.87 ms pinned cold boot</b> (<code>-95.6%</code>, <code>22.6x</code> faster than v1.8.0, <code>56.9x</code> vs v1.2.0), <b>57.6 KB gzip initial shell</b>, <b>16.68 MB peak RSS</b> (<code>-85.5%</code> vs v1.2.0), <b>1-Click Playtest Failure → Targeted Luau Auto-Fix Plan</b> (<code>POST /api/projects/:id/playtests/fix-plan</code> + <b>Apply &amp; Re-Run Assertion</b>), wrapped Code Workbench toolbar, Monetization Tier Presets &amp; 48h Comeback Retention Curve, <b>7,087.2 req/s</b> (<code>3.00 ms</code> p95 under 16w pinned isolation), and <code>OpenRoCompanion.lua</code>.</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>v1.8.0 single-binary build · 57.6 KB gzip shell (-68.4%), 16.38 MB RSS (-85.8%), Deterministic Playtest Suite · 306/306 Rust tests · 7,501 req/s (2.48ms p95) · 10/10 Dual-SSE &amp; 23/23 fuzz PASS.</li>
-          <li><span class="chip chip--current">v1.8.0 public</span></li>
+          <li><span class="checked-dot" aria-hidden="true"></span>v1.9.0 single-binary build · 25.87ms cold boot (-95.6%), 16.68 MB RSS, Playtest Auto-Fix Plan · 307/307 Rust tests · 7,087 req/s (3.00ms p95) · 10/10 Dual-SSE &amp; 23/23 fuzz PASS.</li>
+          <li><span class="chip chip--current">v1.9.0 public</span></li>
         </ul>
         <div class="hero-actions">
           <a class="btn-primary" href="../demos/open-ro/">Launch live web app ↗</a>
-          <a class="btn-outline" href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.8.0" target="_blank" rel="noreferrer noopener">Release v1.8.0 on GitHub ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.9.0" target="_blank" rel="noreferrer noopener">Release v1.9.0 on GitHub ↗</a>
         </div>
       </div>
     </header>
@@ -65,25 +65,25 @@
       </nav>
 
       <section class="project-figures" id="figures" aria-labelledby="figures-h">
-        <h2 class="vis-kicker" id="figures-h">v1.8.0 Studio Copilot 3-pane Roblox Studio AI IDE &amp; walkthrough</h2>
+        <h2 class="vis-kicker" id="figures-h">v1.9.0 Studio Copilot 3-pane Roblox Studio AI IDE &amp; walkthrough</h2>
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">OpenRO v1.8.0 — Studio Copilot 3-Pane Roblox Studio AI IDE</span>
+              <span class="viz__title">OpenRO v1.9.0 — Studio Copilot 3-Pane Roblox Studio AI IDE</span>
               <span class="viz__live">live capture</span>
               <span class="viz__note">Studio Copilot · Appearance inside Settings</span>
             </div>
             <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/openro-v180-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of OpenRO v1.8.0">
-                <img src="../assets/projects/captures/openro-v180-light.png" alt="Live capture of OpenRO v1.8.0 Studio Copilot 3-pane Roblox Studio AI IDE in Light theme: Explorer DataModel dock, Studio 3D workspace, and Agent/Plan/Ask Copilot right pane." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-light" href="../assets/projects/captures/openro-v190-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of OpenRO v1.9.0">
+                <img src="../assets/projects/captures/openro-v190-light.png" alt="Live capture of OpenRO v1.9.0 Studio Copilot 3-pane Roblox Studio AI IDE in Light theme: Explorer DataModel dock, wrapped Code Workbench toolbar, Studio 3D workspace, and Agent/Plan/Ask Copilot pane." width="1440" height="900" loading="eager" decoding="async">
               </a>
-              <a class="shot-dark" href="../assets/projects/captures/openro-v180-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of OpenRO v1.8.0">
-                <img src="../assets/projects/captures/openro-v180-dark.png" alt="Live capture of OpenRO v1.8.0 Studio Copilot 3-pane Roblox Studio AI IDE in Dark theme: Explorer DataModel dock, Studio 3D workspace, and Agent/Plan/Ask Copilot pane." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-dark" href="../assets/projects/captures/openro-v190-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of OpenRO v1.9.0">
+                <img src="../assets/projects/captures/openro-v190-dark.png" alt="Live capture of OpenRO v1.9.0 Studio Copilot 3-pane Roblox Studio AI IDE in Dark theme: Explorer DataModel dock, wrapped Code Workbench toolbar, Studio 3D workspace, and Agent/Plan/Ask Copilot pane." width="1440" height="900" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured directly from OpenRO v1.8.0 at 1440×900 in Light and Dark themes. Try the real client-side 3-pane Studio Copilot IDE (Deterministic Playtest Assertion Suite + <code>Re-Run All Assertions</code> + JSON export at <code>/play</code>, Monetization Tier Presets &amp; 48h Comeback Retention Curve, Explorer dock, <code>Studio 3D</code>, <code>Code &amp; Diff</code> unified Luau hunks, Unified Pre-Publish Gate, <code>Studio MCP Tools (13)</code>, and <code>.rbxlx</code> / CRC-32 Rojo <code>.zip</code>) at <code>/demos/open-ro/</code>.</p>
-              <p class="viz__source">Source: cayleb-james2008/open-ro v1.8.0 · interactive Studio Copilot IDE at /demos/open-ro/</p>
+              <p class="viz__caption">Captured directly from OpenRO v1.9.0 at 1440×900 in Light and Dark themes. Try the real client-side 3-pane Studio Copilot IDE (1-Click Playtest <code>Fix Plan</code> → <code>Apply &amp; Re-Run Assertion</code> at <code>/play</code>, wrapped Code Workbench toolbar, Monetization Tier Presets &amp; 48h Comeback Retention Curve, Explorer dock, <code>Studio 3D</code>, Unified Pre-Publish Gate, <code>Studio MCP Tools (13)</code>, and <code>.rbxlx</code> / CRC-32 Rojo <code>.zip</code>) at <code>/demos/open-ro/</code>.</p>
+              <p class="viz__source">Source: cayleb-james2008/open-ro v1.9.0 · interactive Studio Copilot IDE at /demos/open-ro/</p>
               <p class="viz__action">
                 <a class="viz__open" href="../demos/open-ro/">open live web app ↗</a>
               </p>
@@ -143,22 +143,22 @@
           <section id="capabilities">
             <h2>What it does</h2>
             <div class="project-prose__body">
-              <p>OpenRO v1.8.0 turns Roblox game development into a <code>14.75 MB</code> fat-LTO 3-pane Studio Copilot IDE with <b>57.6 KB gzip initial shell</b> (<code>-68.4%</code>), <b>16.38 MB peak RSS</b> (<code>-16.3%</code>, <code>-85.8%</code> vs v1.2.0), a <b>Deterministic Playtest Assertion Suite + 1-Click Re-Run</b> (per-room JSON assertions, <code>assertion_diff</code>, <code>/play</code> route &amp; JSON export), <b>Monetization Tier Presets &amp; 48h Comeback Retention Curve Designer</b>, <b>Unified Pre-Publish Gate</b>, and <b>7,501.0 req/s</b> (<code>2.48 ms</code> p95 under 16w pinned isolation).</p>
+              <p>OpenRO v1.9.0 turns Roblox game development into a <code>14.79 MB</code> fat-LTO 3-pane Studio Copilot IDE with <b>25.87 ms pinned cold boot</b> (<code>-95.6%</code>, <code>22.6x</code> faster), <b>57.6 KB gzip initial shell</b>, <b>16.68 MB peak RSS</b> (<code>-85.5%</code> vs v1.2.0), <b>1-Click Playtest Failure → Targeted Luau Auto-Fix Plan</b>, cleanly wrapping Code Workbench toolbars, Monetization Tier Presets &amp; 48h Comeback Retention Curve Designer, Unified Pre-Publish Gate, and <b>7,087.2 req/s</b> (<code>3.00 ms</code> p95).</p>
               <div class="cap-grid">
                 <div class="cap-card">
-                  <span class="cap-card__tag">01 · Playtest Assertion Suite &amp; 1-Click Re-Run</span>
-                  <h3>Deterministic Luau, Runtime &amp; Loop checks</h3>
-                  <p>Structured per-room assertions (<code>Luau</code>, <code>Runtime</code>, <code>Core Loop</code>, <code>Economy</code>, <code>Visuals</code>, <code>Studio Checks</code>) track deterministic <code>fixed</code> / <code>regressed</code> / <code>unchanged_pass</code> diffs across <code>POST /api/projects/:id/playtests/rerun</code> and <code>/play</code> with JSON export.</p>
+                  <span class="cap-card__tag">01 · Playtest Failure -&gt; Luau Auto-Fix Plan</span>
+                  <h3>Draft, apply &amp; re-run in 1 click</h3>
+                  <p>Click <b>Fix Plan</b> on any failed room assertion (<code>Luau</code>, <code>Runtime</code>, <code>Core Loop</code>, <code>Economy</code>) to generate a targeted script diff via <code>/api/projects/:id/playtests/fix-plan</code>, then <b>Apply &amp; Re-Run Assertion</b> live or offline.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">02 · 57.6 KB Gzip Shell &amp; 16.4 MB RSS</span>
-                  <h3>-68.4% wire gzip &amp; 2.48ms p95</h3>
-                  <p>Externalizing self-hosted <code>Geist</code> / <code>Geist Mono</code> <code>.woff2</code> assets into immutable <code>ETag</code> <code>/chunks/*.woff2</code> routes trims initial <code>/</code> to <code>57,628 B</code> gzip and Peak RSS to <code>16.38 MB</code> while delivering <code>7,501.0 req/s</code> (16w pinned, <code>2.48 ms</code> p95).</p>
+                  <span class="cap-card__tag">02 · 25.87ms Pinned Boot &amp; 16.7 MB RSS</span>
+                  <h3>-95.6% faster startup &amp; 7,087 req/s</h3>
+                  <p>Replacing eager 42-thread boot storms with lazy on-demand worker pool scaling (<code>POOL_WORKERS_BOOT = 4 → 32</code>) and immutable <code>/chunks/*.woff2</code> routes achieves <code>25.87 ms</code> pinned boot and <code>3.00 ms</code> p95.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">03 · Monetization Presets, Pre-Publish &amp; Security</span>
+                  <span class="cap-card__tag">03 · Toolbar Polish, Monetization &amp; Security</span>
                   <h3>CRC-32 Ship Pack &amp; fail-closed limits</h3>
-                  <p>Combines genre monetization tier presets, 48h comeback retention curves, Pre-Publish Gate + IEEE CRC-32 Rojo verification alongside open-write <code>413</code>, Host-403, XXE/600-deep XML limits, and symlink confinement.</p>
+                  <p>Wrapped Code Workbench action toolbars, deterministic replay, genre monetization tier presets, and IEEE CRC-32 verification alongside open-write <code>413</code>, Host-403, XXE limits, and symlink confinement.</p>
                 </div>
               </div>
             </div>
@@ -167,13 +167,13 @@
           <section id="record">
             <h2>Verification record</h2>
             <div class="project-prose__body">
-              <p>Cold-verified, scale-audited, and cross-compiled against <code>cayleb-james2008/open-ro</code> at release <code>v1.8.0</code> (<code>06812707</code>).</p>
+              <p>Cold-verified, scale-audited, and cross-compiled against <code>cayleb-james2008/open-ro</code> at release <code>v1.9.0</code> (<code>88f15732</code>).</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Rust, Windows &amp; Clippy</th><td><b>306 of 306 Rust tests</b> (<code>73</code> unit + <code>233</code> integration across 21 suites incl. deterministic playtest assertions), <code>0</code> clippy warnings (<code>-D warnings</code>), and <code>0</code> Windows cross-check errors (<code>cargo xwin check --offline --target x86_64-pc-windows-msvc</code>).</td></tr>
-                  <tr><th>Scale, Dual-SSE &amp; Cold Fuzz Audit</th><td>Cold scale &amp; security audit on release binary (<code>14.75 MB</code>, <code>240,808 B</code> raw / <code>57,628 B</code> gzip initial shell `-68.4%` + pre-gz <code>/chunks/*</code>): <b>16.38 MB</b> peak RSS (<code>-16.3%</code>, <code>-85.8%</code> vs v1.2.0), <b>7,501.0 req/s</b> (16w pinned), <b>2.48 ms p95</b> (<code>-52.3%</code>, <code>2.07 ms</code> p50 across <code>18,761</code> reqs, <code>0</code> err), <b>10/10 (100.0%)</b> Dual-SSE survival, and <b>23/23</b> cold raw-TCP fuzz vectors passing.</td></tr>
-                  <tr><th>UI &amp; standalone web app</th><td><code>check:ui</code> passed (<code>gate 56/56</code>, <code>replay 9/9</code>, <code>sloplint --scope app --render</code> <b>0 FAIL / 0 REFLEX / 0 WARN</b>), <code>0</code> console/page errors, <code>0</code> overflow across <code>1440×900</code> &amp; <code>390×844</code> Light &amp; Dark, and offline <code>web-dist</code> (<code>1,550 kB</code>) verified with <code>0</code> external requests.</td></tr>
-                  <tr><th>Cross-platform packaging</th><td>Single Rust binary + chromeless desktop app launch (<code>--app</code>) across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> + <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.8.0" target="_blank" rel="noreferrer noopener">v1.8.0 Release</a>).</td></tr>
+                  <tr><th>Rust, Windows &amp; Clippy</th><td><b>307 of 307 Rust tests</b> (<code>73</code> unit + <code>234</code> integration across 21 suites incl. targeted assertion auto-fix plan), <code>0</code> clippy warnings (<code>-D warnings</code>), and <code>0</code> Windows cross-check errors (<code>cargo xwin check --offline --target x86_64-pc-windows-msvc</code>).</td></tr>
+                  <tr><th>Scale, Dual-SSE &amp; Cold Fuzz Audit</th><td>Cold scale &amp; security audit on release binary (<code>14.79 MB</code>, <code>240,858 B</code> raw / <code>57,637 B</code> gzip initial shell + 21 pre-gz <code>/chunks/*</code>): <b>25.87 ms</b> cold boot (<code>-95.6%</code>, <code>22.6x</code> faster), <b>16.68 MB</b> peak RSS (<code>-85.5%</code> vs v1.2.0), <b>7,087.2 req/s</b> (16w pinned), <b>3.00 ms p95</b> (<code>2.07 ms</code> p50 across <code>17,725</code> reqs, <code>0</code> err), <b>10/10 (100.0%)</b> Dual-SSE survival, and <b>23/23</b> cold raw-TCP fuzz vectors passing.</td></tr>
+                  <tr><th>UI &amp; standalone web app</th><td><code>check:ui</code> passed deterministically (<code>gate 56/56</code>, <code>replay 9/9</code>, <code>sloplint --scope app --render</code> <b>0 FAIL / 0 REFLEX / 0 WARN</b>), <code>0</code> console/page errors, <code>0</code> overflow across <code>1440×900</code> &amp; <code>390×844</code> Light &amp; Dark, and offline <code>web-dist</code> (<code>1,551 kB</code>) verified with <code>0</code> external requests.</td></tr>
+                  <tr><th>Cross-platform packaging</th><td>Single Rust binary + chromeless desktop app launch (<code>--app</code>) across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> + <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.9.0" target="_blank" rel="noreferrer noopener">v1.9.0 Release</a>).</td></tr>
                 </tbody>
               </table>
             </div>
@@ -183,8 +183,8 @@
         <section class="project-limits" id="limits" aria-labelledby="limits-h">
           <h2 id="limits-h">what is not verified</h2>
           <ul>
-            <li><b>Local Studio &amp; tool boundary:</b> v1.8.0 runs the full 3-pane Studio Copilot IDE, <code>Studio 3D</code>, <code>Code &amp; Diff</code> proposals, Deterministic Playtest Assertion Suite, Monetization Tier Presets &amp; 48h Comeback Retention Curve, Unified Pre-Publish Gate, Ship Readiness Autopilot, Tool Library, and <code>.rbxlx</code> / Rojo <code>.zip</code> exports in every browser and binary mode; directly embedded live Roblox Studio streaming, the Companion Studio Plugin bridge, and Blender mesh generation activate when Roblox Studio (or Vinegar on Linux) and Blender are installed locally on the host.</li>
-            <li><b>No published user or download metrics:</b> OpenRO is an open-source v1.8.0 build with no external adoption figures claimed.</li>
+            <li><b>Local Studio &amp; tool boundary:</b> v1.9.0 runs the full 3-pane Studio Copilot IDE, <code>Studio 3D</code>, <code>Code &amp; Diff</code> proposals, Playtest Auto-Fix Plan &amp; Apply, Monetization Tier Presets &amp; 48h Comeback Retention Curve, Unified Pre-Publish Gate, Ship Readiness Autopilot, Tool Library, and <code>.rbxlx</code> / Rojo <code>.zip</code> exports in every browser and binary mode; directly embedded live Roblox Studio streaming, the Companion Studio Plugin bridge, and Blender mesh generation activate when Roblox Studio (or Vinegar on Linux) and Blender are installed locally on the host.</li>
+            <li><b>No published user or download metrics:</b> OpenRO is an open-source v1.9.0 build with no external adoption figures claimed.</li>
           </ul>
         </section>
       </article>
@@ -193,10 +193,10 @@
         <h2>Evidence</h2>
         <dl class="repo-facts">
           <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/open-ro">cayleb-james2008/open-ro</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.8.0</b> · Single-binary Rust</dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.9.0</b> · Single-binary Rust</dd></div>
           <div class="repo-facts__row"><dt>checked</dt><dd>25 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.8.0</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/open-ro/">Live web app</a> · <a href="https://github.com/cayleb-james2008/open-ro">GitHub</a> · <a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.8.0">Release v1.8.0</a></dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.9.0</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/open-ro/">Live web app</a> · <a href="https://github.com/cayleb-james2008/open-ro">GitHub</a> · <a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.9.0">Release v1.9.0</a></dd></div>
         </dl>
         <p class="project-aside__more"><a href="../index.html">← Back to the interactive résumé</a></p>
       </aside>
