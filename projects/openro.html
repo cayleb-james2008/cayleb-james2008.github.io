@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Open-Ro Studio — Cayleb Alvarez-James</title>
-  <meta name="description" content="OpenRO v1.10.0: Studio Copilot 3-pane Roblox Studio AI IDE in a 10.90 MB Rust binary (-26.3%, -42.6% vs v1.1.0; 57.7 KB gzip shell, 34.03ms boot, 17.22 MB RSS, 4,444 req/s, 4.53ms p95) — 1-Click Launch Autopilot (Fix All + .rbxlx/.zip) and 308/308 Rust tests.">
+  <meta name="description" content="OpenRO v1.11.0: Studio Copilot 3-pane Roblox Studio AI IDE in a 10.98 MB Rust binary (-42.2% vs v1.1.0; 57.7 KB gz shell, 31.75ms boot, 16.45 MB RSS -4.5%, 4,528 req/s, 4.21ms p95) — Studio Economy &amp; Funnel Dry-Run Simulator, Launch Autopilot, and 309/309 Rust tests.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/openro.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="Open-Ro Studio — Cayleb Alvarez-James">
-  <meta property="og:description" content="Studio Copilot 3-pane Roblox Studio AI IDE — 10.90 MB binary (-26.3%), 57.7 KB gzip shell, 17.22 MB RSS, 1-Click Launch Autopilot (Fix All + .rbxlx/.zip), 4,444 req/s (4.53ms p95), and 0/0/0 sloplint (v1.10.0).">
+  <meta property="og:description" content="Studio Copilot 3-pane Roblox Studio AI IDE — 10.98 MB binary, 57.7 KB gz shell, 16.45 MB RSS (-4.5%), Studio Economy &amp; Funnel Dry-Run Simulator, 4,528 req/s (4.21ms p95), 26/26 fuzz, and 0/0/0 sloplint (v1.11.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/openro.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -41,16 +41,16 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Flagship v1.10.0 · Single-Binary Rust Desktop &amp; Web App · checked 25 November 2026</p>
+        <p class="case-hero__meta">Flagship v1.11.0 · Single-Binary Rust Desktop &amp; Web App · checked 25 November 2026</p>
         <h1 class="case-hero__title">Say the game. Build it live in Roblox Studio.</h1>
-        <p class="case-hero__out">Open-Ro Studio (OpenRO) is a <b>Studio Copilot 3-pane Roblox Studio AI IDE</b> served from a single cross-platform Rust binary (<code>10.90 MB</code>, <code>-26.3%</code> vs v1.9.0, <code>-42.6%</code> vs v1.1.0; Linux, macOS, and Windows <code>.exe</code> with chromeless desktop app launch) featuring <b>1-Click Launch Autopilot</b> (<code>POST /api/projects/:id/playtests/fix-all</code> batch-fixing failing Luau/Runtime/Monetization checks + CRC-32 verified <b>Export Ready (.rbxlx / .zip)</b> strip), <b>57.7 KB gzip initial shell</b>, <b>34.03 ms pinned cold boot</b> (<code>-94.2%</code> vs v1.8.0), <b>17.22 MB peak RSS</b> (<code>-85.0%</code> vs v1.2.0), <b>4,443.9 req/s</b> (<code>4.53 ms</code> p95 under 16w pinned isolation), and <code>OpenRoCompanion.lua</code>.</p>
+        <p class="case-hero__out">Open-Ro Studio (OpenRO) is a <b>Studio Copilot 3-pane Roblox Studio AI IDE</b> served from a single cross-platform Rust binary (<code>10.98 MB</code>, <code>&lt;11.5 MB</code>, <code>-42.2%</code> vs v1.1.0; Linux, macOS, and Windows <code>.exe</code> with chromeless desktop app launch) featuring a deterministic <b>Studio Economy &amp; Funnel Dry-Run Simulator</b> (<code>POST /api/projects/:id/monetization/simulate</code> &amp; <code>/api/studio/economy/simulate</code> projecting ARPDAU, D1/D7 retention lift, GamePass conversion %, 4-stage funnel, actionable revenue blockers &amp; JSON export), <b>1-Click Launch Autopilot</b>, <b>57.7 KB gzip initial shell</b>, <b>31.75 ms pinned cold boot</b> (<code>-6.7%</code>, <code>-94.6%</code> vs v1.8.0), <b>16.45 MB peak RSS</b> (<code>-4.5%</code>, <code>-85.7%</code> vs v1.2.0), <b>4,527.8 req/s</b> (<code>4.21 ms</code> p95 <code>-7.1%</code> under 16w pinned isolation), and <code>OpenRoCompanion.lua</code>.</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>v1.10.0 single-binary build · 10.90 MB (-26.3%), 1-Click Launch Autopilot, 17.22 MB RSS, 34.03ms boot · 308/308 Rust tests · 4,444 req/s (4.53ms p95) · 10/10 Dual-SSE &amp; 23/23 fuzz PASS.</li>
-          <li><span class="chip chip--current">v1.10.0 public</span></li>
+          <li><span class="checked-dot" aria-hidden="true"></span>v1.11.0 single-binary build · 10.98 MB, Economy &amp; Funnel Simulator, 16.45 MB RSS (-4.5%), 31.75ms boot · 309/309 Rust tests · 4,528 req/s (4.21ms p95) · 10/10 Dual-SSE &amp; 26/26 fuzz PASS.</li>
+          <li><span class="chip chip--current">v1.11.0 public</span></li>
         </ul>
         <div class="hero-actions">
           <a class="btn-primary" href="../demos/open-ro/">Launch live web app ↗</a>
-          <a class="btn-outline" href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.10.0" target="_blank" rel="noreferrer noopener">Release v1.10.0 on GitHub ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.11.0" target="_blank" rel="noreferrer noopener">Release v1.11.0 on GitHub ↗</a>
         </div>
       </div>
     </header>
@@ -65,25 +65,25 @@
       </nav>
 
       <section class="project-figures" id="figures" aria-labelledby="figures-h">
-        <h2 class="vis-kicker" id="figures-h">v1.10.0 Studio Copilot 3-pane Roblox Studio AI IDE &amp; walkthrough</h2>
+        <h2 class="vis-kicker" id="figures-h">v1.11.0 Studio Copilot 3-pane Roblox Studio AI IDE &amp; walkthrough</h2>
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">OpenRO v1.10.0 — Studio Copilot 3-Pane Roblox Studio AI IDE</span>
+              <span class="viz__title">OpenRO v1.11.0 — Studio Copilot 3-Pane Roblox Studio AI IDE</span>
               <span class="viz__live">live capture</span>
               <span class="viz__note">Studio Copilot · Appearance inside Settings</span>
             </div>
             <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/openro-v1100-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of OpenRO v1.10.0">
-                <img src="../assets/projects/captures/openro-v1100-light.png" alt="Live capture of OpenRO v1.10.0 Studio Copilot 3-pane Roblox Studio AI IDE in Light theme: Explorer DataModel dock, Studio 3D and Launch Autopilot workspace, and Agent/Plan/Ask Copilot pane." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-light" href="../assets/projects/captures/openro-v1110-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of OpenRO v1.11.0">
+                <img src="../assets/projects/captures/openro-v1110-light.png" alt="Live capture of OpenRO v1.11.0 Studio Copilot 3-pane Roblox Studio AI IDE in Light theme: Explorer DataModel dock, Studio 3D and Economy Simulator workspace, and Agent/Plan/Ask Copilot pane." width="1440" height="900" loading="eager" decoding="async">
               </a>
-              <a class="shot-dark" href="../assets/projects/captures/openro-v1100-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of OpenRO v1.10.0">
-                <img src="../assets/projects/captures/openro-v1100-dark.png" alt="Live capture of OpenRO v1.10.0 Studio Copilot 3-pane Roblox Studio AI IDE in Dark theme: Explorer DataModel dock, Studio 3D and Launch Autopilot workspace, and Agent/Plan/Ask Copilot pane." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-dark" href="../assets/projects/captures/openro-v1110-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of OpenRO v1.11.0">
+                <img src="../assets/projects/captures/openro-v1110-dark.png" alt="Live capture of OpenRO v1.11.0 Studio Copilot 3-pane Roblox Studio AI IDE in Dark theme: Explorer DataModel dock, Studio 3D and Economy Simulator workspace, and Agent/Plan/Ask Copilot pane." width="1440" height="900" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured directly from OpenRO v1.10.0 at 1440×900 in Light and Dark themes. Try the real client-side 3-pane Studio Copilot IDE (1-Click Launch Autopilot <code>Fix All Failing Checks</code> + CRC-32 <code>Export Ready (.rbxlx / .zip)</code> at <code>/play</code>, targeted Luau <code>Fix Plan</code>, Monetization Tier Presets &amp; 48h Comeback Retention Curve, Explorer dock, <code>Studio 3D</code>, Unified Pre-Publish Gate, <code>Studio MCP Tools (13)</code>, and Rojo <code>.zip</code>) at <code>/demos/open-ro/</code>.</p>
-              <p class="viz__source">Source: cayleb-james2008/open-ro v1.10.0 · interactive Studio Copilot IDE at /demos/open-ro/</p>
+              <p class="viz__caption">Captured directly from OpenRO v1.11.0 at 1440×900 in Light and Dark themes. Try the real client-side 3-pane Studio Copilot IDE (<b>Studio Economy &amp; Funnel Dry-Run Simulator</b> projecting ARPDAU, D1/D7 retention, GamePass conversion &amp; revenue blockers at <code>#/ship</code> and <code>/play</code>, 1-Click Launch Autopilot <code>Fix All Failing Checks</code> + CRC-32 <code>Export Ready (.rbxlx / .zip)</code>, targeted Luau <code>Fix Plan</code>, Explorer dock, <code>Studio 3D</code>, Unified Pre-Publish Gate, <code>Studio MCP Tools (13)</code>, and Rojo <code>.zip</code>) at <code>/demos/open-ro/</code>.</p>
+              <p class="viz__source">Source: cayleb-james2008/open-ro v1.11.0 · interactive Studio Copilot IDE at /demos/open-ro/</p>
               <p class="viz__action">
                 <a class="viz__open" href="../demos/open-ro/">open live web app ↗</a>
               </p>
@@ -143,22 +143,22 @@
           <section id="capabilities">
             <h2>What it does</h2>
             <div class="project-prose__body">
-              <p>OpenRO v1.10.0 turns Roblox game development into a <code>10.90 MB</code> cross-platform 3-pane Studio Copilot IDE (<code>-26.3%</code> vs v1.9.0, <code>-42.6%</code> vs v1.1.0) with <b>1-Click Launch Autopilot</b> (batch-fixing failing checks + CRC-32 verified <b>Export Ready (.rbxlx / .zip)</b> strip), <b>34.03 ms pinned cold boot</b> (<code>-94.2%</code> vs v1.8.0), <b>57.7 KB gzip initial shell</b>, <b>17.22 MB peak RSS</b> (<code>-85.0%</code> vs v1.2.0), Monetization Tier Presets &amp; 48h Comeback Retention Curve Designer, Unified Pre-Publish Gate, and <b>4,443.9 req/s</b> (<code>4.53 ms</code> p95).</p>
+              <p>OpenRO v1.11.0 turns Roblox game development into a <code>10.98 MB</code> cross-platform 3-pane Studio Copilot IDE (<code>&lt;11.5 MB</code>, <code>-42.2%</code> vs v1.1.0) with a deterministic <b>Studio Economy &amp; Funnel Dry-Run Simulator</b> (projecting ARPDAU, D1/D7 retention lift, GamePass conversion %, 4-stage funnel, actionable blockers &amp; 1-click JSON export), <b>1-Click Launch Autopilot</b>, <b>31.75 ms pinned cold boot</b> (<code>-6.7%</code>), <b>57.7 KB gzip initial shell</b>, <b>16.45 MB peak RSS</b> (<code>-4.5%</code>, <code>-85.7%</code> vs v1.2.0), opt-in Keep-Alive + vectored <code>IoSlice</code> writes, and <b>4,527.8 req/s</b> (<code>4.21 ms</code> p95).</p>
               <div class="cap-grid">
                 <div class="cap-card">
-                  <span class="cap-card__tag">01 · 1-Click Launch Autopilot &amp; CRC-32 Export</span>
-                  <h3>Fix all failing checks &amp; ship in 1 click</h3>
-                  <p>Run <b>Fix All Failing Checks</b> (<code>/api/projects/:id/playtests/fix-all</code>) to batch-fix Luau, Runtime &amp; Monetization checks, rebuild <code>.rbxl</code>, verify Ship Pack CRC-32 integrity, and export <code>.rbxlx</code> / <code>.zip</code> live or offline.</p>
+                  <span class="cap-card__tag">01 · Studio Economy &amp; Funnel Simulator</span>
+                  <h3>ARPDAU, D1/D7 &amp; conversion dry-runs</h3>
+                  <p><code>simulate_economy_funnel</code> (<code>POST /api/projects/:id/monetization/simulate</code> &amp; <code>/api/studio/economy/simulate</code>) models monetization + place structure across <code>/play</code> and <code>#/ship</code> with 1-click JSON export and full <code>web-engine</code> parity.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">02 · 10.90 MB Binary &amp; 17.2 MB Peak RSS</span>
-                  <h3>-26.3% binary diet &amp; 34.0ms cold boot</h3>
-                  <p>Enabling <code>panic = "abort"</code> and dependency <code>opt-level = "z"</code> (keeping <code>serde_json</code>/<code>flate2</code>/<code>sha2</code>/<code>openro-rs</code> at <code>"3"</code>) cuts release binary size to <code>10.90 MB</code> with <code>34.03 ms</code> pinned boot and <code>4.53 ms</code> p95.</p>
+                  <span class="cap-card__tag">02 · Keep-Alive &amp; 16.45 MB Peak RSS</span>
+                  <h3>-O3 hot crates in 10.98 MB binary</h3>
+                  <p>Selective <code>opt-level = 3</code> on JSON/compression/hash crates + <code>IoSlice</code> vectored Keep-Alive keep binary size at <code>10.98 MB</code> while cutting Cold Boot to <code>31.75 ms</code> and <code>p95</code> to <code>4.21 ms</code>.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">03 · Toolbar Polish, Monetization &amp; Security</span>
-                  <h3>CRC-32 Ship Pack &amp; fail-closed limits</h3>
-                  <p>Wrapped Code Workbench action toolbars, deterministic replay, genre monetization tier presets, and shared <code>project_ship_pack_integrity</code> checks alongside open-write <code>413</code>, Host-403, XXE limits, and symlink confinement.</p>
+                  <span class="cap-card__tag">03 · Launch Autopilot &amp; 26/26 Cold Fuzz</span>
+                  <h3>Fix all failing checks &amp; CRC-32 export</h3>
+                  <p><b>Fix All Failing Checks</b> batch-repairs failing Luau/Runtime/Monetization checks, rebuilds <code>.rbxl</code>, verifies Ship Pack CRC-32 integrity, and closes cleanly on 4xx/5xx/SSE/fuzz (<code>26/26</code> fuzz).</p>
                 </div>
               </div>
             </div>
@@ -167,13 +167,13 @@
           <section id="record">
             <h2>Verification record</h2>
             <div class="project-prose__body">
-              <p>Cold-verified, scale-audited, and cross-compiled against <code>cayleb-james2008/open-ro</code> at release <code>v1.10.0</code> (<code>93e88d15</code>).</p>
+              <p>Cold-verified, scale-audited, and cross-compiled against <code>cayleb-james2008/open-ro</code> at release <code>v1.11.0</code> (<code>9a5f98f1</code>).</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Rust, Windows &amp; Clippy</th><td><b>308 of 308 Rust tests</b> (<code>73</code> unit + <code>235</code> integration across 21 suites incl. Launch Autopilot fix-all &amp; export-ready), <code>0</code> clippy warnings (<code>-D warnings</code>), and <code>0</code> Windows cross-check errors (<code>cargo xwin check --offline --target x86_64-pc-windows-msvc</code>).</td></tr>
-                  <tr><th>Scale, Dual-SSE &amp; Cold Fuzz Audit</th><td>Cold scale &amp; security audit on release binary (<code>10.90 MB</code>, <code>241,397 B</code> raw / <code>57,727 B</code> gzip initial shell + 21 pre-gz <code>/chunks/*</code>): <b>34.03 ms</b> cold boot (<code>-94.2%</code> vs v1.8.0), <b>17.22 MB</b> peak RSS (<code>-85.0%</code> vs v1.2.0), <b>4,443.9 req/s</b> (16w pinned, <code>5.08x</code> vs v1.1.0), <b>4.53 ms p95</b> (<code>3.49 ms</code> p50 across <code>11,116</code> reqs, <code>0</code> err), <b>10/10 (100.0%)</b> Dual-SSE survival, and <b>23/23</b> cold raw-TCP fuzz vectors passing.</td></tr>
-                  <tr><th>UI &amp; standalone web app</th><td><code>check:ui</code> passed deterministically (<code>gate 56/56</code>, <code>replay 9/9</code>, <code>sloplint --scope app --render</code> <b>0 FAIL / 0 REFLEX / 0 WARN</b>), <code>0</code> console/page errors, <code>0</code> overflow across <code>1440×900</code> &amp; <code>390×844</code> Light &amp; Dark, and offline <code>web-dist</code> (<code>1,556 kB</code>) verified with <code>0</code> external requests.</td></tr>
-                  <tr><th>Cross-platform packaging</th><td>Single Rust binary + chromeless desktop app launch (<code>--app</code>) across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> + <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.10.0" target="_blank" rel="noreferrer noopener">v1.10.0 Release</a>).</td></tr>
+                  <tr><th>Rust, Windows &amp; Clippy</th><td><b>309 of 309 Rust tests</b> (<code>73</code> unit + <code>236</code> integration incl. Economy Funnel Simulator, Keep-Alive &amp; deterministic teamwork completion), <code>0</code> clippy warnings (<code>-D warnings</code>), and <code>0</code> Windows cross-check errors (<code>cargo xwin check --offline --target x86_64-pc-windows-msvc</code>).</td></tr>
+                  <tr><th>Scale, Dual-SSE &amp; Cold Fuzz Audit</th><td>Cold scale &amp; security audit on release binary (<code>10.98 MB</code>, <code>241,620 B</code> raw / <code>57,741 B</code> gzip initial shell + 21 pre-gz <code>/chunks/*</code>): <b>31.75 ms</b> cold boot (<code>-6.7%</code>, <code>-94.6%</code> vs v1.8.0), <b>16.45 MB</b> peak RSS (<code>-4.5%</code>, <code>-85.7%</code> vs v1.2.0), <b>4,527.8 req/s</b> (16w pinned, <code>5.17x</code> vs v1.1.0), <b>4.21 ms p95</b> (<code>-7.1%</code>, <code>3.51 ms</code> p50 across <code>11,327</code> reqs, <code>0</code> err), <b>10/10 (100.0%)</b> Dual-SSE survival, and <b>26/26</b> cold raw-TCP fuzz vectors passing.</td></tr>
+                  <tr><th>UI &amp; standalone web app</th><td><code>check:ui</code> passed deterministically (<code>gate 56/56</code>, <code>replay 9/9</code>, <code>sloplint --scope app --render</code> <b>0 FAIL / 0 REFLEX / 0 WARN</b>), <code>0</code> console/page errors, <code>0</code> overflow across <code>1440×900</code> &amp; <code>390×844</code> Light &amp; Dark, and offline <code>web-dist</code> (<code>1,567 kB</code>) verified with <code>0</code> external requests.</td></tr>
+                  <tr><th>Cross-platform packaging</th><td>Single Rust binary + chromeless desktop app launch (<code>--app</code>) across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> + <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.11.0" target="_blank" rel="noreferrer noopener">v1.11.0 Release</a>).</td></tr>
                 </tbody>
               </table>
             </div>
@@ -183,8 +183,8 @@
         <section class="project-limits" id="limits" aria-labelledby="limits-h">
           <h2 id="limits-h">what is not verified</h2>
           <ul>
-            <li><b>Local Studio &amp; tool boundary:</b> v1.10.0 runs the full 3-pane Studio Copilot IDE, <code>Studio 3D</code>, <code>Code &amp; Diff</code> proposals, Launch Autopilot (Fix All + Fix Plan), Monetization Tier Presets &amp; 48h Comeback Retention Curve, Unified Pre-Publish Gate, Ship Readiness Autopilot, Tool Library, and <code>.rbxlx</code> / Rojo <code>.zip</code> exports in every browser and binary mode; directly embedded live Roblox Studio streaming, the Companion Studio Plugin bridge, and Blender mesh generation activate when Roblox Studio (or Vinegar on Linux) and Blender are installed locally on the host.</li>
-            <li><b>No published user or download metrics:</b> OpenRO is an open-source v1.10.0 build with no external adoption figures claimed.</li>
+            <li><b>Local Studio &amp; tool boundary:</b> v1.11.0 runs the full 3-pane Studio Copilot IDE, Studio Economy &amp; Funnel Dry-Run Simulator, <code>Studio 3D</code>, <code>Code &amp; Diff</code> proposals, Launch Autopilot (Fix All + Fix Plan), Monetization Tier Presets &amp; 48h Comeback Retention Curve, Unified Pre-Publish Gate, Ship Readiness Autopilot, Tool Library, and <code>.rbxlx</code> / Rojo <code>.zip</code> exports in every browser and binary mode; directly embedded live Roblox Studio streaming, the Companion Studio Plugin bridge, and Blender mesh generation activate when Roblox Studio (or Vinegar on Linux) and Blender are installed locally on the host.</li>
+            <li><b>No published user or download metrics:</b> OpenRO is an open-source v1.11.0 build with no external adoption figures claimed.</li>
           </ul>
         </section>
       </article>
@@ -193,10 +193,10 @@
         <h2>Evidence</h2>
         <dl class="repo-facts">
           <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/open-ro">cayleb-james2008/open-ro</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.10.0</b> · Single-binary Rust</dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.11.0</b> · Single-binary Rust</dd></div>
           <div class="repo-facts__row"><dt>checked</dt><dd>25 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.10.0</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/open-ro/">Live web app</a> · <a href="https://github.com/cayleb-james2008/open-ro">GitHub</a> · <a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.10.0">Release v1.10.0</a></dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.11.0</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/open-ro/">Live web app</a> · <a href="https://github.com/cayleb-james2008/open-ro">GitHub</a> · <a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.11.0">Release v1.11.0</a></dd></div>
         </dl>
         <p class="project-aside__more"><a href="../index.html">← Back to the interactive résumé</a></p>
       </aside>
