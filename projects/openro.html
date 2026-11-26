@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Open-Ro Studio · Cayleb Alvarez-James</title>
-  <meta name="description" content="OpenRO v1.24.0 is a unified three-pane Rust AI IDE for Roblox Studio with a WebGL2 3D viewport, procedural terrain, dynamic lighting, LiveOps control plane, Visual ScreenGui Designer, headless Lune Luau sandbox, direct Rojo disk saves, and native .rbxlx export.">
+  <meta name="description" content="OpenRO v1.25.0 is a unified three-pane Rust AI IDE for Roblox Studio with a headless Lune Luau sandbox verifier, spatial and input runtime shims, WebGL2 3D viewport, LiveOps control plane, Visual ScreenGui Designer, direct Rojo disk saves, and native .rbxlx export.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/openro.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="Open-Ro Studio · Cayleb Alvarez-James">
-  <meta property="og:description" content="Unified three-pane Rust AI IDE for Roblox Studio with a WebGL2 3D viewport, procedural terrain, dynamic lighting, LiveOps DataStores, Remote Config, Visual ScreenGui Designer, headless Lune Luau sandboxing, and native .rbxlx export (v1.24.0).">
+  <meta property="og:description" content="Unified three-pane Rust AI IDE for Roblox Studio with a headless Lune Luau sandbox verifier, spatial and input runtime shims, WebGL2 3D viewport, LiveOps DataStores, Visual ScreenGui Designer, and native .rbxlx export (v1.25.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/openro.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -41,16 +41,16 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta"><img src="../assets/projects/openro-logo.svg" alt="OpenRO Studio geometric logo" width="20" height="20" style="vertical-align:-4px;margin-right:8px">Release v1.24.0 · Single-Binary Rust Desktop &amp; Web App · checked 26 November 2026</p>
+        <p class="case-hero__meta"><img src="../assets/projects/openro-logo.svg" alt="OpenRO Studio geometric logo" width="20" height="20" style="vertical-align:-4px;margin-right:8px">Release v1.25.0 · Single-Binary Rust Desktop &amp; Web App · checked 26 November 2026</p>
         <h1 class="case-hero__title">Build, sandbox, diff, and ship Roblox Studio games in one place.</h1>
-        <p class="case-hero__out">Open-Ro Studio (OpenRO) is a unified three-pane Rust IDE for Roblox Studio on Linux, macOS, and Windows. Release <code>v1.24.0</code> compiles into a <code>9.71 MiB</code> binary and adds a zero-dependency WebGL2 3D viewport with a <code>Canvas2D</code> fallback, procedural terrain presets (<code>flat</code>, <code>hills</code>, <code>island</code>, <code>canyon</code>, <code>paint_box</code>) backed by <code>scene/terrain.json</code> and deterministic <code>OpenROTerrain.server.luau</code> hooks, up to 8 dynamic <code>PointLight</code>, <code>SpotLight</code>, and <code>SurfaceLight</code> sources with <code>Day</code>, <code>Golden</code>, and <code>Night</code> sky gradients, PBR materials, <code>.obj</code> and texture previewing behind CWE-22/CWE-59 confined <code>mesh-asset</code> reads, and 3D ray-picking gizmos.</p>
+        <p class="case-hero__out">Open-Ro Studio (OpenRO) is a unified three-pane Rust IDE for Roblox Studio on Linux, macOS, and Windows. Release <code>v1.25.0</code> compiles into a <code>9.78 MiB</code> binary and wires the headless Lune <code>0.11.1</code> Luau sandbox verifier into Readiness, Publish Gate, Study Status, and Teamwork <code>game_code</code> checks. It persists <code>.openro/sandbox/*.json</code> proof runs with CWE-59 symlink checks, adds 3D OBB/AABB spatial queries (<code>Workspace:Raycast</code>, <code>GetPartsInPart</code>, <code>GetPartBoundsInBox</code>, <code>GetPartBoundsInRadius</code>), <code>MoveTo</code>/<code>Touched</code>, <code>ProximityPrompt</code>, <code>ClickDetector</code>, <code>UserInputService</code>, time-stepped <code>TweenService</code>, and offline <code>HttpService</code> <code>http_mocks</code>, and ships <code>SandboxRunnerCard</code> run history with <code>Headless Sandbox</code> and <code>Live Studio</code> readiness tier badges.</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>Checked at 341bc3d: 352/352 Rust tests, 132/132 Playwright gate checks, 11/11 replays, 7,494.8 req/s (2.45 ms p95), 38.68 ms boot, 13.14 MB peak RSS, 10/10 Dual-SSE, and 43/43 fuzz checks pass.</li>
-          <li><span class="chip chip--current">v1.24.0 public</span></li>
+          <li><span class="checked-dot" aria-hidden="true"></span>Checked at 6e925f6: 356/356 Rust tests, 168/168 Playwright gate checks, 11/11 replays, 5,691.4 req/s (3.72 ms p95), 38.21 ms boot, 13.06 MB peak RSS, 10/10 Dual-SSE, and 43/43 fuzz checks pass.</li>
+          <li><span class="chip chip--current">v1.25.0 public</span></li>
         </ul>
         <div class="hero-actions">
           <a class="btn-primary" href="../demos/open-ro/">Launch live web app ↗</a>
-          <a class="btn-outline" href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.24.0" target="_blank" rel="noreferrer noopener">Release v1.24.0 on GitHub ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.25.0" target="_blank" rel="noreferrer noopener">Release v1.25.0 on GitHub ↗</a>
         </div>
       </div>
     </header>
@@ -69,21 +69,21 @@
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">OpenRO v1.24.0 WebGL2 3D Viewport, Terrain &amp; Lighting</span>
+              <span class="viz__title">OpenRO v1.25.0 Headless Sandbox Verifier &amp; Readiness Tiers</span>
               <span class="viz__live">live capture</span>
               <span class="viz__note">Light and Dark inside Settings</span>
             </div>
             <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/openro-v1240-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of OpenRO v1.24.0">
-                <img src="../assets/projects/captures/openro-v1240-light.png" alt="OpenRO v1.24.0 Studio IDE in Light theme with WebGL2 3D Viewport, hills terrain, Day sky, and PointLight/SpotLight controls." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-light" href="../assets/projects/captures/openro-v1250-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of OpenRO v1.25.0">
+                <img src="../assets/projects/captures/openro-v1250-light.png" alt="OpenRO v1.25.0 Studio IDE in Light theme showing Ship Headless Sandbox Verifier run history, Spatial + Input builders, and Readiness tier badges." width="1440" height="900" loading="eager" decoding="async">
               </a>
-              <a class="shot-dark" href="../assets/projects/captures/openro-v1240-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of OpenRO v1.24.0">
-                <img src="../assets/projects/captures/openro-v1240-dark.png" alt="OpenRO v1.24.0 Studio IDE in Dark theme with WebGL2 3D Viewport, hills terrain, Night sky, and PointLight/SpotLight controls." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-dark" href="../assets/projects/captures/openro-v1250-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of OpenRO v1.25.0">
+                <img src="../assets/projects/captures/openro-v1250-dark.png" alt="OpenRO v1.25.0 Studio IDE in Dark theme showing Ship Headless Sandbox Verifier run history, Spatial + Input builders, and Readiness tier badges." width="1440" height="900" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured from OpenRO <code>v1.24.0</code> at <code>1440x900</code>. The browser edition at <code>/demos/open-ro/</code> mirrors the WebGL2 3D viewport (procedural terrain, dynamic lights, sky gradients, PBR materials, and 3D gizmos), LiveOps control plane (DataStores, MessagingService, Remote Config <code>LiveConfig.luau</code>, and Telemetry Funnel), Visual ScreenGui Designer and safe-area simulator, Headless Luau Sandbox simulator (<code>browser_sim</code>), unified Rojo workspace, Explorer, Economy Balance Simulator, Monetization Audit, Pre-Publish Guard, Sync Conflict Resolver, Snapshot Rollback, and Rojo <code>.zip</code> export.</p>
-              <p class="viz__source">Source: cayleb-james2008/open-ro v1.24.0 · browser edition at /demos/open-ro/</p>
+              <p class="viz__caption">Captured from OpenRO <code>v1.25.0</code> at <code>1440x900</code>. The browser edition at <code>/demos/open-ro/</code> mirrors the Headless Luau Sandbox verifier and persisted run history (<code>browser_sim</code>), WebGL2 3D viewport (procedural terrain, dynamic lights, sky gradients, PBR materials, and 3D gizmos), LiveOps control plane (DataStores, MessagingService, Remote Config <code>LiveConfig.luau</code>, and Telemetry Funnel), Visual ScreenGui Designer and safe-area simulator, unified Rojo workspace, Explorer, Economy Balance Simulator, Monetization Audit, Pre-Publish Guard, Sync Conflict Resolver, Snapshot Rollback, and Rojo <code>.zip</code> export.</p>
+              <p class="viz__source">Source: cayleb-james2008/open-ro v1.25.0 · browser edition at /demos/open-ro/</p>
               <p class="viz__action">
                 <a class="viz__open" href="../demos/open-ro/">open live web app ↗</a>
               </p>
@@ -146,19 +146,19 @@
               <p>OpenRO handles scaffolding, Luau code diffs, snapshot rollback, economy dry runs, and Studio packaging inside one workspace backed by a cross-platform Rust server.</p>
               <div class="cap-grid">
                 <div class="cap-card">
-                  <span class="cap-card__tag">01 · WebGL2 3D Viewport, Terrain &amp; Lighting</span>
-                  <h3>Procedural terrain, PBR shading, and 3D ray-picking gizmos</h3>
-                  <p>Zero-dependency WebGL2 renderer with <code>Canvas2D</code> fallback, context-loss recovery, <code>Day</code>/<code>Golden</code>/<code>Night</code> sky gradients, up to 8 dynamic lights, <code>scene/terrain.json</code> persistence with deterministic <code>OpenROTerrain.server.luau</code> hooks, and CWE-22/CWE-59 confined <code>mesh-asset</code> reads.</p>
+                  <span class="cap-card__tag">01 · Headless Sandbox Verifier &amp; Spatial Runtime</span>
+                  <h3>Persisted .openro/sandbox proofs, raycasts, tweens, and http_mocks</h3>
+                  <p>Lune <code>0.11.1</code> sandbox runs 3D OBB/AABB spatial queries, <code>MoveTo</code>/<code>Touched</code>, <code>ProximityPrompt</code>, <code>ClickDetector</code>, <code>UserInputService</code>, <code>TweenService</code>, and mocked <code>HttpService</code>, saving CWE-59 checked proofs that satisfy Readiness and Publish Gate without Roblox Studio.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">02 · 7,494.8 req/s &amp; 13.14 MB Peak RSS</span>
-                  <h3>38.68 ms cold boot inside a 9.71 MiB binary</h3>
-                  <p>At 16-worker pinned scale audit, OpenRO serves <code>7,494.8 req/s</code> (<code>2.1 ms</code> p50, <code>2.45 ms</code> p95, <code>0/18,746</code> errors) with a <code>38.68 ms</code> cold boot, <code>13.14 MB</code> peak RSS, and <code>56,777 B</code> gzip shell.</p>
+                  <span class="cap-card__tag">02 · 5,691.4 req/s &amp; 13.06 MB Peak RSS</span>
+                  <h3>38.21 ms cold boot inside a 9.78 MiB binary</h3>
+                  <p>At 16-worker pinned scale audit, OpenRO serves <code>5,691.4 req/s</code> (<code>2.71 ms</code> p50, <code>3.72 ms</code> p95, <code>0/14,235</code> errors) with a <code>38.21 ms</code> cold boot, <code>13.06 MB</code> peak RSS, and <code>56,796 B</code> gzip shell.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">03 · LiveOps, ScreenGui &amp; Lune Sandbox</span>
-                  <h3>Strict Luau compilation, Open Cloud DataStores, and 43/43 fuzz</h3>
-                  <p>Combines the LiveOps control plane, Visual ScreenGui Designer, and headless Lune <code>0.11.1</code> sandbox with path containment checks, loopback <code>Host</code> filters, and 43 passing raw-TCP fuzz vectors.</p>
+                  <span class="cap-card__tag">03 · WebGL2 3D Viewport, LiveOps &amp; ScreenGui</span>
+                  <h3>Procedural terrain, Open Cloud DataStores, and 43/43 fuzz</h3>
+                  <p>Combines the zero-dependency WebGL2 3D viewport, LiveOps control plane, and Visual ScreenGui Designer with path containment checks, loopback <code>Host</code> filters, and 43 passing raw-TCP fuzz vectors.</p>
                 </div>
               </div>
             </div>
@@ -167,13 +167,13 @@
           <section id="record">
             <h2>Verification record</h2>
             <div class="project-prose__body">
-              <p>Measured against <code>cayleb-james2008/open-ro</code> at release <code>v1.24.0</code> (<code>341bc3d</code>).</p>
+              <p>Measured against <code>cayleb-james2008/open-ro</code> at release <code>v1.25.0</code> (<code>6e925f6</code>).</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Rust, Windows &amp; Clippy</th><td>352 of 352 Rust tests pass across 36 suites (including <code>5/5</code> <code>v124_viewport_terrain</code> tests, <code>v123_liveops</code>, <code>v122_cycle2_hardening</code>, <code>v121_gui_designer</code>, <code>v120_sandbox_runtime</code>, and CWE-22/59 checks), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo xwin check --target x86_64-pc-windows-msvc</code>).</td></tr>
-                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>9.71 MiB release binary (<code>10,183,552 B</code>), <code>56,777 B</code> gzip initial shell, 38.68 ms cold boot, 13.14 MB peak RSS, 7,494.8 req/s (2.1 ms p50, 2.45 ms p95, 18,746 reqs, 0 errors), 10/10 Dual-SSE survival, and 43/43 cold raw-TCP fuzz checks pass.</td></tr>
-                  <tr><th>UI &amp; standalone web app</th><td><code>check:ui</code> passed 132/132 Playwright checks, 11/11 replays, 0 FAIL / 0 WARN Sloplint across <code>frontend/src</code>, zero console errors across <code>1440x900</code> and <code>390x844</code>, and offline <code>web-dist</code> (<code>1,924 KiB</code>) with zero external requests.</td></tr>
-                  <tr><th>Packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.24.0" target="_blank" rel="noreferrer noopener">v1.24.0 Release</a>).</td></tr>
+                  <tr><th>Rust, Windows &amp; Clippy</th><td>356 of 356 Rust tests pass across 37 suites (including <code>3/3</code> <code>v125_headless_sandbox</code> tests, <code>v124_viewport_terrain</code>, <code>v123_liveops</code>, <code>v122_cycle2_hardening</code>, <code>v121_gui_designer</code>, <code>v120_sandbox_runtime</code>, and CWE-22/59 checks), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo xwin check --target x86_64-pc-windows-msvc</code>).</td></tr>
+                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>9.78 MiB release binary (<code>10,253,184 B</code>), <code>56,796 B</code> gzip initial shell, 38.21 ms cold boot, 13.06 MB peak RSS, 5,691.4 req/s (2.71 ms p50, 3.72 ms p95, 14,235 reqs, 0 errors), 10/10 Dual-SSE survival, and 43/43 cold raw-TCP fuzz checks pass.</td></tr>
+                  <tr><th>UI &amp; standalone web app</th><td><code>check:ui</code> passed 168/168 Playwright checks, 11/11 replays, 0 FAIL / 0 WARN Sloplint across <code>frontend/src</code>, zero console errors across <code>1440x900</code> and <code>390x844</code>, and offline <code>web-dist</code> (<code>1,945 KiB</code>) with zero external requests.</td></tr>
+                  <tr><th>Packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.25.0" target="_blank" rel="noreferrer noopener">v1.25.0 Release</a>).</td></tr>
                 </tbody>
               </table>
             </div>
@@ -193,10 +193,10 @@
         <h2>Evidence</h2>
         <dl class="repo-facts">
           <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/open-ro">cayleb-james2008/open-ro</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.24.0</b> · Single-binary Rust</dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.25.0</b> · Single-binary Rust</dd></div>
           <div class="repo-facts__row"><dt>checked</dt><dd>26 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.24.0</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/open-ro/">Live web app</a> · <a href="https://github.com/cayleb-james2008/open-ro">GitHub</a> · <a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.24.0">Release v1.24.0</a></dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.25.0</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/open-ro/">Live web app</a> · <a href="https://github.com/cayleb-james2008/open-ro">GitHub</a> · <a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.25.0">Release v1.25.0</a></dd></div>
         </dl>
         <p class="project-aside__more"><a href="../index.html">← Back to home</a></p>
       </aside>
