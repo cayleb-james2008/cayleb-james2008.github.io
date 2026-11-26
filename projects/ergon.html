@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Ergon · Cayleb Alvarez-James</title>
-  <meta name="description" content="Ergon v0.31.0 is a single-binary Rust desktop and web desk for local employee agents with signed inbound webhooks, loopback watched folders, policy-gated outbound connectors, Deliverable Studio editing, fixed-point table queries, native PDF 1.4 export, and SHA-256 receipts.">
+  <meta name="description" content="Ergon v0.32.0 is a single-binary Rust desktop and web desk for local employee agents with hardened resumable pipelines, Deliverable Studio editing, fixed-point table queries, native PDF 1.4 export, signed inbound webhooks, watched folders, policy-gated outbound connectors, and SHA-256 receipts.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/ergon.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="Ergon · Cayleb Alvarez-James">
-  <meta property="og:description" content="Single-binary Rust desktop and web desk for local employee agents with signed inbound webhooks, watched folders, policy-gated outbound connectors, Deliverable Studio, and SHA-256 receipts (v0.31.0).">
+  <meta property="og:description" content="Single-binary Rust desktop and web desk for local employee agents with hardened resumable pipelines, Deliverable Studio editing, signed webhooks, watched folders, policy-gated outbound connectors, and SHA-256 receipts (v0.32.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/ergon.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -41,16 +41,16 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Release v0.31.0 · Single-Binary Rust Desktop &amp; Web App · checked 26 November 2026</p>
+        <p class="case-hero__meta">Release v0.32.0 · Single-Binary Rust Desktop &amp; Web App · checked 26 November 2026</p>
         <h1 class="case-hero__title">Local workflows for one employee desk.</h1>
-        <p class="case-hero__out">Ergon ships as a single <code>7.92 MiB</code> cross-platform Rust binary for Linux, macOS, and Windows. Release <code>v0.31.0</code> adds signed inbound webhooks (<code>POST /api/hooks/:hook_id</code>), loopback watched folders with SHA-256 intake deduplication, and policy-gated outbound connectors (<code>http_webhook</code>, <code>rest_api</code>, <code>smtp_relay</code>, and <code>invoke_connector</code>) with <code>0600</code> <code>connector_secrets.json</code> isolation, <code>Air-Gapped</code> blocking, and Today <code>connector_delivery</code> approval cards alongside Deliverable Studio editing, native PDF 1.4 and formula <code>.xlsx</code> export, resumable <code>steps_v2</code> pipelines, and SHA-256 receipts.</p>
+        <p class="case-hero__out">Ergon ships as a single <code>7.95 MiB</code> cross-platform Rust binary for Linux, macOS, and Windows. Release <code>v0.32.0</code> hardens <code>steps_v2</code> pipeline recovery and step-reference bounds, UTF-8 and null-byte table validation with spreadsheet and PDF caps, <code>HISTORY_LOCK</code> SHA-256 file edits with unsaved-draft guards, and connector intake and egress with <code>X-Ergon-Timestamp</code> and <code>X-Ergon-Delivery</code> HMAC replay protection, encoded secret redaction, and private IP egress blocks.</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>Checked at dcdb450c2: 246/246 Rust tests, 84/84 gate + 6/6 graph + 20/20 replay, 5.94 ms boot, 8,194.5 req/s (2.29 ms p95), 16.96 MB peak RSS, 5/5 SSE, and 44/44 fuzz pass.</li>
-          <li><span class="chip chip--current">v0.31.0 public</span></li>
+          <li><span class="checked-dot" aria-hidden="true"></span>Checked at 294f985a7: 257/257 Rust tests, 89/89 gate + 6/6 graph + 20/20 replay, 10.01 ms boot, 4,821.3 req/s (4.99 ms p95), 17.92 MB peak RSS, 5/5 SSE, and 44/44 fuzz pass.</li>
+          <li><span class="chip chip--current">v0.32.0 public</span></li>
         </ul>
         <div class="hero-actions">
           <a class="btn-primary" href="../demos/ergon/">Launch live web app ↗</a>
-          <a class="btn-outline" href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.31.0" target="_blank" rel="noreferrer noopener">Release v0.31.0 on GitHub ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.32.0" target="_blank" rel="noreferrer noopener">Release v0.32.0 on GitHub ↗</a>
         </div>
       </div>
     </header>
@@ -69,21 +69,21 @@
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">Ergon v0.31.0 Inbound Triggers &amp; Connectors</span>
+              <span class="viz__title">Ergon v0.32.0 Hardened Workbench</span>
               <span class="viz__live">live capture</span>
               <span class="viz__note">Light and Dark inside Settings</span>
             </div>
             <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/ergon-v0310-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Ergon v0.31.0">
-                <img src="../assets/projects/captures/ergon-v0310-light.png" alt="Ergon v0.31.0 workspace in Light theme showing Connectors modal with Inbound Webhooks, Watched Folders, Outbound Actions, Delivery Log, and Today approval card." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-light" href="../assets/projects/captures/ergon-v0320-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Ergon v0.32.0">
+                <img src="../assets/projects/captures/ergon-v0320-light.png" alt="Ergon v0.32.0 workspace in Light theme showing Today approval card, Starter playbooks, and Workspace files inspector." width="1440" height="900" loading="eager" decoding="async">
               </a>
-              <a class="shot-dark" href="../assets/projects/captures/ergon-v0310-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Ergon v0.31.0">
-                <img src="../assets/projects/captures/ergon-v0310-dark.png" alt="Ergon v0.31.0 workspace in Dark theme showing Connectors modal with Inbound Webhooks, Watched Folders, Outbound Actions, Delivery Log, and Today approval card." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-dark" href="../assets/projects/captures/ergon-v0320-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Ergon v0.32.0">
+                <img src="../assets/projects/captures/ergon-v0320-dark.png" alt="Ergon v0.32.0 workspace in Dark theme showing Today approval card, Starter playbooks, and Workspace files inspector." width="1440" height="900" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured from Ergon <code>v0.31.0</code> at <code>1440x900</code>. The browser edition at <code>/demos/ergon/</code> runs on local IndexedDB with Connectors parity (<code>Inbound Webhooks</code>, <code>Watched Folders</code>, <code>Outbound Actions</code>, and <code>Delivery Log</code>), inline Deliverable Studio editing, CSV Table Query rollups, PDF 1.4 and XLSX exports, and resumable <code>steps_v2</code> workflows.</p>
-              <p class="viz__source">Source: cayleb-james2008/ergon v0.31.0 · browser edition at /demos/ergon/</p>
+              <p class="viz__caption">Captured from Ergon <code>v0.32.0</code> at <code>1440x900</code>. The browser edition at <code>/demos/ergon/</code> runs on local IndexedDB with hardened <code>steps_v2</code> pipelines, inline Deliverable Studio editing with unsaved-draft guards, CSV Table Query rollups, PDF 1.4 and XLSX exports, and Connectors parity.</p>
+              <p class="viz__source">Source: cayleb-james2008/ergon v0.32.0 · browser edition at /demos/ergon/</p>
               <p class="viz__action">
                 <a class="viz__open" href="../demos/ergon/">open live web app ↗</a>
               </p>
@@ -146,19 +146,19 @@
               <p>Ergon runs employee playbooks inside one Rust binary with pre-gzipped UI chunks embedded directly in <code>.rodata</code>.</p>
               <div class="cap-grid">
                 <div class="cap-card">
-                  <span class="cap-card__tag">01 · Starter Playbooks &amp; Handoff</span>
-                  <h3>Launch three bundled playbooks straight to ZIP</h3>
-                  <p><code>Weekly Client Digest</code>, <code>Repo Release Audit</code>, and <code>Research Brief + Citation Pack</code> ship compressed in the binary (`GET /api/playbooks/starters`, <code>StarterPlaybooksBar</code>) with 1-click Launch and Client Handoff ZIP export.</p>
+                  <span class="cap-card__tag">01 · Resumable Pipeline Bounds</span>
+                  <h3>Startup recovery and atomic state checks</h3>
+                  <p><code>steps_v2</code> recovery settles stale runs and steps on boot, resolves <code>{{steps.prev.*}}</code> under depth (16), expansion (128), and output (256 KB) caps, and serializes <code>/resume</code>, <code>/retry</code>, and <code>/cancel</code> with <code>409 Conflict</code>.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">02 · 16.72 MB Peak RSS &amp; 5,674.4 req/s</span>
-                  <h3>Zero-clone ZIP writing and single leak buffer</h3>
-                  <p>Writing ZIP entries via <code>zip_write_refs</code>, reusing cached <code>PersonIndex</code> chains, and scanning files with one shared read buffer trim Peak RSS <code>-24.1%</code> (<code>-5.30 MB</code>) and lift HTTP <code>+18.1%</code> to <code>5,674.4 req/s</code>.</p>
+                  <span class="cap-card__tag">02 · Studio &amp; Table Integrity</span>
+                  <h3>Atomic file locking and parse caps</h3>
+                  <p>Table loading rejects invalid UTF-8 and null bytes (<code>HTTP 400</code>) and caps spreadsheets at <code>200,000</code> rows, <code>1,024</code> columns, and <code>2,000,000</code> cells, while <code>HISTORY_LOCK</code> serializes SHA-256 edits and keeps unsaved drafts across <code>409</code> conflicts.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">03 · Policy Profiles &amp; Security</span>
-                  <h3>44 raw-TCP fuzz checks pass</h3>
-                  <p>Workspace policy profiles (<code>Strict Client</code> 409 conflict gates on leaks and citations, <code>Air-Gapped</code> fetch block), starter launch validation, and CRC-32/ZIP-slip/CWE-22/CWE-59 guards hit <code>3.38 ms</code> p95.</p>
+                  <span class="cap-card__tag">03 · Signed Intake &amp; Egress Policy</span>
+                  <h3>Replay windows and encoded redaction</h3>
+                  <p>Webhooks verify <code>X-Ergon-Timestamp</code> (300s), <code>{ts}.{body}</code> HMAC, and <code>X-Ergon-Delivery</code> replay caches, egress blocks private and metadata IPs, and redaction masks JSON, URL, Base64, and hex secret echoes.</p>
                 </div>
               </div>
             </div>
@@ -167,14 +167,14 @@
           <section id="record">
             <h2>Verification record</h2>
             <div class="project-prose__body">
-              <p>Measured against <code>cayleb-james2008/ergon</code> at release <code>v0.31.0</code> (<code>dcdb450c2</code>).</p>
+              <p>Measured against <code>cayleb-james2008/ergon</code> at release <code>v0.32.0</code> (<code>294f985a7</code>).</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Rust, Windows &amp; Clippy</th><td>246 of 246 Rust tests pass across 10 suites (including <code>connectors_v031</code> HMAC webhooks, watched folders, <code>0600</code> secret masking, and policy gates), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo xwin check --target x86_64-pc-windows-msvc</code>).</td></tr>
-                  <tr><th>Security &amp; boundaries</th><td>Constant-time HMAC/token verification on <code>POST /api/hooks/:hook_id</code>, system/credential path rejection on watched folders, <code>0600</code> <code>connector_secrets.json</code> isolation with post-egress substitution and run redaction, <code>Air-Gapped</code> blocking, <code>Strict Client</code> approvals, Host-403, and CWE-22/CWE-59 guards.</td></tr>
-                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>7.92 MiB release binary (<code>8,303,456 B</code>), <code>36,935 B</code> gzip initial shell plus pre-gzipped <code>/chunks/*</code>, 5.94 ms cold boot, 16.96 MB peak RSS under 5k-receipt + 500-file + 5-SSE load, 8,194.5 req/s (1.89 ms p50, 2.29 ms p95, 20,493 reqs, 0 errors), 5/5 SSE survival, and 44/44 fuzz pass.</td></tr>
-                  <tr><th>UI &amp; standalone web app</th><td>84 of 84 Playwright UI checks, 6 of 6 Work Graph probes, 20 of 20 deterministic replays, 0 FAIL / 0 WARN Sloplint, zero console errors across <code>1440x900</code> and <code>390x844</code> Light and Dark viewports, and standalone <code>ergon-web.html</code> (<code>1,352 kB</code>) with zero third-party requests.</td></tr>
-                  <tr><th>Cross-platform packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.31.0" target="_blank" rel="noreferrer noopener">v0.31.0 Release</a>).</td></tr>
+                  <tr><th>Rust, Windows &amp; Clippy</th><td>257 of 257 Rust tests pass across 11 suites (including <code>11/11</code> <code>hardening_v032</code> pipeline recovery, table validation, <code>HISTORY_LOCK</code> edits, and HMAC replay checks), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo check --target x86_64-pc-windows-msvc</code>).</td></tr>
+                  <tr><th>Security &amp; boundaries</th><td><code>X-Ergon-Timestamp</code> (<code>300s</code>), <code>{ts}.{body}</code> HMAC, and <code>X-Ergon-Delivery</code> replay verification on <code>POST /api/hooks/:hook_id</code>, symlink and <code>..</code> traversal guards on watched folders, <code>1 MB</code> (<code>413</code>) body caps, encoded secret redaction, private/metadata IP egress blocks, <code>Air-Gapped</code> blocking, <code>Strict Client</code> approvals, Host-403, and CWE-22/CWE-59 guards.</td></tr>
+                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>7.95 MiB release binary (<code>8,340,320 B</code>), <code>37,027 B</code> gzip initial shell (<code>162,949 B</code> raw) plus pre-gzipped <code>/chunks/*</code>, 10.01 ms cold boot, 17.92 MB peak RSS under 5k-receipt + 500-file + 5-SSE load, 4,821.3 req/s (4.99 ms p95, 12,060 reqs, 0 errors), 5/5 SSE survival, and 44/44 fuzz pass.</td></tr>
+                  <tr><th>UI &amp; standalone web app</th><td>89 of 89 Playwright UI checks, 6 of 6 Work Graph probes, 20 of 20 deterministic replays, 0 FAIL / 0 WARN / 0 REFLEX Sloplint across <code>frontend/src</code> and rendered app, zero console errors across <code>1440x900</code> and <code>390x844</code> Light and Dark viewports, and standalone <code>ergon-web.html</code> (<code>1,369 kB</code>) with zero third-party requests.</td></tr>
+                  <tr><th>Cross-platform packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.32.0" target="_blank" rel="noreferrer noopener">v0.32.0 Release</a>).</td></tr>
                 </tbody>
               </table>
             </div>
@@ -194,10 +194,10 @@
         <h2>Evidence</h2>
         <dl class="repo-facts">
           <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/ergon">cayleb-james2008/ergon</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.31.0</b> · Single-binary Rust</dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.32.0</b> · Single-binary Rust</dd></div>
           <div class="repo-facts__row"><dt>checked</dt><dd>26 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.31.0</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/ergon/">Live web app</a> · <a href="https://github.com/cayleb-james2008/ergon">GitHub</a> · <a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.31.0">Release v0.31.0</a></dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.32.0</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/ergon/">Live web app</a> · <a href="https://github.com/cayleb-james2008/ergon">GitHub</a> · <a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.32.0">Release v0.32.0</a></dd></div>
         </dl>
         <p class="project-aside__more"><a href="../index.html">← Back to home</a></p>
       </aside>
