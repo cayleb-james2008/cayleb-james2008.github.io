@@ -43,7 +43,7 @@ export const experience = [
     date: "Oct 2025 to Present",
     org: "Founder · Independent AI Agent Systems",
     bullets: [
-      "Built Ergon (v0.30.0) as a single-binary Rust desk for local employee agents. Runs resumable hybrid workflows (`steps_v2`), inline Markdown/CSV Deliverable Studio editing with optimistic locks and `.history/` snapshots, fixed-point table queries (`query_table`), surgical `patch_file` edits, pure-Rust PDF 1.4 and multi-sheet formula `.xlsx` export, client handoff ZIP bundles with leak pre-checks, offline evidence verification (`ergon verify`), and SHA-256 receipts. Ergon is still in development and has not been installed at a customer company.",
+      "Built Ergon (v0.31.0) as a single-binary Rust desk for local employee agents. Adds signed inbound webhooks (`POST /api/hooks/:hook_id`), loopback watched folders with SHA-256 deduplication, and policy-gated outbound connectors (`http_webhook`, `rest_api`, `smtp_relay`, `invoke_connector`) with `0600` credential isolation, alongside resumable hybrid workflows (`steps_v2`), inline Markdown/CSV Deliverable Studio editing, fixed-point table queries (`query_table`), pure-Rust PDF 1.4 and formula `.xlsx` export, client handoff ZIP bundles, offline evidence verification (`ergon verify`), and SHA-256 receipts. Ergon is still in development and has not been installed at a customer company.",
       "Built Fleet (v1.22.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It adds an operator swarm command and channel control plane (POST /api/control) for channel-filtered board posts, worker spawning, model switching, 409 worktree-guarded worker kills, channel management, and gate verdicts alongside clickable #seq reply backlink chips, normalized native plan.json CAS editing, cross-worktree collision and merge-tree checks, zero-client idle sleep, sanitized archive export, and 8 KB transcript peeks.",
       "Built OpenRO (v1.21.0), a unified three-pane Rust IDE for Roblox Studio adding a Visual ScreenGui and HUD Designer (12-class allowlist, drag and 8-handle resize, `art/**` and `ProductId` pickers), Desktop/Tablet/Mobile safe-area simulator, and deterministic `--!strict` Luau (`ScreenModule.create`) plus Rojo `.model.json` compiler alongside the headless Lune Luau runtime sandbox, direct Rojo workspace and 3D scene editing, native `.rbxlx` export, 13 MCP tools, and 60-minute economy curves.",
     ],
@@ -244,7 +244,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.21.0, OpenBell v0.9.0, Fleet v1.22.0, and Ergon v0.30.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.21.0, OpenBell v0.9.0, Fleet v1.22.0, and Ergon v0.31.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
