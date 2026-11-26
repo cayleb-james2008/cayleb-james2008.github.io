@@ -89,6 +89,8 @@ function ProjectCard({ p, onOpenDemo }: { p: Project; onOpenDemo: (key: string) 
           <a className={`${tapTarget} w-fit font-mono text-xs text-ink-2 underline-offset-4 hover:text-ink hover:underline active:text-blue`} href={`https://${p.repo}`} target="_blank" rel="noreferrer noopener">
             {p.repo}
           </a>
+        ) : p.repoPrivate ? (
+          <span className="w-fit font-mono text-xs text-ink-2">private repo</span>
         ) : null}
       </div>
       {p.capture ? (

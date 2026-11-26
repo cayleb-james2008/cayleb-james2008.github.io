@@ -62,6 +62,8 @@ export type Project = {
   kind: string;
   stack: string;
   repo?: string;
+  /** The repo exists but is private: show the label, no link. */
+  repoPrivate?: boolean;
   figure?: string;
   status: string;
   steps: { title: string; sub: string }[];
@@ -84,7 +86,7 @@ export const projects: Project[] = [
     name: "Sophos",
     kind: "Coding-Agent Desktop App",
     stack: "React, TypeScript, Tauri",
-    repo: "github.com/cayleb-james2008/sophos",
+    repoPrivate: true,
     figure: "1,224 interface tests · 82 Node tests",
     status: "merged after hosted CI",
     stepsLead: "how it works · from the resume description",
@@ -106,7 +108,7 @@ export const projects: Project[] = [
     name: "dotz",
     kind: "AI Coding Agent Dashboard",
     stack: "Rust, Tauri, JavaScript, SQLite",
-    repo: "github.com/cayleb-james2008/dotz",
+    repoPrivate: true,
     figure: "828+ core tests",
     status: "merged",
     stepsLead: "how it works · from the resume description",
@@ -148,7 +150,7 @@ export const projects: Project[] = [
     name: "Industry AI Suite",
     kind: "Source-Checked Review Tools",
     stack: "Python",
-    repo: "github.com/cayleb-james2008/industry-ai-suite",
+    repoPrivate: true,
     figure: "382 Python tests",
     status: "",
     stepsLead: "how it works · from the resume description",
