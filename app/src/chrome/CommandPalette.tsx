@@ -22,14 +22,14 @@ type Props = {
 };
 
 const PROJECT_PAGES = [
-  { label: "Open-Ro Studio — Roblox Studio AI IDE", href: "/projects/openro.html", meta: "flagship" },
-  { label: "OpenBell — Kalshi v2 Trading & Quant Desk", href: "/projects/openbell.html", meta: "flagship" },
-  { label: "Fleet — Parallel Coding Agents", href: "/projects/fleet.html", meta: "flagship" },
-  { label: "Ergon — Employee Agent Desk", href: "/projects/ergon.html", meta: "product" },
-  { label: "Industry AI Suite — 10 Review Tools", href: "/projects/industry-ai-suite.html", meta: "suite" },
-  { label: "Sophos — Coding-Agent Desktop App", href: "/projects/sophos.html", meta: "desktop" },
-  { label: "dotz — Multi-Agent Harness Desktop", href: "/projects/dotz.html", meta: "desktop" },
-  { label: "Asmodeus — Chronological Backtesting", href: "/projects/asmodeus.html", meta: "research" },
+  { label: "Open-Ro Studio: Roblox Studio AI IDE", href: "/projects/openro.html", meta: "app" },
+  { label: "OpenBell: Kalshi v2 Trading & Quant Desk", href: "/projects/openbell.html", meta: "app" },
+  { label: "Fleet: Antigravity Swarm Sidebar Plugin", href: "/projects/fleet.html", meta: "plugin" },
+  { label: "Ergon: Employee Agent Desk", href: "/projects/ergon.html", meta: "app" },
+  { label: "Industry AI Suite: 10 Review Tools", href: "/projects/industry-ai-suite.html", meta: "suite" },
+  { label: "Sophos: Coding-Agent Desktop App", href: "/projects/sophos.html", meta: "desktop" },
+  { label: "dotz: Multi-Agent Harness Desktop", href: "/projects/dotz.html", meta: "desktop" },
+  { label: "Asmodeus: Chronological Backtesting", href: "/projects/asmodeus.html", meta: "research" },
   { label: "All 18 Project Pages", href: "/projects/", meta: "index" },
 ];
 
@@ -81,7 +81,7 @@ export function CommandPalette({ open, onOpenChange, onOpenDemo }: Props) {
                   onSelect={() => run(() => onOpenDemo(d.key))}
                 >
                   <Play className="size-4 text-blue" strokeWidth={1.6} aria-hidden />
-                  <span className="truncate">{d.key} — launch in frame</span>
+                  <span className="truncate">{d.key}: launch in frame</span>
                   <CommandShortcut className="font-mono text-xs tracking-normal text-ink-2">{d.tag}</CommandShortcut>
                 </CommandItem>
               ))}
@@ -90,7 +90,7 @@ export function CommandPalette({ open, onOpenChange, onOpenDemo }: Props) {
                 onSelect={() => run(() => { window.location.assign("/demos/ergon/"); })}
               >
                 <Play className="size-4 text-ink-2" strokeWidth={1.6} aria-hidden />
-                <span className="truncate">Ergon — live browser workspace</span>
+                <span className="truncate">Ergon: live browser workspace</span>
                 <CommandShortcut className="font-mono text-xs tracking-normal text-ink-2">/demos/ergon/</CommandShortcut>
               </CommandItem>
               <CommandItem
@@ -98,7 +98,7 @@ export function CommandPalette({ open, onOpenChange, onOpenDemo }: Props) {
                 onSelect={() => run(() => { window.location.assign("/lab/"); })}
               >
                 <Terminal className="size-4 text-blue" strokeWidth={1.6} aria-hidden />
-                <span className="truncate">Industry AI Suite /lab/ — 10-tool review workbench</span>
+                <span className="truncate">Industry AI Suite /lab/: 10-tool review workbench</span>
                 <CommandShortcut className="font-mono text-xs tracking-normal text-ink-2">/lab/</CommandShortcut>
               </CommandItem>
             </CommandGroup>

@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Open-Ro Studio — Cayleb Alvarez-James</title>
-  <meta name="description" content="OpenRO v1.14.0: Studio Copilot 3-pane Roblox Studio AI IDE in a 9.93 MB Rust binary (-11.0% / -47.7% vs v1.1.0; 57.7 KB gz shell, 39.40ms boot, 16.29 MB RSS, 3,880 req/s +11.0%, 5.33ms p95) — Preflight Hook-Integrity Guard, Snapshot Rollback, and 312/312 Rust tests.">
+  <title>Open-Ro Studio · Cayleb Alvarez-James</title>
+  <meta name="description" content="OpenRO v1.14.0 is a three-pane Rust AI IDE for Roblox Studio with Luau diffs, preflight hook-integrity checks, snapshot rollback, live Studio sync, and Rojo export.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/openro.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
-  <meta property="og:title" content="Open-Ro Studio — Cayleb Alvarez-James">
-  <meta property="og:description" content="Studio Copilot 3-pane Roblox Studio AI IDE — 9.93 MB binary (-11.0%), 57.7 KB gz shell, 16.29 MB RSS, Preflight Hook-Integrity Guard, 3,880 req/s (+11.0%, 5.33ms p95), 33/33 fuzz, and 0/0/0 sloplint (v1.14.0).">
+  <meta property="og:title" content="Open-Ro Studio · Cayleb Alvarez-James">
+  <meta property="og:description" content="Three-pane Rust AI IDE for Roblox Studio with Luau diffs, hook-integrity checks, snapshot rollback, and Rojo export (v1.14.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/openro.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -41,11 +41,11 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Flagship v1.14.0 · Single-Binary Rust Desktop &amp; Web App · checked 25 November 2026</p>
-        <h1 class="case-hero__title">Say the game. Build it live in Roblox Studio.</h1>
-        <p class="case-hero__out">Open-Ro Studio (OpenRO) is a <b>Studio Copilot 3-pane Roblox Studio AI IDE</b> served from a sub-10 MB cross-platform Rust binary (<code>9.93 MB</code>, <code>-11.0%</code> / <code>-47.7%</code> vs v1.1.0; Linux, macOS, and Windows <code>.exe</code> with chromeless desktop app launch) featuring <b>Preflight Hook-Integrity &amp; Regression Diff Guard</b> (<code>GET .../hook-integrity</code> &amp; <code>POST .../restore-hooks</code> surgically restoring dropped GamePass/DevProduct IDs, <code>ProcessReceipt</code>, <code>SpawnLocation</code>, and <code>--!strict</code> hooks without losing new feature scripts), <b>Playable Snapshot Diff &amp; Safe Rollback</b>, <b>Luau Module Dependency Graph Pruner</b>, <b>57.7 KB gzip initial shell</b>, <b>39.40 ms pinned cold boot</b> (<code>-93.3%</code> vs v1.8.0), <b>16.29 MB peak RSS</b> (<code>-85.8%</code> vs v1.2.0), <b>3,880.4 req/s</b> (<code>+11.0%</code>, <code>5.33 ms</code> p95 <code>-11.0%</code> under 16w pinned isolation), and <code>OpenRoCompanion.lua</code>.</p>
+        <p class="case-hero__meta">Release v1.14.0 · Single-Binary Rust Desktop &amp; Web App · checked 25 November 2026</p>
+        <h1 class="case-hero__title">Build, diff, and check Roblox Studio scripts in one place.</h1>
+        <p class="case-hero__out">Open-Ro Studio (OpenRO) is a three-pane Rust IDE for generating and editing Roblox Studio projects on Linux, macOS, and Windows. Release <code>v1.14.0</code> compiles into a <code>9.93 MB</code> binary, pairs with <code>OpenRoCompanion.lua</code> and 13 official MCP tools, checks Luau edits against earlier snapshots so monetization or spawn hooks are not dropped quietly, and exports clean <code>.rbxlx</code> files or Rojo <code>.zip</code> packs.</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>v1.14.0 single-binary build · 9.93 MB (-11.0%), Hook-Integrity Guard, Snapshot Rollback, 16.29 MB RSS · 312/312 Rust tests · 3,880 req/s (+11.0%, 5.33ms p95) · 10/10 Dual-SSE &amp; 33/33 fuzz PASS.</li>
+          <li><span class="checked-dot" aria-hidden="true"></span>Checked at a8ac6bc9: 312/312 Rust tests, 56/56 Playwright checks, 3,880.4 req/s (5.33 ms p95), 10/10 Dual-SSE, and 33/33 fuzz checks pass.</li>
           <li><span class="chip chip--current">v1.14.0 public</span></li>
         </ul>
         <div class="hero-actions">
@@ -61,29 +61,29 @@
         <a href="#schematic">how a build runs</a>
         <a href="#capabilities">what it does</a>
         <a href="#record">verification record</a>
-        <a href="#limits">honest boundaries</a>
+        <a href="#limits">known limits</a>
       </nav>
 
       <section class="project-figures" id="figures" aria-labelledby="figures-h">
-        <h2 class="vis-kicker" id="figures-h">v1.14.0 Studio Copilot 3-pane Roblox Studio AI IDE &amp; walkthrough</h2>
+        <h2 class="vis-kicker" id="figures-h">Interface captures and walkthrough</h2>
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">OpenRO v1.14.0 — Studio Copilot 3-Pane Roblox Studio AI IDE</span>
+              <span class="viz__title">OpenRO v1.14.0 Studio Workspace</span>
               <span class="viz__live">live capture</span>
-              <span class="viz__note">Studio Copilot · Appearance inside Settings</span>
+              <span class="viz__note">Light and Dark inside Settings</span>
             </div>
             <div class="viz__media">
               <a class="shot-light" href="../assets/projects/captures/openro-v1140-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of OpenRO v1.14.0">
-                <img src="../assets/projects/captures/openro-v1140-light.png" alt="Live capture of OpenRO v1.14.0 Studio Copilot 3-pane Roblox Studio AI IDE in Light theme: Explorer DataModel dock, Studio 3D and Preflight Hook-Integrity workspace, and Agent/Plan/Ask Copilot pane." width="1440" height="900" loading="eager" decoding="async">
+                <img src="../assets/projects/captures/openro-v1140-light.png" alt="OpenRO v1.14.0 three-pane Roblox Studio IDE in Light theme with Explorer, hook-integrity workspace, and copilot panel." width="1440" height="900" loading="eager" decoding="async">
               </a>
               <a class="shot-dark" href="../assets/projects/captures/openro-v1140-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of OpenRO v1.14.0">
-                <img src="../assets/projects/captures/openro-v1140-dark.png" alt="Live capture of OpenRO v1.14.0 Studio Copilot 3-pane Roblox Studio AI IDE in Dark theme: Explorer DataModel dock, Studio 3D and Preflight Hook-Integrity workspace, and Agent/Plan/Ask Copilot pane." width="1440" height="900" loading="eager" decoding="async">
+                <img src="../assets/projects/captures/openro-v1140-dark.png" alt="OpenRO v1.14.0 three-pane Roblox Studio IDE in Dark theme with Explorer, hook-integrity workspace, and copilot panel." width="1440" height="900" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured directly from OpenRO v1.14.0 at 1440×900 in Light and Dark themes. Try the real client-side 3-pane Studio Copilot IDE (<b>Preflight Hook-Integrity &amp; Surgical Restore Guard</b>, <b>Playable Snapshot Diff &amp; 1-Click Safe Rollback</b>, <b>Luau Dependency Graph Pruner</b>, <b>Studio Economy &amp; Funnel Dry-Run Simulator</b> at <code>#/ship</code> and <code>/play</code>, 1-Click Launch Autopilot, Explorer dock, <code>Studio 3D</code>, Unified Pre-Publish Gate, <code>Studio MCP Tools (13)</code>, and Rojo <code>.zip</code>) at <code>/demos/open-ro/</code>.</p>
-              <p class="viz__source">Source: cayleb-james2008/open-ro v1.14.0 · interactive Studio Copilot IDE at /demos/open-ro/</p>
+              <p class="viz__caption">Captured from OpenRO <code>v1.14.0</code> at <code>1440x900</code>. The browser edition at <code>/demos/open-ro/</code> includes the Explorer dock, Preflight Hook-Integrity Guard, Snapshot Diff &amp; Rollback, Luau Dependency Graph Pruner, Economy Simulator, 3D preview, and Rojo <code>.zip</code> export.</p>
+              <p class="viz__source">Source: cayleb-james2008/open-ro v1.14.0 · browser edition at /demos/open-ro/</p>
               <p class="viz__action">
                 <a class="viz__open" href="../demos/open-ro/">open live web app ↗</a>
               </p>
@@ -95,42 +95,42 @@
               <div class="sim-head">
                 <div class="sim-head__copy">
                   <span class="sim-head__title">“Plan a coin shop with reviewable script diffs.”</span>
-                  <span class="sim-head__sub">Step-by-step schematic of the Plan/Review → Luau static prove → Accept &amp; Apply → Studio playtest loop asserted in the v1.6.0 suite.</span>
+                  <span class="sim-head__sub">Tool stages verified by OpenRO’s integration test suite.</span>
                 </div>
                 <button class="btn-outline" id="gate-run" type="button">Step through build</button>
               </div>
               <ol class="sim-steps" id="gate">
-                <li class="sim-step"><span class="sim-step__num">01</span><p><b>Stage edits on an isolated shadow Place.</b> In <code>Plan</code> or <code>Review diffs</code> mode, the Copilot inspects the synced DataModel tree and runs <code>write_luau</code> / <code>multi_edit</code> against a shadow copy without mutating live Studio.</p></li>
-                <li class="sim-step"><span class="sim-step__num">02</span><p><b>Prove Luau &amp; compute unified diffs.</b> Static Luau diagnostics block syntax errors before staging; clean hunks render as green/red file diffs in <code>Code &amp; Diff</code> with per-file selection checkboxes.</p></li>
-                <li class="sim-step"><span class="sim-step__num">03</span><p><b>Accept &amp; Apply over MCP or Companion Plugin.</b> Approved diffs commit atomically via official Studio MCP translation or <code>OpenRoCompanion.lua</code> with <code>ChangeHistoryService:SetWaypoint</code> and a per-chat Undo checkpoint.</p></li>
-                <li class="sim-step"><span class="sim-step__num">04</span><p><b>Playtest &amp; ship.</b> OpenRO runs Studio playtest, inspects console output for zero errors, and exports either bidirectional <code>.rbxlx</code> XML or a Rojo Ship Pack (<code>.zip</code>).</p></li>
+                <li class="sim-step"><span class="sim-step__num">01</span><p>Stage edits on a shadow Place. In <code>Plan</code> or <code>Review diffs</code> mode, the copilot inspects the synced DataModel tree and writes to a shadow copy without mutating live Studio.</p></li>
+                <li class="sim-step"><span class="sim-step__num">02</span><p>Check Luau syntax and compute unified diffs. Static Luau checks block syntax errors before staging, and clean hunks render with per-file selection checkboxes in <code>Code &amp; Diff</code>.</p></li>
+                <li class="sim-step"><span class="sim-step__num">03</span><p>Apply approved changes over MCP or the Companion plugin. Accepted diffs commit via Studio MCP or <code>OpenRoCompanion.lua</code> with a <code>ChangeHistoryService:SetWaypoint</code> undo point.</p></li>
+                <li class="sim-step"><span class="sim-step__num">04</span><p>Playtest and export. OpenRO checks playtest logs for errors and writes bidirectional <code>.rbxlx</code> XML or a Rojo Ship Pack (<code>.zip</code>).</p></li>
               </ol>
-              <p class="sim-verdict" id="gate-verdict" aria-live="polite">Ready — press “Step through build” to trace each verified stage.</p>
+              <p class="sim-verdict" id="gate-verdict" aria-live="polite">Ready. Press “Step through build” to trace each stage.</p>
             </div>
           </figure>
 
           <figure class="viz">
             <div class="viz__body">
               <div class="viz__head">
-                <span class="viz__title">Recorded end-to-end walkthrough</span>
-                <span class="viz__note">real binary + OpenMotion chapter package</span>
+                <span class="viz__title">Recorded walkthrough (v0.10.0 baseline capture)</span>
+                <span class="viz__note">OpenMotion chapters</span>
               </div>
               <div style="margin-top:16px">
                 <video class="walk-video" controls preload="metadata" playsinline poster="../assets/video/openro-poster.jpg" src="../assets/video/openro.mp4">
                   <track kind="chapters" label="Chapters" srclang="en" default src="../assets/video/openro-chapters.vtt">
                 </video>
                 <ol class="chapters">
-                  <li><button type="button" data-t="0.00"><span class="ct">0:00</span>OpenRO v0.10.0 Intro</button></li>
-                  <li><button type="button" data-t="4.00"><span class="ct">0:04</span>RoPilot 3-Pane Studio IDE &amp; Starters</button></li>
-                  <li><button type="button" data-t="11.40"><span class="ct">0:11</span>Live Embedded Roblox Studio, Auto-Sync &amp; 13 MCP Tools</button></li>
-                  <li><button type="button" data-t="18.70"><span class="ct">0:18</span>Plan Diffs, Custom Luau Code &amp; Diff &amp; Playtest</button></li>
-                  <li><button type="button" data-t="26.10"><span class="ct">0:26</span>Tool Library 8/8, Market Taste, Blender &amp; Rojo (.zip)</button></li>
-                  <li><button type="button" data-t="36.00"><span class="ct">0:36</span>OpenRO v0.10.0 Verified Facts Summary</button></li>
+                  <li><button type="button" data-t="0.00"><span class="ct">0:00</span>OpenRO Intro</button></li>
+                  <li><button type="button" data-t="4.00"><span class="ct">0:04</span>Three-Pane Studio IDE and Starters</button></li>
+                  <li><button type="button" data-t="11.40"><span class="ct">0:11</span>Live Studio Sync and 13 MCP Tools</button></li>
+                  <li><button type="button" data-t="18.70"><span class="ct">0:18</span>Plan Diffs, Luau Checks, and Playtest</button></li>
+                  <li><button type="button" data-t="26.10"><span class="ct">0:26</span>Tool Library, Blender Export, and Rojo .zip</button></li>
+                  <li><button type="button" data-t="36.00"><span class="ct">0:36</span>Verified Summary</button></li>
                 </ol>
               </div>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Recorded end-to-end walkthrough of OpenRO v0.10.0 showing the RoPilot 3-pane Studio IDE, live embedded Roblox Studio with auto-synced Explorer &amp; all 13 MCP tools + <code>OpenRoCompanion.lua</code>, <code>Plan</code> unified Luau diffs in <code>Code &amp; Diff</code> with <code>Accept &amp; Apply</code>, 8/8 Tool Library, Market Taste, Blender <code>.obj</code> + <code>.wav</code> audio, Rojo <code>.zip</code>, and Dark mode.</p>
+              <p class="viz__caption">Walkthrough showing the three-pane workspace, live Studio sync over <code>OpenRoCompanion.lua</code>, unified Luau diffs, tool library checks, Blender <code>.obj</code> and <code>.wav</code> assets, and Rojo export.</p>
             </figcaption>
           </figure>
         </div>
@@ -143,22 +143,22 @@
           <section id="capabilities">
             <h2>What it does</h2>
             <div class="project-prose__body">
-              <p>OpenRO v1.14.0 turns Roblox game development into a <code>9.93 MB</code> cross-platform 3-pane Studio Copilot IDE (<code>-11.0%</code> / <code>-47.7%</code> vs v1.1.0) with <b>Preflight Hook-Integrity &amp; Regression Diff Guard</b>, <b>Playable Snapshot Diff &amp; Safe Rollback</b>, <b>Luau Module Dependency Graph Pruner</b>, deterministic <b>Studio Economy &amp; Funnel Dry-Run Simulator</b>, <b>1-Click Launch Autopilot</b>, <b>39.40 ms pinned cold boot</b> (<code>-93.3%</code> vs v1.8.0), <b>57.7 KB gzip initial shell</b>, <b>16.29 MB peak RSS</b> (<code>-85.8%</code> vs v1.2.0), and <b>3,880.4 req/s</b> (<code>+11.0%</code>, <code>5.33 ms</code> p95).</p>
+              <p>OpenRO handles scaffolding, Luau code diffs, snapshot rollback, economy dry runs, and Studio packaging inside one workspace backed by a cross-platform Rust server.</p>
               <div class="cap-grid">
                 <div class="cap-card">
-                  <span class="cap-card__tag">01 · Preflight Hook-Integrity &amp; Surgical Restore</span>
-                  <h3>Guard monetization &amp; spawn hooks</h3>
-                  <p><code>GET .../snapshots/hook-integrity</code> detects dropped GamePass/DevProduct IDs, <code>ProcessReceipt</code>, <code>SpawnLocation</code>, and <code>--!strict</code> headers, while <code>POST .../restore-hooks</code> repairs them without losing new scripts.</p>
+                  <span class="cap-card__tag">01 · Hook Integrity</span>
+                  <h3>Catch dropped monetization and spawn hooks</h3>
+                  <p><code>GET .../snapshots/hook-integrity</code> flags missing GamePass or DevProduct IDs, <code>ProcessReceipt</code>, <code>SpawnLocation</code>, and <code>--!strict</code> headers, and <code>POST .../restore-hooks</code> brings them back without erasing newer scripts.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">02 · 9.93 MB Binary &amp; +11.0% Throughput</span>
-                  <h3>-47.7% size vs v1.1.0 &amp; 5.33ms p95</h3>
-                  <p><code>opt-level = "z"</code> crate trimming paired with <code>-O3</code> hot JSON/compression crates cuts the binary to <code>9.93 MB</code> while hitting <code>3,880.4 req/s</code> (<code>5.33 ms</code> p95 <code>-11.0%</code>).</p>
+                  <span class="cap-card__tag">02 · Smaller Binary</span>
+                  <h3>Sub-10 MB binary with opt-level splitting</h3>
+                  <p>Compiling general crates with <code>opt-level = "z"</code> while keeping hot JSON, compression, and hashing crates at <code>opt-level = 3</code> shrinks the executable to <code>9.93 MB</code> without slowing HTTP serving.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">03 · Snapshot Rollback &amp; 33/33 Cold Fuzz</span>
-                  <h3>Offline assertion checks &amp; CWE-22 guards</h3>
-                  <p>Playable Snapshot Diff + Launch Autopilot, CRC-32 Ship Pack export, and loopback-403 + traversal guards passing <code>33/33</code> raw-TCP fuzz vectors cleanly.</p>
+                  <span class="cap-card__tag">03 · Snapshot Diff &amp; Security</span>
+                  <h3>Rollbacks and path confinement</h3>
+                  <p>Playable Snapshot Diff, dependency graph pruning, CRC-32 Rojo packs, loopback <code>Host</code> filters, and traversal guards pass 33 raw-TCP fuzz vectors.</p>
                 </div>
               </div>
             </div>
@@ -167,13 +167,13 @@
           <section id="record">
             <h2>Verification record</h2>
             <div class="project-prose__body">
-              <p>Cold-verified, scale-audited, and cross-compiled against <code>cayleb-james2008/open-ro</code> at release <code>v1.14.0</code> (<code>a8ac6bc9</code>).</p>
+              <p>Measured against <code>cayleb-james2008/open-ro</code> at release <code>v1.14.0</code> (<code>a8ac6bc9</code>).</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Rust, Windows &amp; Clippy</th><td><b>312 of 312 Rust tests</b> (<code>73</code> unit + <code>239</code> integration incl. <code>v1140_wave13_hook_integrity_and_surgical_restore</code>, snapshot diff/rollback &amp; Economy Funnel Simulator), <code>0</code> clippy warnings (<code>-D warnings</code>), and <code>0</code> Windows cross-check errors (<code>cargo xwin check --offline --target x86_64-pc-windows-msvc</code>).</td></tr>
-                  <tr><th>Scale, Dual-SSE &amp; Cold Fuzz Audit</th><td>Cold scale &amp; security audit on release binary (<code>9.93 MB</code>, <code>241,866 B</code> raw / <code>57,729 B</code> gzip initial shell + 21 pre-gz <code>/chunks/*</code>): <b>39.40 ms</b> cold boot (<code>-93.3%</code> vs v1.8.0), <b>16.29 MB</b> peak RSS (<code>-85.8%</code> vs v1.2.0), <b>3,880.4 req/s</b> (<code>+11.0%</code>, 16w pinned, <code>4.43x</code> vs v1.1.0, <code>3.93 ms</code> p50, <b>5.33 ms p95</b> <code>-11.0%</code> across <code>9,711</code> reqs, <code>0</code> err), <b>10/10 (100.0%)</b> Dual-SSE survival, and <b>33/33</b> cold raw-TCP fuzz vectors passing (<code>+3</code> <code>/restore-hooks</code> CWE-22/DNS-rebind/cross-origin checks).</td></tr>
-                  <tr><th>UI &amp; standalone web app</th><td><code>check:ui</code> passed deterministically (<code>gate 56/56</code>, <code>replay 9/9</code>, <code>sloplint --scope app --render</code> <b>0 FAIL / 0 REFLEX / 0 WARN</b>), <code>0</code> console/page errors, <code>0</code> overflow across <code>1440×900</code> &amp; <code>390×844</code> Light &amp; Dark, and offline <code>web-dist</code> (<code>1,598 kB</code>) verified with <code>0</code> external requests.</td></tr>
-                  <tr><th>Cross-platform packaging</th><td>Single Rust binary + chromeless desktop app launch (<code>--app</code>) across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> + <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.14.0" target="_blank" rel="noreferrer noopener">v1.14.0 Release</a>).</td></tr>
+                  <tr><th>Rust, Windows &amp; Clippy</th><td>312 of 312 Rust tests pass (73 unit and 239 integration, including <code>v1140_wave13_hook_integrity_and_surgical_restore</code>), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo xwin check --offline --target x86_64-pc-windows-msvc</code>).</td></tr>
+                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>9.93 MB release binary (<code>10,412,888 B</code>, -11.0% vs v1.13.0), <code>57,729 B</code> gzip initial shell, 39.40 ms cold boot, 16.29 MB peak RSS, 3,880.4 req/s (3.93 ms p50, 5.33 ms p95, 9,711 reqs, 0 errors), 10/10 Dual-SSE survival, and 33/33 cold raw-TCP fuzz checks pass.</td></tr>
+                  <tr><th>UI &amp; standalone web app</th><td><code>check:ui</code> passed 56/56 Playwright checks, 9/9 replays, 0 FAIL / 0 WARN Sloplint, zero console errors across <code>1440x900</code> and <code>390x844</code> Light and Dark viewports, and offline <code>web-dist</code> (<code>1,598 kB</code>) with zero external requests.</td></tr>
+                  <tr><th>Packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.14.0" target="_blank" rel="noreferrer noopener">v1.14.0 Release</a>).</td></tr>
                 </tbody>
               </table>
             </div>
@@ -181,10 +181,10 @@
         </div>
 
         <section class="project-limits" id="limits" aria-labelledby="limits-h">
-          <h2 id="limits-h">what is not verified</h2>
+          <h2 id="limits-h">Known limits</h2>
           <ul>
-            <li><b>Local Studio &amp; tool boundary:</b> v1.14.0 runs the full 3-pane Studio Copilot IDE, Preflight Hook-Integrity &amp; Surgical Restore Guard, Playable Snapshot Diff &amp; Safe Rollback, Luau Dependency Graph Pruner, Studio Economy Simulator, <code>Studio 3D</code>, <code>Code &amp; Diff</code> proposals, Launch Autopilot, Unified Pre-Publish Gate, Tool Library, and <code>.rbxlx</code> / Rojo <code>.zip</code> exports in every browser and binary mode; directly embedded live Roblox Studio streaming, the Companion Studio Plugin bridge, and Blender mesh generation activate when Roblox Studio (or Vinegar on Linux) and Blender are installed locally on the host.</li>
-            <li><b>No published user or download metrics:</b> OpenRO is an open-source v1.14.0 build with no external adoption figures claimed.</li>
+            <li>The three-pane editor, hook-integrity guard, snapshot rollback, Luau pruner, economy simulator, 3D preview, and <code>.rbxlx</code> / Rojo <code>.zip</code> exports work in every mode; live embedded Roblox Studio streaming, the Companion plugin bridge, and Blender mesh export require Roblox Studio (or Vinegar on Linux) and Blender installed locally.</li>
+            <li>No user or download numbers are published for this release.</li>
           </ul>
         </section>
       </article>
@@ -198,7 +198,7 @@
           <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.14.0</span></dd></div>
           <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/open-ro/">Live web app</a> · <a href="https://github.com/cayleb-james2008/open-ro">GitHub</a> · <a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.14.0">Release v1.14.0</a></dd></div>
         </dl>
-        <p class="project-aside__more"><a href="../index.html">← Back to the interactive résumé</a></p>
+        <p class="project-aside__more"><a href="../index.html">← Back to home</a></p>
       </aside>
     </div>
   </main>
@@ -228,7 +228,7 @@
         steps.forEach(function (s) { s.classList.remove("on"); });
         if (reduced()) {
           steps.forEach(function (s) { s.classList.add("on"); });
-          verdict.textContent = "DONE — staged unified Luau diffs approved, applied atomically to Studio, playtested clean, and ready for Rojo .zip / .rbxlx export.";
+          verdict.textContent = "DONE: unified Luau diffs approved, applied to Studio, playtested clean, and ready for Rojo .zip export.";
           return;
         }
         verdict.textContent = "Running build trace…";
@@ -236,7 +236,7 @@
           timers.push(setTimeout(function () { s.classList.add("on"); }, 220 * (i + 1)));
         });
         timers.push(setTimeout(function () {
-          verdict.textContent = "DONE — staged unified Luau diffs approved, applied atomically to Studio, playtested clean, and ready for Rojo .zip / .rbxlx export.";
+          verdict.textContent = "DONE: unified Luau diffs approved, applied to Studio, playtested clean, and ready for Rojo .zip export.";
         }, 220 * (steps.length + 1)));
       });
     }

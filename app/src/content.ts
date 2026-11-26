@@ -1,6 +1,4 @@
-// content.ts: the résumé's text, copied from the RENDERED live apex (main e390e9db), not from the older source.
-// Every string here is in the live page's rendered text (worker-2/ref/live-text.txt). Nothing is added about Cayleb.
-// Words that are not the résumé's (labels, the page's own short notes) are marked NEW-TEXT.md.
+// content.ts: resume copy and browser demo metadata.
 
 export const identity = {
   name: "Cayleb Alvarez-James",
@@ -21,11 +19,11 @@ export const PDF = {
 };
 
 export const summary = [
-  "AI agent systems engineer and technical founder. I have spent the past year on agentic systems and harness engineering, starting while I was finishing high school, where I was also wrestling team captain for two years. For most of that stretch I worked 13 to 14 hours a day on it, around school, my job and wrestling. I work across several harnesses instead of just one: OpenCode and DeepSeek Harness, Claude Desktop and Duet, Gemini Antigravity, Freebuff, ChatGPT Codex and Claude Code. I pick whichever has usage left and fits the job. Right now most of the work runs through Muse, Claude Duet and Fleet. Two systems make up most of it. Ergon\u2019s employee agents are built to set themselves up \u2014 to watch how someone works, ask targeted questions, learn the role and keep a memory of the person, adding skills and tools as it goes. That loop is built and verified against simulated companies; the live model connection is the remaining piece before a first install. Fleet runs dynamic swarms across desktop, virtual machine and browser surfaces, takes its tickets through Slack, and improves its own workflows, skills and plugin behaviour through a governed, checker-gated improvement programme run in rounds.",
+  "I am 18 and live in Connecticut, where I graduated from high school after two years as wrestling captain and now work full time. Over the past year I put 13 to 14 hours a day into building local agent software around school, work, and practice, moving between OpenCode, Claude Desktop, Claude Code, Gemini Antigravity, and ChatGPT Codex depending on the job. My active focus is OpenRO for Roblox Studio games, Fleet inside Antigravity for multi-agent swarms, and Ergon for local employee workflows, alongside my OpenBell v0.9.0 trading terminal.",
   "1,200+ GitHub contributions in the last year. 4,000+ automated tests across five shipped systems.",
 ];
 
-// The stated test counts, as the résumé states them (the ledger). Never derived, never rounded.
+// The stated test counts, as the resume states them (the ledger). Never derived, never rounded.
 export const ledger = {
   total: { label: "Five systems total", display: "4,000+" },
   contributions: { label: "GitHub contributions, last year", display: "1,200+" },
@@ -37,22 +35,22 @@ export const ledger = {
     { name: "Industry AI Suite", value: 382, display: "382" },
   ],
   caption: "stated test counts · one bar per count · the 4,000+ is the five-system total",
-  beside: "GitHub contributions, last year — shown beside the test chart, not on its scale",
+  beside: "GitHub contributions, last year, shown beside the test chart rather than on its scale",
 };
 
 export const experience = [
   {
-    date: "Oct 2025 \u2013 Present",
-    org: "Founder \u00b7 Independent AI Agent Systems",
+    date: "Oct 2025 to Present",
+    org: "Founder · Independent AI Agent Systems",
     bullets: [
-      "Built Ergon as a self-configuring employee-agent platform. After installation, the agent is built to learn the employee\u2019s role by watching their recurring work and asking targeted questions, then propose capabilities it can take over. A learned skill or tool has to pass evaluation and review before the agent can use it, so nobody has to map the role in advance or keep adjusting the agent by hand. The self-setup loop is built and verified against simulated companies; the live model connection is the remaining piece before a first install.",
-      "Built Fleet. A dynamic swarm forms around each objective, execution runs across desktop, Windows VM, phone VM and browser surfaces, and tickets are coordinated through Slack under the same coordination and outcome rules. The coordination protocol is designed to let outside agents join through it as well \u2014 a design goal, not yet an observed practice. Slack was not the original integration layer. I was going to build my own, but I kept getting flagged by the existing guardrails on Muse and the other platforms I build on, so I used Slack for that layer instead.",
-      "The Omni Loop is the fleet\u2019s self-improvement method, run as a governed programme in rounds, and every change it makes is gated: results from finished jobs drive proposed revisions to the workflows, plugin, skills and the loop itself, and a revision ships only when a fresh checker measures it better than the current version on a fixed scorecard, checked against a frozen set of past tickets. Every change is versioned and can be rolled back.",
+      "Built Ergon (v0.24.0) as a single-binary Rust desk for local employee agents. Workflows run inside a sandboxed folder with file history restore, SHA-256 receipts, citation freshness checks, and automatic detection of stale or conflicting memory rules. Ergon is still in development and has not been installed at a customer company.",
+      "Built Fleet (v1.13.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It reads Antigravity board messages and transcript state, tracks release gate readiness across authors and verifiers, flags runaway token burn, and previews git worktree diffs behind path-confinement checks.",
+      "Built OpenRO (v1.14.0), a three-pane Rust IDE for Roblox Studio that bridges Studio over OpenRoCompanion.lua and 13 MCP tools, compares Luau diffs against prior snapshots so monetization or spawn hooks do not drop silently, and exports .rbxlx XML or Rojo packs.",
     ],
   },
   {
-    date: "Sep 2026 \u2013 Present",
-    org: "Furniture Installer \u00b7 a Connecticut furniture company",
+    date: "Sep 2026 to Present",
+    org: "Furniture Installer · a Connecticut furniture company",
     bullets: [
       "Furniture installation work, full-time.",
     ],
@@ -65,21 +63,21 @@ export type Project = {
   stack: string;
   repo?: string;
   figure?: string;
-  status: string; // a stated phrase from the résumé, or "" for none
+  status: string;
   steps: { title: string; sub: string }[];
   stepsLead: string;
-  lead: string; // the paragraph under the steps, as the live page prints it
-  capture?: Capture; // the three flagship projects show a still of the real capture
-  chart?: Chart; // the supporting projects show their stated numbers
+  lead: string;
+  capture?: Capture;
+  chart?: Chart;
   bullets: string[];
   demo?: string;
 };
 export type Capture = { src: string; alt: string; label: string; spec: string };
 export type Chart = { rows: { name: string; value: number; display: string }[]; caption: string; label: string; sqrt?: boolean };
 export const captureTitle = "Open the full-resolution capture";
-export const openDemoLabel = "open the live demo \u2193";
-export const chartHead = { left: "stated numbers", right: "from the r\u00e9sum\u00e9" };
-export const stepsHead = { left: "how it works", right: "from the r\u00e9sum\u00e9\u2019s description" };
+export const openDemoLabel = "open the live demo ↓";
+export const chartHead = { left: "stated numbers", right: "from the resume" };
+export const stepsHead = { left: "how it works", right: "from the resume description" };
 
 export const projects: Project[] = [
   {
@@ -87,11 +85,11 @@ export const projects: Project[] = [
     kind: "Coding-Agent Desktop App",
     stack: "React, TypeScript, Tauri",
     repo: "github.com/cayleb-james2008/sophos",
-    figure: "1,224 interface tests \u00b7 82 Node tests",
+    figure: "1,224 interface tests · 82 Node tests",
     status: "merged after hosted CI",
-    stepsLead: "how it works \u00b7 from the r\u00e9sum\u00e9\u2019s description",
+    stepsLead: "how it works · from the resume description",
     lead: "Desktop app that runs coding agents from saved profiles. 1,224 interface tests and 82 Node tests pass.",
-    chart: { rows: [{ name: "interface tests", value: 1224, display: "1,224" }, { name: "Node tests", value: 82, display: "82" }], label: "Sophos stated test counts: 1,224 interface tests and 82 Node tests.", caption: "stated test counts \u00b7 square-root scale \u00b7 from the r\u00e9sum\u00e9", sqrt: true },
+    chart: { rows: [{ name: "interface tests", value: 1224, display: "1,224" }, { name: "Node tests", value: 82, display: "82" }], label: "Sophos stated test counts: 1,224 interface tests and 82 Node tests.", caption: "stated test counts · square-root scale · from the resume", sqrt: true },
     steps: [
       { title: "saved profiles", sub: "coding agents" },
       { title: "run the agent", sub: "" },
@@ -100,8 +98,8 @@ export const projects: Project[] = [
       { title: "merged after hosted CI", sub: "gate" },
     ],
     bullets: [
-      "Desktop app that runs coding agents from saved profiles, with sessions and transcripts that survive restarts and clear errors when a provider fails.",
-      "1,224 interface tests and 82 Node tests pass; merged after full hosted CI.",
+      "Desktop app that runs coding agents from saved profiles, keeping sessions and transcripts across restarts and showing clear errors when a provider fails.",
+      "1,224 interface tests and 82 Node tests pass, merged after full hosted CI.",
     ],
   },
   {
@@ -111,9 +109,9 @@ export const projects: Project[] = [
     repo: "github.com/cayleb-james2008/dotz",
     figure: "828+ core tests",
     status: "merged",
-    stepsLead: "how it works \u00b7 from the r\u00e9sum\u00e9\u2019s description",
-    lead: "828+ core tests pass on each of Windows, macOS and Linux; all 6 hosted check jobs pass.",
-    chart: { rows: [{ name: "Windows", value: 828, display: "828+" }, { name: "macOS", value: 828, display: "828+" }, { name: "Linux", value: 828, display: "828+" }], label: "dotz stated core tests: 828 or more on each of Windows, macOS and Linux.", caption: "stated core tests, each OS \u00b7 from the r\u00e9sum\u00e9" },
+    stepsLead: "how it works · from the resume description",
+    lead: "828+ core tests pass on each of Windows, macOS, and Linux, and all 6 hosted check jobs pass.",
+    chart: { rows: [{ name: "Windows", value: 828, display: "828+" }, { name: "macOS", value: 828, display: "828+" }, { name: "Linux", value: 828, display: "828+" }], label: "dotz stated core tests: 828 or more on each of Windows, macOS and Linux.", caption: "stated core tests, each OS · from the resume" },
     steps: [
       { title: "pick the model", sub: "" },
       { title: "run the agent", sub: "supervised" },
@@ -122,8 +120,8 @@ export const projects: Project[] = [
       { title: "merged", sub: "6/6 hosted checks" },
     ],
     bullets: [
-      "Desktop app that runs and supervises AI coding agents, with model choice and safe process-tree cleanup.",
-      "828+ core tests pass on each of Windows, macOS and Linux; all 6 hosted check jobs pass; merged.",
+      "Desktop app that supervises AI coding agents with model selection and clean process-tree shutdown.",
+      "828+ core tests pass on Windows, macOS, and Linux alongside 6 passing hosted checks.",
     ],
   },
   {
@@ -132,9 +130,9 @@ export const projects: Project[] = [
     stack: "Rust",
     figure: "1,111 Rust tests",
     status: "research only",
-    stepsLead: "how it works \u00b7 from the r\u00e9sum\u00e9\u2019s description",
-    lead: "Rejected ideas are logged, not quietly dropped. 1,111 Rust tests pass. Research only.",
-    chart: { rows: [{ name: "Rust tests", value: 1111, display: "1,111" }], label: "Asmodeus stated test count: 1,111 Rust tests.", caption: "stated test count \u00b7 from the r\u00e9sum\u00e9" },
+    stepsLead: "how it works · from the resume description",
+    lead: "Rejected ideas stay logged rather than being dropped. 1,111 Rust tests pass. Research only.",
+    chart: { rows: [{ name: "Rust tests", value: 1111, display: "1,111" }], label: "Asmodeus stated test count: 1,111 Rust tests.", caption: "stated test count · from the resume" },
     steps: [
       { title: "real historical data", sub: "" },
       { title: "strict time order", sub: "gate" },
@@ -143,7 +141,7 @@ export const projects: Project[] = [
       { title: "rejected ideas logged", sub: "research only" },
     ],
     bullets: [
-      "Tests trading ideas on real historical data in strict time order, with fees and safeguards against peeking at future data; rejected ideas are logged, not quietly dropped. 1,111 Rust tests pass. Research only.",
+      "Tests trading ideas against historical data in strict time order, counting trading fees and blocking future data leaks while logging rejected runs. 1,111 Rust tests pass.",
     ],
   },
   {
@@ -153,51 +151,49 @@ export const projects: Project[] = [
     repo: "github.com/cayleb-james2008/industry-ai-suite",
     figure: "382 Python tests",
     status: "",
-    stepsLead: "how it works \u00b7 from the r\u00e9sum\u00e9\u2019s description",
-    lead: "Ten local tools that review finance, research, security and operations files. 382 Python tests pass.",
-    chart: { rows: [{ name: "Python tests", value: 382, display: "382" }], label: "Industry AI Suite stated test count: 382 Python tests.", caption: "stated test count \u00b7 from the r\u00e9sum\u00e9" },
+    stepsLead: "how it works · from the resume description",
+    lead: "Ten local tools that review finance, research, security, and operations files. 382 Python tests pass.",
+    chart: { rows: [{ name: "Python tests", value: 382, display: "382" }], label: "Industry AI Suite stated test count: 382 Python tests.", caption: "stated test count · from the resume" },
     steps: [
-      { title: "ten local tools", sub: "finance \u00b7 research \u00b7 security \u00b7 operations" },
+      { title: "ten local tools", sub: "finance · research · security · operations" },
       { title: "review the files", sub: "" },
       { title: "every finding shows its source", sub: "" },
-      { title: "missing source \u2192 drafts halt", sub: "gate" },
+      { title: "missing source -> drafts halt", sub: "gate" },
       { title: "a person decides", sub: "" },
     ],
     bullets: [
-      "Ten local tools that review finance, research, security and operations files; every finding shows its source and a person decides. Drafts halt when sources are missing. 382 Python tests pass.",
+      "Ten local tools for reviewing finance, research, security, and operations documents, halting drafts when citations are missing. 382 Python tests pass.",
     ],
   },
 ];
 
-// The three flagship product pages (static pages under /projects/):
-// 1. Open-Ro Studio (v1.14.0), 2. OpenBell (v0.9.0), 3. Fleet (v1.12.0 Antigravity Plugin). Ergon (v0.24.0) stays accessible at /projects/ergon.html & /demos/ergon/.
 export type ProductPage = { name: string; href: string; pitch: string; img: string; darkImg?: string; alt: string };
-export const productPagesHead = "the three products, in full";
+export const productPagesHead = "the three main projects, in full";
 export const productPageLink = "the full product page ↗";
 export const productPages: ProductPage[] = [
   {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
-    pitch: "Studio Copilot 3-pane Roblox Studio AI IDE — 9.93 MB binary (-11.0%), 57.7 KB gz, 16.29 MB Peak RSS, Preflight Hook-Integrity Guard, 3,880 req/s (+11.0%, 5.33ms p95), and 33/33 fuzz.",
+    pitch: "Three-pane Rust IDE for Roblox Studio that generates Luau diffs, catches dropped monetization or spawn hooks before shipping, and exports .rbxlx or Rojo packs (v1.14.0).",
     img: "/assets/projects/captures/openro-v1140-light.png",
     darkImg: "/assets/projects/captures/openro-v1140-dark.png",
-    alt: "Live capture of OpenRO v1.14.0 Studio Copilot 3-pane Roblox Studio AI IDE: Explorer DataModel dock, Studio 3D and Preflight Hook-Integrity workspace, and Agent/Plan/Ask Copilot pane",
+    alt: "OpenRO v1.14.0 three-pane workspace showing Explorer, Studio preview with hook-integrity checks, and the copilot panel.",
   },
   {
     name: "OpenBell",
     href: "/projects/openbell.html",
-    pitch: "Institutional Kalshi Trade API v2 quant terminal in Rust — 1-click Full Quant Edge Audit 5-stage Go/No-Go funnel + causal lookahead-canary tests, fail-closed Hard Risk Rails (disarmed on every boot), Emergency Kill Switch, Strategy Tournament, PAV Calibration, and $500/Day Capital Scaling Engine.",
+    pitch: "Rust research and Kalshi v2 desk with causal edge backtests, isotonic probability calibration, and hard order limits that start disarmed on boot (v0.9.0).",
     img: "/assets/projects/captures/openbell-v090-light.png",
     darkImg: "/assets/projects/captures/openbell-v090-dark.png",
-    alt: "Live capture of OpenBell v0.9.0 Institutional Quant Terminal: Paper Compounding Curve, Kalshi DEMO risk-rails bar with Arm Live and Emergency Kill Switch, 5-Series 15m Tape, and Full Quant Edge Audit funnel",
+    alt: "OpenBell v0.9.0 terminal showing paper compounding results, disarmed Kalshi order limits, 15-minute data tape, and edge checks.",
   },
   {
     name: "Fleet",
     href: "/projects/fleet.html",
-    pitch: "Antigravity-native Swarm Sidebar Plugin — 1-Click Gate Readiness Card & Token Burn Guard, 91.66 KiB gz, 69.16 MB --jitless RSS (-67.4%), 1,039 req/s, 30/30 fuzz, and 0/0/0 sloplint.",
-    img: "/assets/projects/captures/fleet-v1120-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1120-dark.png",
-    alt: "Live capture of Fleet v1.12.0 Antigravity Swarm Sidebar Plugin (380x900): Gate Readiness Card, Token Burn Guard Strip, and Broadcast Composer",
+    pitch: "Antigravity sidebar plugin for multi-agent swarms that tracks message boards, flags high token burn, previews worktree diffs, and resolves next-gate actions (v1.13.0).",
+    img: "/assets/projects/captures/fleet-v1130-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1130-dark.png",
+    alt: "Fleet v1.13.0 Antigravity sidebar at 380x900 showing release gate readiness, one-click next action button, and token burn strip.",
   },
 ];
 
@@ -209,14 +205,14 @@ export const skills = [
       "autonomous role learning",
       "continual personalisation",
       "dynamic-swarm orchestration",
-      "recursive self-improvement systems (the Omni Loop)",
+      "recursive self-improvement systems",
       "distributed agent infrastructure",
       "bring-your-own-agent coordination",
       "evaluation design",
       "earned permissions and approval gates",
     ],
   },
-  { group: "Languages", items: ["Python", "TypeScript", "JavaScript", "Rust", "HTML/CSS"] },
+  { group: "Languages", items: ["Python", "TypeScript", "JavaScript", "Rust", "Luau", "HTML/CSS"] },
   {
     group: "Models & data",
     items: [
@@ -236,8 +232,8 @@ export const skills = [
 
 export const additional = [
   { org: "David Cooke Plaster Co.", role: "Plaster Work", date: "Summer 2026" },
-  { org: "Dunkin\u2019", role: "Crew", date: "2024 \u2013 2026" },
-  { org: "Tommy\u2019s Pizza", role: "Crew", date: "Summer 2024" },
+  { org: "Dunkin’", role: "Crew", date: "2024 to 2026" },
+  { org: "Tommy’s Pizza", role: "Crew", date: "Summer 2024" },
 ];
 
 export const education = {
@@ -248,12 +244,12 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. This page is its interactive edition: press Cmd+K to jump anywhere, or run the three flagship live browser engines below (Studio Copilot 3-pane IDE Open-Ro v1.14.0, Institutional Quant Terminal OpenBell v0.9.0, Antigravity Swarm Sidebar Plugin Fleet v1.12.0) with zero external requests by default.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.14.0, OpenBell v0.9.0, and Fleet v1.13.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
   key: string;
-  tag: string; // APP-01 ...
+  tag: string;
   title: string;
   blurb: string;
   url: string;
@@ -266,70 +262,69 @@ export type LiveDemo = {
   provenance: { label: string; text: string }[];
 };
 
-// The words around the three flagship interactive web apps (Open-Ro v1.14.0, OpenBell v0.9.0, Fleet v1.12.0).
 export const demoWords = {
-  count: "live apps \u00b7 3",
+  count: "live apps · 3",
   running: "running",
   idle: "interactive",
-  eyebrow: "interactive web engine \u00b7 runs locally in your browser",
+  eyebrow: "interactive web app · runs locally in your browser",
   tryIt: "Try in the frame:",
   provenance: "how it runs",
-  noCalls: "\u00b7 100% client-side sandbox \u00b7 optional local runtime",
+  noCalls: "· client-side sandbox · optional local runtime",
 };
 
 export const liveDemos: LiveDemo[] = [
   {
     key: "Open-Ro",
     tag: "APP-01",
-    title: "Open-Ro Studio v1.14.0 — Studio Copilot 3-pane Roblox Studio AI IDE",
-    blurb: "Real client-side 3-pane Studio Copilot IDE paired with the v1.14.0 single-binary Rust app (9.93 MB binary -11.0%, 57.7 KB gz shell, 16.29 MB Peak RSS, Preflight Hook-Integrity Guard, Snapshot Diff & Safe Rollback, 3,880 req/s +11.0%, 5.33ms p95 -11.0%, 33/33 fuzz, 312/312 tests, and 0/0/0 sloplint): guard revenue & spawn hooks before shipping, surgically restore dropped hooks, diff snapshots cleanly, and export .rbxlx XML or Rojo .zip.",
+    title: "Open-Ro Studio (v1.14.0)",
+    blurb: "Browser edition of the three-pane Roblox Studio IDE. You can inspect snapshots for dropped monetization or spawn hooks, repair them without erasing newer scripts, test game economies, and export .rbxlx XML or Rojo .zip bundles.",
     url: "/demos/open-ro/",
     img: "/assets/projects/captures/openro-v1140-light.png",
     darkImg: "/assets/projects/captures/openro-v1140-dark.png",
     page: "/projects/openro.html",
     repo: "https://github.com/cayleb-james2008/open-ro",
     storagePrefix: "openro",
-    action: "open Starters to build a Roblox game in Studio 3D, check Preflight Hook-Integrity & click Restore Missing Hooks without losing new scripts, inspect Playable Snapshot Diff & Rollback (#/ship & /play), run the Luau Dependency Graph Pruner, or export Rojo .zip / .rbxlx.",
+    action: "open Starters to scaffold a game in Studio 3D, check Preflight Hook-Integrity to restore missing hooks, compare snapshot diffs, run the Luau Dependency Graph Pruner, or export a Rojo .zip package.",
     provenance: [
-      { label: "What runs:", text: "the v1.14.0 Studio Copilot 3-pane IDE compiled from cayleb-james2008/open-ro (frontend/) with Explorer/Chats left dock, Preflight Hook-Integrity & Surgical Restore Guard, Playable Snapshot Diff & Safe Rollback, Luau Dependency Graph Pruner, Economy Simulator (#/ship & /play), Embedded Studio / Studio 3D / Code & Diff / Launch Autopilot / Pre-Publish Gate workspace, Studio MCP Tools (13), Agent|Plan|Ask Copilot composer, and .rbxlx / CRC-32 Rojo .zip exporter at /demos/open-ro/." },
-      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you add a BYOK LLM key or connect to a local openro-rs 1.14.0 binary (with directly embedded live Roblox Studio, auto-synced Explorer, OpenRoCompanion.lua plugin, all 13 MCP tools, Blender 3D .obj, and procedural .wav synthesis) on 127.0.0.1." },
-      { label: "Why it is here:", text: "visitors can experience the full 3-pane Studio Copilot workflow — guarding GamePass/Spawn/strict hooks against regressions, restoring missing hooks surgically, diffing snapshots, co-building in 3D, and exporting genuine Studio .rbxlx and Rojo .zip packages right here." },
+      { label: "What runs:", text: "the Open-Ro v1.14.0 React frontend compiled from cayleb-james2008/open-ro, including Explorer, Hook-Integrity Guard, Snapshot Diff & Rollback, Luau Pruner, Studio 3D preview, and the .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
+      { label: "Local and BYOK options:", text: "stays offline in your browser by default; Settings lets you add an API key or point to a local openro-rs 1.14.0 binary on 127.0.0.1 for live Roblox Studio sync via OpenRoCompanion.lua." },
+      { label: "Why it is here:", text: "you can test the diff workflow, hook checks, 3D scene preview, and Studio export directly without installing the binary." },
     ],
   },
   {
     key: "OpenBell",
     tag: "APP-02",
-    title: "OpenBell v0.9.0 — Institutional Quant Terminal (offline sandbox)",
-    blurb: "100% client-side offline simulation of the v0.9.0 single-binary Rust institutional quant terminal (synthetic 15m crypto markets, zero real API keys, zero private trading data, zero external network calls): run the 1-click Full Quant Edge Audit 5-stage Go/No-Go funnel, test fail-closed Hard Risk Rails (disarmed on boot, Arm Live confirmation, cap rejections, risk-reducing SELL pass-through, Emergency Kill Switch), Strategy Sandbox backtesting, and Quant Lab ($500/Day Scale Planner, 5-Gate Scorecard, Strategy Tournament, 12×12 Corr & 5×4 Regime Heatmaps, PAV Calibration).",
+    title: "OpenBell (v0.9.0 offline sandbox)",
+    blurb: "Client-side simulation of the v0.9.0 Rust Kalshi v2 terminal running on synthetic 15-minute data with no API keys or private account records. Try the five-stage edge audit, disarmed order risk limits, kill switch, strategy tournament, and capital scaling calculator.",
     url: "/demos/openbell/",
     img: "/assets/projects/captures/openbell-v090-light.png",
     darkImg: "/assets/projects/captures/openbell-v090-dark.png",
     page: "/projects/openbell.html",
     repo: "https://github.com/cayleb-james2008/openbell",
     storagePrefix: "openbell",
-    action: "run the 1-click Full Quant Edge Audit 5-stage Go/No-Go funnel, click Arm Live to test fail-closed Hard Risk Rails in the Order Ticket (try an oversized order to see rail rejections, then trigger Emergency Kill Switch), run Collect now on synthetic 15m markets, or open Quant Lab for the $500/Day Scale Planner & Strategy Tournament.",
+    action: "run the Full Quant Edge Audit, click Arm Live in the Order Ticket to see oversized orders get blocked, trigger the Emergency Kill Switch, or open Quant Lab for the strategy tournament.",
     provenance: [
-      { label: "What runs:", text: "the v0.9.0 Institutional Terminal UI compiled from cayleb-james2008/openbell (frontend/) paired with an in-browser offline simulation engine (synthetic 15m crypto markets across BTC/ETH/SOL/XRP/DOGE, 1-click Full Quant Edge Audit funnel, in-memory fail-closed risk rails, Strategy Sandbox, Tournament, PAV Calibration, and Monte Carlo Scale Engine) at /demos/openbell/." },
-      { label: "Zero keys / local binary:", text: "contains zero real API credentials, zero real private trading data, and makes zero external network requests; real Kalshi Demo/Prod connectivity only exists when you run the compiled openbell-rs v0.9.0 desktop binary locally with your own 0600 RSA-PSS key." },
-      { label: "Why it is here:", text: "visitors can test OpenBell's 5-stage Quant Edge Audit, fail-closed risk-rail enforcement, Kill Switch, Strategy Tournament, and capital-scaling analytics interactively in complete safety." },
+      { label: "What runs:", text: "the OpenBell v0.9.0 frontend wired to an offline browser simulation over synthetic BTC, ETH, SOL, XRP, and DOGE 15-minute series at /demos/openbell/." },
+      { label: "Zero keys and local binary:", text: "no credentials or external requests leave the page; real Kalshi Demo or Production signing uses your own 0600 RSA-PSS key inside the local openbell-rs v0.9.0 binary." },
+      { label: "Why it is here:", text: "you can trigger risk limit rejections, backtest checks, and calibration curves safely in the browser." },
     ],
   },
   {
     key: "Fleet",
     tag: "APP-03",
-    title: "Fleet v1.12.0 — Antigravity-Native Swarm Sidebar Plugin",
-    blurb: "Interactive offline preview of Fleet v1.12.0, pivoted from standalone binaries (v0.12.0 preserved in git history) to an Antigravity SIDECAR_UI_ENTRYPOINT_AUX_PANE plugin (~/.gemini/config/plugins/fleet/): 1-Click Gate Readiness Card ([done]->[verified]->[scale-verified]/[blocked]), Per-Worker Token Burn Guard Strip, Multi-Worker Broadcast Composer & Filtered Export, 91.66 KiB gz, 69.16 MB --jitless RSS (-67.4%), 1,039 req/s, 30/30 fuzz, and 0/0/0 sloplint.",
+    title: "Fleet (v1.13.0 Antigravity Swarm Sidebar)",
+    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Track which agents finished, see release gate blockers with one-click next actions, spot high token burn, send confirmation-gated worker nudges, and inspect confined git worktree diffs.",
     url: "/demos/fleet/",
-    img: "/assets/projects/captures/fleet-v1120-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1120-dark.png",
+    img: "/assets/projects/captures/fleet-v1130-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1130-dark.png",
     page: "/projects/fleet.html",
     repo: "https://github.com/cayleb-james2008/fleet",
     storagePrefix: "fleet",
-    action: "jump to any pending Gate #seq via the Gate Readiness Card, spot high-burn workers on the Token Burn Guard Strip, send a Multi-Worker Broadcast in Roster, download a Filtered Board Export (.md/.json), or scrub @Mention graph replay.",
+    action: "click the primary next-gate action chip inside Gate Readiness, check worker token burn in the guard strip, filter the board feed, or download a sanitized .md or .json log.",
     provenance: [
-      { label: "What runs:", text: "the v1.12.0 Antigravity Swarm Sidebar Plugin UI compiled from cayleb-james2008/fleet (dist-live-web/index.html, 473.3 KiB offline single-file simulator) modeling <appData>/brain/<conv> swarm telemetry, Gate Readiness Card, Token Burn Guard Strip, Broadcast Composer, Filtered Board Export, Swarm Bottleneck Heat Bar, Inline Worktree Diff Peek, and @Mention graph replay at /demos/fleet/." },
-      { label: "Local Antigravity install:", text: "runs 100% locally in your browser with zero external requests; install the live plugin into Antigravity via ./install.sh (~/.gemini/config/plugins/fleet/) to wire SidecarApp + /preload.js bridges, build-time index.html.gz serving, multi-target POST /api/nudge validation, /api/swarm/stream SSE push, and --jitless V8 tier bounds in sidecars/fleet_pane/." },
-      { label: "Why it is here:", text: "visitors can experience Antigravity's native swarm sidebar — tracking [done]/[verified]/[blocked] release gates, spotting runaway token burn, broadcasting to workers, exporting filtered board logs safely, and scrubbing @mention handoffs right here." },
+      { label: "What runs:", text: "the single-file Fleet v1.13.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying swarm board messages, gate readiness state, token burn bars, and worktree diffs at /demos/fleet/." },
+      { label: "Local Antigravity install:", text: "the browser copy stays offline; running ./install.sh in a local clone installs the sidecar plugin into ~/.gemini/config/plugins/fleet/ with live SSE board updates and Antigravity preload bridges." },
+      { label: "Why it is here:", text: "you can step through the multi-agent release gate checklist and triage sidebar inside a narrow auxiliary pane layout." },
     ],
   },
 ];

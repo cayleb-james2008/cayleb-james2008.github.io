@@ -1,29 +1,29 @@
-# cayleb-james2008.github.io — the résumé record
+# cayleb-james2008.github.io
 
-The one public résumé link: **https://cayleb-james2008.github.io/**
+Public interactive resume and project demonstrations for Cayleb Alvarez-James: https://cayleb-james2008.github.io/
 
-This is the interactive edition of Cayleb Alvarez-James's résumé. The plain PDF at
-`/Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf` is the submission copy; this site is its interactive edition. There is no pitch, services page or pricing.
+The plain PDF at `/Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf` is the submission copy, and the site adds keyboard jump navigation (`Cmd+K`) alongside local browser sandboxes.
 
 ## What is here
 
-- **The record** (`/`): summary, stated test-count ledger, experience, selected projects, skills, additional experience, and education — locked to the submission PDF, with global `Cmd+K` Quick Jump navigation.
-- **Three flagship product pages & live interactive web apps** (plus Ergon v0.24.0):
-  - **Open-Ro Studio v1.14.0** (`/projects/openro.html`, live web app at `/demos/open-ro/`, source at `github.com/cayleb-james2008/open-ro`, [Release v1.14.0](https://github.com/cayleb-james2008/open-ro/releases/tag/v1.14.0)) — **Studio Copilot 3-pane Roblox Studio AI IDE** (`data-world="studio"`, **`9.93 MB` binary `-11.0%` / `-47.7%` vs v1.1.0**, `241.9 KB` raw / `57.7 KB` gzip initial `/`, `39.40 ms` cold boot `-93.3%` vs v1.8.0, `16.29 MB` Peak RSS `-85.8%` vs v1.2.0) featuring **Preflight Hook-Integrity & Regression Diff Guard** (`GET /api/projects/:id/snapshots/hook-integrity` & `POST .../restore-hooks` preserving new feature scripts), **Playable Snapshot Diff & 1-Click Safe Rollback**, **Luau Module Dependency Graph Pruner**, **Studio Economy Simulator**, 1-Click Launch Autopilot, embedded live Roblox Studio + 12 FPS capture, `OpenRoCompanion.lua`, and all 13 MCP tools (`312/312` Rust tests, **`3,880.4 req/s` `+11.0%`** `16w` pinned, **`5.33 ms` p95 `-11.0%`**, `10/10` Dual-SSE, **`33/33` cold fuzz**, `0/0/0` sloplint).
-  - **OpenBell v0.9.0** (`/projects/openbell.html`, 100% client-side offline sandbox at `/demos/openbell/`, source at `github.com/cayleb-james2008/openbell`, [Release v0.9.0](https://github.com/cayleb-james2008/openbell/releases/tag/v0.9.0)) — **Institutional Quant Terminal** (`data-world="terminal"`) in Rust with 1-click Full Quant Edge Audit 5-stage Go/No-Go funnel + causal lookahead-canary tests, fail-closed Hard Risk Rails (disarmed on every boot), Emergency Kill Switch, Out-of-Sample Strategy Tournament, `12×12` Correlation & `5×4` Regime Heatmaps, PAV Isotonic Calibration, and `$500/Day` Capital Scaling Engine (`108/108` Rust tests, `1,178 req/s`, `112.9 ms` p95, `49/49` security fuzz). Portfolio demo runs 100% locally offline against synthetic 15m data with zero real API keys or private trading data.
-  - **Fleet v1.12.0** (`/projects/fleet.html`, live web app preview at `/demos/fleet/`, source at `github.com/cayleb-james2008/fleet`, [Release v1.12.0](https://github.com/cayleb-james2008/fleet/releases/tag/v1.12.0)) — **Antigravity-native Swarm Sidebar Plugin** (`SIDECAR_UI_ENTRYPOINT_AUX_PANE`, `data-world="codex"`, `293.8 KiB` raw / **`91.66 KiB` (`93,861 B`) pre-gzipped sidecar `-47.2%` raw vs baseline**; standalone Rust `v0.12.0` preserved at tag `v0.12.0`) adding **1-Click Swarm Handoff Checklist & Gate Readiness Card** (`[done]` -> `[verified]` -> `[scale-verified]` / `[blocked]` + `Gate #seq` jump), **Per-Worker Token & Burn-Rate Guard Strip** (`High burn · @worker <pct>%`), **Multi-Worker Broadcast Composer & Filtered Board Export**, Swarm Bottleneck Heat Bar + Copy Blocker, Inline Worktree Diff Peek & CWE-22/CWE-59 Confinement (`143.43 ms` `--jitless` boot `-1.8%`, **`69.16 MB` `--jitless` Peak RSS `-2.0%` / `-67.4%` vs baseline**, `1,038.9 req/s` / `1,032.3 req/s` `--jitless`, `11/11` sidecar tests, `5/5` SSE, `30/30` cold fuzz, `0/0/0` sloplint).
-  - **Ergon v0.24.0** (`/projects/ergon.html`, live web app at `/demos/ergon/`, source at `github.com/cayleb-james2008/ergon`, [Release v0.24.0](https://github.com/cayleb-james2008/ergon/releases/tag/v0.24.0)) — **Claude-Desktop employee desk** (`data-world="claude"`, **`8.48 MB` binary `-3.5%` / `-47.0%` vs v0.10.0**, `153.8 KB` / `34.8 KB` gzip initial shell `-97.1%` vs v0.10.0 via pre-gzipped `.rodata` `/chunks/*`) featuring **Learned Memory Health & Stale-Reference Guard** (`Healthy` / `N Issues` pills & 1-click **Resolve & Prune**), **Scheduled Routine Catch-Up & Last-Run SHA-256 Verification Badge**, **Batch Citation Freshness Gate**, Playbook Dry-Run Preview, Verified Playbook Packs, and `-O3` hot HTTP/JSON writers (**`6,090.8 req/s` `+16.5%` / `8.41x` vs v0.10.0**, **`3.37 ms` p95 `-1.2%`**, **`16.48 MB` VmHWM `-5.1%`**, `17.37 ms` cold boot), `222/222` Rust tests, `5/5` SSE, **`33/33` cold fuzz**, and `0/0/0` sloplint.
-- **Live Multi-Document Industry AI Suite Workbench (`/lab/`)**: 10 real client-side source-grounded document review analyzers (multi-file upload/drop, cross-document LCS line diffing, numbered source inspector, clickable `[filename:L##]` citations, Custom Rule Pack Builder, 4-stage SHA-256 Evidence Provenance Chain, hard missing-source draft halts, `Cmd+K`, optional BYOK LLM in `sessionStorage`, and `.md`/`.json`/`.csv` exports).
-- **Fourteen supporting project case studies** (`/projects/*.html`, `/resume.html`): styled in the same House Frontend token system (`site/house/tokens.css`, `base.css`, `project.css`) with Appearance tucked inside Settings.
-- **Vendored parts, their sources and licences**: `app/STACK.lock.md`, `app/THIRD-PARTY-LICENSES/`, and `vendor/`; fonts: Geist and Geist Mono (SIL OFL) in `/fonts/` and `app/public/fonts/`. Square UI is a grammar reference only; no Square UI artwork ships.
+The home page (`/`) holds the summary, stated test-count ledger, experience, selected projects, skills, and education sections locked to the submission PDF.
 
-## Build & Verification
+Interactive browser applications and product pages:
 
-Everything lives on `main` as a single unified source-and-Pages repository:
+- Open-Ro Studio `v1.14.0` ([project page](/projects/openro.html), [live web app](/demos/open-ro/), [repo](https://github.com/cayleb-james2008/open-ro)): three-pane Rust AI IDE for Roblox Studio with Luau diffs, hook-integrity checks, snapshot rollback, live Studio sync via `OpenRoCompanion.lua` and 13 MCP tools, and `.rbxlx` / Rojo `.zip` export. Release binary is `9.93 MB`, passes 312 Rust tests, 56 UI checks, 10 Dual-SSE streams, and 33 security fuzz checks.
+- OpenBell `v0.9.0` ([project page](/projects/openbell.html), [offline sandbox](/demos/openbell/), [repo](https://github.com/cayleb-james2008/openbell)): Rust research and Kalshi v2 terminal with five-stage edge checks, causal lookahead tests, out-of-sample strategy tournaments, isotonic calibration, and fail-closed risk limits disarmed on every boot. Runs offline in the browser on synthetic 15-minute market data with zero real credentials.
+- Fleet `v1.13.0` ([project page](/projects/fleet.html), [live preview](/demos/fleet/), [repo](https://github.com/cayleb-james2008/fleet)): Antigravity sidebar plugin (`~/.gemini/config/plugins/fleet/`) with one-click next-gate action chips, token burn monitoring, filtered board exports, and path-confined git worktree diffs. Passes 11 sidecar tests, 43 UI checks, 5 SSE streams, and 30 security fuzz checks at `72.32 MB` `--jitless` RSS (`2,315.7 req/s`).
+- Ergon `v0.24.0` ([project page](/projects/ergon.html), [live app](/demos/ergon/), [repo](https://github.com/cayleb-james2008/ergon)): single-binary Rust desktop and web desk for local employee workflows inside a sandboxed folder with `.history/` restore, SHA-256 receipts, citation checks, and stale-memory cleanup. Ships in an `8.48 MB` binary passing 222 Rust tests, 74 UI checks, and 33 fuzz checks (`6,090.8 req/s`, `16.48 MB` RSS). Ergon is in development and not yet installed at a company.
+
+The Industry AI Suite workbench (`/lab/`) runs ten client-side multi-document review tools with line diffing, clickable `[filename:L##]` citations, SHA-256 provenance, and missing-source draft halts. Fourteen additional project notes sit under `/projects/*.html` using the same House Frontend styling (`site/house/tokens.css`, `base.css`, `project.css`) with Light/Dark selection inside Settings.
+
+Vendored notices and licenses live in `app/STACK.lock.md`, `app/THIRD-PARTY-LICENSES/`, and `vendor/`, using Geist and Geist Mono (SIL OFL).
+
+## Build and verify
 
 ```bash
-cd app && npm ci && npm run build          # tsc --noEmit && vite build → updates root index.html + assets/index-* AND stages app/dist/
-node scripts/render-check.mjs              # House Frontend gate (1440/390 light/dark + reduced-motion, contrast, spacing, inert sweep)
+cd app && npm ci && npm run build
+node scripts/render-check.mjs
 ```
 
-Every asset is static; zero third-party network calls occur unless a visitor explicitly configures BYOK LLM or local binary connection inside an app's Settings.
+Everything serves as static files with zero external network calls unless you add a BYOK API key or connect a local runtime in an app's Settings panel.

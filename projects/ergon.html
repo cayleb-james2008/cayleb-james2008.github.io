@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Ergon — Cayleb Alvarez-James</title>
-  <meta name="description" content="Ergon v0.24.0: Claude-Desktop employee agent desk in an 8.48 MB Rust binary (-3.5% / -47.0% vs v0.10.0; 17.37ms boot, 16.48 MB RSS -5.1%, 6,091 req/s +16.5%, 3.37ms p95) — Learned Memory Health &amp; Stale-Reference Guard, Routine Catch-Up, and 222/222 Rust tests.">
+  <title>Ergon · Cayleb Alvarez-James</title>
+  <meta name="description" content="Ergon v0.24.0 is a single-binary Rust desktop and web desk for local employee agents with sandboxed files, SHA-256 receipts, citation checks, and memory pruning.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/ergon.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
-  <meta property="og:title" content="Ergon — Cayleb Alvarez-James">
-  <meta property="og:description" content="Claude-Desktop employee agent desk — Learned Memory Health &amp; Stale-Reference Guard, 8.48 MB binary, 16.48 MB RSS (-5.1%), 6,091 req/s (+16.5%, 3.37ms p95), 33/33 fuzz, and 0/0/0 sloplint (v0.24.0).">
+  <meta property="og:title" content="Ergon · Cayleb Alvarez-James">
+  <meta property="og:description" content="Single-binary Rust desktop and web desk for local employee agents with memory pruning, file snapshots, and 12 built-in workflows (v0.24.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/ergon.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -41,11 +41,11 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Product v0.24.0 · Single-Binary Rust Desktop &amp; Web App · checked 25 November 2026</p>
-        <h1 class="case-hero__title">Every employee gets an agent.</h1>
-        <p class="case-hero__out">Ergon is a <b>Claude-Desktop employee agent desk</b> served from one cross-platform Rust binary (<code>8.48 MB</code>, <code>&lt;8.55 MB</code>, <code>-3.5%</code> / <code>-47.0%</code> vs v0.10.0; Linux, macOS, and Windows <code>.exe</code>) featuring <b>Learned Memory Health &amp; Stale-Reference Guard</b> (<code>GET /api/memory/health</code> &amp; <code>POST /api/memory/heal</code> detecting duplicate preferences, contradicting rules &amp; broken <code>[file:L##]</code> refs with 1-click <b>Resolve &amp; Prune</b>), <b>Scheduled Routine Catch-Up &amp; SHA-256 Badge</b>, <b>Batch Citation Freshness Gate</b>, <b>6,090.8 req/s</b> (<code>+16.5%</code>, <code>3.37 ms</code> p95 <code>-1.2%</code>), <b>16.48 MB peak RSS</b> (<code>-5.1%</code>), and <code>17.37 ms</code> cold boot.</p>
+        <p class="case-hero__meta">Release v0.24.0 · Single-Binary Rust Desktop &amp; Web App · checked 25 November 2026</p>
+        <h1 class="case-hero__title">Local workflows for one employee desk.</h1>
+        <p class="case-hero__out">Ergon ships as a single <code>8.48 MB</code> cross-platform Rust binary for Linux, macOS, and Windows. It runs 12 built-in workflows inside a sandboxed folder with <code>.history/</code> file restore, SHA-256 execution receipts, citation freshness checks, and automatic detection of duplicate or stale rules in per-person memory.</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>v0.24.0 single-binary build · 8.48 MB (-3.5%), Learned Memory Health Guard, 16.48 MB VmHWM (-5.1%) · 222/222 Rust tests · 6,091 req/s (+16.5%, 3.37ms p95) · 33/33 cold fuzz PASS.</li>
+          <li><span class="checked-dot" aria-hidden="true"></span>Checked at 84869916: 222/222 Rust tests, 74/74 Playwright checks, 6,090.8 req/s (3.37 ms p95), 16.48 MB peak RSS, 5/5 SSE, and 33/33 fuzz pass.</li>
           <li><span class="chip chip--current">v0.24.0 public</span></li>
         </ul>
         <div class="hero-actions">
@@ -61,29 +61,29 @@
         <a href="#schematic">how a task runs</a>
         <a href="#capabilities">what it does</a>
         <a href="#record">verification record</a>
-        <a href="#limits">honest boundaries</a>
+        <a href="#limits">known limits</a>
       </nav>
 
       <section class="project-figures" id="figures" aria-labelledby="figures-h">
-        <h2 class="vis-kicker" id="figures-h">v0.24.0 live interface &amp; recorded walkthrough</h2>
+        <h2 class="vis-kicker" id="figures-h">Interface captures and walkthrough</h2>
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">Ergon v0.24.0 — Claude-Desktop Employee Agent Desk</span>
+              <span class="viz__title">Ergon v0.24.0 Workspace</span>
               <span class="viz__live">live capture</span>
-              <span class="viz__note">Alabaster &amp; Charcoal · Appearance inside Settings</span>
+              <span class="viz__note">Light and Dark inside Settings</span>
             </div>
             <div class="viz__media">
               <a class="shot-light" href="../assets/projects/captures/ergon-v0240-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Ergon v0.24.0">
-                <img src="../assets/projects/captures/ergon-v0240-light.png" alt="Live capture of Ergon v0.24.0 desk in warm alabaster Light theme: Ready status badge, Healthy learned memory card, #summary-citation-gate Verified, and Workspace Inspector." width="1440" height="900" loading="eager" decoding="async">
+                <img src="../assets/projects/captures/ergon-v0240-light.png" alt="Ergon v0.24.0 workspace in Light theme showing Ready gateway badge, Healthy learned memory card, and Workspace Inspector." width="1440" height="900" loading="eager" decoding="async">
               </a>
               <a class="shot-dark" href="../assets/projects/captures/ergon-v0240-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Ergon v0.24.0">
-                <img src="../assets/projects/captures/ergon-v0240-dark.png" alt="Live capture of Ergon v0.24.0 desk in charcoal Dark theme: Ready status badge, Healthy learned memory card, #summary-citation-gate Verified, and Workspace Inspector." width="1440" height="900" loading="eager" decoding="async">
+                <img src="../assets/projects/captures/ergon-v0240-dark.png" alt="Ergon v0.24.0 workspace in Dark theme showing Ready gateway badge, Healthy learned memory card, and Workspace Inspector." width="1440" height="900" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured directly from Ergon v0.24.0 at 1440×900 in warm alabaster Light and charcoal Dark (showing configured green <code>Ready</code> gateway status &amp; <code>Healthy</code> learned memory card). Try the real client-side IndexedDB web app (<b>Learned Memory Health Guard &amp; 1-Click Resolve &amp; Prune</b>, <b>Scheduled Routine Catch-Up &amp; SHA-256 Badge</b>, <b>Batch Citation Freshness Gate</b>, Playbook Dry-Run Preview, Verified Playbook Packs, Fuzzy Cmd+K jump, and 12 built-in workflows) at <code>/demos/ergon/</code>.</p>
-              <p class="viz__source">Source: cayleb-james2008/ergon v0.24.0 · interactive browser workspace at /demos/ergon/</p>
+              <p class="viz__caption">Captured from Ergon <code>v0.24.0</code> at <code>1440x900</code>. The browser edition at <code>/demos/ergon/</code> runs on local IndexedDB with Learned Memory Health pruning, Scheduled Routine Catch-Up, Batch Citation Freshness Gate, Playbook Dry-Run Preview, Verified Playbook Packs, and all 12 built-in workflows.</p>
+              <p class="viz__source">Source: cayleb-james2008/ergon v0.24.0 · browser edition at /demos/ergon/</p>
               <p class="viz__action">
                 <a class="viz__open" href="../demos/ergon/">open live web app ↗</a>
               </p>
@@ -95,42 +95,42 @@
               <div class="sim-head">
                 <div class="sim-head__copy">
                   <span class="sim-head__title">“Tidy my notes into one summary.”</span>
-                  <span class="sim-head__sub">Step-by-step schematic of the exact tool sequence driven and asserted by Ergon’s integration suite.</span>
+                  <span class="sim-head__sub">Step sequence verified by Ergon’s integration suite.</span>
                 </div>
                 <button class="btn-outline" id="gate-run" type="button">Step through run</button>
               </div>
               <ol class="sim-steps" id="gate">
-                <li class="sim-step"><span class="sim-step__num">01</span><p><b>List and read inside the sandbox.</b> The agent inspects its person’s workspace and reads the two note files there; paths outside that workspace are refused by the host layer.</p></li>
-                <li class="sim-step"><span class="sim-step__num">02</span><p><b>Snapshot &amp; format via a built-in workflow.</b> Prior file versions are captured in <code>.history/</code> before a sandboxed workflow structures the merged notes and writes <b>Summary.md</b> into the employee’s workspace.</p></li>
-                <li class="sim-step"><span class="sim-step__num">03</span><p><b>Update per-person memory.</b> Formatting preferences spotted in the notes are recorded in the employee’s memory store so future runs follow them automatically.</p></li>
-                <li class="sim-step"><span class="sim-step__num">04</span><p><b>Verify completion &amp; chain SHA-256 receipt.</b> Ergon checks summary claims against disk writes and appends the result to the tamper-evident Field-Book audit chain.</p></li>
+                <li class="sim-step"><span class="sim-step__num">01</span><p>List and read inside the sandbox. The agent reads the two note files inside its assigned folder; paths outside that folder are refused by the host layer.</p></li>
+                <li class="sim-step"><span class="sim-step__num">02</span><p>Snapshot and write via a built-in workflow. Prior versions go into <code>.history/</code> before the merged output is written to <b>Summary.md</b>.</p></li>
+                <li class="sim-step"><span class="sim-step__num">03</span><p>Update per-person memory. Formatting preferences from the run are saved in the local memory store for later runs.</p></li>
+                <li class="sim-step"><span class="sim-step__num">04</span><p>Verify completion and chain a SHA-256 receipt. Claims are checked against disk writes and appended to the Field-Book audit chain.</p></li>
               </ol>
-              <p class="sim-verdict" id="gate-verdict" aria-live="polite">Ready — press “Step through run” to trace each verified stage.</p>
+              <p class="sim-verdict" id="gate-verdict" aria-live="polite">Ready. Press “Step through run” to trace each stage.</p>
             </div>
           </figure>
 
           <figure class="viz">
             <div class="viz__body">
               <div class="viz__head">
-                <span class="viz__title">Recorded end-to-end walkthrough</span>
-                <span class="viz__note">real binary + OpenMotion chapter package</span>
+                <span class="viz__title">Recorded walkthrough (v0.7.0 baseline capture)</span>
+                <span class="viz__note">OpenMotion chapters</span>
               </div>
               <div style="margin-top:16px">
                 <video class="walk-video" controls preload="metadata" playsinline poster="../assets/video/ergon-poster.jpg" src="../assets/video/ergon.mp4">
                   <track kind="chapters" label="Chapters" srclang="en" default src="../assets/video/ergon-chapters.vtt">
                 </video>
                 <ol class="chapters">
-                  <li><button type="button" data-t="0.00"><span class="ct">0:00</span>Ergon v0.7.0 — 3-Company Operations Desk</button></li>
-                  <li><button type="button" data-t="4.00"><span class="ct">0:04</span>3-Company Workspace Switcher (Northstar, Cedarbrook, Ironwood)</button></li>
-                  <li><button type="button" data-t="12.00"><span class="ct">0:12</span>Human Deletion Approval Gate, SHA-256 Receipts &amp; 12 Workflows</button></li>
-                  <li><button type="button" data-t="20.00"><span class="ct">0:20</span>Live Cadence Scheduler Pause/Resume &amp; .history/ Diff Restore</button></li>
-                  <li><button type="button" data-t="28.00"><span class="ct">0:28</span>Tamper-Evident Audit Bundle &amp; Settings Dark Mode</button></li>
-                  <li><button type="button" data-t="36.00"><span class="ct">0:36</span>Ergon v0.7.0 Verified Capabilities</button></li>
+                  <li><button type="button" data-t="0.00"><span class="ct">0:00</span>Ergon Operations Desk Intro</button></li>
+                  <li><button type="button" data-t="4.00"><span class="ct">0:04</span>Workspace Switcher</button></li>
+                  <li><button type="button" data-t="12.00"><span class="ct">0:12</span>Deletion Approval, Receipts, and 12 Workflows</button></li>
+                  <li><button type="button" data-t="20.00"><span class="ct">0:20</span>Routine Scheduler and .history/ Restore</button></li>
+                  <li><button type="button" data-t="28.00"><span class="ct">0:28</span>Audit Bundle Export and Dark Mode</button></li>
+                  <li><button type="button" data-t="36.00"><span class="ct">0:36</span>Verified Summary</button></li>
                 </ol>
               </div>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Recorded end-to-end walkthrough of Ergon v0.7.0 across Northstar Cold-Chain Freight, Cedarbrook Specialty Dental Group, and Ironwood Commercial Mechanical — showing workspace switching, human deletion approval, SHA-256 receipts, cadence routine Pause/Resume, <code>.history/</code> diff restore, and Field-Book Audit Bundle export.</p>
+              <p class="viz__caption">Walkthrough showing workspace switching, human deletion approval, SHA-256 receipts, routine pause/resume, <code>.history/</code> restore, and audit bundle export.</p>
             </figcaption>
           </figure>
         </div>
@@ -143,22 +143,22 @@
           <section id="capabilities">
             <h2>What it does</h2>
             <div class="project-prose__body">
-              <p>Ergon v0.24.0 ships as one <code>8.48 MB</code> cross-platform Rust executable (<code>&lt;8.55 MB</code>, <code>-3.5%</code> / <code>-47.0%</code> vs v0.10.0) compiling <code>index.html.gz</code> + pre-gzipped lazy <code>/chunks/*</code> into <code>.rodata</code> (<code>153,808 B</code> raw / <code>34,822 B</code> gzip initial shell), <b>Learned Memory Health &amp; Stale-Reference Guard</b>, <b>Scheduled Routine Catch-Up &amp; SHA-256 Badge</b>, <b>Batch Citation Freshness Gate</b>, <b>6,090.8 req/s</b> (<code>+16.5%</code>, <code>3.37 ms</code> p95 <code>-1.2%</code>), <b>16.48 MB peak RSS</b> (<code>-5.1%</code>), <code>17.37 ms</code> cold boot, deterministic <code>20/20</code> Playwright replays, and chromeless <code>--app</code> launch.</p>
+              <p>Ergon runs employee playbooks inside one Rust binary with pre-gzipped UI chunks embedded directly in <code>.rodata</code>.</p>
               <div class="cap-grid">
                 <div class="cap-card">
-                  <span class="cap-card__tag">01 · Learned Memory Health &amp; Prune</span>
-                  <h3>Keep learned rules conflict-free</h3>
-                  <p><code>audit_memory_health</code> &amp; <code>heal_memory</code> (<code>GET /api/memory/health</code>, <code>POST /api/memory/heal</code>) detect contradicting directives, duplicates, and broken <code>[file:L##]</code> refs with <code>webEngine.ts</code> parity.</p>
+                  <span class="cap-card__tag">01 · Learned Memory Health</span>
+                  <h3>Catch stale or conflicting rules</h3>
+                  <p><code>audit_memory_health</code> and <code>heal_memory</code> (<code>GET /api/memory/health</code>, <code>POST /api/memory/heal</code>) detect contradicting rules, duplicates, and broken <code>[file:L##]</code> links with a one-click prune button.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">02 · 8.48 MB Binary &amp; 16.48 MB Peak RSS</span>
-                  <h3>-47.0% size &amp; -5.1% memory footprint</h3>
-                  <p>Stripped unused diagnostic crates with native span formatting, tuned <code>opt-level = "z"</code> + <code>-O3</code> hot HTTP/JSON/SHA-256 crates, and capped idle reader/scratch slack under <code>16.5 MB</code> RSS.</p>
+                  <span class="cap-card__tag">02 · 8.48 MB Binary &amp; 16.48 MB RSS</span>
+                  <h3>Smaller release builds without slowing HTTP</h3>
+                  <p>Dropping unused diagnostic crates, using <code>opt-level = "z"</code> with <code>-O3</code> on hot HTTP/JSON/SHA-256 crates, and capping idle scratch slack keeps RSS under <code>16.5 MB</code>.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">03 · 6,091 req/s, Routine Catch-Up &amp; 33/33 Fuzz</span>
-                  <h3>8.41x throughput vs v0.10.0</h3>
-                  <p>Thread-local <code>JSON_SCRATCH</code> streaming writers hit <code>6,090.8 req/s</code> (<code>3.37 ms</code> p95) alongside Scheduled Routine Catch-Up, Batch Citation Gate, and <code>33/33</code> raw-TCP fuzz passes.</p>
+                  <span class="cap-card__tag">03 · Routines &amp; Security</span>
+                  <h3>6,090.8 req/s and 33 fuzz checks</h3>
+                  <p>Thread-local JSON scratch writers hit <code>6,090.8 req/s</code> (<code>3.37 ms</code> p95) alongside scheduled catch-up runs, citation gates, and CWE-22/CWE-59 sandbox enforcement.</p>
                 </div>
               </div>
             </div>
@@ -167,14 +167,14 @@
           <section id="record">
             <h2>Verification record</h2>
             <div class="project-prose__body">
-              <p>Cold-verified, scale-audited, and cross-compiled against <code>cayleb-james2008/ergon</code> at release <code>v0.24.0</code> (<code>84869916</code>).</p>
+              <p>Measured against <code>cayleb-james2008/ergon</code> at release <code>v0.24.0</code> (<code>84869916</code>).</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Rust, Windows &amp; Clippy</th><td><b>222 of 222 Rust tests</b> (<code>cargo test --locked</code> incl. <code>memory_health_and_heal_work_end_to_end</code>, routine catch-up &amp; fast JSON writers), <code>0</code> clippy warnings (<code>-D warnings</code>), and <code>0</code> Windows cross-check errors (<code>cargo xwin check --target x86_64-pc-windows-msvc</code>).</td></tr>
-                  <tr><th>Security &amp; Boundary Enforcement</th><td>Unique-temp atomic persistence (<code>0o600</code> config keys), <code>/api/memory/heal</code> &amp; <code>/api/scheduler/catchup</code> payload caps (<code>413</code> / <code>415</code> / DNS-rebind / canonical SHA-256 tamper rejection), Host-403 &amp; duplicate Host <code>400</code>, oversized <code>Content-Length</code> → <code>413</code> with open write half, Keep-Alive close on 4xx/5xx/SSE/decoy, CWE-22/CWE-59 traversal &amp; symlink guards, CSP-locked HTML handoffs, and ZIP-slip clean DOCX export.</td></tr>
-                  <tr><th>Scale &amp; Cold Fuzz Audit</th><td>Cold scale &amp; security audit on release binary (<code>8.48 MB</code>, <code>153,808 B</code> raw / <code>34,822 B</code> gzip initial shell + 15 pre-gz <code>/chunks/*</code>): <b>17.37 ms</b> cold boot (<code>&lt;20 ms</code>), <b>16.48 MB</b> peak RSS (<code>-5.1%</code>, <code>&lt;16.5 MB</code>), <b>6,090.8 req/s</b> (<code>+16.5%</code>, <code>8.41x</code> vs v0.10.0, 16w pinned, <code>2.48 ms</code> p50, <b>3.37 ms p95</b> <code>-1.2%</code> across <code>15,236</code> reqs, <code>0</code> err), <b>5/5 (100.0%)</b> SSE survival, and <b>33/33</b> cold raw-TCP fuzz vectors passing (<code>+2</code> <code>/api/memory/heal</code> checks).</td></tr>
-                  <tr><th>UI &amp; standalone web app</th><td><b>74 of 74</b> Playwright UI gate checks, <b>6 of 6</b> Work Graph probes, <b>20 of 20</b> deterministic replays, <code>sloplint --scope app --render</code> <b>0 FAIL / 0 REFLEX / 0 WARN</b>, <code>0</code> console errors across <code>1440×900</code> &amp; <code>390×844</code> Light &amp; Dark, green <code>Ready</code> + <code>Healthy</code> screenshots, and standalone <code>ergon-web.html</code> (<code>1,179 KB</code>) verified with <code>0</code> third-party requests.</td></tr>
-                  <tr><th>Cross-platform packaging</th><td>Single Rust binary + chromeless desktop app launch (<code>--app</code>) across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> + <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.24.0" target="_blank" rel="noreferrer noopener">v0.24.0 Release</a>).</td></tr>
+                  <tr><th>Rust, Windows &amp; Clippy</th><td>222 of 222 Rust tests pass (including <code>memory_health_and_heal_work_end_to_end</code>, routine catch-up, and fast JSON writers), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo xwin check --target x86_64-pc-windows-msvc</code>).</td></tr>
+                  <tr><th>Security &amp; boundaries</th><td>Atomic writes with <code>0o600</code> key permissions, payload and canonical SHA-256 tamper rejections on <code>/api/memory/heal</code> and <code>/api/scheduler/catchup</code>, Host-403, open-write 413 handling, CWE-22/CWE-59 symlink guards, CSP-locked HTML exports, and ZIP-slip clean DOCX output.</td></tr>
+                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>8.48 MB release binary (<code>8,893,280 B</code>), <code>34,822 B</code> gzip initial shell plus 15 pre-gzipped <code>/chunks/*</code>, 17.37 ms cold boot, 16.48 MB peak RSS, 6,090.8 req/s (2.48 ms p50, 3.37 ms p95, 15,236 reqs, 0 errors), 5/5 SSE survival, and 33/33 cold raw-TCP fuzz checks pass.</td></tr>
+                  <tr><th>UI &amp; standalone web app</th><td>74 of 74 Playwright UI checks, 6 of 6 Work Graph probes, 20 of 20 deterministic replays, 0 FAIL / 0 WARN Sloplint, zero console errors across <code>1440x900</code> and <code>390x844</code> Light and Dark viewports, and standalone <code>ergon-web.html</code> (<code>1,179 KB</code>) with zero third-party requests.</td></tr>
+                  <tr><th>Cross-platform packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.24.0" target="_blank" rel="noreferrer noopener">v0.24.0 Release</a>).</td></tr>
                 </tbody>
               </table>
             </div>
@@ -182,10 +182,10 @@
         </div>
 
         <section class="project-limits" id="limits" aria-labelledby="limits-h">
-          <h2 id="limits-h">what is not verified</h2>
+          <h2 id="limits-h">Known limits</h2>
           <ul>
-            <li><b>No customer deployment yet:</b> Ergon is in development and is not deployed at any live company today; no customer, pricing or revenue claims exist.</li>
-            <li><b>Local model &amp; fail-closed boundary:</b> v0.24.0 auto-connects to running local OpenAI-compatible gateways on loopback (or any provider configured live inside Settings); when no local gateway or API key is available, Ergon fails closed honestly and refuses to fabricate output.</li>
+            <li>Ergon is still in development and is not installed at any customer company; no pricing or adoption figures are claimed.</li>
+            <li>The app connects to running local OpenAI-compatible gateways on loopback or a provider configured in Settings. When no gateway or API key is available, it fails closed rather than making up output.</li>
           </ul>
         </section>
       </article>
@@ -199,7 +199,7 @@
           <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.24.0</span></dd></div>
           <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/ergon/">Live web app</a> · <a href="https://github.com/cayleb-james2008/ergon">GitHub</a> · <a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.24.0">Release v0.24.0</a></dd></div>
         </dl>
-        <p class="project-aside__more"><a href="../index.html">← Back to the interactive résumé</a></p>
+        <p class="project-aside__more"><a href="../index.html">← Back to home</a></p>
       </aside>
     </div>
   </main>
@@ -229,7 +229,7 @@
         steps.forEach(function (s) { s.classList.remove("on"); });
         if (reduced()) {
           steps.forEach(function (s) { s.classList.add("on"); });
-          verdict.textContent = "DONE — Summary.md written, .history/ version recorded, memory updated, and SHA-256 receipt chained.";
+          verdict.textContent = "DONE: Summary.md written, .history/ version recorded, memory updated, and SHA-256 receipt chained.";
           return;
         }
         verdict.textContent = "Running trace…";
@@ -237,7 +237,7 @@
           timers.push(setTimeout(function () { s.classList.add("on"); }, 220 * (i + 1)));
         });
         timers.push(setTimeout(function () {
-          verdict.textContent = "DONE — Summary.md written, .history/ version recorded, memory updated, and SHA-256 receipt chained.";
+          verdict.textContent = "DONE: Summary.md written, .history/ version recorded, memory updated, and SHA-256 receipt chained.";
         }, 220 * (steps.length + 1)));
       });
     }
