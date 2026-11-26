@@ -44,7 +44,7 @@ export const experience = [
     org: "Founder · Independent AI Agent Systems",
     bullets: [
       "Built Ergon (v0.36.0) as a single-binary Rust desk for local employee agents. Hardens Cycle 3 client and pricing rate bounds (404 on orphan engagements, saturating `RunUsage` math, and corrupt `clients.json` and `vault_index.json` recovery without 500s), vault index memory trimming and traversal guards on `glob` and `save_as`, DAG self-loop and 50-item `for_each` validation, idempotent `deliver` settlement per `decision_id`, bounded 2 MB SSE streaming frames, and UI concurrency locks across `PersonSelect`, `CommandPalette`, `WorkspaceFiles`, and `PipelineBuilder` alongside parallel DAG pipelines, full-vault chunked hybrid search, Deliverable Studio editing, PDF/XLSX export, and signed webhooks. Ergon is still in development and has not been installed at a customer company.",
-      "Built Fleet (v1.27.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. Hardens Cycle 3 delta long-polling (aborted waiter cleanup, parseQueryFast prototype pollution guards, and partial-tail or shrink recovery), bounded forensic transcript inspection (CWE-59 intermediate symlink checks, UTF-8-safe byte slicing, prose-safe Bearer and token scrubbing, and AbortController drawer cancellation), and zero-token or NaN bounds across 1M context ceilings and per-model USD cost economics alongside 3-way Reload & merge recovery.",
+      "Built Fleet (v1.28.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. Adds a closed-loop operator command ledger (64-entry atomic fleet_ops.json ring with [opId=...] tagging, automatic board/members/plan/error reconciliation, and 45s timeouts), non-blocking async 200 RPC dispatch on POST /api/control and POST /api/nudge with POST /api/ops/action (retry, dismiss, mark_verified), OperatorOpsStrip queue tracking, honest coordinator-aware dispatch notices, and the 409 worker_not_waiting Switch Model guard alongside hardened Cycle 3 delta sync and forensic transcript inspection.",
       "Built OpenRO (v1.26.0), a unified three-pane Rust IDE for Roblox Studio adding Cycle 3 Wave H1 hardening across LiveOps DataStore retention (50-backup pruning, `telemetry.jsonl.1` rotation, strict key/revision checks, and multi-layer secret scrubbing), 3D terrain bounds and circular `reparent` guards, `mesh-asset` symlink and encoding containment, headless Lune `0.11.1` sandbox pruning and corrupt `latest.json` recovery, and WebGL2/UI reliability (`0 FAIL / 0 REFLEX / 0 WARN` Sloplint across 65 source files) alongside ScreenGui Designer, direct Rojo disk saves, native `.rbxlx` export, 13 MCP tools, and 60-minute economy curves.",
     ],
   },
@@ -192,10 +192,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Fleet",
     href: "/projects/fleet.html",
-    pitch: "Antigravity sidebar plugin for multi-agent swarms with hardened Cycle 3 delta streaming, bounded forensic transcript inspection, 1M context ceilings, per-model USD cost economics, and 3-way 409 plan merge recovery (v1.27.0).",
-    img: "/assets/projects/captures/fleet-v1270-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1270-dark.png",
-    alt: "Fleet v1.27.0 Antigravity sidebar showing hardened Cycle 3 trace inspection and zero-token cost bounds.",
+    pitch: "Antigravity sidebar plugin for multi-agent swarms with a closed-loop operator command ledger, non-blocking async RPC dispatch, working-worker Switch Model guards, and hardened Cycle 3 delta streaming (v1.28.0).",
+    img: "/assets/projects/captures/fleet-v1280-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1280-dark.png",
+    alt: "Fleet v1.28.0 Antigravity sidebar showing OperatorOpsStrip command queue tracking and the Switch Model working guard.",
   },
 ];
 
@@ -246,7 +246,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.26.0, OpenBell v0.9.0, Fleet v1.27.0, and Ergon v0.36.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.26.0, OpenBell v0.9.0, Fleet v1.28.0, and Ergon v0.36.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
@@ -314,17 +314,17 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Fleet",
     tag: "APP-03",
-    title: "Fleet (v1.27.0 Antigravity Swarm Sidebar)",
-    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Inspect hardened Cycle 3 delta sync parity, bounded forensic transcript inspection, zero-token and NaN bounds across 1M context ceilings and per-model USD spend badges, 3-way 409 plan merge recovery, dry_run_merge conflict alerts, Board channels, worker model controls, and file collision detection.",
+    title: "Fleet (v1.28.0 Antigravity Swarm Sidebar)",
+    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Inspect the closed-loop OperatorOpsStrip command queue (Retry, Mark Verified, Dismiss), non-blocking async dispatch notices, working-worker Switch Model 409 guards, hardened Cycle 3 delta sync, bounded forensic transcript inspection, 1M context ceilings, 3-way 409 plan merge recovery, Board channels, and file collision detection.",
     url: "/demos/fleet/",
-    img: "/assets/projects/captures/fleet-v1270-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1270-dark.png",
+    img: "/assets/projects/captures/fleet-v1280-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1280-dark.png",
     page: "/projects/fleet.html",
     repo: "https://github.com/cayleb-james2008/fleet",
     storagePrefix: "fleet",
-    action: "open Roster to compare 1M vs 200k context ceilings and per-worker USD spend, click Inspect trace to filter Errors/Tools and paginate transcript steps, edit plans in Triage with 409 Reload & merge recovery, open Board for channels and #seq replyRefs, or open Git for dry-run conflict alerts and collision pills.",
+    action: "open Roster or Board to inspect OperatorOpsStrip command queue tracking (Retry, Mark Verified, Dismiss), trigger a working-worker Switch Model guard, click Inspect trace to filter transcript steps, edit plans in Triage with 409 Reload & merge recovery, or open Git for dry-run conflict alerts.",
     provenance: [
-      { label: "What runs:", text: "the single-file Fleet v1.27.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying hardened Cycle 3 delta sync (seq deduplication and capped backoff), bounded forensic transcript inspection (GET /api/transcript with All/Errors/Tools filters, empty-trace states, Escape close, and overlapping fetch cancellation), zero-token and NaN bounds for 1M context ceilings and per-model byModel USD cost economics, 3-way 409 plan merge recovery, dry_run_merge conflict classification, the POST /api/control operator command plane, Board channel tabs, replyRefs thread backlinks, Roster drawers, cross-worktree collision detection, and Full Swarm Archive Export at /demos/fleet/." },
+      { label: "What runs:", text: "the single-file Fleet v1.28.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying the closed-loop fleet_ops.json operator command ledger, OperatorOpsStrip queue actions (retry, mark_verified, dismiss), non-blocking POST /api/control and POST /api/nudge dispatch, working-worker 409 worker_not_waiting Switch Model guards, hardened Cycle 3 delta sync, bounded forensic transcript inspection (GET /api/transcript), 1M context ceilings and per-model USD cost economics, 3-way 409 plan merge recovery, dry_run_merge conflict classification, Board channel tabs, replyRefs thread backlinks, cross-worktree collision detection, and Full Swarm Archive Export at /demos/fleet/." },
       { label: "Local Antigravity install:", text: "the browser copy stays offline; running ./install.sh in a local clone installs the sidecar plugin into ~/.gemini/config/plugins/fleet/ with bounded <= 512 KiB transcript scanning and secret scrubbing on GET /api/transcript, GET /api/swarm/delta long-poll wakeups, content-hash plan ETags, CWE-59 git probes, zero-client idle sleep, and live SSE ping frames." },
       { label: "Why it is here:", text: "you can step through live swarm triage, forensic transcript inspection, native plan editing, and the multi-agent release gate checklist inside a narrow auxiliary pane layout." },
     ],
