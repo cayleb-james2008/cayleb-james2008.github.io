@@ -44,8 +44,8 @@ export const experience = [
     org: "Founder · Independent AI Agent Systems",
     bullets: [
       "Built Ergon (v0.24.0) as a single-binary Rust desk for local employee agents. Workflows run inside a sandboxed folder with file history restore, SHA-256 receipts, citation freshness checks, and automatic detection of stale or conflicting memory rules. Ergon is still in development and has not been installed at a customer company.",
-      "Built Fleet (v1.13.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It reads Antigravity board messages and transcript state, tracks release gate readiness across authors and verifiers, flags runaway token burn, and previews git worktree diffs behind path-confinement checks.",
-      "Built OpenRO (v1.14.0), a three-pane Rust IDE for Roblox Studio that bridges Studio over OpenRoCompanion.lua and 13 MCP tools, compares Luau diffs against prior snapshots so monetization or spawn hooks do not drop silently, and exports .rbxlx XML or Rojo packs.",
+      "Built Fleet (v1.14.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It reads Antigravity board messages and transcript state, tracks release gate readiness and wave velocity across authors and verifiers, flags runaway token burn, and previews git worktree diffs behind path-confinement checks.",
+      "Built OpenRO (v1.15.0), a three-pane Rust IDE for Roblox Studio that bridges Studio over OpenRoCompanion.lua and 13 MCP tools, resolves Rojo live-sync conflicts with safety snapshots, checks Luau diffs so monetization or spawn hooks do not drop silently, and exports .rbxlx XML or Rojo packs.",
     ],
   },
   {
@@ -174,10 +174,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
-    pitch: "Three-pane Rust IDE for Roblox Studio that generates Luau diffs, catches dropped monetization or spawn hooks before shipping, and exports .rbxlx or Rojo packs (v1.14.0).",
-    img: "/assets/projects/captures/openro-v1140-light.png",
-    darkImg: "/assets/projects/captures/openro-v1140-dark.png",
-    alt: "OpenRO v1.14.0 three-pane workspace showing Explorer, Studio preview with hook-integrity checks, and the copilot panel.",
+    pitch: "Three-pane Rust IDE for Roblox Studio that generates Luau diffs, resolves live-sync conflicts, catches dropped monetization or spawn hooks before shipping, and exports .rbxlx or Rojo packs (v1.15.0).",
+    img: "/assets/projects/captures/openro-v1150-light.png",
+    darkImg: "/assets/projects/captures/openro-v1150-dark.png",
+    alt: "OpenRO v1.15.0 three-pane workspace showing Explorer, Studio preview with sync-conflict and hook-integrity checks, and the copilot panel.",
   },
   {
     name: "OpenBell",
@@ -190,10 +190,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Fleet",
     href: "/projects/fleet.html",
-    pitch: "Antigravity sidebar plugin for multi-agent swarms that tracks message boards, flags high token burn, previews worktree diffs, and resolves next-gate actions (v1.13.0).",
-    img: "/assets/projects/captures/fleet-v1130-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1130-dark.png",
-    alt: "Fleet v1.13.0 Antigravity sidebar at 380x900 showing release gate readiness, one-click next action button, and token burn strip.",
+    pitch: "Antigravity sidebar plugin for multi-agent swarms that tracks message boards, wave velocity, token burn, and worktree diffs while resolving next-gate actions (v1.14.0).",
+    img: "/assets/projects/captures/fleet-v1140-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1140-dark.png",
+    alt: "Fleet v1.14.0 Antigravity sidebar at 380x900 showing wave velocity, release gate readiness, next action button, and token burn strip.",
   },
 ];
 
@@ -244,7 +244,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.14.0, OpenBell v0.9.0, and Fleet v1.13.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.15.0, OpenBell v0.9.0, and Fleet v1.14.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
@@ -276,19 +276,19 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Open-Ro",
     tag: "APP-01",
-    title: "Open-Ro Studio (v1.14.0)",
-    blurb: "Browser edition of the three-pane Roblox Studio IDE. You can inspect snapshots for dropped monetization or spawn hooks, repair them without erasing newer scripts, test game economies, and export .rbxlx XML or Rojo .zip bundles.",
+    title: "Open-Ro Studio (v1.15.0)",
+    blurb: "Browser edition of the three-pane Roblox Studio IDE. You can resolve Rojo live-sync script conflicts, inspect snapshots for dropped monetization or spawn hooks, repair them without erasing newer scripts, test game economies, and export .rbxlx XML or Rojo .zip bundles.",
     url: "/demos/open-ro/",
-    img: "/assets/projects/captures/openro-v1140-light.png",
-    darkImg: "/assets/projects/captures/openro-v1140-dark.png",
+    img: "/assets/projects/captures/openro-v1150-light.png",
+    darkImg: "/assets/projects/captures/openro-v1150-dark.png",
     page: "/projects/openro.html",
     repo: "https://github.com/cayleb-james2008/open-ro",
     storagePrefix: "openro",
-    action: "open Starters to scaffold a game in Studio 3D, check Preflight Hook-Integrity to restore missing hooks, compare snapshot diffs, run the Luau Dependency Graph Pruner, or export a Rojo .zip package.",
+    action: "open Starters to scaffold a game in Studio 3D, resolve live-sync conflicts, check Preflight Hook-Integrity to restore missing hooks, compare snapshot diffs, run the Luau Dependency Graph Pruner, or export a Rojo .zip package.",
     provenance: [
-      { label: "What runs:", text: "the Open-Ro v1.14.0 React frontend compiled from cayleb-james2008/open-ro, including Explorer, Hook-Integrity Guard, Snapshot Diff & Rollback, Luau Pruner, Studio 3D preview, and the .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
-      { label: "Local and BYOK options:", text: "stays offline in your browser by default; Settings lets you add an API key or point to a local openro-rs 1.14.0 binary on 127.0.0.1 for live Roblox Studio sync via OpenRoCompanion.lua." },
-      { label: "Why it is here:", text: "you can test the diff workflow, hook checks, 3D scene preview, and Studio export directly without installing the binary." },
+      { label: "What runs:", text: "the Open-Ro v1.15.0 React frontend compiled from cayleb-james2008/open-ro, including Explorer, Rojo Sync Conflict Resolver, Hook-Integrity Guard, Snapshot Diff & Rollback, Luau Pruner, Studio 3D preview, and the .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
+      { label: "Local and BYOK options:", text: "stays offline in your browser by default; Settings lets you add an API key or point to a local openro-rs 1.15.0 binary on 127.0.0.1 for live Roblox Studio sync via OpenRoCompanion.lua." },
+      { label: "Why it is here:", text: "you can test conflict resolution, diff workflows, hook checks, 3D scene preview, and Studio export directly without installing the binary." },
     ],
   },
   {
@@ -312,17 +312,17 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Fleet",
     tag: "APP-03",
-    title: "Fleet (v1.13.0 Antigravity Swarm Sidebar)",
-    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Track which agents finished, see release gate blockers with one-click next actions, spot high token burn, send confirmation-gated worker nudges, and inspect confined git worktree diffs.",
+    title: "Fleet (v1.14.0 Antigravity Swarm Sidebar)",
+    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Track which agents finished, read wave velocity and pass rates, jump to shipped posts or release gate blockers with one click, spot high token burn, send confirmation-gated worker nudges, and inspect confined git worktree diffs.",
     url: "/demos/fleet/",
-    img: "/assets/projects/captures/fleet-v1130-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1130-dark.png",
+    img: "/assets/projects/captures/fleet-v1140-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1140-dark.png",
     page: "/projects/fleet.html",
     repo: "https://github.com/cayleb-james2008/fleet",
     storagePrefix: "fleet",
-    action: "click the primary next-gate action chip inside Gate Readiness, check worker token burn in the guard strip, filter the board feed, or download a sanitized .md or .json log.",
+    action: "check the wave velocity pill or click the primary next-gate action chip inside Gate Readiness, inspect worker token burn in the guard strip, filter the board feed, or download a sanitized .md or .json log.",
     provenance: [
-      { label: "What runs:", text: "the single-file Fleet v1.13.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying swarm board messages, gate readiness state, token burn bars, and worktree diffs at /demos/fleet/." },
+      { label: "What runs:", text: "the single-file Fleet v1.14.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying swarm board messages, wave velocity counts, gate readiness state, token burn bars, and worktree diffs at /demos/fleet/." },
       { label: "Local Antigravity install:", text: "the browser copy stays offline; running ./install.sh in a local clone installs the sidecar plugin into ~/.gemini/config/plugins/fleet/ with live SSE board updates and Antigravity preload bridges." },
       { label: "Why it is here:", text: "you can step through the multi-agent release gate checklist and triage sidebar inside a narrow auxiliary pane layout." },
     ],

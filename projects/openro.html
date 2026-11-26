@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Open-Ro Studio · Cayleb Alvarez-James</title>
-  <meta name="description" content="OpenRO v1.14.0 is a three-pane Rust AI IDE for Roblox Studio with Luau diffs, preflight hook-integrity checks, snapshot rollback, live Studio sync, and Rojo export.">
+  <meta name="description" content="OpenRO v1.15.0 is a three-pane Rust AI IDE for Roblox Studio with Luau diffs, Rojo live-sync conflict resolution, preflight hook-integrity checks, snapshot rollback, and Rojo export.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/openro.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="Open-Ro Studio · Cayleb Alvarez-James">
-  <meta property="og:description" content="Three-pane Rust AI IDE for Roblox Studio with Luau diffs, hook-integrity checks, snapshot rollback, and Rojo export (v1.14.0).">
+  <meta property="og:description" content="Three-pane Rust AI IDE for Roblox Studio with Luau diffs, Rojo conflict resolution, hook-integrity checks, snapshot rollback, and Rojo export (v1.15.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/openro.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -41,16 +41,16 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Release v1.14.0 · Single-Binary Rust Desktop &amp; Web App · checked 25 November 2026</p>
+        <p class="case-hero__meta">Release v1.15.0 · Single-Binary Rust Desktop &amp; Web App · checked 25 November 2026</p>
         <h1 class="case-hero__title">Build, diff, and check Roblox Studio scripts in one place.</h1>
-        <p class="case-hero__out">Open-Ro Studio (OpenRO) is a three-pane Rust IDE for generating and editing Roblox Studio projects on Linux, macOS, and Windows. Release <code>v1.14.0</code> compiles into a <code>9.93 MB</code> binary, pairs with <code>OpenRoCompanion.lua</code> and 13 official MCP tools, checks Luau edits against earlier snapshots so monetization or spawn hooks are not dropped quietly, and exports clean <code>.rbxlx</code> files or Rojo <code>.zip</code> packs.</p>
+        <p class="case-hero__out">Open-Ro Studio (OpenRO) is a three-pane Rust IDE for generating and editing Roblox Studio projects on Linux, macOS, and Windows. Release <code>v1.15.0</code> compiles into a <code>9.96 MB</code> binary, pairs with <code>OpenRoCompanion.lua</code> and 13 official MCP tools, resolves Rojo live-sync conflicts with automatic safety snapshots, checks Luau edits so monetization or spawn hooks do not drop quietly, and exports clean <code>.rbxlx</code> files or Rojo <code>.zip</code> packs.</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>Checked at a8ac6bc9: 312/312 Rust tests, 56/56 Playwright checks, 3,880.4 req/s (5.33 ms p95), 10/10 Dual-SSE, and 33/33 fuzz checks pass.</li>
-          <li><span class="chip chip--current">v1.14.0 public</span></li>
+          <li><span class="checked-dot" aria-hidden="true"></span>Checked at d352d615: 313/313 Rust tests, 56/56 Playwright checks, 3,468.6 req/s (5.97 ms p95), 14.84 MB peak RSS, 10/10 Dual-SSE, and 36/36 fuzz checks pass.</li>
+          <li><span class="chip chip--current">v1.15.0 public</span></li>
         </ul>
         <div class="hero-actions">
           <a class="btn-primary" href="../demos/open-ro/">Launch live web app ↗</a>
-          <a class="btn-outline" href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.14.0" target="_blank" rel="noreferrer noopener">Release v1.14.0 on GitHub ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.15.0" target="_blank" rel="noreferrer noopener">Release v1.15.0 on GitHub ↗</a>
         </div>
       </div>
     </header>
@@ -69,21 +69,21 @@
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">OpenRO v1.14.0 Studio Workspace</span>
+              <span class="viz__title">OpenRO v1.15.0 Studio Workspace</span>
               <span class="viz__live">live capture</span>
               <span class="viz__note">Light and Dark inside Settings</span>
             </div>
             <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/openro-v1140-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of OpenRO v1.14.0">
-                <img src="../assets/projects/captures/openro-v1140-light.png" alt="OpenRO v1.14.0 three-pane Roblox Studio IDE in Light theme with Explorer, hook-integrity workspace, and copilot panel." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-light" href="../assets/projects/captures/openro-v1150-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of OpenRO v1.15.0">
+                <img src="../assets/projects/captures/openro-v1150-light.png" alt="OpenRO v1.15.0 three-pane Roblox Studio IDE in Light theme with Explorer, sync-conflict and hook-integrity workspace, and copilot panel." width="1440" height="900" loading="eager" decoding="async">
               </a>
-              <a class="shot-dark" href="../assets/projects/captures/openro-v1140-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of OpenRO v1.14.0">
-                <img src="../assets/projects/captures/openro-v1140-dark.png" alt="OpenRO v1.14.0 three-pane Roblox Studio IDE in Dark theme with Explorer, hook-integrity workspace, and copilot panel." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-dark" href="../assets/projects/captures/openro-v1150-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of OpenRO v1.15.0">
+                <img src="../assets/projects/captures/openro-v1150-dark.png" alt="OpenRO v1.15.0 three-pane Roblox Studio IDE in Dark theme with Explorer, sync-conflict and hook-integrity workspace, and copilot panel." width="1440" height="900" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured from OpenRO <code>v1.14.0</code> at <code>1440x900</code>. The browser edition at <code>/demos/open-ro/</code> includes the Explorer dock, Preflight Hook-Integrity Guard, Snapshot Diff &amp; Rollback, Luau Dependency Graph Pruner, Economy Simulator, 3D preview, and Rojo <code>.zip</code> export.</p>
-              <p class="viz__source">Source: cayleb-james2008/open-ro v1.14.0 · browser edition at /demos/open-ro/</p>
+              <p class="viz__caption">Captured from OpenRO <code>v1.15.0</code> at <code>1440x900</code>. The browser edition at <code>/demos/open-ro/</code> includes the Explorer dock, Rojo Sync Conflict Resolver, Preflight Hook-Integrity Guard, Snapshot Diff &amp; Rollback, Luau Dependency Graph Pruner, Economy Simulator, 3D preview, and Rojo <code>.zip</code> export.</p>
+              <p class="viz__source">Source: cayleb-james2008/open-ro v1.15.0 · browser edition at /demos/open-ro/</p>
               <p class="viz__action">
                 <a class="viz__open" href="../demos/open-ro/">open live web app ↗</a>
               </p>
@@ -146,19 +146,19 @@
               <p>OpenRO handles scaffolding, Luau code diffs, snapshot rollback, economy dry runs, and Studio packaging inside one workspace backed by a cross-platform Rust server.</p>
               <div class="cap-grid">
                 <div class="cap-card">
-                  <span class="cap-card__tag">01 · Hook Integrity</span>
-                  <h3>Catch dropped monetization and spawn hooks</h3>
-                  <p><code>GET .../snapshots/hook-integrity</code> flags missing GamePass or DevProduct IDs, <code>ProcessReceipt</code>, <code>SpawnLocation</code>, and <code>--!strict</code> headers, and <code>POST .../restore-hooks</code> brings them back without erasing newer scripts.</p>
+                  <span class="cap-card__tag">01 · Sync Conflicts &amp; Hook Integrity</span>
+                  <h3>Resolve script collisions and guard hooks</h3>
+                  <p><code>/api/studio/sync-conflicts</code> previews Rojo vs Place script hunks with Accept Local, Keep Place, and Backup Snapshot actions, while hook checks protect GamePass, spawn, and <code>--!strict</code> headers.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">02 · Smaller Binary</span>
-                  <h3>Sub-10 MB binary with opt-level splitting</h3>
-                  <p>Compiling general crates with <code>opt-level = "z"</code> while keeping hot JSON, compression, and hashing crates at <code>opt-level = 3</code> shrinks the executable to <code>9.93 MB</code> without slowing HTTP serving.</p>
+                  <span class="cap-card__tag">02 · 14.84 MB Peak RSS &amp; 9.96 MB Binary</span>
+                  <h3>Arena bounds and opt-level splitting</h3>
+                  <p>Bounding glibc arenas (<code>M_ARENA_MAX = 1</code>, <code>M_MMAP_THRESHOLD = 32 KB</code>) and starting with two worker pool threads drops peak RSS to <code>14.84 MB</code> in a <code>9.96 MB</code> binary.</p>
                 </div>
                 <div class="cap-card">
                   <span class="cap-card__tag">03 · Snapshot Diff &amp; Security</span>
-                  <h3>Rollbacks and path confinement</h3>
-                  <p>Playable Snapshot Diff, dependency graph pruning, CRC-32 Rojo packs, loopback <code>Host</code> filters, and traversal guards pass 33 raw-TCP fuzz vectors.</p>
+                  <h3>Rollbacks and 36/36 raw-TCP fuzz</h3>
+                  <p>Playable Snapshot Diff, dependency graph pruning, CRC-32 Rojo packs, loopback <code>Host</code> filters, and traversal guards pass 36 raw-TCP fuzz vectors.</p>
                 </div>
               </div>
             </div>
@@ -167,13 +167,13 @@
           <section id="record">
             <h2>Verification record</h2>
             <div class="project-prose__body">
-              <p>Measured against <code>cayleb-james2008/open-ro</code> at release <code>v1.14.0</code> (<code>a8ac6bc9</code>).</p>
+              <p>Measured against <code>cayleb-james2008/open-ro</code> at release <code>v1.15.0</code> (<code>d352d615</code>).</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Rust, Windows &amp; Clippy</th><td>312 of 312 Rust tests pass (73 unit and 239 integration, including <code>v1140_wave13_hook_integrity_and_surgical_restore</code>), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo xwin check --offline --target x86_64-pc-windows-msvc</code>).</td></tr>
-                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>9.93 MB release binary (<code>10,412,888 B</code>, -11.0% vs v1.13.0), <code>57,729 B</code> gzip initial shell, 39.40 ms cold boot, 16.29 MB peak RSS, 3,880.4 req/s (3.93 ms p50, 5.33 ms p95, 9,711 reqs, 0 errors), 10/10 Dual-SSE survival, and 33/33 cold raw-TCP fuzz checks pass.</td></tr>
-                  <tr><th>UI &amp; standalone web app</th><td><code>check:ui</code> passed 56/56 Playwright checks, 9/9 replays, 0 FAIL / 0 WARN Sloplint, zero console errors across <code>1440x900</code> and <code>390x844</code> Light and Dark viewports, and offline <code>web-dist</code> (<code>1,598 kB</code>) with zero external requests.</td></tr>
-                  <tr><th>Packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.14.0" target="_blank" rel="noreferrer noopener">v1.14.0 Release</a>).</td></tr>
+                  <tr><th>Rust, Windows &amp; Clippy</th><td>313 of 313 Rust tests pass (including <code>v1150_wave14_rojo_sync_conflict_resolver_and_cwe22</code> and <code>v1140_wave13_hook_integrity_and_surgical_restore</code>), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo xwin check --offline --target x86_64-pc-windows-msvc</code>).</td></tr>
+                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>9.96 MB release binary (<code>10,445,656 B</code>), <code>57,767 B</code> gzip initial shell, 37.73 ms cold boot, 14.84 MB peak RSS (-8.9% vs v1.14.0), 3,468.6 req/s (4.42 ms p50, 5.97 ms p95, 8,678 reqs, 0 errors), 10/10 Dual-SSE survival, and 36/36 cold raw-TCP fuzz checks pass.</td></tr>
+                  <tr><th>UI &amp; standalone web app</th><td><code>check:ui</code> passed 56/56 Playwright checks, 9/9 replays, 0 FAIL / 0 WARN Sloplint, zero console errors across <code>1440x900</code> and <code>390x844</code> Light and Dark viewports, and offline <code>web-dist</code> (<code>1,607 kB</code>) with zero external requests.</td></tr>
+                  <tr><th>Packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.15.0" target="_blank" rel="noreferrer noopener">v1.15.0 Release</a>).</td></tr>
                 </tbody>
               </table>
             </div>
@@ -183,7 +183,7 @@
         <section class="project-limits" id="limits" aria-labelledby="limits-h">
           <h2 id="limits-h">Known limits</h2>
           <ul>
-            <li>The three-pane editor, hook-integrity guard, snapshot rollback, Luau pruner, economy simulator, 3D preview, and <code>.rbxlx</code> / Rojo <code>.zip</code> exports work in every mode; live embedded Roblox Studio streaming, the Companion plugin bridge, and Blender mesh export require Roblox Studio (or Vinegar on Linux) and Blender installed locally.</li>
+            <li>The three-pane editor, sync-conflict resolver, hook-integrity guard, snapshot rollback, Luau pruner, economy simulator, 3D preview, and <code>.rbxlx</code> / Rojo <code>.zip</code> exports work in every mode; live embedded Roblox Studio streaming, the Companion plugin bridge, and Blender mesh export require Roblox Studio (or Vinegar on Linux) and Blender installed locally.</li>
             <li>No user or download numbers are published for this release.</li>
           </ul>
         </section>
@@ -193,10 +193,10 @@
         <h2>Evidence</h2>
         <dl class="repo-facts">
           <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/open-ro">cayleb-james2008/open-ro</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.14.0</b> · Single-binary Rust</dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.15.0</b> · Single-binary Rust</dd></div>
           <div class="repo-facts__row"><dt>checked</dt><dd>25 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.14.0</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/open-ro/">Live web app</a> · <a href="https://github.com/cayleb-james2008/open-ro">GitHub</a> · <a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.14.0">Release v1.14.0</a></dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.15.0</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/open-ro/">Live web app</a> · <a href="https://github.com/cayleb-james2008/open-ro">GitHub</a> · <a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.15.0">Release v1.15.0</a></dd></div>
         </dl>
         <p class="project-aside__more"><a href="../index.html">← Back to home</a></p>
       </aside>
