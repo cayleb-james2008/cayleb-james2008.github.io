@@ -45,7 +45,7 @@ export const experience = [
     bullets: [
       "Built Ergon (v0.25.0) as a single-binary Rust desk for local employee agents. Workflows run inside a sandboxed folder with workspace audit policy profiles (Fast Internal, Strict Client, and Air-Gapped), file history restore, SHA-256 receipts, citation freshness checks, and automatic detection of stale or conflicting memory rules. Ergon is still in development and has not been installed at a customer company.",
       "Built Fleet (v1.15.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It reads Antigravity board messages and transcript state, recovers stalled or idle workers in one click, jumps directly to member feeds, tracks release gate readiness and wave velocity, flags high token burn, and previews git worktree diffs behind path-confinement checks.",
-      "Built OpenRO (v1.15.0), a three-pane Rust IDE for Roblox Studio that bridges Studio over OpenRoCompanion.lua and 13 MCP tools, resolves Rojo live-sync conflicts with safety snapshots, checks Luau diffs so monetization or spawn hooks do not drop silently, and exports .rbxlx XML or Rojo packs.",
+      "Built OpenRO (v1.16.0), a three-pane Rust IDE for Roblox Studio that bridges Studio over OpenRoCompanion.lua and 13 MCP tools, runs pre-publish Luau and asset readiness checks with one-click autofixes, resolves Rojo live-sync conflicts with safety snapshots, checks diffs so monetization or spawn hooks do not drop silently, and exports .rbxlx XML or Rojo packs.",
     ],
   },
   {
@@ -174,10 +174,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
-    pitch: "Three-pane Rust IDE for Roblox Studio that generates Luau diffs, resolves live-sync conflicts, catches dropped monetization or spawn hooks before shipping, and exports .rbxlx or Rojo packs (v1.15.0).",
-    img: "/assets/projects/captures/openro-v1150-light.png",
-    darkImg: "/assets/projects/captures/openro-v1150-dark.png",
-    alt: "OpenRO v1.15.0 three-pane workspace showing Explorer, Studio preview with sync-conflict and hook-integrity checks, and the copilot panel.",
+    pitch: "Three-pane Rust IDE for Roblox Studio that generates Luau diffs, runs pre-publish asset and hook readiness checks, resolves live-sync conflicts, and exports .rbxlx or Rojo packs (v1.16.0).",
+    img: "/assets/projects/captures/openro-v1160-light.png",
+    darkImg: "/assets/projects/captures/openro-v1160-dark.png",
+    alt: "OpenRO v1.16.0 three-pane workspace showing Explorer, Studio preview with publish-guard and hook-integrity checks, and the copilot panel.",
   },
   {
     name: "OpenBell",
@@ -244,7 +244,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.15.0, OpenBell v0.9.0, and Fleet v1.15.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.16.0, OpenBell v0.9.0, and Fleet v1.15.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
@@ -276,18 +276,18 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Open-Ro",
     tag: "APP-01",
-    title: "Open-Ro Studio (v1.15.0)",
-    blurb: "Browser edition of the three-pane Roblox Studio IDE. You can resolve Rojo live-sync script conflicts, inspect snapshots for dropped monetization or spawn hooks, repair them without erasing newer scripts, test game economies, and export .rbxlx XML or Rojo .zip bundles.",
+    title: "Open-Ro Studio (v1.16.0)",
+    blurb: "Browser edition of the three-pane Roblox Studio IDE. You can run pre-publish Luau and asset readiness checks with one-click safe autofix, resolve Rojo live-sync script conflicts, inspect snapshots for dropped hooks, test game economies, and export .rbxlx XML or Rojo .zip bundles.",
     url: "/demos/open-ro/",
-    img: "/assets/projects/captures/openro-v1150-light.png",
-    darkImg: "/assets/projects/captures/openro-v1150-dark.png",
+    img: "/assets/projects/captures/openro-v1160-light.png",
+    darkImg: "/assets/projects/captures/openro-v1160-dark.png",
     page: "/projects/openro.html",
     repo: "https://github.com/cayleb-james2008/open-ro",
     storagePrefix: "openro",
-    action: "open Starters to scaffold a game in Studio 3D, resolve live-sync conflicts, check Preflight Hook-Integrity to restore missing hooks, compare snapshot diffs, run the Luau Dependency Graph Pruner, or export a Rojo .zip package.",
+    action: "open Starters to scaffold a game in Studio 3D, run the Pre-Publish Guard and apply safe autofixes, resolve live-sync conflicts, check Preflight Hook-Integrity, or export a Rojo .zip package.",
     provenance: [
-      { label: "What runs:", text: "the Open-Ro v1.15.0 React frontend compiled from cayleb-james2008/open-ro, including Explorer, Rojo Sync Conflict Resolver, Hook-Integrity Guard, Snapshot Diff & Rollback, Luau Pruner, Studio 3D preview, and the .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
-      { label: "Local and BYOK options:", text: "stays offline in your browser by default; Settings lets you add an API key or point to a local openro-rs 1.15.0 binary on 127.0.0.1 for live Roblox Studio sync via OpenRoCompanion.lua." },
+      { label: "What runs:", text: "the Open-Ro v1.16.0 React frontend compiled from cayleb-james2008/open-ro, including Explorer, Pre-Publish Guard, Rojo Sync Conflict Resolver, Hook-Integrity Guard, Snapshot Diff & Rollback, Luau Pruner, Studio 3D preview, and the .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
+      { label: "Local and BYOK options:", text: "stays offline in your browser by default; Settings lets you add an API key or point to a local openro-rs 1.16.0 binary on 127.0.0.1 for live Roblox Studio sync via OpenRoCompanion.lua." },
       { label: "Why it is here:", text: "you can test conflict resolution, diff workflows, hook checks, 3D scene preview, and Studio export directly without installing the binary." },
     ],
   },
