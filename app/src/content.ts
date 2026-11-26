@@ -44,7 +44,7 @@ export const experience = [
     org: "Founder · Independent AI Agent Systems",
     bullets: [
       "Built Ergon (v0.26.0) as a single-binary Rust desk for local employee agents. Workflows run inside a sandboxed folder with offline evidence verification (`ergon verify`), workspace audit policy profiles (Fast Internal, Strict Client, and Air-Gapped), file history restore, SHA-256 receipts, citation freshness checks, and automatic detection of stale or conflicting memory rules. Ergon is still in development and has not been installed at a customer company.",
-      "Built Fleet (v1.16.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It reads Antigravity board messages and transcript state, checks worktree safe-land readiness with copyable merge or rebase commands, indexes workers, threads, and recent posts via Cmd/Ctrl+K, recovers stalled workers in one click, tracks release gate readiness and wave velocity, and flags high token burn.",
+      "Built Fleet (v1.17.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It exports one-click Markdown handoff digests with masked home paths, detects stale SSE connections with an inline resync banner, checks worktree safe-land readiness, indexes workers and posts via Cmd/Ctrl+K, and tracks gate readiness and token burn.",
       "Built OpenRO (v1.16.0), a three-pane Rust IDE for Roblox Studio that bridges Studio over OpenRoCompanion.lua and 13 MCP tools, runs pre-publish Luau and asset readiness checks with one-click autofixes, resolves Rojo live-sync conflicts with safety snapshots, checks diffs so monetization or spawn hooks do not drop silently, and exports .rbxlx XML or Rojo packs.",
     ],
   },
@@ -190,10 +190,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Fleet",
     href: "/projects/fleet.html",
-    pitch: "Antigravity sidebar plugin for multi-agent swarms with worktree safe-land readiness, a cross-swarm Cmd+K index, stalled-worker recovery, token burn monitoring, and gate checks (v1.16.0).",
-    img: "/assets/projects/captures/fleet-v1160-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1160-dark.png",
-    alt: "Fleet v1.16.0 Antigravity sidebar at 380x900 showing worktree safe-land readiness, worker recovery controls, wave velocity, and token burn strip.",
+    pitch: "Antigravity sidebar plugin for multi-agent swarms with Copy Handoff Digest export, inline SSE resync, worktree safe-land readiness, Cmd+K index, and gate checks (v1.17.0).",
+    img: "/assets/projects/captures/fleet-v1170-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1170-dark.png",
+    alt: "Fleet v1.17.0 Antigravity sidebar at 380x900 showing Copy Handoff Digest, SSE resync controls, worktree safe-land readiness, wave velocity, and token burn strip.",
   },
 ];
 
@@ -244,7 +244,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.16.0, OpenBell v0.9.0, and Fleet v1.16.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.16.0, OpenBell v0.9.0, and Fleet v1.17.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
@@ -312,18 +312,18 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Fleet",
     tag: "APP-03",
-    title: "Fleet (v1.16.0 Antigravity Swarm Sidebar)",
-    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Check branch ahead/behind status with copyable merge or rebase commands, jump across workers, gates, posts, and worktrees with Cmd/Ctrl+K, recover stalled workers in one click, read wave velocity, and spot high token burn.",
+    title: "Fleet (v1.17.0 Antigravity Swarm Sidebar)",
+    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Export a sanitized handoff digest in one click, monitor SSE keepalives with an inline resync banner, check branch ahead/behind status, jump with Cmd/Ctrl+K, recover stalled workers, and inspect token burn.",
     url: "/demos/fleet/",
-    img: "/assets/projects/captures/fleet-v1160-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1160-dark.png",
+    img: "/assets/projects/captures/fleet-v1170-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1170-dark.png",
     page: "/projects/fleet.html",
     repo: "https://github.com/cayleb-james2008/fleet",
     storagePrefix: "fleet",
-    action: "press Cmd/Ctrl+K to jump across workers, triage threads, board posts, or worktrees, check Safe-Land status in Worktrees, use worker recovery controls, or download a sanitized .md or .json log.",
+    action: "click Copy Handoff Digest in Triage, press Cmd/Ctrl+K to jump across workers, posts, or worktrees, check Safe-Land status in Worktrees, or download a sanitized .md or .json log.",
     provenance: [
-      { label: "What runs:", text: "the single-file Fleet v1.16.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying swarm board messages, worktree safe-land checks, cross-swarm Cmd+K actions, worker recovery controls, wave velocity, and token burn bars at /demos/fleet/." },
-      { label: "Local Antigravity install:", text: "the browser copy stays offline; running ./install.sh in a local clone installs the sidecar plugin into ~/.gemini/config/plugins/fleet/ with live SSE board updates and Antigravity preload bridges." },
+      { label: "What runs:", text: "the single-file Fleet v1.17.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying swarm board messages, Copy Handoff Digest export, SSE keepalive and resync state, worktree safe-land checks, cross-swarm Cmd+K actions, and token burn bars at /demos/fleet/." },
+      { label: "Local Antigravity install:", text: "the browser copy stays offline; running ./install.sh in a local clone installs the sidecar plugin into ~/.gemini/config/plugins/fleet/ with live SSE ping frames and Antigravity preload bridges." },
       { label: "Why it is here:", text: "you can step through the multi-agent release gate checklist and triage sidebar inside a narrow auxiliary pane layout." },
     ],
   },
