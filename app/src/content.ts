@@ -44,7 +44,7 @@ export const experience = [
     org: "Founder · Independent AI Agent Systems",
     bullets: [
       "Built Ergon (v0.35.0) as a single-binary Rust desk for local employee agents. Adds parallel DAG pipeline scheduling (`depends_on` up to 4 concurrent branches and `POST /api/pipelines/validate` cycle detection), `for_each` batch fan-out (up to 50 items), `deliver` connector steps with `Strict Client` approval holds, conversation context compaction with persisted `AgentSnapshot` state, and live `token_delta` SSE streaming alongside full-vault chunked hybrid search, exact-decimal `i128` multi-file rollups, client engagement retainer metering, Deliverable Studio editing, PDF/XLSX export, and signed webhooks. Ergon is still in development and has not been installed at a customer company.",
-      "Built Fleet (v1.26.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It adds model-aware context ceilings (1M for Gemini and Claude [1m], 128k to 400k for OpenAI) and incremental per-model USD spend tracking across model switches (cache-read savings, cacheHitPct, and Unpriced fallbacks across TokenBurnStrip, RosterView, and archive exports) alongside the bounded forensic transcript inspector, sub-200ms incremental board delta streaming, 3-way Reload & merge recovery on 409 Conflict, and CWE-59 git probes.",
+      "Built Fleet (v1.27.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. Hardens Cycle 3 delta long-polling (aborted waiter cleanup, parseQueryFast prototype pollution guards, and partial-tail or shrink recovery), bounded forensic transcript inspection (CWE-59 intermediate symlink checks, UTF-8-safe byte slicing, prose-safe Bearer and token scrubbing, and AbortController drawer cancellation), and zero-token or NaN bounds across 1M context ceilings and per-model USD cost economics alongside 3-way Reload & merge recovery.",
       "Built OpenRO (v1.25.0), a unified three-pane Rust IDE for Roblox Studio connecting the headless Lune `0.11.1` Luau sandbox verifier (`.openro/sandbox/*.json` proofs with CWE-59 checks, 3D OBB/AABB `Raycast` and overlap queries, `MoveTo`/`Touched`, `ProximityPrompt`, `ClickDetector`, `UserInputService`, `TweenService`, `HttpService` `http_mocks`, `SandboxRunnerCard` history, and `Headless Sandbox` vs `Live Studio` readiness tier badges) to Readiness, Publish Gate, Study Status, and Teamwork alongside the WebGL2 3D viewport, LiveOps control plane, ScreenGui Designer, safe-area simulator, direct Rojo disk saves, native `.rbxlx` export, 13 MCP tools, and 60-minute economy curves.",
     ],
   },
@@ -190,10 +190,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Fleet",
     href: "/projects/fleet.html",
-    pitch: "Antigravity sidebar plugin for multi-agent swarms with model-aware 1M context ceilings, per-model USD cost economics, bounded forensic transcript inspection, sub-200ms delta streaming, and 3-way 409 plan merge recovery (v1.26.0).",
-    img: "/assets/projects/captures/fleet-v1260-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1260-dark.png",
-    alt: "Fleet v1.26.0 Antigravity sidebar showing 1M context ceilings and USD cost economics.",
+    pitch: "Antigravity sidebar plugin for multi-agent swarms with hardened Cycle 3 delta streaming, bounded forensic transcript inspection, 1M context ceilings, per-model USD cost economics, and 3-way 409 plan merge recovery (v1.27.0).",
+    img: "/assets/projects/captures/fleet-v1270-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1270-dark.png",
+    alt: "Fleet v1.27.0 Antigravity sidebar showing hardened Cycle 3 trace inspection and zero-token cost bounds.",
   },
 ];
 
@@ -244,7 +244,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.25.0, OpenBell v0.9.0, Fleet v1.26.0, and Ergon v0.35.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.25.0, OpenBell v0.9.0, Fleet v1.27.0, and Ergon v0.35.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
@@ -312,17 +312,17 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Fleet",
     tag: "APP-03",
-    title: "Fleet (v1.26.0 Antigravity Swarm Sidebar)",
-    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Inspect model-aware 1M context ceilings, per-model USD spend and cache-savings badges, the forensic transcript inspector, sub-200ms incremental delta sync parity, 3-way 409 plan merge recovery, dry_run_merge conflict alerts, Board channels, worker model controls, and file collision detection.",
+    title: "Fleet (v1.27.0 Antigravity Swarm Sidebar)",
+    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Inspect hardened Cycle 3 delta sync parity, bounded forensic transcript inspection, zero-token and NaN bounds across 1M context ceilings and per-model USD spend badges, 3-way 409 plan merge recovery, dry_run_merge conflict alerts, Board channels, worker model controls, and file collision detection.",
     url: "/demos/fleet/",
-    img: "/assets/projects/captures/fleet-v1260-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1260-dark.png",
+    img: "/assets/projects/captures/fleet-v1270-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1270-dark.png",
     page: "/projects/fleet.html",
     repo: "https://github.com/cayleb-james2008/fleet",
     storagePrefix: "fleet",
     action: "open Roster to compare 1M vs 200k context ceilings and per-worker USD spend, click Inspect trace to filter Errors/Tools and paginate transcript steps, edit plans in Triage with 409 Reload & merge recovery, open Board for channels and #seq replyRefs, or open Git for dry-run conflict alerts and collision pills.",
     provenance: [
-      { label: "What runs:", text: "the single-file Fleet v1.26.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying model-aware context ceilings (1M Gemini/Claude [1m] and 128k to 400k OpenAI), incremental byModel USD cost economics and cache-savings meters (with Unpriced fallbacks), the forensic transcript inspector (GET /api/transcript with All/Errors/Tools filters and backward pagination), sub-200ms incremental delta sync, 3-way 409 plan merge recovery, dry_run_merge conflict classification, the POST /api/control operator command plane, Board channel tabs, replyRefs thread backlinks, Roster drawers, cross-worktree collision detection, and Full Swarm Archive Export at /demos/fleet/." },
+      { label: "What runs:", text: "the single-file Fleet v1.27.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying hardened Cycle 3 delta sync (seq deduplication and capped backoff), bounded forensic transcript inspection (GET /api/transcript with All/Errors/Tools filters, empty-trace states, Escape close, and overlapping fetch cancellation), zero-token and NaN bounds for 1M context ceilings and per-model byModel USD cost economics, 3-way 409 plan merge recovery, dry_run_merge conflict classification, the POST /api/control operator command plane, Board channel tabs, replyRefs thread backlinks, Roster drawers, cross-worktree collision detection, and Full Swarm Archive Export at /demos/fleet/." },
       { label: "Local Antigravity install:", text: "the browser copy stays offline; running ./install.sh in a local clone installs the sidecar plugin into ~/.gemini/config/plugins/fleet/ with bounded <= 512 KiB transcript scanning and secret scrubbing on GET /api/transcript, GET /api/swarm/delta long-poll wakeups, content-hash plan ETags, CWE-59 git probes, zero-client idle sleep, and live SSE ping frames." },
       { label: "Why it is here:", text: "you can step through live swarm triage, forensic transcript inspection, native plan editing, and the multi-agent release gate checklist inside a narrow auxiliary pane layout." },
     ],
