@@ -43,7 +43,7 @@ export const experience = [
     date: "Oct 2025 to Present",
     org: "Founder · Independent AI Agent Systems",
     bullets: [
-      "Built Ergon (v0.32.0) as a single-binary Rust desk for local employee agents. Hardens resumable hybrid workflows (`steps_v2` startup recovery, cycle and depth bounds, `409` `/resume`/`/retry`/`/cancel` serialization), inline Markdown/CSV Deliverable Studio editing (`HISTORY_LOCK` SHA-256 writes, malformed CSV raw fallback, unsaved-draft guards), fixed-point table queries (`HTTP 400` UTF-8/null-byte checks, 200k-row/2M-cell caps), pure-Rust PDF 1.4 (`200` pages/`2 MB` cap) and formula `.xlsx` export, and signed inbound webhooks (`X-Ergon-Timestamp`, `{ts}.{body}` HMAC, `X-Ergon-Delivery` replay window), watched folders, and policy-gated outbound connectors with encoded secret redaction and private IP egress blocks. Ergon is still in development and has not been installed at a customer company.",
+      "Built Ergon (v0.33.0) as a single-binary Rust desk for local employee agents. Adds a Client, Engagement, and Retainer hierarchy (`clients.json` `0600`, PDF `brand_header` fallback), LLM token/cost metering and billable ROI attribution (`usage_ledger.jsonl`, v2 `ChainedReceipt` `usage_digest`, `model_pricing.json` overrides), live SSE usage deltas (`step_done`, `run_finished`, `pipeline_*`) feeding a Today retainer burn card, and pre-run/mid-run `budget_gate` approvals alongside resumable `steps_v2` pipelines, Deliverable Studio editing, table queries, PDF/XLSX export, signed webhooks, and outbound connectors. Ergon is still in development and has not been installed at a customer company.",
       "Built Fleet (v1.24.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It adds sub-200ms incremental board delta streaming via a byte-offset board.jsonl tail cache and GET /api/swarm/delta long-polling alongside SSE refresh routing, content-hash plan ETags, 3-way Reload & merge recovery on 409 Conflict, CWE-59 git probes, HTTP 200 dry_run_merge conflict alerts, and archive exports.",
       "Built OpenRO (v1.23.0), a unified three-pane Rust IDE for Roblox Studio adding a LiveOps control plane and player telemetry system across the Ship workbench and agent tools: Open Cloud v2 standard and ordered DataStores (`expected_revision` conflict checks, pre-mutation backups, and `confirm: true` gates), 1024-byte `MessagingService` broadcasts, 64 KiB `--!strict` `src/shared/LiveConfig.luau` Remote Config generation, and sandbox `AnalyticsService` event capture into DAU, onboarding funnel, Robux ARPDAU, and currency sink summaries alongside the ScreenGui Designer, safe-area simulator, Lune sandbox, direct Rojo disk saves, native `.rbxlx` export, 13 MCP tools, and 60-minute economy curves.",
     ],
@@ -244,7 +244,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.23.0, OpenBell v0.9.0, Fleet v1.24.0, and Ergon v0.32.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.23.0, OpenBell v0.9.0, Fleet v1.24.0, and Ergon v0.33.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
