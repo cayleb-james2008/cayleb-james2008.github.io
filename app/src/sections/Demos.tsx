@@ -35,7 +35,7 @@ function DemoFrame({ title, src }: { title: string; src: string }) {
   );
 }
 
-// Region G: interactive web apps (Open-Ro v1.15.0, OpenBell v0.9.0 sandbox, Fleet v1.14.0), paired with links to their
+// Region G: interactive web apps (Open-Ro v1.15.0, OpenBell v0.9.0 sandbox, Fleet v1.15.0), paired with links to their
 // standalone full-screen routes, live captures, product pages, and GitHub repositories.
 export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => void }) {
   const { theme } = useTheme();
@@ -65,7 +65,7 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
         <div className="grid content-start gap-2">
           <h2 id="demos-label" className="font-mono text-xs uppercase tracking-wider text-ink-2" data-answers="4">live apps</h2>
           <p className="font-mono text-xs text-ink-2">{demoWords.count}</p>
-          <p className="max-w-[28ch] text-sm text-ink-2">Browser editions running locally on your machine (Open-Ro v1.15.0, OpenBell v0.9.0, and Fleet v1.14.0) with zero external requests by default.</p>
+          <p className="max-w-[28ch] text-sm text-ink-2">Browser editions running locally on your machine (Open-Ro v1.15.0, OpenBell v0.9.0, and Fleet v1.15.0) with zero external requests by default.</p>
         </div>
         <Tabs value={tab} onValueChange={(v) => onTab(String(v))}>
           <TabsList aria-label="Interactive web apps" className="max-w-full flex-wrap">
