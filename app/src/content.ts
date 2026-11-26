@@ -45,7 +45,7 @@ export const experience = [
     bullets: [
       "Built Ergon (v0.34.0) as a single-binary Rust desk for local employee agents. Adds full-vault chunked hybrid search (`PersonIndex` BM25 + 256-d n-gram vectors with Reciprocal Rank Fusion in `vault_index.json` `0600` across `.pdf`, `.xlsx`, `.pptx`, `.docx`, and text files), passage line-jump previews in `CommandPalette.tsx` and `WorkspaceFiles.tsx`, and exact-decimal `i128` multi-file CSV, TSV, and workbook rollups (`POST /api/vault/aggregate` and `aggregate_vault`) alongside client engagement retainer metering, `budget_gate` approvals, resumable `steps_v2` pipelines, Deliverable Studio editing, PDF/XLSX export, signed webhooks, and outbound connectors. Ergon is still in development and has not been installed at a customer company.",
       "Built Fleet (v1.25.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It adds a bounded forensic transcript inspector (GET /api/transcript with backward <= 512 KiB scans, members.json/realpathSync confinement, correlated tool calls and stderr tracebacks, secret scrubbing, pagination, and Inspect trace drawers) alongside sub-200ms incremental board delta streaming, 3-way Reload & merge recovery on 409 Conflict, CWE-59 git probes, HTTP 200 dry_run_merge conflict alerts, and archive exports.",
-      "Built OpenRO (v1.23.0), a unified three-pane Rust IDE for Roblox Studio adding a LiveOps control plane and player telemetry system across the Ship workbench and agent tools: Open Cloud v2 standard and ordered DataStores (`expected_revision` conflict checks, pre-mutation backups, and `confirm: true` gates), 1024-byte `MessagingService` broadcasts, 64 KiB `--!strict` `src/shared/LiveConfig.luau` Remote Config generation, and sandbox `AnalyticsService` event capture into DAU, onboarding funnel, Robux ARPDAU, and currency sink summaries alongside the ScreenGui Designer, safe-area simulator, Lune sandbox, direct Rojo disk saves, native `.rbxlx` export, 13 MCP tools, and 60-minute economy curves.",
+      "Built OpenRO (v1.24.0), a unified three-pane Rust IDE for Roblox Studio adding a zero-dependency WebGL2 3D viewport (`Canvas2D` fallback and context-lost recovery), procedural terrain (`flat`, `hills`, `island`, `canyon`, `paint_box` in `scene/terrain.json` with deterministic `OpenROTerrain.server.luau` hooks), up to 8 dynamic `PointLight`/`SpotLight`/`SurfaceLight` sources with `Day`/`Golden`/`Night` sky gradients, PBR materials, `.obj`/texture preview with CWE-22/59 `mesh-asset` confinement, 3D ray-picking gizmos, and `ParticleEmitter`/`SurfaceAppearance` scene mutations alongside the LiveOps control plane, ScreenGui Designer, safe-area simulator, Lune sandbox, direct Rojo disk saves, native `.rbxlx` export, 13 MCP tools, and 60-minute economy curves.",
     ],
   },
   {
@@ -174,10 +174,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
-    pitch: "Three-pane Rust IDE for Roblox Studio with LiveOps DataStores, MessagingService, --!strict Remote Config, player telemetry, Visual ScreenGui Designer, safe-area checks, headless Lune Luau sandboxing, direct Rojo disk saves, 3D scenes, 60-min economy sims, and native .rbxlx or Rojo exports (v1.23.0).",
-    img: "/assets/projects/captures/openro-v1230-light.png",
-    darkImg: "/assets/projects/captures/openro-v1230-dark.png",
-    alt: "OpenRO v1.23.0 three-pane workspace showing the LiveOps Control Plane with Open Cloud DataStores, MessagingService broadcasts, Remote Config, and Telemetry Funnel.",
+    pitch: "Three-pane Rust IDE for Roblox Studio with a WebGL2 3D viewport, procedural terrain, dynamic lighting, LiveOps DataStores, Remote Config, player telemetry, Visual ScreenGui Designer, headless Lune Luau sandboxing, direct Rojo disk saves, 60-min economy sims, and native .rbxlx or Rojo exports (v1.24.0).",
+    img: "/assets/projects/captures/openro-v1240-light.png",
+    darkImg: "/assets/projects/captures/openro-v1240-dark.png",
+    alt: "OpenRO v1.24.0 three-pane workspace showing the WebGL2 3D viewport, procedural hills terrain, and dynamic PointLight and SpotLight controls.",
   },
   {
     name: "OpenBell",
@@ -244,7 +244,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.23.0, OpenBell v0.9.0, Fleet v1.25.0, and Ergon v0.34.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.24.0, OpenBell v0.9.0, Fleet v1.25.0, and Ergon v0.34.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
@@ -276,18 +276,18 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Open-Ro",
     tag: "APP-01",
-    title: "Open-Ro Studio (v1.23.0)",
-    blurb: "Browser edition of the three-pane Roblox Studio IDE with the LiveOps control plane (DataStores, MessagingService, Remote Config LiveConfig.luau, and player telemetry), Visual ScreenGui Designer and safe-area simulator, offline headless sandbox simulation, 60-minute economy curves, ProcessReceipt idempotency audits, direct Rojo scene tools, conflict resolution, and .rbxlx XML or Rojo .zip export.",
+    title: "Open-Ro Studio (v1.24.0)",
+    blurb: "Browser edition of the three-pane Roblox Studio IDE with the WebGL2 3D viewport (procedural terrain, dynamic PointLight/SpotLight/SurfaceLight, sky presets, PBR materials, and 3D gizmos), LiveOps control plane, Visual ScreenGui Designer, offline headless sandbox simulation, 60-minute economy curves, direct Rojo scene tools, and .rbxlx XML or Rojo .zip export.",
     url: "/demos/open-ro/",
-    img: "/assets/projects/captures/openro-v1230-light.png",
-    darkImg: "/assets/projects/captures/openro-v1230-dark.png",
+    img: "/assets/projects/captures/openro-v1240-light.png",
+    darkImg: "/assets/projects/captures/openro-v1240-dark.png",
     page: "/projects/openro.html",
     repo: "https://github.com/cayleb-james2008/open-ro",
     storagePrefix: "openro",
-    action: "open Ship -> LiveOps to inspect DataStores, compile --!strict LiveConfig.luau, broadcast MessagingService payloads, and inspect telemetry cohorts, or open UI to design ScreenGuis and export a Rojo .zip package.",
+    action: "open Viewport to sculpt procedural terrain, add PointLight/SpotLight/SurfaceLight rigs, and switch Day/Golden/Night skies with 3D gizmos, or open Ship -> LiveOps and UI to export a Rojo .zip package.",
     provenance: [
-      { label: "What runs:", text: "the Open-Ro v1.23.0 React frontend compiled from cayleb-james2008/open-ro, including the LiveOps control plane (DataStores, MessagingService, Remote Config, and telemetry summary), Visual ScreenGui Designer and deterministic Luau compiler, offline Headless Luau Sandbox simulator (browser_sim), Explorer, Economy Balance Simulator, Monetization Safety Audit, Pre-Publish Guard, Rojo Sync Conflict Resolver, Hook-Integrity Guard, Studio 3D preview, and the .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
-      { label: "Local and BYOK options:", text: "stays offline in your browser by default; Settings lets you add an API key or point to a local openro-rs 1.23.0 binary on 127.0.0.1 for luau_check + stylua verified GUI compilation, live Lune 0.11.1 execution, and Roblox Studio sync via OpenRoCompanion.lua." },
+      { label: "What runs:", text: "the Open-Ro v1.24.0 React frontend compiled from cayleb-james2008/open-ro, including the zero-dependency WebGL2 3D viewport (procedural terrain presets, dynamic lights, PBR shaders, .obj/texture preview, and ray-picking gizmos), LiveOps control plane, Visual ScreenGui Designer and deterministic Luau compiler, offline Headless Luau Sandbox simulator (browser_sim), Explorer, Economy Balance Simulator, Monetization Safety Audit, Pre-Publish Guard, Rojo Sync Conflict Resolver, Hook-Integrity Guard, and the .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
+      { label: "Local and BYOK options:", text: "stays offline in your browser by default; Settings lets you add an API key or point to a local openro-rs 1.24.0 binary on 127.0.0.1 for CWE-22/59 confined mesh-asset reads, luau_check + stylua verified GUI compilation, live Lune 0.11.1 execution, and Roblox Studio sync via OpenRoCompanion.lua." },
       { label: "Why it is here:", text: "you can design responsive ScreenGuis, check safe-area overlaps, test headless sandbox journeys, inspect diffs, and export Studio packages directly without installing the binary." },
     ],
   },
