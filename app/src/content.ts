@@ -43,7 +43,7 @@ export const experience = [
     date: "Oct 2025 to Present",
     org: "Founder · Independent AI Agent Systems",
     bullets: [
-      "Built Ergon (v0.29.0) as a single-binary Rust desk for local employee agents. Runs resumable hybrid workflows (`steps_v2`) combining zero-LLM local skills, AI agent runs, structured human checkpoints that survive restarts, and document exports inside a sandboxed folder alongside starter playbooks, client handoff ZIP export with leak pre-checks, offline evidence verification (`ergon verify`), workspace audit policy profiles, file history restore, and SHA-256 receipts. Ergon is still in development and has not been installed at a customer company.",
+      "Built Ergon (v0.30.0) as a single-binary Rust desk for local employee agents. Runs resumable hybrid workflows (`steps_v2`), inline Markdown/CSV Deliverable Studio editing with optimistic locks and `.history/` snapshots, fixed-point table queries (`query_table`), surgical `patch_file` edits, pure-Rust PDF 1.4 and multi-sheet formula `.xlsx` export, client handoff ZIP bundles with leak pre-checks, offline evidence verification (`ergon verify`), and SHA-256 receipts. Ergon is still in development and has not been installed at a customer company.",
       "Built Fleet (v1.21.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It normalizes native goal, task, and thread schemas alongside custom plan.json files, supports atomic two-way compare-and-swap plan edits, surfaces cross-worktree file collisions and git merge-tree conflict checks, runs confirmation-gated merge/rebase/clean-remove worktree actions, pauses polling in zero-client idle sleep mode, exports sanitized JSON and Markdown archives, reads 8 KB transcript peeks, and tracks gate readiness and token burn.",
       "Built OpenRO (v1.19.0), a unified three-pane Rust IDE for Roblox Studio where Explorer, Code/Diff, Lighting, and the 3D Viewport operate directly against Rojo project folders on disk (`scene/workspace.model.json` + CWE-22 jailed `/mesh-asset`) and export native `CFrame`/`Enum`/`Lighting` `.rbxlx`, alongside `OpenRoCompanion.lua`, 13 MCP tools, 60-minute economy curves, and `ProcessReceipt` audits.",
     ],
@@ -244,7 +244,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.19.0, OpenBell v0.9.0, Fleet v1.21.0, and Ergon v0.29.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.19.0, OpenBell v0.9.0, Fleet v1.21.0, and Ergon v0.30.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
