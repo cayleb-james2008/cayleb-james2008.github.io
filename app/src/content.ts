@@ -44,7 +44,7 @@ export const experience = [
     org: "Founder · Independent AI Agent Systems",
     bullets: [
       "Built Ergon (v0.27.0) as a single-binary Rust desk for local employee agents. Workflows run inside a sandboxed folder with one-click client handoff ZIP bundles and secret or host-path leak pre-checks, offline evidence verification (`ergon verify`), workspace audit policy profiles (Fast Internal, Strict Client, and Air-Gapped), file history restore, SHA-256 receipts, and stale-memory pruning. Ergon is still in development and has not been installed at a customer company.",
-      "Built Fleet (v1.17.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It exports one-click Markdown handoff digests with masked home paths, detects stale SSE connections with an inline resync banner, checks worktree safe-land readiness, indexes workers and posts via Cmd/Ctrl+K, and tracks gate readiness and token burn.",
+      "Built Fleet (v1.18.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It surfaces read-only transcript activity peeks with masked home paths on Roster and Triage views, exports one-click Markdown handoff digests, detects stale SSE streams with an inline resync banner, checks worktree safe-land readiness, indexes workers and posts via Cmd/Ctrl+K, and tracks gate readiness and token burn.",
       "Built OpenRO (v1.17.0), a three-pane Rust IDE for Roblox Studio that bridges Studio over OpenRoCompanion.lua and 13 MCP tools, audits ProcessReceipt idempotency, BindToClose flushes, and pcall purchase guards with one-click repair, runs pre-publish asset readiness checks, resolves Rojo live-sync conflicts, checks diffs so monetization or spawn hooks do not drop silently, and exports .rbxlx XML or Rojo packs.",
     ],
   },
@@ -190,10 +190,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Fleet",
     href: "/projects/fleet.html",
-    pitch: "Antigravity sidebar plugin for multi-agent swarms with Copy Handoff Digest export, inline SSE resync, worktree safe-land readiness, Cmd+K index, and gate checks (v1.17.0).",
-    img: "/assets/projects/captures/fleet-v1170-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1170-dark.png",
-    alt: "Fleet v1.17.0 Antigravity sidebar at 380x900 showing Copy Handoff Digest, SSE resync controls, worktree safe-land readiness, wave velocity, and token burn strip.",
+    pitch: "Antigravity sidebar plugin for multi-agent swarms with live transcript activity peeks, Copy Handoff Digest export, inline SSE resync, worktree safe-land readiness, Cmd+K index, and gate checks (v1.18.0).",
+    img: "/assets/projects/captures/fleet-v1180-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1180-dark.png",
+    alt: "Fleet v1.18.0 Antigravity sidebar at 380x900 showing live transcript activity peeks, Copy Handoff Digest, SSE resync controls, worktree safe-land readiness, and token burn strip.",
   },
 ];
 
@@ -244,7 +244,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.17.0, OpenBell v0.9.0, and Fleet v1.17.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.17.0, OpenBell v0.9.0, and Fleet v1.18.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
@@ -312,18 +312,18 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Fleet",
     tag: "APP-03",
-    title: "Fleet (v1.17.0 Antigravity Swarm Sidebar)",
-    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Export a sanitized handoff digest in one click, monitor SSE keepalives with an inline resync banner, check branch ahead/behind status, jump with Cmd/Ctrl+K, recover stalled workers, and inspect token burn.",
+    title: "Fleet (v1.18.0 Antigravity Swarm Sidebar)",
+    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Inspect live transcript activity peeks, export a sanitized handoff digest in one click, monitor SSE keepalives, check branch ahead/behind status, jump with Cmd/Ctrl+K, and inspect token burn.",
     url: "/demos/fleet/",
-    img: "/assets/projects/captures/fleet-v1170-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1170-dark.png",
+    img: "/assets/projects/captures/fleet-v1180-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1180-dark.png",
     page: "/projects/fleet.html",
     repo: "https://github.com/cayleb-james2008/fleet",
     storagePrefix: "fleet",
-    action: "click Copy Handoff Digest in Triage, press Cmd/Ctrl+K to jump across workers, posts, or worktrees, check Safe-Land status in Worktrees, or download a sanitized .md or .json log.",
+    action: "inspect worker activity peeks in Roster or Triage, click Copy Handoff Digest, press Cmd/Ctrl+K to jump across workers or worktrees, or download a sanitized .md or .json log.",
     provenance: [
-      { label: "What runs:", text: "the single-file Fleet v1.17.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying swarm board messages, Copy Handoff Digest export, SSE keepalive and resync state, worktree safe-land checks, cross-swarm Cmd+K actions, and token burn bars at /demos/fleet/." },
-      { label: "Local Antigravity install:", text: "the browser copy stays offline; running ./install.sh in a local clone installs the sidecar plugin into ~/.gemini/config/plugins/fleet/ with live SSE ping frames and Antigravity preload bridges." },
+      { label: "What runs:", text: "the single-file Fleet v1.18.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying swarm board messages, live transcript activity peeks, Copy Handoff Digest export, SSE keepalive and resync state, worktree safe-land checks, cross-swarm Cmd+K actions, and token burn bars at /demos/fleet/." },
+      { label: "Local Antigravity install:", text: "the browser copy stays offline; running ./install.sh in a local clone installs the sidecar plugin into ~/.gemini/config/plugins/fleet/ with read-only 8 KB transcript tail reading and live SSE ping frames." },
       { label: "Why it is here:", text: "you can step through the multi-agent release gate checklist and triage sidebar inside a narrow auxiliary pane layout." },
     ],
   },
