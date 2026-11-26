@@ -43,7 +43,7 @@ export const experience = [
     date: "Oct 2025 to Present",
     org: "Founder · Independent AI Agent Systems",
     bullets: [
-      "Built Ergon (v0.24.0) as a single-binary Rust desk for local employee agents. Workflows run inside a sandboxed folder with file history restore, SHA-256 receipts, citation freshness checks, and automatic detection of stale or conflicting memory rules. Ergon is still in development and has not been installed at a customer company.",
+      "Built Ergon (v0.25.0) as a single-binary Rust desk for local employee agents. Workflows run inside a sandboxed folder with workspace audit policy profiles (Fast Internal, Strict Client, and Air-Gapped), file history restore, SHA-256 receipts, citation freshness checks, and automatic detection of stale or conflicting memory rules. Ergon is still in development and has not been installed at a customer company.",
       "Built Fleet (v1.14.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It reads Antigravity board messages and transcript state, tracks release gate readiness and wave velocity across authors and verifiers, flags runaway token burn, and previews git worktree diffs behind path-confinement checks.",
       "Built OpenRO (v1.15.0), a three-pane Rust IDE for Roblox Studio that bridges Studio over OpenRoCompanion.lua and 13 MCP tools, resolves Rojo live-sync conflicts with safety snapshots, checks Luau diffs so monetization or spawn hooks do not drop silently, and exports .rbxlx XML or Rojo packs.",
     ],
