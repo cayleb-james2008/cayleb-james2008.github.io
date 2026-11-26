@@ -43,7 +43,7 @@ export const experience = [
     date: "Oct 2025 to Present",
     org: "Founder · Independent AI Agent Systems",
     bullets: [
-      "Built Ergon (v0.35.0) as a single-binary Rust desk for local employee agents. Adds parallel DAG pipeline scheduling (`depends_on` up to 4 concurrent branches and `POST /api/pipelines/validate` cycle detection), `for_each` batch fan-out (up to 50 items), `deliver` connector steps with `Strict Client` approval holds, conversation context compaction with persisted `AgentSnapshot` state, and live `token_delta` SSE streaming alongside full-vault chunked hybrid search, exact-decimal `i128` multi-file rollups, client engagement retainer metering, Deliverable Studio editing, PDF/XLSX export, and signed webhooks. Ergon is still in development and has not been installed at a customer company.",
+      "Built Ergon (v0.36.0) as a single-binary Rust desk for local employee agents. Hardens Cycle 3 client and pricing rate bounds (404 on orphan engagements, saturating `RunUsage` math, and corrupt `clients.json` and `vault_index.json` recovery without 500s), vault index memory trimming and traversal guards on `glob` and `save_as`, DAG self-loop and 50-item `for_each` validation, idempotent `deliver` settlement per `decision_id`, bounded 2 MB SSE streaming frames, and UI concurrency locks across `PersonSelect`, `CommandPalette`, `WorkspaceFiles`, and `PipelineBuilder` alongside parallel DAG pipelines, full-vault chunked hybrid search, Deliverable Studio editing, PDF/XLSX export, and signed webhooks. Ergon is still in development and has not been installed at a customer company.",
       "Built Fleet (v1.27.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. Hardens Cycle 3 delta long-polling (aborted waiter cleanup, parseQueryFast prototype pollution guards, and partial-tail or shrink recovery), bounded forensic transcript inspection (CWE-59 intermediate symlink checks, UTF-8-safe byte slicing, prose-safe Bearer and token scrubbing, and AbortController drawer cancellation), and zero-token or NaN bounds across 1M context ceilings and per-model USD cost economics alongside 3-way Reload & merge recovery.",
       "Built OpenRO (v1.26.0), a unified three-pane Rust IDE for Roblox Studio adding Cycle 3 Wave H1 hardening across LiveOps DataStore retention (50-backup pruning, `telemetry.jsonl.1` rotation, strict key/revision checks, and multi-layer secret scrubbing), 3D terrain bounds and circular `reparent` guards, `mesh-asset` symlink and encoding containment, headless Lune `0.11.1` sandbox pruning and corrupt `latest.json` recovery, and WebGL2/UI reliability (`0 FAIL / 0 REFLEX / 0 WARN` Sloplint across 65 source files) alongside ScreenGui Designer, direct Rojo disk saves, native `.rbxlx` export, 13 MCP tools, and 60-minute economy curves.",
     ],
@@ -244,7 +244,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.26.0, OpenBell v0.9.0, Fleet v1.27.0, and Ergon v0.35.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.26.0, OpenBell v0.9.0, Fleet v1.27.0, and Ergon v0.36.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
