@@ -43,7 +43,7 @@ export const experience = [
     date: "Oct 2025 to Present",
     org: "Founder · Independent AI Agent Systems",
     bullets: [
-      "Built Ergon (v0.34.0) as a single-binary Rust desk for local employee agents. Adds full-vault chunked hybrid search (`PersonIndex` BM25 + 256-d n-gram vectors with Reciprocal Rank Fusion in `vault_index.json` `0600` across `.pdf`, `.xlsx`, `.pptx`, `.docx`, and text files), passage line-jump previews in `CommandPalette.tsx` and `WorkspaceFiles.tsx`, and exact-decimal `i128` multi-file CSV, TSV, and workbook rollups (`POST /api/vault/aggregate` and `aggregate_vault`) alongside client engagement retainer metering, `budget_gate` approvals, resumable `steps_v2` pipelines, Deliverable Studio editing, PDF/XLSX export, signed webhooks, and outbound connectors. Ergon is still in development and has not been installed at a customer company.",
+      "Built Ergon (v0.35.0) as a single-binary Rust desk for local employee agents. Adds parallel DAG pipeline scheduling (`depends_on` up to 4 concurrent branches and `POST /api/pipelines/validate` cycle detection), `for_each` batch fan-out (up to 50 items), `deliver` connector steps with `Strict Client` approval holds, conversation context compaction with persisted `AgentSnapshot` state, and live `token_delta` SSE streaming alongside full-vault chunked hybrid search, exact-decimal `i128` multi-file rollups, client engagement retainer metering, Deliverable Studio editing, PDF/XLSX export, and signed webhooks. Ergon is still in development and has not been installed at a customer company.",
       "Built Fleet (v1.26.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It adds model-aware context ceilings (1M for Gemini and Claude [1m], 128k to 400k for OpenAI) and incremental per-model USD spend tracking across model switches (cache-read savings, cacheHitPct, and Unpriced fallbacks across TokenBurnStrip, RosterView, and archive exports) alongside the bounded forensic transcript inspector, sub-200ms incremental board delta streaming, 3-way Reload & merge recovery on 409 Conflict, and CWE-59 git probes.",
       "Built OpenRO (v1.25.0), a unified three-pane Rust IDE for Roblox Studio connecting the headless Lune `0.11.1` Luau sandbox verifier (`.openro/sandbox/*.json` proofs with CWE-59 checks, 3D OBB/AABB `Raycast` and overlap queries, `MoveTo`/`Touched`, `ProximityPrompt`, `ClickDetector`, `UserInputService`, `TweenService`, `HttpService` `http_mocks`, `SandboxRunnerCard` history, and `Headless Sandbox` vs `Live Studio` readiness tier badges) to Readiness, Publish Gate, Study Status, and Teamwork alongside the WebGL2 3D viewport, LiveOps control plane, ScreenGui Designer, safe-area simulator, direct Rojo disk saves, native `.rbxlx` export, 13 MCP tools, and 60-minute economy curves.",
     ],
@@ -244,7 +244,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.25.0, OpenBell v0.9.0, Fleet v1.26.0, and Ergon v0.34.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.25.0, OpenBell v0.9.0, Fleet v1.26.0, and Ergon v0.35.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
