@@ -45,7 +45,7 @@ export const experience = [
     bullets: [
       "Built Ergon (v0.32.0) as a single-binary Rust desk for local employee agents. Hardens resumable hybrid workflows (`steps_v2` startup recovery, cycle and depth bounds, `409` `/resume`/`/retry`/`/cancel` serialization), inline Markdown/CSV Deliverable Studio editing (`HISTORY_LOCK` SHA-256 writes, malformed CSV raw fallback, unsaved-draft guards), fixed-point table queries (`HTTP 400` UTF-8/null-byte checks, 200k-row/2M-cell caps), pure-Rust PDF 1.4 (`200` pages/`2 MB` cap) and formula `.xlsx` export, and signed inbound webhooks (`X-Ergon-Timestamp`, `{ts}.{body}` HMAC, `X-Ergon-Delivery` replay window), watched folders, and policy-gated outbound connectors with encoded secret redaction and private IP egress blocks. Ergon is still in development and has not been installed at a customer company.",
       "Built Fleet (v1.24.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It adds sub-200ms incremental board delta streaming via a byte-offset board.jsonl tail cache and GET /api/swarm/delta long-polling alongside SSE refresh routing, content-hash plan ETags, 3-way Reload & merge recovery on 409 Conflict, CWE-59 git probes, HTTP 200 dry_run_merge conflict alerts, and archive exports.",
-      "Built OpenRO (v1.22.0), a unified three-pane Rust IDE for Roblox Studio hardening path containment and symlink checks across the unified workspace, scene graph, Visual ScreenGui Designer, and Lune Luau sandbox, enforcing server/client input bounds (`GuiNode::from_json` depth/node/size caps and 500-op scene undo limits), adding `ProcessReceipt` duplicate idempotency in the Luau shim, and isolating React panels behind error boundaries with timeout and HTTP recovery alongside the safe-area simulator, deterministic `--!strict` Luau compiler, direct Rojo disk saves, native `.rbxlx` export, 13 MCP tools, and 60-minute economy curves.",
+      "Built OpenRO (v1.23.0), a unified three-pane Rust IDE for Roblox Studio adding a LiveOps control plane and player telemetry system across the Ship workbench and agent tools: Open Cloud v2 standard and ordered DataStores (`expected_revision` conflict checks, pre-mutation backups, and `confirm: true` gates), 1024-byte `MessagingService` broadcasts, 64 KiB `--!strict` `src/shared/LiveConfig.luau` Remote Config generation, and sandbox `AnalyticsService` event capture into DAU, onboarding funnel, Robux ARPDAU, and currency sink summaries alongside the ScreenGui Designer, safe-area simulator, Lune sandbox, direct Rojo disk saves, native `.rbxlx` export, 13 MCP tools, and 60-minute economy curves.",
     ],
   },
   {
@@ -174,10 +174,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
-    pitch: "Three-pane Rust IDE for Roblox Studio with hardened workspace containment, Visual ScreenGui Designer, multi-device safe-area checks, deterministic --!strict Luau compilation, headless Lune Luau sandboxing, direct Rojo disk saves, 3D scenes, 60-min economy sims, and native .rbxlx or Rojo exports (v1.22.0).",
-    img: "/assets/projects/captures/openro-v1220-light.png",
-    darkImg: "/assets/projects/captures/openro-v1220-dark.png",
-    alt: "OpenRO v1.22.0 three-pane workspace showing the hardened Visual ScreenGui Designer, TopBar and Mobile safe-area overlays, and compiled strict Luau preview.",
+    pitch: "Three-pane Rust IDE for Roblox Studio with LiveOps DataStores, MessagingService, --!strict Remote Config, player telemetry, Visual ScreenGui Designer, safe-area checks, headless Lune Luau sandboxing, direct Rojo disk saves, 3D scenes, 60-min economy sims, and native .rbxlx or Rojo exports (v1.23.0).",
+    img: "/assets/projects/captures/openro-v1230-light.png",
+    darkImg: "/assets/projects/captures/openro-v1230-dark.png",
+    alt: "OpenRO v1.23.0 three-pane workspace showing the LiveOps Control Plane with Open Cloud DataStores, MessagingService broadcasts, Remote Config, and Telemetry Funnel.",
   },
   {
     name: "OpenBell",
@@ -244,7 +244,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.22.0, OpenBell v0.9.0, Fleet v1.24.0, and Ergon v0.32.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.23.0, OpenBell v0.9.0, Fleet v1.24.0, and Ergon v0.32.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
@@ -276,18 +276,18 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Open-Ro",
     tag: "APP-01",
-    title: "Open-Ro Studio (v1.22.0)",
-    blurb: "Browser edition of the three-pane Roblox Studio IDE with panel error boundaries, bounded GUI/scene inputs, Visual ScreenGui Designer and safe-area simulator, offline headless sandbox simulation, 60-minute economy curves, ProcessReceipt idempotency and BindToClose audits, direct Rojo scene tools, conflict resolution, and .rbxlx XML or Rojo .zip export.",
+    title: "Open-Ro Studio (v1.23.0)",
+    blurb: "Browser edition of the three-pane Roblox Studio IDE with the LiveOps control plane (DataStores, MessagingService, Remote Config LiveConfig.luau, and player telemetry), Visual ScreenGui Designer and safe-area simulator, offline headless sandbox simulation, 60-minute economy curves, ProcessReceipt idempotency audits, direct Rojo scene tools, conflict resolution, and .rbxlx XML or Rojo .zip export.",
     url: "/demos/open-ro/",
-    img: "/assets/projects/captures/openro-v1220-light.png",
-    darkImg: "/assets/projects/captures/openro-v1220-dark.png",
+    img: "/assets/projects/captures/openro-v1230-light.png",
+    darkImg: "/assets/projects/captures/openro-v1230-dark.png",
     page: "/projects/openro.html",
     repo: "https://github.com/cayleb-james2008/open-ro",
     storagePrefix: "openro",
-    action: "open the UI tab to drag and resize RPG/Obby/Tycoon/Gacha HUD presets across Desktop, Tablet, and Mobile safe areas, compile --!strict Luau, run Headless Luau Sandbox presets in Ship, or export a Rojo .zip package.",
+    action: "open Ship -> LiveOps to inspect DataStores, compile --!strict LiveConfig.luau, broadcast MessagingService payloads, and inspect telemetry cohorts, or open UI to design ScreenGuis and export a Rojo .zip package.",
     provenance: [
-      { label: "What runs:", text: "the Open-Ro v1.22.0 React frontend compiled from cayleb-james2008/open-ro, including panel error boundaries, input bounds normalization, the Visual ScreenGui Designer and deterministic Luau compiler, offline Headless Luau Sandbox simulator (browser_sim), Explorer, Economy Balance Simulator, Monetization Safety Audit, Pre-Publish Guard, Rojo Sync Conflict Resolver, Hook-Integrity Guard, Studio 3D preview, and the .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
-      { label: "Local and BYOK options:", text: "stays offline in your browser by default; Settings lets you add an API key or point to a local openro-rs 1.22.0 binary on 127.0.0.1 for luau_check + stylua verified GUI compilation, live Lune 0.11.1 execution, and Roblox Studio sync via OpenRoCompanion.lua." },
+      { label: "What runs:", text: "the Open-Ro v1.23.0 React frontend compiled from cayleb-james2008/open-ro, including the LiveOps control plane (DataStores, MessagingService, Remote Config, and telemetry summary), Visual ScreenGui Designer and deterministic Luau compiler, offline Headless Luau Sandbox simulator (browser_sim), Explorer, Economy Balance Simulator, Monetization Safety Audit, Pre-Publish Guard, Rojo Sync Conflict Resolver, Hook-Integrity Guard, Studio 3D preview, and the .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
+      { label: "Local and BYOK options:", text: "stays offline in your browser by default; Settings lets you add an API key or point to a local openro-rs 1.23.0 binary on 127.0.0.1 for luau_check + stylua verified GUI compilation, live Lune 0.11.1 execution, and Roblox Studio sync via OpenRoCompanion.lua." },
       { label: "Why it is here:", text: "you can design responsive ScreenGuis, check safe-area overlaps, test headless sandbox journeys, inspect diffs, and export Studio packages directly without installing the binary." },
     ],
   },
