@@ -170,7 +170,7 @@ export const projects: Project[] = [
 ];
 
 // The three flagship product pages (static pages under /projects/):
-// 1. Open-Ro Studio (v1.13.0), 2. OpenBell (v0.9.0), 3. Fleet (v1.10.0 Antigravity Plugin). Ergon (v0.23.0) stays accessible at /projects/ergon.html & /demos/ergon/.
+// 1. Open-Ro Studio (v1.14.0), 2. OpenBell (v0.9.0), 3. Fleet (v1.12.0 Antigravity Plugin). Ergon (v0.24.0) stays accessible at /projects/ergon.html & /demos/ergon/.
 export type ProductPage = { name: string; href: string; pitch: string; img: string; darkImg?: string; alt: string };
 export const productPagesHead = "the three products, in full";
 export const productPageLink = "the full product page ↗";
@@ -178,10 +178,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
-    pitch: "Studio Copilot 3-pane Roblox Studio AI IDE — 11.16 MB binary, 57.8 KB gz, 15.72 MB Peak RSS (-12.9%), Playable Snapshot Diff & Safe Rollback, 37.39ms boot, 3,497 req/s (5.99ms p95), and 30/30 fuzz.",
-    img: "/assets/projects/captures/openro-v1130-light.png",
-    darkImg: "/assets/projects/captures/openro-v1130-dark.png",
-    alt: "Live capture of OpenRO v1.13.0 Studio Copilot 3-pane Roblox Studio AI IDE: Explorer DataModel dock, Studio 3D and Playable Snapshot Diff & Rollback workspace, and Agent/Plan/Ask Copilot pane",
+    pitch: "Studio Copilot 3-pane Roblox Studio AI IDE — 9.93 MB binary (-11.0%), 57.7 KB gz, 16.29 MB Peak RSS, Preflight Hook-Integrity Guard, 3,880 req/s (+11.0%, 5.33ms p95), and 33/33 fuzz.",
+    img: "/assets/projects/captures/openro-v1140-light.png",
+    darkImg: "/assets/projects/captures/openro-v1140-dark.png",
+    alt: "Live capture of OpenRO v1.14.0 Studio Copilot 3-pane Roblox Studio AI IDE: Explorer DataModel dock, Studio 3D and Preflight Hook-Integrity workspace, and Agent/Plan/Ask Copilot pane",
   },
   {
     name: "OpenBell",
@@ -194,10 +194,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Fleet",
     href: "/projects/fleet.html",
-    pitch: "Antigravity-native Swarm Sidebar Plugin — Broadcast Composer & Filtered Board Export, Bottleneck Heat Bar, 91.1 KiB gz, 112.13ms --jitless boot (-18.0%), 1,721 req/s (+17.8%, 12.93ms p95), and 30/30 fuzz.",
-    img: "/assets/projects/captures/fleet-v1100-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1100-dark.png",
-    alt: "Live capture of Fleet v1.10.0 Antigravity Swarm Sidebar Plugin (380x900): Swarm Bottleneck Heat Bar, Multi-Worker Broadcast Composer, and cog Settings header",
+    pitch: "Antigravity-native Swarm Sidebar Plugin — 1-Click Gate Readiness Card & Token Burn Guard, 91.66 KiB gz, 69.16 MB --jitless RSS (-67.4%), 1,039 req/s, 30/30 fuzz, and 0/0/0 sloplint.",
+    img: "/assets/projects/captures/fleet-v1120-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1120-dark.png",
+    alt: "Live capture of Fleet v1.12.0 Antigravity Swarm Sidebar Plugin (380x900): Gate Readiness Card, Token Burn Guard Strip, and Broadcast Composer",
   },
 ];
 
@@ -248,7 +248,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. This page is its interactive edition: press Cmd+K to jump anywhere, or run the three flagship live browser engines below (Studio Copilot 3-pane IDE Open-Ro v1.13.0, Institutional Quant Terminal OpenBell v0.9.0, Antigravity Swarm Sidebar Plugin Fleet v1.10.0) with zero external requests by default.",
+  line: "The plain PDF is the submission copy. This page is its interactive edition: press Cmd+K to jump anywhere, or run the three flagship live browser engines below (Studio Copilot 3-pane IDE Open-Ro v1.14.0, Institutional Quant Terminal OpenBell v0.9.0, Antigravity Swarm Sidebar Plugin Fleet v1.12.0) with zero external requests by default.",
 };
 
 export type LiveDemo = {
@@ -266,7 +266,7 @@ export type LiveDemo = {
   provenance: { label: string; text: string }[];
 };
 
-// The words around the three flagship interactive web apps (Open-Ro v1.13.0, OpenBell v0.9.0, Fleet v1.10.0).
+// The words around the three flagship interactive web apps (Open-Ro v1.14.0, OpenBell v0.9.0, Fleet v1.12.0).
 export const demoWords = {
   count: "live apps \u00b7 3",
   running: "running",
@@ -281,19 +281,19 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Open-Ro",
     tag: "APP-01",
-    title: "Open-Ro Studio v1.13.0 — Studio Copilot 3-pane Roblox Studio AI IDE",
-    blurb: "Real client-side 3-pane Studio Copilot IDE paired with the v1.13.0 single-binary Rust app (11.16 MB binary, 57.8 KB gz shell, 15.72 MB Peak RSS -12.9%, Playable Snapshot Diff & 1-Click Safe Rollback, Luau Dependency Graph Pruner, Economy Simulator, 37.39ms cold boot -3.8%, 3,497 req/s, 5.99ms p95, 30/30 fuzz, 311/311 tests, and 0/0/0 sloplint): diff sequential snapshots, restore verified builds cleanly, prune broken requires, and export .rbxlx XML or Rojo .zip.",
+    title: "Open-Ro Studio v1.14.0 — Studio Copilot 3-pane Roblox Studio AI IDE",
+    blurb: "Real client-side 3-pane Studio Copilot IDE paired with the v1.14.0 single-binary Rust app (9.93 MB binary -11.0%, 57.7 KB gz shell, 16.29 MB Peak RSS, Preflight Hook-Integrity Guard, Snapshot Diff & Safe Rollback, 3,880 req/s +11.0%, 5.33ms p95 -11.0%, 33/33 fuzz, 312/312 tests, and 0/0/0 sloplint): guard revenue & spawn hooks before shipping, surgically restore dropped hooks, diff snapshots cleanly, and export .rbxlx XML or Rojo .zip.",
     url: "/demos/open-ro/",
-    img: "/assets/projects/captures/openro-v1130-light.png",
-    darkImg: "/assets/projects/captures/openro-v1130-dark.png",
+    img: "/assets/projects/captures/openro-v1140-light.png",
+    darkImg: "/assets/projects/captures/openro-v1140-dark.png",
     page: "/projects/openro.html",
     repo: "https://github.com/cayleb-james2008/open-ro",
     storagePrefix: "openro",
-    action: "open Starters to build a Roblox game in Studio 3D, inspect Playable Snapshot Diff & click Restore Verified Snapshot (#/ship & Snapshots), run the Luau Dependency Graph Pruner or Economy Funnel Simulator, click Fix All Failing Checks in Playtest Lab, or export Rojo .zip / .rbxlx.",
+    action: "open Starters to build a Roblox game in Studio 3D, check Preflight Hook-Integrity & click Restore Missing Hooks without losing new scripts, inspect Playable Snapshot Diff & Rollback (#/ship & /play), run the Luau Dependency Graph Pruner, or export Rojo .zip / .rbxlx.",
     provenance: [
-      { label: "What runs:", text: "the v1.13.0 Studio Copilot 3-pane IDE compiled from cayleb-james2008/open-ro (frontend/) with Explorer/Chats left dock, Playable Snapshot Diff & 1-Click Safe Rollback, Luau Dependency Graph Pruner, Economy & Funnel Simulator (#/ship & /play), Embedded Studio / Studio 3D / Code & Diff / Playtest Launch Autopilot / Pre-Publish Gate workspace, Studio MCP Tools (13), Agent|Plan|Ask Copilot composer, and .rbxlx / CRC-32 Rojo .zip exporter at /demos/open-ro/." },
-      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you add a BYOK LLM key or connect to a local openro-rs 1.13.0 binary (with directly embedded live Roblox Studio, auto-synced Explorer, OpenRoCompanion.lua plugin, all 13 MCP tools, Blender 3D .obj, and procedural .wav synthesis) on 127.0.0.1." },
-      { label: "Why it is here:", text: "visitors can experience the full 3-pane Studio Copilot workflow — diffing snapshots with safe 1-click rollback, pruning broken Luau requires, drafting & applying targeted Luau auto-fix plans, co-building in 3D, and exporting genuine Studio .rbxlx and Rojo .zip packages right here." },
+      { label: "What runs:", text: "the v1.14.0 Studio Copilot 3-pane IDE compiled from cayleb-james2008/open-ro (frontend/) with Explorer/Chats left dock, Preflight Hook-Integrity & Surgical Restore Guard, Playable Snapshot Diff & Safe Rollback, Luau Dependency Graph Pruner, Economy Simulator (#/ship & /play), Embedded Studio / Studio 3D / Code & Diff / Launch Autopilot / Pre-Publish Gate workspace, Studio MCP Tools (13), Agent|Plan|Ask Copilot composer, and .rbxlx / CRC-32 Rojo .zip exporter at /demos/open-ro/." },
+      { label: "Local & BYOK options:", text: "runs 100% locally in your browser with zero external requests by default; Settings lets you add a BYOK LLM key or connect to a local openro-rs 1.14.0 binary (with directly embedded live Roblox Studio, auto-synced Explorer, OpenRoCompanion.lua plugin, all 13 MCP tools, Blender 3D .obj, and procedural .wav synthesis) on 127.0.0.1." },
+      { label: "Why it is here:", text: "visitors can experience the full 3-pane Studio Copilot workflow — guarding GamePass/Spawn/strict hooks against regressions, restoring missing hooks surgically, diffing snapshots, co-building in 3D, and exporting genuine Studio .rbxlx and Rojo .zip packages right here." },
     ],
   },
   {
@@ -317,19 +317,19 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Fleet",
     tag: "APP-03",
-    title: "Fleet v1.10.0 — Antigravity-Native Swarm Sidebar Plugin",
-    blurb: "Interactive offline preview of Fleet v1.10.0, pivoted from standalone binaries (v0.12.0 preserved in git history) to an Antigravity SIDECAR_UI_ENTRYPOINT_AUX_PANE plugin (~/.gemini/config/plugins/fleet/): Multi-Worker Broadcast Composer & Filtered Board Export (.md/.json), Swarm Bottleneck Heat Bar & Copy Blocker, cog Settings header, 91.1 KiB gz, 112.13ms --jitless boot (-18.0%), 1,721 req/s (+17.8%, 12.93ms p95), 30/30 fuzz, and 0/0/0 sloplint.",
+    title: "Fleet v1.12.0 — Antigravity-Native Swarm Sidebar Plugin",
+    blurb: "Interactive offline preview of Fleet v1.12.0, pivoted from standalone binaries (v0.12.0 preserved in git history) to an Antigravity SIDECAR_UI_ENTRYPOINT_AUX_PANE plugin (~/.gemini/config/plugins/fleet/): 1-Click Gate Readiness Card ([done]->[verified]->[scale-verified]/[blocked]), Per-Worker Token Burn Guard Strip, Multi-Worker Broadcast Composer & Filtered Export, 91.66 KiB gz, 69.16 MB --jitless RSS (-67.4%), 1,039 req/s, 30/30 fuzz, and 0/0/0 sloplint.",
     url: "/demos/fleet/",
-    img: "/assets/projects/captures/fleet-v1100-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1100-dark.png",
+    img: "/assets/projects/captures/fleet-v1120-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1120-dark.png",
     page: "/projects/fleet.html",
     repo: "https://github.com/cayleb-james2008/fleet",
     storagePrefix: "fleet",
-    action: "send a Multi-Worker Broadcast in Roster, download a Filtered Board Export (.md/.json) with ~/ masked paths, inspect the Swarm Bottleneck Heat Bar + Copy blocker, expand Inline Worktree Diff Peek, filter Board posts (f), or scrub @Mention graph replay.",
+    action: "jump to any pending Gate #seq via the Gate Readiness Card, spot high-burn workers on the Token Burn Guard Strip, send a Multi-Worker Broadcast in Roster, download a Filtered Board Export (.md/.json), or scrub @Mention graph replay.",
     provenance: [
-      { label: "What runs:", text: "the v1.10.0 Antigravity Swarm Sidebar Plugin UI compiled from cayleb-james2008/fleet (dist-live-web/index.html, 469.7 KiB offline single-file simulator) modeling <appData>/brain/<conv> swarm telemetry, Broadcast Composer, Filtered Board Export, Swarm Bottleneck Heat Bar, Copy blocker, Inline Worktree Diff Peek, Wave Digest, #seq quote-reply, and @Mention graph replay at /demos/fleet/." },
+      { label: "What runs:", text: "the v1.12.0 Antigravity Swarm Sidebar Plugin UI compiled from cayleb-james2008/fleet (dist-live-web/index.html, 473.3 KiB offline single-file simulator) modeling <appData>/brain/<conv> swarm telemetry, Gate Readiness Card, Token Burn Guard Strip, Broadcast Composer, Filtered Board Export, Swarm Bottleneck Heat Bar, Inline Worktree Diff Peek, and @Mention graph replay at /demos/fleet/." },
       { label: "Local Antigravity install:", text: "runs 100% locally in your browser with zero external requests; install the live plugin into Antigravity via ./install.sh (~/.gemini/config/plugins/fleet/) to wire SidecarApp + /preload.js bridges, build-time index.html.gz serving, multi-target POST /api/nudge validation, /api/swarm/stream SSE push, and --jitless V8 tier bounds in sidecars/fleet_pane/." },
-      { label: "Why it is here:", text: "visitors can experience Antigravity's native swarm sidebar — broadcasting to multiple workers, exporting filtered board logs safely, copying 1-click Wave Digests, quote-replying #seq posts, and scrubbing @mention handoffs right here." },
+      { label: "Why it is here:", text: "visitors can experience Antigravity's native swarm sidebar — tracking [done]/[verified]/[blocked] release gates, spotting runaway token burn, broadcasting to workers, exporting filtered board logs safely, and scrubbing @mention handoffs right here." },
     ],
   },
 ];
