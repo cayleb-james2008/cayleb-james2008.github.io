@@ -44,7 +44,7 @@ export const experience = [
     org: "Founder · Independent AI Agent Systems",
     bullets: [
       "Built Ergon (v0.31.0) as a single-binary Rust desk for local employee agents. Adds signed inbound webhooks (`POST /api/hooks/:hook_id`), loopback watched folders with SHA-256 deduplication, and policy-gated outbound connectors (`http_webhook`, `rest_api`, `smtp_relay`, `invoke_connector`) with `0600` credential isolation, alongside resumable hybrid workflows (`steps_v2`), inline Markdown/CSV Deliverable Studio editing, fixed-point table queries (`query_table`), pure-Rust PDF 1.4 and formula `.xlsx` export, client handoff ZIP bundles, offline evidence verification (`ergon verify`), and SHA-256 receipts. Ergon is still in development and has not been installed at a customer company.",
-      "Built Fleet (v1.22.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It adds an operator swarm command and channel control plane (POST /api/control) for channel-filtered board posts, worker spawning, model switching, 409 worktree-guarded worker kills, channel management, and gate verdicts alongside clickable #seq reply backlink chips, normalized native plan.json CAS editing, cross-worktree collision and merge-tree checks, zero-client idle sleep, sanitized archive export, and 8 KB transcript peeks.",
+      "Built Fleet (v1.23.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It hardens the sidecar store, CWE-59 git probes, and operator control plane with content-hash plan ETags, 3-way Reload & merge recovery on 409 Conflict, streaming bounded diffs, HTTP 200 dry_run_merge conflict alerts, synchronous double-submit locks, and #seq backlink filter recovery alongside channel tabs, Roster drawers, idle sleep, and archive exports.",
       "Built OpenRO (v1.21.0), a unified three-pane Rust IDE for Roblox Studio adding a Visual ScreenGui and HUD Designer (12-class allowlist, drag and 8-handle resize, `art/**` and `ProductId` pickers), Desktop/Tablet/Mobile safe-area simulator, and deterministic `--!strict` Luau (`ScreenModule.create`) plus Rojo `.model.json` compiler alongside the headless Lune Luau runtime sandbox, direct Rojo workspace and 3D scene editing, native `.rbxlx` export, 13 MCP tools, and 60-minute economy curves.",
     ],
   },
@@ -190,10 +190,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Fleet",
     href: "/projects/fleet.html",
-    pitch: "Antigravity sidebar plugin for multi-agent swarms with an operator swarm command and channel control plane, clickable reply backlinks, Roster spawn/model/kill drawers, worktree collision and merge actions, CAS plan editing, and archive export (v1.22.0).",
-    img: "/assets/projects/captures/fleet-v1220-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1220-dark.png",
-    alt: "Fleet v1.22.0 Antigravity sidebar showing Board channel filter tabs, Channel Manager drawer, sticky confirmation-gated composer, clickable replyRefs chips, and Roster spawn and model switch controls.",
+    pitch: "Antigravity sidebar plugin for multi-agent swarms with 3-way 409 plan merge recovery, CWE-59 git probes, dry-run conflict alerts, an operator swarm control plane, clickable reply backlinks, Roster drawers, and archive export (v1.23.0).",
+    img: "/assets/projects/captures/fleet-v1230-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1230-dark.png",
+    alt: "Fleet v1.23.0 Antigravity sidebar showing Triage 409 Reload and merge plan editor alongside Git worktree dry-run conflict alerts.",
   },
 ];
 
@@ -244,7 +244,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.21.0, OpenBell v0.9.0, Fleet v1.22.0, and Ergon v0.31.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.21.0, OpenBell v0.9.0, Fleet v1.23.0, and Ergon v0.31.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
@@ -312,18 +312,18 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Fleet",
     tag: "APP-03",
-    title: "Fleet (v1.22.0 Antigravity Swarm Sidebar)",
-    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Filter Board channels, manage channel subscriptions, post via the sticky confirmation-gated composer, spawn or switch worker models, inspect 409 unmerged worktree kill warnings, detect file collisions, test merge-tree previews, and edit live plans with CAS reload protection.",
+    title: "Fleet (v1.23.0 Antigravity Swarm Sidebar)",
+    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Test 3-way 409 plan merge recovery, inspect HTTP 200 dry_run_merge conflict alerts, filter Board channels, post via the sticky confirmation-gated composer, spawn or switch worker models, inspect 409 unmerged worktree kill warnings, and detect file collisions.",
     url: "/demos/fleet/",
-    img: "/assets/projects/captures/fleet-v1220-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1220-dark.png",
+    img: "/assets/projects/captures/fleet-v1230-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1230-dark.png",
     page: "/projects/fleet.html",
     repo: "https://github.com/cayleb-james2008/fleet",
     storagePrefix: "fleet",
-    action: "open the Board tab to switch channels, jump via #seq replyRefs chips, or use the sticky composer, open Roster to test Spawn Worker, Switch Model, and Kill 409 worktree warnings, or open Git for collisions and merge-tree checks.",
+    action: "open Triage to edit plans with 409 Reload & merge recovery, open Board for channels and #seq replyRefs filter recovery, open Roster for Spawn Worker, Switch Model, and Kill 409 warnings, or open Git for dry-run conflict alerts and collision pills.",
     provenance: [
-      { label: "What runs:", text: "the single-file Fleet v1.22.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying the POST /api/control operator command plane, Board channel tabs and Channel Manager, replyRefs thread backlinks, Roster spawn/model/kill drawers, cross-worktree collision detection, POST /api/worktrees/action flows, native plan CAS editing, and Full Swarm Archive Export at /demos/fleet/." },
-      { label: "Local Antigravity install:", text: "the browser copy stays offline; running ./install.sh in a local clone installs the sidecar plugin into ~/.gemini/config/plugins/fleet/ with native plan.json normalization, atomic CAS plan writes, zero-client idle sleep, read-only 8 KB transcript tail reading, and live SSE ping frames." },
+      { label: "What runs:", text: "the single-file Fleet v1.23.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying 3-way 409 plan merge recovery, dry_run_merge conflict classification, the POST /api/control operator command plane, Board channel tabs and Channel Manager, replyRefs thread backlinks, Roster spawn/model/kill drawers, cross-worktree collision detection, and Full Swarm Archive Export at /demos/fleet/." },
+      { label: "Local Antigravity install:", text: "the browser copy stays offline; running ./install.sh in a local clone installs the sidecar plugin into ~/.gemini/config/plugins/fleet/ with content-hash plan ETags, CWE-59 git probes, zero-client idle sleep, read-only 8 KB transcript tail reading, and live SSE ping frames." },
       { label: "Why it is here:", text: "you can step through live swarm triage, native plan editing, and the multi-agent release gate checklist inside a narrow auxiliary pane layout." },
     ],
   },

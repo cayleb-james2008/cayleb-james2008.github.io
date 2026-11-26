@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Fleet · Cayleb Alvarez-James</title>
-  <meta name="description" content="Fleet v1.22.0 is an Antigravity sidebar plugin for multi-agent swarms with an operator swarm command and channel control plane, clickable reply backlinks, Roster spawn/model/kill drawers, and worktree collision and merge actions.">
+  <meta name="description" content="Fleet v1.23.0 is an Antigravity sidebar plugin for multi-agent swarms with 3-way 409 plan merge recovery, CWE-59 git probes, dry-run conflict alerts, and a hardened operator control plane.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/fleet.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="Fleet · Cayleb Alvarez-James">
-  <meta property="og:description" content="Antigravity sidebar plugin for multi-agent swarms with an operator swarm command and channel control plane, clickable reply backlinks, Roster drawers, and worktree actions (v1.22.0).">
+  <meta property="og:description" content="Antigravity sidebar plugin for multi-agent swarms with 3-way 409 plan merge recovery, CWE-59 git probes, dry-run conflict alerts, and a hardened operator control plane (v1.23.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/fleet.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -41,16 +41,16 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Release v1.22.0 · Antigravity Swarm Sidebar Plugin · checked 26 November 2026</p>
+        <p class="case-hero__meta">Release v1.23.0 · Antigravity Swarm Sidebar Plugin · checked 26 November 2026</p>
         <h1 class="case-hero__title">Track the whole swarm from the side pane.</h1>
-        <p class="case-hero__out">Fleet <code>v1.22.0</code> runs inside Antigravity's auxiliary side pane (<code>SIDECAR_UI_ENTRYPOINT_AUX_PANE</code>, installed into <code>~/.gemini/config/plugins/fleet/</code> via <code>./install.sh</code>) backed by a zero-dependency Node ESM sidecar. Earlier standalone Rust releases remain tagged at <code>v0.12.0</code>. Release <code>v1.22.0</code> adds an operator swarm command and channel control plane (<code>POST /api/control</code> for <code>board_post</code>, <code>spawn_worker</code>, <code>switch_model</code>, <code>kill_worker</code> with <code>409</code> unmerged worktree protection, <code>channel_op</code>, and <code>gate_verdict</code>), Board channel filter tabs, a Channel Manager drawer, sticky confirmation-gated composing, clickable <code>#seq</code> <code>replyRefs</code> backlink chips, Roster spawn/model/kill controls, and a New Swarm launcher.</p>
+        <p class="case-hero__out">Fleet <code>v1.23.0</code> runs inside Antigravity's auxiliary side pane (<code>SIDECAR_UI_ENTRYPOINT_AUX_PANE</code>, installed into <code>~/.gemini/config/plugins/fleet/</code> via <code>./install.sh</code>) backed by a zero-dependency Node ESM sidecar. Earlier standalone Rust releases remain tagged at <code>v0.12.0</code>. Release <code>v1.23.0</code> hardens the sidecar store, git probes, and sidebar UI with content-hash <code>plan.json</code> ETags, 3-way <code>Reload &amp; merge</code> recovery on <code>409 Conflict</code>, CWE-59 symlink and escaping-root guards, streaming bounded git diffs, HTTP 200 <code>dry_run_merge</code> conflict alerts with inline recovery hints, synchronous double-submit locks on <code>POST /api/control</code>, missing-coordinator warnings, empty-channel fallback states, and <code>#seq</code> backlink filter recovery.</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>Checked at c58fb8d: 22/22 sidecar tests, 57/57 UI gate checks, 8/8 replays, 21/21 live-web checks, 2,300.7 req/s (12.66 ms p95), 39.65 ms boot, 113.73 MB RSS, 5/5 SSE, and 30/30 fuzz pass.</li>
-          <li><span class="chip chip--current">v1.22.0 plugin</span></li>
+          <li><span class="checked-dot" aria-hidden="true"></span>Checked at 9942832: 29/29 sidecar tests, 61/61 UI gate checks, 8/8 replays, 22/22 live-web checks, 2,189.3 req/s (9.77 ms p95), 52.47 ms boot, 122.0 MB RSS, 5/5 SSE, and 30/30 fuzz pass.</li>
+          <li><span class="chip chip--current">v1.23.0 plugin</span></li>
         </ul>
         <div class="hero-actions">
           <a class="btn-primary" href="../demos/fleet/">Launch live sidebar preview ↗</a>
-          <a class="btn-outline" href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.22.0" target="_blank" rel="noreferrer noopener">Release v1.22.0 on GitHub ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.23.0" target="_blank" rel="noreferrer noopener">Release v1.23.0 on GitHub ↗</a>
         </div>
       </div>
     </header>
@@ -69,21 +69,21 @@
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">Fleet v1.22.0 Antigravity Sidebar</span>
+              <span class="viz__title">Fleet v1.23.0 Antigravity Sidebar</span>
               <span class="viz__live">live capture</span>
-              <span class="viz__note">Control Plane · Channels, Composer &amp; Roster Drawers</span>
+              <span class="viz__note">Hardening · 409 Plan Merge &amp; Worktree Conflict Alerts</span>
             </div>
             <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/fleet-v1220-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Fleet v1.22.0">
-                <img src="../assets/projects/captures/fleet-v1220-light.png" alt="Fleet v1.22.0 capture in Light theme showing Board channel tabs, Channel Manager drawer, sticky composer, clickable replyRefs chips, and Roster spawn and model switch controls." width="768" height="1280" loading="eager" decoding="async">
+              <a class="shot-light" href="../assets/projects/captures/fleet-v1230-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Fleet v1.23.0">
+                <img src="../assets/projects/captures/fleet-v1230-light.png" alt="Fleet v1.23.0 capture in Light theme showing Triage 409 Reload and merge plan editor alongside Git worktree dry-run conflict alerts." width="768" height="1280" loading="eager" decoding="async">
               </a>
-              <a class="shot-dark" href="../assets/projects/captures/fleet-v1220-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Fleet v1.22.0">
-                <img src="../assets/projects/captures/fleet-v1220-dark.png" alt="Fleet v1.22.0 capture in Dark theme showing Board channel tabs, Channel Manager drawer, sticky composer, clickable replyRefs chips, and Roster spawn and model switch controls." width="768" height="1280" loading="eager" decoding="async">
+              <a class="shot-dark" href="../assets/projects/captures/fleet-v1230-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Fleet v1.23.0">
+                <img src="../assets/projects/captures/fleet-v1230-dark.png" alt="Fleet v1.23.0 capture in Dark theme showing Triage 409 Reload and merge plan editor alongside Git worktree dry-run conflict alerts." width="768" height="1280" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured from Fleet <code>v1.22.0</code> in Light and Dark themes. The browser preview at <code>/demos/fleet/</code> includes the <code>POST /api/control</code> operator command plane, Board channel tabs, Channel Manager, clickable <code>replyRefs</code> chips, Roster spawn/model/kill drawers, cross-worktree file collision detection, Working Changes vs Branch Diff inspection, dry-run merge previews, native <code>plan.json</code> normalization, CAS plan editing, and sanitized archive exports.</p>
-              <p class="viz__source">Source: cayleb-james2008/fleet v1.22.0 · browser preview at /demos/fleet/</p>
+              <p class="viz__caption">Captured from Fleet <code>v1.23.0</code> in Light and Dark themes. The browser preview at <code>/demos/fleet/</code> includes 3-way <code>409</code> plan merge recovery, HTTP 200 <code>dry_run_merge</code> conflict alerts, Board channel tabs, Channel Manager, clickable <code>replyRefs</code> chips with filter recovery, Roster spawn/model/kill drawers, cross-worktree file collision detection, Working Changes vs Branch Diff inspection, native <code>plan.json</code> normalization, and sanitized archive exports.</p>
+              <p class="viz__source">Source: cayleb-james2008/fleet v1.23.0 · browser preview at /demos/fleet/</p>
               <p class="viz__action">
                 <a class="viz__open" href="../demos/fleet/">open live web app ↗</a>
               </p>
@@ -171,13 +171,13 @@
           <section id="record">
             <h2>What is proven</h2>
             <div class="project-prose__body">
-              <p>Measured against <code>cayleb-james2008/fleet</code> at release <code>v1.22.0</code> (<code>c58fb8d</code>).</p>
+              <p>Measured against <code>cayleb-james2008/fleet</code> at release <code>v1.23.0</code> (<code>9942832</code>).</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Sidecar &amp; installer suite</th><td>22 of 22 sidecar tests pass (covering <code>POST /api/control</code> directives, <code>409</code> unmerged worktree kill protection, <code>replyRefs</code> thread indexing, <code>unseenBy</code> channel visibility, worktree collisions, <code>mode=branch</code> diffs, <code>git merge-tree --write-tree</code> dry-run merges, auto-aborting rebase, native <code>plan.json</code> CAS 409 conflicts, zero-client idle sleep, 8 KB transcript peeks, CWE-22/CWE-59 traps, and <code>./install.sh --dest</code>).</td></tr>
-                  <tr><th>Scale audit (2k posts / 50k lines)</th><td><code>357,566 B</code> raw (<code>349.2 KiB</code>) / <code>108,730 B</code> (<code>106.2 KiB</code>) gzip UI, 39.65 ms cold boot, 113.73 MB peak RSS, 2,300.7 req/s (12.66 ms p95, 0/5,770 errors), 5/5 SSE, and 30/30 fuzz pass.</td></tr>
-                  <tr><th>UI &amp; standalone web preview</th><td>57 of 57 Playwright gate checks, 8 of 8 replays, 21 of 21 <code>test-live-web.mjs</code> checks (incl. control plane, channel composer, and Roster drawers), 0 FAIL / 0 WARN Sloplint, zero console errors across <code>380x900</code> and <code>1440x900</code> Light and Dark, and offline <code>dist-live-web/index.html</code> (<code>563.3 KiB</code>) with zero external requests.</td></tr>
-                  <tr><th>Antigravity plugin packaging</th><td><code>.tar.gz</code>, <code>.zip</code>, and <code>SHA256SUMS</code> published at <a href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.22.0" target="_blank" rel="noreferrer noopener">v1.21.0 Release</a>; local install via <code>./install.sh</code> into <code>~/.gemini/config/plugins/fleet/</code>.</td></tr>
+                  <tr><th>Sidecar &amp; installer suite</th><td>29 of 29 sidecar tests pass (covering primitive JSON type guards, 2 MiB bounded incremental streaming, content-hash <code>plan.json</code> ETags, <code>view.json</code> last-good fallback, <code>POST /api/control</code> coordinator kill protection and 404/409 validation, <code>replyRefs</code> thread indexing, <code>unseenBy</code> channel visibility, worktree collisions, streaming bounded diffs, <code>git merge-tree --write-tree</code> dry-run merges, auto-aborting rebase, CWE-22/CWE-59 traps, and <code>./install.sh --dest</code>).</td></tr>
+                  <tr><th>Scale audit (2k posts / 50k lines)</th><td><code>367,693 B</code> raw (<code>359.1 KiB</code>) / <code>111,231 B</code> (<code>108.6 KiB</code>) gzip UI, 52.47 ms cold boot, 122.0 MB peak RSS, 2,189.3 req/s (9.77 ms p95, 0/5,487 errors), 5/5 SSE, and 30/30 fuzz pass.</td></tr>
+                  <tr><th>UI &amp; standalone web preview</th><td>61 of 61 Playwright gate checks, 8 of 8 replays, 22 of 22 <code>test-live-web.mjs</code> checks (incl. 409 3-way plan merge, dry-run conflict alerts, control plane, channel composer, and Roster drawers), 0 FAIL / 0 WARN Sloplint, zero console errors across <code>380x900</code> and <code>1440x900</code> Light and Dark, and offline <code>dist-live-web/index.html</code> (<code>574.8 kB</code>) with zero external requests.</td></tr>
+                  <tr><th>Antigravity plugin packaging</th><td><code>.tar.gz</code>, <code>.zip</code>, and <code>SHA256SUMS</code> published at <a href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.23.0" target="_blank" rel="noreferrer noopener">v1.23.0 Release</a>; local install via <code>./install.sh</code> into <code>~/.gemini/config/plugins/fleet/</code>.</td></tr>
                 </tbody>
               </table>
             </div>
@@ -197,10 +197,10 @@
         <h2>Evidence</h2>
         <dl class="repo-facts">
           <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/fleet">cayleb-james2008/fleet</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.22.0</b> · Antigravity Plugin</dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.23.0</b> · Antigravity Plugin</dd></div>
           <div class="repo-facts__row"><dt>checked</dt><dd>26 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.22.0 plugin</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/fleet/">Live preview</a> · <a href="https://github.com/cayleb-james2008/fleet">GitHub</a> · <a href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.22.0">Release v1.22.0</a></dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.23.0 plugin</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/fleet/">Live preview</a> · <a href="https://github.com/cayleb-james2008/fleet">GitHub</a> · <a href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.23.0">Release v1.23.0</a></dd></div>
         </dl>
         <p class="project-aside__more"><a href="../index.html">← Back to home</a></p>
       </aside>
