@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Fleet · Cayleb Alvarez-James</title>
-  <meta name="description" content="Fleet v1.25.0 is an Antigravity sidebar plugin for multi-agent swarms with a bounded forensic transcript inspector, secret scrubbing, sub-200ms incremental board delta streaming, and 3-way 409 plan merge recovery.">
+  <meta name="description" content="Fleet v1.26.0 is an Antigravity sidebar plugin for multi-agent swarms with model-aware 1M context ceilings, per-model USD cost economics, bounded forensic transcript inspection, and sub-200ms incremental board delta streaming.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/fleet.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="Fleet · Cayleb Alvarez-James">
-  <meta property="og:description" content="Antigravity sidebar plugin for multi-agent swarms with a bounded forensic transcript inspector, secret scrubbing, sub-200ms incremental board delta streaming, and 3-way 409 plan merge recovery (v1.25.0).">
+  <meta property="og:description" content="Antigravity sidebar plugin for multi-agent swarms with model-aware 1M context ceilings, per-model USD cost economics, bounded forensic transcript inspection, and sub-200ms incremental board delta streaming (v1.26.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/fleet.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -41,16 +41,16 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Release v1.25.0 · Antigravity Swarm Sidebar Plugin · checked 26 November 2026</p>
+        <p class="case-hero__meta">Release v1.26.0 · Antigravity Swarm Sidebar Plugin · checked 26 November 2026</p>
         <h1 class="case-hero__title">Track the whole swarm from the side pane.</h1>
-        <p class="case-hero__out">Fleet <code>v1.25.0</code> runs inside Antigravity's auxiliary side pane (<code>SIDECAR_UI_ENTRYPOINT_AUX_PANE</code>, installed into <code>~/.gemini/config/plugins/fleet/</code> via <code>./install.sh</code>) backed by a zero-dependency Node ESM sidecar. Earlier standalone Rust releases remain tagged at <code>v0.12.0</code>. Release <code>v1.25.0</code> adds a bounded forensic transcript inspector (<code>GET /api/transcript</code> scanning backwards in <code>&lt;= 512 KiB</code> slices with <code>members.json</code> and <code>realpathSync</code> confinement, correlated <code>PLANNER_RESPONSE</code> tool calls and <code>GENERIC</code> outputs/errors, `/home/` path and API secret scrubbing, <code>before</code>/<code>limit</code>/<code>filter</code> pagination, and <code>Inspect trace</code> drawers in Roster and Triage) alongside sub-200ms incremental board delta streaming, 3-way <code>Reload &amp; merge</code> recovery, CWE-59 git probes, and HTTP 200 <code>dry_run_merge</code> conflict alerts.</p>
+        <p class="case-hero__out">Fleet <code>v1.26.0</code> runs inside Antigravity's auxiliary side pane (<code>SIDECAR_UI_ENTRYPOINT_AUX_PANE</code>, installed into <code>~/.gemini/config/plugins/fleet/</code> via <code>./install.sh</code>) backed by a zero-dependency Node ESM sidecar. Earlier standalone Rust releases remain tagged at <code>v0.12.0</code>. Release <code>v1.26.0</code> adds model-aware context ceilings (up to 1M tokens for Gemini and Claude <code>[1m]</code> and 128k to 400k for OpenAI via <code>getModelSpec</code>) and incremental per-model <code>byModel</code> USD spend tracking across model switches (<code>contextLimit</code>, <code>contextPct</code>, <code>cost</code> with cache-read savings and <code>Unpriced</code> fallbacks in <code>TokenBurnStrip</code>, <code>RosterView</code>, and archive exports) alongside the bounded forensic transcript inspector, sub-200ms incremental board delta streaming, 3-way <code>Reload &amp; merge</code> recovery, and CWE-59 git probes.</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>Checked at df6c53f: 33/33 sidecar tests, 64/64 UI gate checks, 8/8 replays, 24/24 live-web checks, 1,963.0 req/s (11.6 ms p95), 51.41 ms boot, 105.93 MB RSS, 5/5 SSE, and 30/30 fuzz pass.</li>
-          <li><span class="chip chip--current">v1.25.0 plugin</span></li>
+          <li><span class="checked-dot" aria-hidden="true"></span>Checked at 6f3a1f4: 36/36 sidecar tests, 64/64 UI gate checks, 8/8 replays, 25/25 live-web checks, 1,779.9 req/s (12.69 ms p95), 62.08 ms boot, 118.57 MB RSS, 5/5 SSE, and 30/30 fuzz pass.</li>
+          <li><span class="chip chip--current">v1.26.0 plugin</span></li>
         </ul>
         <div class="hero-actions">
           <a class="btn-primary" href="../demos/fleet/">Launch live sidebar preview ↗</a>
-          <a class="btn-outline" href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.25.0" target="_blank" rel="noreferrer noopener">Release v1.25.0 on GitHub ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.26.0" target="_blank" rel="noreferrer noopener">Release v1.26.0 on GitHub ↗</a>
         </div>
       </div>
     </header>
@@ -69,21 +69,21 @@
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">Fleet v1.25.0 Antigravity Sidebar</span>
+              <span class="viz__title">Fleet v1.26.0 Antigravity Sidebar</span>
               <span class="viz__live">live capture</span>
-              <span class="viz__note">Forensic Trace · Bounded Transcript Inspector</span>
+              <span class="viz__note">Cost Economics · 1M Context Ceilings</span>
             </div>
             <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/fleet-v1250-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Fleet v1.25.0">
-                <img src="../assets/projects/captures/fleet-v1250-light.png" alt="Fleet v1.25.0 capture in Light theme showing the forensic transcript inspector drawer in the sidebar." width="760" height="1800" loading="eager" decoding="async">
+              <a class="shot-light" href="../assets/projects/captures/fleet-v1260-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Fleet v1.26.0">
+                <img src="../assets/projects/captures/fleet-v1260-light.png" alt="Fleet v1.26.0 capture in Light theme showing 1M context ceilings and USD cost economics in the sidebar." width="760" height="1800" loading="eager" decoding="async">
               </a>
-              <a class="shot-dark" href="../assets/projects/captures/fleet-v1250-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Fleet v1.25.0">
-                <img src="../assets/projects/captures/fleet-v1250-dark.png" alt="Fleet v1.25.0 capture in Dark theme showing the forensic transcript inspector drawer in the sidebar." width="760" height="1800" loading="eager" decoding="async">
+              <a class="shot-dark" href="../assets/projects/captures/fleet-v1260-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Fleet v1.26.0">
+                <img src="../assets/projects/captures/fleet-v1260-dark.png" alt="Fleet v1.26.0 capture in Dark theme showing 1M context ceilings and USD cost economics in the sidebar." width="760" height="1800" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured from Fleet <code>v1.25.0</code> in Light and Dark themes. The browser preview at <code>/demos/fleet/</code> includes forensic transcript inspection (tool arguments, stderr tracebacks, filter tabs, and backward pagination), sub-200ms incremental delta sync parity, 3-way <code>409</code> plan merge recovery, HTTP 200 <code>dry_run_merge</code> conflict alerts, Board channel tabs, Channel Manager, clickable <code>replyRefs</code> chips with filter recovery, Roster spawn/model/kill drawers, cross-worktree file collision detection, Working Changes vs Branch Diff inspection, native <code>plan.json</code> normalization, and sanitized archive exports.</p>
-              <p class="viz__source">Source: cayleb-james2008/fleet v1.25.0 · browser preview at /demos/fleet/</p>
+              <p class="viz__caption">Captured from Fleet <code>v1.26.0</code> in Light and Dark themes. The browser preview at <code>/demos/fleet/</code> includes model-aware context ceilings (<code>cap 1M</code> vs <code>cap 200k</code>), per-model USD spend and cache-savings badges in <code>TokenBurnStrip</code> and <code>RosterView</code> (with safe <code>Unpriced</code> fallbacks), forensic transcript inspection, sub-200ms incremental delta sync parity, 3-way <code>409</code> plan merge recovery, HTTP 200 <code>dry_run_merge</code> conflict alerts, Board channel tabs, Channel Manager, clickable <code>replyRefs</code> chips, Roster drawers, cross-worktree file collision detection, native <code>plan.json</code> normalization, and sanitized archive exports.</p>
+              <p class="viz__source">Source: cayleb-james2008/fleet v1.26.0 · browser preview at /demos/fleet/</p>
               <p class="viz__action">
                 <a class="viz__open" href="../demos/fleet/">open live web app ↗</a>
               </p>
@@ -171,13 +171,13 @@
           <section id="record">
             <h2>What is proven</h2>
             <div class="project-prose__body">
-              <p>Measured against <code>cayleb-james2008/fleet</code> at release <code>v1.25.0</code> (<code>df6c53f</code>).</p>
+              <p>Measured against <code>cayleb-james2008/fleet</code> at release <code>v1.26.0</code> (<code>6f3a1f4</code>).</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Sidecar &amp; installer suite</th><td>33 of 33 sidecar tests pass (covering bounded backward <code>GET /api/transcript</code> scanning, <code>members.json</code>/<code>realpathSync</code> confinement, secret scrubbing, and <code>PLANNER_RESPONSE</code>/<code>GENERIC</code> correlation, incremental <code>board.jsonl</code> byte-offset tail cache and <code>GET /api/swarm/delta</code> long-poll wakeups, primitive JSON type guards, 2 MiB bounded streaming, content-hash <code>plan.json</code> ETags, <code>view.json</code> last-good fallback, <code>POST /api/control</code> coordinator kill protection and 404/409 validation, <code>replyRefs</code> thread indexing, <code>unseenBy</code> channel visibility, worktree collisions, CWE-22/CWE-59 traps, and <code>./install.sh --dest</code>).</td></tr>
-                  <tr><th>Scale audit (2k posts / 50k lines)</th><td><code>385,808 B</code> raw (<code>376.8 KiB</code>) / <code>115,758 B</code> (<code>113.0 KiB</code>) gzip UI, 51.41 ms cold boot, 105.93 MB peak RSS, 1,963.0 req/s (11.6 ms p95, 0/4,922 errors), 5/5 SSE, and 30/30 fuzz pass.</td></tr>
-                  <tr><th>UI &amp; standalone web preview</th><td>64 of 64 Playwright gate checks, 8 of 8 replays, 24 of 24 <code>test-live-web.mjs</code> checks (incl. forensic transcript drawer, sub-200ms delta sync, 409 3-way plan merge, dry-run conflict alerts, control plane, channel composer, and Roster drawers), 0 FAIL / 0 WARN Sloplint, zero console errors across <code>380x900</code> and <code>1440x900</code> Light and Dark, and offline <code>dist-live-web/index.html</code> (<code>586.6 kB</code>) with zero external requests.</td></tr>
-                  <tr><th>Antigravity plugin packaging</th><td><code>.tar.gz</code>, <code>.zip</code>, and <code>SHA256SUMS</code> published at <a href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.25.0" target="_blank" rel="noreferrer noopener">v1.25.0 Release</a>; local install via <code>./install.sh</code> into <code>~/.gemini/config/plugins/fleet/</code>.</td></tr>
+                  <tr><th>Sidecar &amp; installer suite</th><td>36 of 36 sidecar tests pass (covering <code>getModelSpec</code> 1M/200k/400k context ceilings, incremental <code>byModel</code> spend tracking across <code>switch_model</code>, cache-read savings, <code>Unpriced</code> unknown-model fallbacks, bounded backward <code>GET /api/transcript</code> scanning and secret scrubbing, incremental <code>board.jsonl</code> tail cache and <code>GET /api/swarm/delta</code> long-poll wakeups, content-hash <code>plan.json</code> ETags, <code>POST /api/control</code> coordinator protection, worktree collisions, CWE-22/CWE-59 traps, and <code>./install.sh --dest</code>).</td></tr>
+                  <tr><th>Scale audit (2k posts / 50k lines)</th><td><code>389,954 B</code> raw (<code>380.8 KiB</code>) / <code>116,886 B</code> (<code>114.1 KiB</code>) gzip UI, 62.08 ms cold boot, 118.57 MB peak RSS, 1,779.9 req/s (12.69 ms p95, 0/4,459 errors), 5/5 SSE, and 30/30 fuzz pass.</td></tr>
+                  <tr><th>UI &amp; standalone web preview</th><td>64 of 64 Playwright gate checks, 8 of 8 replays, 25 of 25 <code>test-live-web.mjs</code> checks (incl. 1M context ceilings, per-model USD cost economics, forensic transcript drawer, sub-200ms delta sync, 409 3-way plan merge, dry-run conflict alerts, and Roster drawers), 0 FAIL / 0 WARN Sloplint, zero console errors across <code>380x900</code> and <code>1440x900</code> Light and Dark, and offline <code>dist-live-web/index.html</code> (<code>615.2 kB</code>) with zero external requests.</td></tr>
+                  <tr><th>Antigravity plugin packaging</th><td><code>.tar.gz</code>, <code>.zip</code>, and <code>SHA256SUMS</code> published at <a href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.26.0" target="_blank" rel="noreferrer noopener">v1.26.0 Release</a>; local install via <code>./install.sh</code> into <code>~/.gemini/config/plugins/fleet/</code>.</td></tr>
                 </tbody>
               </table>
             </div>
@@ -197,10 +197,10 @@
         <h2>Evidence</h2>
         <dl class="repo-facts">
           <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/fleet">cayleb-james2008/fleet</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.25.0</b> · Antigravity Plugin</dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.26.0</b> · Antigravity Plugin</dd></div>
           <div class="repo-facts__row"><dt>checked</dt><dd>26 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.25.0 plugin</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/fleet/">Live preview</a> · <a href="https://github.com/cayleb-james2008/fleet">GitHub</a> · <a href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.25.0">Release v1.25.0</a></dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.26.0 plugin</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/fleet/">Live preview</a> · <a href="https://github.com/cayleb-james2008/fleet">GitHub</a> · <a href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.26.0">Release v1.26.0</a></dd></div>
         </dl>
         <p class="project-aside__more"><a href="../index.html">← Back to home</a></p>
       </aside>
