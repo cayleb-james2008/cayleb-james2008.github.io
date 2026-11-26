@@ -44,7 +44,7 @@ export const experience = [
     org: "Founder · Independent AI Agent Systems",
     bullets: [
       "Built Ergon (v0.28.0) as a single-binary Rust desk for local employee agents. Workflows run inside a sandboxed folder with three bundled one-click starter playbooks wired to client handoff ZIP export and leak pre-checks, offline evidence verification (`ergon verify`), workspace audit policy profiles (Fast Internal, Strict Client, and Air-Gapped), file history restore, SHA-256 receipts, and stale-memory pruning. Ergon is still in development and has not been installed at a customer company.",
-      "Built Fleet (v1.19.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It pauses polling in zero-client idle sleep mode, exports sanitized JSON and Markdown full swarm archives alongside handoff digests, surfaces read-only transcript activity peeks on Roster and Triage views, checks worktree safe-land readiness, indexes workers and posts via Cmd/Ctrl+K, and tracks gate readiness and token burn.",
+      "Built Fleet (v1.20.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It normalizes native goal, task, and thread schemas alongside custom plan.json files, surfaces narrator view summaries, supports atomic two-way compare-and-swap plan edits, pauses polling in zero-client idle sleep mode, exports sanitized JSON and Markdown archives, reads 8 KB transcript peeks, checks worktree safe-land readiness, and tracks gate readiness and token burn.",
       "Built OpenRO (v1.18.0), a three-pane Rust IDE for Roblox Studio that bridges Studio over OpenRoCompanion.lua and 13 MCP tools, simulates deterministic 60-minute economy curves to catch paywalls or inflation before publish, audits ProcessReceipt idempotency and BindToClose flushes with one-click repair, runs pre-publish asset readiness checks, resolves Rojo live-sync conflicts, and exports .rbxlx XML or Rojo packs.",
     ],
   },
@@ -190,10 +190,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Fleet",
     href: "/projects/fleet.html",
-    pitch: "Antigravity sidebar plugin for multi-agent swarms with zero-client idle sleep, sanitized swarm archive export, live transcript activity peeks, worktree safe-land readiness, Cmd+K index, and gate checks (v1.19.0).",
-    img: "/assets/projects/captures/fleet-v1190-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1190-dark.png",
-    alt: "Fleet v1.19.0 Antigravity sidebar at 380x900 showing Full Swarm Archive Export, live transcript activity peeks, Copy Handoff Digest, worktree safe-land readiness, and token burn strip.",
+    pitch: "Antigravity sidebar plugin for multi-agent swarms with native plan normalization, live two-way CAS plan editing, narrator view surfacing, archive export, transcript peeks, worktree safe-land readiness, Cmd+K index, and gate checks (v1.20.0).",
+    img: "/assets/projects/captures/fleet-v1200-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1200-dark.png",
+    alt: "Fleet v1.20.0 Antigravity sidebar at 380x900 showing normalized native plan.json, Live Plan Editor, Archive Export, activity peeks, and token burn strip.",
   },
 ];
 
@@ -244,7 +244,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.18.0, OpenBell v0.9.0, and Fleet v1.19.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.18.0, OpenBell v0.9.0, and Fleet v1.20.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
@@ -312,19 +312,19 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Fleet",
     tag: "APP-03",
-    title: "Fleet (v1.19.0 Antigravity Swarm Sidebar)",
-    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Export full sanitized swarm archives in JSON or Markdown, inspect live transcript activity peeks, monitor SSE keepalives, check branch ahead/behind status, jump with Cmd/Ctrl+K, and inspect token burn.",
+    title: "Fleet (v1.20.0 Antigravity Swarm Sidebar)",
+    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Edit live plans with compare-and-swap reload protection, view normalized native goal and thread plans alongside narrator view summaries, export sanitized swarm archives, inspect live transcript peeks, check branch ahead/behind status, jump with Cmd/Ctrl+K, and inspect token burn.",
     url: "/demos/fleet/",
-    img: "/assets/projects/captures/fleet-v1190-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1190-dark.png",
+    img: "/assets/projects/captures/fleet-v1200-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1200-dark.png",
     page: "/projects/fleet.html",
     repo: "https://github.com/cayleb-james2008/fleet",
     storagePrefix: "fleet",
-    action: "export Full Swarm Archive (MD or JSON) or Copy Handoff Digest in Triage, inspect worker activity peeks, press Cmd/Ctrl+K to jump across workers or worktrees, or check Safe-Land status.",
+    action: "open Edit plan in Triage to modify goal or workstreams with CAS conflict detection, export Full Swarm Archive (MD or JSON) or Copy Handoff Digest, inspect worker activity peeks, press Cmd/Ctrl+K, or check Safe-Land status.",
     provenance: [
-      { label: "What runs:", text: "the single-file Fleet v1.19.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying swarm board messages, Full Swarm Archive Export, live transcript activity peeks, Copy Handoff Digest export, SSE keepalive state, worktree safe-land checks, cross-swarm Cmd+K actions, and token burn bars at /demos/fleet/." },
-      { label: "Local Antigravity install:", text: "the browser copy stays offline; running ./install.sh in a local clone installs the sidecar plugin into ~/.gemini/config/plugins/fleet/ with zero-client idle sleep, read-only 8 KB transcript tail reading, and live SSE ping frames." },
-      { label: "Why it is here:", text: "you can step through the multi-agent release gate checklist and triage sidebar inside a narrow auxiliary pane layout." },
+      { label: "What runs:", text: "the single-file Fleet v1.20.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying native plan normalization, narrator view summaries, live POST /api/plan CAS editing, Full Swarm Archive Export, transcript activity peeks, Copy Handoff Digest, SSE keepalive state, worktree safe-land checks, cross-swarm Cmd+K actions, and token burn bars at /demos/fleet/." },
+      { label: "Local Antigravity install:", text: "the browser copy stays offline; running ./install.sh in a local clone installs the sidecar plugin into ~/.gemini/config/plugins/fleet/ with native plan.json normalization, atomic CAS plan writes, zero-client idle sleep, read-only 8 KB transcript tail reading, and live SSE ping frames." },
+      { label: "Why it is here:", text: "you can step through live swarm triage, native plan editing, and the multi-agent release gate checklist inside a narrow auxiliary pane layout." },
     ],
   },
 ];
