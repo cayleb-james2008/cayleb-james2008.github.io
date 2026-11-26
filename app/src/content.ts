@@ -43,7 +43,7 @@ export const experience = [
     date: "Oct 2025 to Present",
     org: "Founder · Independent AI Agent Systems",
     bullets: [
-      "Built Ergon (v0.33.0) as a single-binary Rust desk for local employee agents. Adds a Client, Engagement, and Retainer hierarchy (`clients.json` `0600`, PDF `brand_header` fallback), LLM token/cost metering and billable ROI attribution (`usage_ledger.jsonl`, v2 `ChainedReceipt` `usage_digest`, `model_pricing.json` overrides), live SSE usage deltas (`step_done`, `run_finished`, `pipeline_*`) feeding a Today retainer burn card, and pre-run/mid-run `budget_gate` approvals alongside resumable `steps_v2` pipelines, Deliverable Studio editing, table queries, PDF/XLSX export, signed webhooks, and outbound connectors. Ergon is still in development and has not been installed at a customer company.",
+      "Built Ergon (v0.34.0) as a single-binary Rust desk for local employee agents. Adds full-vault chunked hybrid search (`PersonIndex` BM25 + 256-d n-gram vectors with Reciprocal Rank Fusion in `vault_index.json` `0600` across `.pdf`, `.xlsx`, `.pptx`, `.docx`, and text files), passage line-jump previews in `CommandPalette.tsx` and `WorkspaceFiles.tsx`, and exact-decimal `i128` multi-file CSV, TSV, and workbook rollups (`POST /api/vault/aggregate` and `aggregate_vault`) alongside client engagement retainer metering, `budget_gate` approvals, resumable `steps_v2` pipelines, Deliverable Studio editing, PDF/XLSX export, signed webhooks, and outbound connectors. Ergon is still in development and has not been installed at a customer company.",
       "Built Fleet (v1.25.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It adds a bounded forensic transcript inspector (GET /api/transcript with backward <= 512 KiB scans, members.json/realpathSync confinement, correlated tool calls and stderr tracebacks, secret scrubbing, pagination, and Inspect trace drawers) alongside sub-200ms incremental board delta streaming, 3-way Reload & merge recovery on 409 Conflict, CWE-59 git probes, HTTP 200 dry_run_merge conflict alerts, and archive exports.",
       "Built OpenRO (v1.23.0), a unified three-pane Rust IDE for Roblox Studio adding a LiveOps control plane and player telemetry system across the Ship workbench and agent tools: Open Cloud v2 standard and ordered DataStores (`expected_revision` conflict checks, pre-mutation backups, and `confirm: true` gates), 1024-byte `MessagingService` broadcasts, 64 KiB `--!strict` `src/shared/LiveConfig.luau` Remote Config generation, and sandbox `AnalyticsService` event capture into DAU, onboarding funnel, Robux ARPDAU, and currency sink summaries alongside the ScreenGui Designer, safe-area simulator, Lune sandbox, direct Rojo disk saves, native `.rbxlx` export, 13 MCP tools, and 60-minute economy curves.",
     ],
@@ -244,7 +244,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.23.0, OpenBell v0.9.0, Fleet v1.25.0, and Ergon v0.33.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.23.0, OpenBell v0.9.0, Fleet v1.25.0, and Ergon v0.34.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {

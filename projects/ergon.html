@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Ergon · Cayleb Alvarez-James</title>
-  <meta name="description" content="Ergon v0.33.0 is a single-binary Rust desktop and web desk for local employee agents with client workspaces, LLM token and cost metering, retainer ROI tracking, budget gates, resumable pipelines, Deliverable Studio editing, signed webhooks, and SHA-256 receipts.">
+  <meta name="description" content="Ergon v0.34.0 is a single-binary Rust desktop and web desk for local employee agents with full-vault chunked hybrid search, exact-decimal multi-file table rollups, client workspaces, retainer ROI tracking, resumable pipelines, Deliverable Studio editing, and SHA-256 receipts.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/ergon.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="Ergon · Cayleb Alvarez-James">
-  <meta property="og:description" content="Single-binary Rust desktop and web desk for local employee agents with client workspaces, token/cost metering, retainer ROI, budget gates, resumable pipelines, and SHA-256 receipts (v0.33.0).">
+  <meta property="og:description" content="Single-binary Rust desktop and web desk for local employee agents with full-vault chunked hybrid search, multi-file table rollups, client workspaces, retainer ROI, resumable pipelines, and SHA-256 receipts (v0.34.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/ergon.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -41,16 +41,16 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Release v0.33.0 · Single-Binary Rust Desktop &amp; Web App · checked 26 November 2026</p>
+        <p class="case-hero__meta">Release v0.34.0 · Single-Binary Rust Desktop &amp; Web App · checked 26 November 2026</p>
         <h1 class="case-hero__title">Local workflows for one employee desk.</h1>
-        <p class="case-hero__out">Ergon ships as a single <code>8.08 MiB</code> cross-platform Rust binary for Linux, macOS, and Windows. Release <code>v0.33.0</code> adds a Client, Engagement, and Retainer hierarchy (<code>clients.json</code>), per-model token pricing overrides (<code>model_pricing.json</code>), <code>usage_ledger.jsonl</code> and v2 <code>ChainedReceipt</code> usage digests, live SSE usage deltas to a Today retainer burn and ROI card, and pre-run or mid-run <code>budget_gate</code> approvals.</p>
+        <p class="case-hero__out">Ergon ships as a single <code>8.19 MiB</code> cross-platform Rust binary for Linux, macOS, and Windows. Release <code>v0.34.0</code> adds full-vault chunked hybrid search across <code>.pdf</code>, <code>.xlsx</code>, <code>.pptx</code>, <code>.docx</code>, and text files (<code>GET /api/search</code> and <code>POST /api/vault/reindex</code>), passage line-jump previews in <code>CommandPalette.tsx</code> and <code>WorkspaceFiles.tsx</code>, and exact-decimal <code>i128</code> multi-file CSV, TSV, and workbook rollups (<code>POST /api/vault/aggregate</code>).</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>Checked at 4d00c61ea: 263/263 Rust tests, 93/93 gate + 6/6 graph + 20/20 replay, 6.65 ms boot, 5,777.9 req/s (3.46 ms p95), 18.62 MB peak RSS, 5/5 SSE, and 44/44 fuzz pass.</li>
-          <li><span class="chip chip--current">v0.33.0 public</span></li>
+          <li><span class="checked-dot" aria-hidden="true"></span>Checked at b5a40f5c5: 268/268 Rust tests, 97/97 gate + 6/6 graph + 20/20 replay, 10.07 ms boot, 4,070.9 req/s (8.14 ms p95), 21.93 MB peak RSS, 5/5 SSE, and 44/44 fuzz pass.</li>
+          <li><span class="chip chip--current">v0.34.0 public</span></li>
         </ul>
         <div class="hero-actions">
           <a class="btn-primary" href="../demos/ergon/">Launch live web app ↗</a>
-          <a class="btn-outline" href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.33.0" target="_blank" rel="noreferrer noopener">Release v0.33.0 on GitHub ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.33.0" target="_blank" rel="noreferrer noopener">Release v0.34.0 on GitHub ↗</a>
         </div>
       </div>
     </header>
@@ -69,21 +69,21 @@
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">Ergon v0.33.0 Clients, Metering &amp; Retainer ROI</span>
+              <span class="viz__title">Ergon v0.34.0 Full-Vault Chunked Search &amp; Rollups</span>
               <span class="viz__live">live capture</span>
               <span class="viz__note">Light and Dark inside Settings</span>
             </div>
             <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/ergon-v0330-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Ergon v0.33.0">
-                <img src="../assets/projects/captures/ergon-v0330-light.png" alt="Ergon v0.33.0 workspace in Light theme showing Client and Engagement selector, Retainer burn and billable ROI card, and Retainer budget gate approval." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-light" href="../assets/projects/captures/ergon-v0340-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Ergon v0.34.0">
+                <img src="../assets/projects/captures/ergon-v0340-light.png" alt="Ergon v0.34.0 workspace in Light theme showing Full-Vault Chunked Search with Hybrid/BM25/Exact mode toggle and Multi-file table rollup dialog." width="1440" height="900" loading="eager" decoding="async">
               </a>
-              <a class="shot-dark" href="../assets/projects/captures/ergon-v0330-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Ergon v0.33.0">
-                <img src="../assets/projects/captures/ergon-v0330-dark.png" alt="Ergon v0.33.0 workspace in Dark theme showing Client and Engagement selector, Retainer burn and billable ROI card, and Retainer budget gate approval." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-dark" href="../assets/projects/captures/ergon-v0340-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Ergon v0.34.0">
+                <img src="../assets/projects/captures/ergon-v0340-dark.png" alt="Ergon v0.34.0 workspace in Dark theme showing Full-Vault Chunked Search with Hybrid/BM25/Exact mode toggle and Multi-file table rollup dialog." width="1440" height="900" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured from Ergon <code>v0.33.0</code> at <code>1440x900</code>. The browser edition at <code>/demos/ergon/</code> runs on local IndexedDB with client and engagement switching, retainer ROI tracking, per-model pricing overrides, <code>budget_gate</code> approvals, <code>steps_v2</code> pipelines, Deliverable Studio editing, and Connectors parity.</p>
-              <p class="viz__source">Source: cayleb-james2008/ergon v0.33.0 · browser edition at /demos/ergon/</p>
+              <p class="viz__caption">Captured from Ergon <code>v0.34.0</code> at <code>1440x900</code>. The browser edition at <code>/demos/ergon/</code> runs on local IndexedDB with full-vault chunked hybrid search, passage jump previews, multi-file CSV/TSV/XLSX rollups, client engagement metering, <code>steps_v2</code> pipelines, Deliverable Studio editing, and Connectors parity.</p>
+              <p class="viz__source">Source: cayleb-james2008/ergon v0.34.0 · browser edition at /demos/ergon/</p>
               <p class="viz__action">
                 <a class="viz__open" href="../demos/ergon/">open live web app ↗</a>
               </p>
@@ -146,19 +146,19 @@
               <p>Ergon runs employee playbooks inside one Rust binary with pre-gzipped UI chunks embedded directly in <code>.rodata</code>.</p>
               <div class="cap-grid">
                 <div class="cap-card">
-                  <span class="cap-card__tag">01 · Client &amp; Engagement Hierarchy</span>
-                  <h3>Scoped workspaces and brand headers</h3>
-                  <p>Per-person <code>clients.json</code> (<code>0600</code>) tracks clients, engagements, monthly retainer caps, and PDF <code>brand_header</code> fallbacks across <code>GET/POST /api/clients</code>, <code>POST /api/engagements</code>, and <code>POST /api/engagements/switch</code>.</p>
+                  <span class="cap-card__tag">01 · Full-Vault Chunked Search</span>
+                  <h3>BM25 + 256-d vector RRF</h3>
+                  <p><code>PersonIndex</code> indexes every <code>.xlsx</code> sheet, <code>.pdf</code> page, <code>.pptx</code> slide, <code>.docx</code>, and text file past 512 chars into overlapping line-bounded chunks in <code>vault_index.json</code> (<code>0600</code>), serving <code>GET /api/search</code> in <code>hybrid</code>, <code>bm25</code>, or <code>exact</code> mode.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">02 · Token, Cost &amp; ROI Metering</span>
-                  <h3>Usage ledger and chained v2 receipts</h3>
-                  <p><code>call_model_with_usage</code> and pipeline steps log prompt, completion, and cached tokens, USD spend, minutes saved, and billable ROI to <code>usage_ledger.jsonl</code> and v2 <code>ChainedReceipt</code> digests with <code>model_pricing.json</code> overrides.</p>
+                  <span class="cap-card__tag">02 · Passage Jump &amp; Reindex</span>
+                  <h3>Direct locator jumps in UI</h3>
+                  <p><code>CommandPalette.tsx</code> and <code>WorkspaceFiles.tsx</code> show live chunk and file counts, one-click <code>POST /api/vault/reindex</code>, and <code>Page N</code>, <code>#Sheet</code>, or <code>Lstart-Lend</code> buttons that open <code>FileViewerModal</code> straight to the matched line.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">03 · Budget Gates &amp; Live ROI</span>
-                  <h3>Real-time burn and approval pauses</h3>
-                  <p>SSE <code>step_done</code>, <code>run_finished</code>, and <code>pipeline_*</code> events stream live usage deltas to the Today Retainer burn and ROI card, parking a <code>budget_gate</code> decision before exceeding retainer caps.</p>
+                  <span class="cap-card__tag">03 · Multi-File Table Rollups</span>
+                  <h3>Exact-decimal i128 aggregation</h3>
+                  <p><code>POST /api/vault/aggregate</code> and the <code>aggregate_vault</code> agent tool sum, average, count, and group across glob-matched CSV, TSV, and multi-sheet <code>.xlsx</code> files in exact fixed-point <code>i128</code>, saving CSV results directly to the workspace.</p>
                 </div>
               </div>
             </div>
@@ -167,14 +167,14 @@
           <section id="record">
             <h2>Verification record</h2>
             <div class="project-prose__body">
-              <p>Measured against <code>cayleb-james2008/ergon</code> at release <code>v0.33.0</code> (<code>4d00c61ea</code>).</p>
+              <p>Measured against <code>cayleb-james2008/ergon</code> at release <code>v0.34.0</code> (<code>b5a40f5c5</code>).</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Rust, Windows &amp; Clippy</th><td>263 of 263 Rust tests pass across 12 suites (including <code>6/6</code> <code>clients_metering_v033</code> client hierarchy, metering, SSE usage, and <code>budget_gate</code> checks), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo check --target x86_64-pc-windows-msvc</code>).</td></tr>
-                  <tr><th>Security &amp; boundaries</th><td><code>clients.json</code>, <code>model_pricing.json</code>, and <code>usage_ledger.jsonl</code> enforced at <code>0600</code> Unix permissions, pre-run and mid-run <code>budget_gate</code> spend guards, <code>X-Ergon-Timestamp</code> (<code>300s</code>) and <code>X-Ergon-Delivery</code> HMAC replay checks, encoded secret redaction, private/metadata IP egress blocks, <code>Air-Gapped</code> blocking, <code>Strict Client</code> approvals, Host-403, and CWE-22/CWE-59 guards.</td></tr>
-                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>8.08 MiB release binary (<code>8,467,296 B</code>), <code>38,119 B</code> gzip initial shell (<code>166,577 B</code> raw) plus 17 pre-gzipped <code>/chunks/*</code>, 6.65 ms cold boot, 18.62 MB peak RSS under 5k-receipt + 500-file + 5-SSE load, 5,777.9 req/s (3.46 ms p95, 14,453 reqs, 0 errors), 5/5 SSE survival, and 44/44 fuzz pass.</td></tr>
-                  <tr><th>UI &amp; standalone web app</th><td>93 of 93 Playwright UI checks, 6 of 6 Work Graph probes, 20 of 20 deterministic replays, 0 FAIL / 0 WARN / 0 REFLEX Sloplint across <code>frontend/src</code> and rendered app, zero console errors across <code>1440x900</code> and <code>390x844</code> Light and Dark viewports, and standalone <code>ergon-web.html</code> (<code>1,411 kB</code>) with zero third-party requests.</td></tr>
-                  <tr><th>Cross-platform packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.33.0" target="_blank" rel="noreferrer noopener">v0.33.0 Release</a>).</td></tr>
+                  <tr><th>Rust, Windows &amp; Clippy</th><td>268 of 268 Rust tests pass across 14 suites (including <code>5/5</code> <code>vault_search_v034</code> chunked indexing, hybrid RRF, dotfile/symlink isolation, and exact-decimal rollup checks), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo check --target x86_64-pc-windows-msvc</code>).</td></tr>
+                  <tr><th>Security &amp; boundaries</th><td><code>vault_index.json</code> enforced at <code>0600</code> Unix permissions, dotfile and escaping symlink exclusion from vault indexing and retrieval, CSRF Origin enforcement on <code>POST /api/vault/reindex</code> and <code>POST /api/vault/aggregate</code>, <code>budget_gate</code> spend guards, HMAC webhook replay checks, Host-403, and CWE-22/CWE-59 guards.</td></tr>
+                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>8.19 MiB release binary (<code>8,590,176 B</code>), <code>38,172 B</code> gzip initial shell (<code>166,825 B</code> raw) plus 17 pre-gzipped <code>/chunks/*</code>, 10.07 ms cold boot, 21.93 MB peak RSS under 5k-receipt + 500-file + 5-SSE load, 4,070.9 req/s (8.14 ms p95, 10,195 reqs, 0 errors), 5/5 SSE survival, and 44/44 fuzz pass.</td></tr>
+                  <tr><th>UI &amp; standalone web app</th><td>97 of 97 Playwright UI checks, 6 of 6 Work Graph probes, 20 of 20 deterministic replays, 0 FAIL / 0 WARN / 0 REFLEX Sloplint across <code>frontend/src</code> and rendered app, zero console errors across <code>1440x900</code> and <code>390x844</code> Light and Dark viewports, and standalone <code>ergon-web.html</code> (<code>1,438 kB</code>) with zero third-party requests.</td></tr>
+                  <tr><th>Cross-platform packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.34.0" target="_blank" rel="noreferrer noopener">v0.34.0 Release</a>).</td></tr>
                 </tbody>
               </table>
             </div>
@@ -194,10 +194,10 @@
         <h2>Evidence</h2>
         <dl class="repo-facts">
           <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/ergon">cayleb-james2008/ergon</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.33.0</b> · Single-binary Rust</dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.34.0</b> · Single-binary Rust</dd></div>
           <div class="repo-facts__row"><dt>checked</dt><dd>26 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.33.0</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/ergon/">Live web app</a> · <a href="https://github.com/cayleb-james2008/ergon">GitHub</a> · <a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.33.0">Release v0.33.0</a></dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.34.0</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/ergon/">Live web app</a> · <a href="https://github.com/cayleb-james2008/ergon">GitHub</a> · <a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.33.0">Release v0.34.0</a></dd></div>
         </dl>
         <p class="project-aside__more"><a href="../index.html">← Back to home</a></p>
       </aside>
