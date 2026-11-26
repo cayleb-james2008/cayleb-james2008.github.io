@@ -45,7 +45,7 @@ export const experience = [
     bullets: [
       "Built Ergon (v0.30.0) as a single-binary Rust desk for local employee agents. Runs resumable hybrid workflows (`steps_v2`), inline Markdown/CSV Deliverable Studio editing with optimistic locks and `.history/` snapshots, fixed-point table queries (`query_table`), surgical `patch_file` edits, pure-Rust PDF 1.4 and multi-sheet formula `.xlsx` export, client handoff ZIP bundles with leak pre-checks, offline evidence verification (`ergon verify`), and SHA-256 receipts. Ergon is still in development and has not been installed at a customer company.",
       "Built Fleet (v1.21.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. It normalizes native goal, task, and thread schemas alongside custom plan.json files, supports atomic two-way compare-and-swap plan edits, surfaces cross-worktree file collisions and git merge-tree conflict checks, runs confirmation-gated merge/rebase/clean-remove worktree actions, pauses polling in zero-client idle sleep mode, exports sanitized JSON and Markdown archives, reads 8 KB transcript peeks, and tracks gate readiness and token burn.",
-      "Built OpenRO (v1.19.0), a unified three-pane Rust IDE for Roblox Studio where Explorer, Code/Diff, Lighting, and the 3D Viewport operate directly against Rojo project folders on disk (`scene/workspace.model.json` + CWE-22 jailed `/mesh-asset`) and export native `CFrame`/`Enum`/`Lighting` `.rbxlx`, alongside `OpenRoCompanion.lua`, 13 MCP tools, 60-minute economy curves, and `ProcessReceipt` audits.",
+      "Built OpenRO (v1.20.0), a unified three-pane Rust IDE for Roblox Studio featuring a headless Lune Luau runtime sandbox (`lune_roblox_shim`) executing Server/Client scripts, `DataStoreService`, `ProcessReceipt` idempotency, and `PlayerGui` trees without launching Studio, direct Rojo workspace and 3D scene disk editing (`scene/workspace.model.json`), native `.rbxlx` export, 13 MCP tools, and 60-minute economy curves.",
     ],
   },
   {
@@ -174,10 +174,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
-    pitch: "Three-pane Rust IDE for Roblox Studio that runs 60-min economy progression simulations, audits ProcessReceipt and BindToClose safety, diffs Luau, resolves sync conflicts, and exports .rbxlx or Rojo packs (v1.18.0).",
-    img: "/assets/projects/captures/openro-v1180-light.png",
-    darkImg: "/assets/projects/captures/openro-v1180-dark.png",
-    alt: "OpenRO v1.18.0 three-pane workspace showing Explorer, Studio preview with economy balance simulator and monetization safety audit, and the copilot panel.",
+    pitch: "Three-pane Rust IDE for Roblox Studio with headless Lune Luau runtime sandboxing (`lune_roblox_shim`), direct Rojo disk saves, 3D scenes, 60-min economy sims, ProcessReceipt/BindToClose audits, and native .rbxlx or Rojo exports (v1.20.0).",
+    img: "/assets/projects/captures/openro-v1200-light.png",
+    darkImg: "/assets/projects/captures/openro-v1200-dark.png",
+    alt: "OpenRO v1.20.0 three-pane workspace showing geometric Studio logo, Rojo Explorer, and Headless Luau Runtime Sandbox passing multi-step Lune journeys.",
   },
   {
     name: "OpenBell",
@@ -244,7 +244,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.19.0, OpenBell v0.9.0, Fleet v1.21.0, and Ergon v0.30.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.20.0, OpenBell v0.9.0, Fleet v1.21.0, and Ergon v0.30.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
@@ -276,19 +276,19 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Open-Ro",
     tag: "APP-01",
-    title: "Open-Ro Studio (v1.18.0)",
-    blurb: "Browser edition of the three-pane Roblox Studio IDE. Simulate deterministic 60-minute economy curves across F2P vs GamePass tracks, audit ProcessReceipt idempotency and BindToClose flushes with one-click repair, run pre-publish Luau checks, resolve Rojo live-sync conflicts, and export .rbxlx XML or Rojo .zip bundles.",
+    title: "Open-Ro Studio (v1.20.0)",
+    blurb: "Browser edition of the three-pane Roblox Studio IDE with offline headless sandbox simulation, 60-minute economy curves across F2P vs GamePass tracks, ProcessReceipt idempotency and BindToClose audits with one-click repair, direct Rojo scene tools, conflict resolution, and .rbxlx XML or Rojo .zip export.",
     url: "/demos/open-ro/",
-    img: "/assets/projects/captures/openro-v1180-light.png",
-    darkImg: "/assets/projects/captures/openro-v1180-dark.png",
+    img: "/assets/projects/captures/openro-v1200-light.png",
+    darkImg: "/assets/projects/captures/openro-v1200-dark.png",
     page: "/projects/openro.html",
     repo: "https://github.com/cayleb-james2008/open-ro",
     storagePrefix: "openro",
-    action: "run Economy Balance Sim in Ship to catch paywalls or inflation and apply balanced defaults, open Monetization Audit, resolve live-sync conflicts, or export a Rojo .zip package.",
+    action: "run Headless Luau Runtime Sandbox presets in Ship -> Playtests, inspect Console/DataStores/Receipts state, simulate 60-minute Economy Balance curves, resolve live-sync conflicts, or export a Rojo .zip package.",
     provenance: [
-      { label: "What runs:", text: "the Open-Ro v1.18.0 React frontend compiled from cayleb-james2008/open-ro, including Explorer, Deterministic Economy Balance & Progression Simulator, Monetization Safety Audit, Pre-Publish Guard, Rojo Sync Conflict Resolver, Hook-Integrity Guard, Studio 3D preview, and the .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
-      { label: "Local and BYOK options:", text: "stays offline in your browser by default; Settings lets you add an API key or point to a local openro-rs 1.18.0 binary on 127.0.0.1 for live Roblox Studio sync via OpenRoCompanion.lua." },
-      { label: "Why it is here:", text: "you can test conflict resolution, diff workflows, hook checks, 3D scene preview, and Studio export directly without installing the binary." },
+      { label: "What runs:", text: "the Open-Ro v1.20.0 React frontend compiled from cayleb-james2008/open-ro, including the offline Headless Luau Sandbox simulator (browser_sim), Explorer, Economy Balance Simulator, Monetization Safety Audit, Pre-Publish Guard, Rojo Sync Conflict Resolver, Hook-Integrity Guard, Studio 3D preview, and the .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
+      { label: "Local and BYOK options:", text: "stays offline in your browser by default; Settings lets you add an API key or point to a local openro-rs 1.20.0 binary on 127.0.0.1 for live Lune 0.11.1 DataModel execution and Roblox Studio sync via OpenRoCompanion.lua." },
+      { label: "Why it is here:", text: "you can test headless sandbox journeys, conflict resolution, diff workflows, hook checks, 3D scene preview, and Studio export directly without installing the binary." },
     ],
   },
   {
