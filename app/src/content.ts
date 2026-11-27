@@ -45,7 +45,7 @@ export const experience = [
     bullets: [
       "Built Ergon (v0.39.0) as a single-binary Rust desk for local employee agents. Unifies the DAG pipeline engine and routine scheduler with `run_id`-keyed `LiveRuns` concurrent run isolation (`GET /api/runs/status` `runs[]` and targeted `POST /api/runs/:id/cancel`), parallel branch `pending_checkpoints[]` with per-step `step_snapshots`, step `timeout_secs`, `retry_max`, `retry_backoff_ms`, `on_error` (`fail`, `continue`, `goto:<step_id>`), depth-capped nested `subpipeline` steps, offline deterministic `steps_v2` routines, and 5-field Cron scheduling with `tz` and `tz_offset_mins` validation alongside SMTPS/STARTTLS email delivery, IMAP intake, OAuth2 refresh, MCP connectors, engagement-scoped client vaults, billable invoicing, and full-vault chunked hybrid search (296/296 Rust tests, 115/115 gate checks, 3,639 req/s, 44/44 fuzz checks). Ergon is still in development and has not been installed at a customer company.",
       "Built Fleet (v1.31.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. Hardens BOM-stripped atomic JSON recovery with O_NOFOLLOW and size-bounded reads in fleet_ops.json and fleet_state.json, symlink exclusion and signature-checked portfolioCache, concurrency-bounded git probes with 504 timeouts, unborn and detached HEAD handling, strict loopback Host and Origin checks, @layer components button borders, fetchWithTimeout and AbortSignal RPC controls, and inline Abort and Retry recovery across worktree, portfolio, and checkpoint errors alongside canonicalized swarm worktree discovery, conflict hunks, portfolio drawer, and swarm checkpoints (52/52 backend tests, 74/74 gate checks, 30/30 live-web, 30/30 fuzz).",
-      "Built OpenRO (v1.29.0), a unified three-pane Rust IDE for Roblox Studio adding workspace-wide Luau symbol indexing (`GET /api/projects/:id/luau/symbols`), cross-file contract proving and optional `luau-analyze` typechecking (`POST /api/projects/:id/luau/typecheck`), F12 and Go to Definition lookup (`GET /api/projects/:id/luau/definition`), clickable line-gutter mismatch tooltips, and a filterable `Symbols & Exports` outline rail alongside production LiveOps telemetry codegen and Open Cloud shard sync, bidirectional 3-way Studio sync, prefab model import, headless Lune `0.11.1` sandbox verification, ScreenGui Designer, 13 MCP tools, and 60-minute economy curves (`374/374` Rust tests, `6,356 req/s`, `43/43` fuzz).",
+      "Built OpenRO (v1.30.0), a unified three-pane Rust IDE for Roblox Studio completing Cycle 4 Wave H1 hardening across Studio sync, prefab import, LiveOps telemetry, the Luau analyzer, and React workbench parity. Tightens symlink, `.git`/`.openro`, control-character, and `O_CREAT | O_EXCL` atomic write guards, caps Luau parsing (`2 MiB`, `250k` tokens, depth `64`), expands SSRF IPv4 and IPv6 checks in `validate_https_relay_url`, rejects `%25` double-encoded path parameters, adds monotonic request-sequence guards and project-switch resets across sync, LiveOps, and Luau fetches, pins the `Two-Way Studio Sync` dialog at `390x844` and `1440x900`, and adds comment and long-bracket masking in `luauAudit.ts` alongside workspace Luau typechecking, symbol indexing, F12 Go to Definition, LiveOps telemetry sync, 3-way Studio sync, headless Lune `0.11.1` sandbox verification, ScreenGui Designer, 13 MCP tools, and 60-minute economy curves (`380/380` Rust tests, `7,846.8 req/s`, `43/43` fuzz).",
     ],
   },
   {
@@ -176,10 +176,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Open-Ro Studio",
     href: "/projects/openro.html",
-    pitch: "Three-pane Rust IDE for Roblox Studio with workspace Luau typechecking, symbol indexing, F12 Go to Definition, LiveOps telemetry sync, 3-way Studio sync, prefab model import, headless Lune Luau sandbox verification, WebGL2 3D viewport, Visual ScreenGui Designer, 60-min economy sims, and native .rbxlx or Rojo exports (v1.29.0).",
-    img: "/assets/projects/captures/openro-v1290-light.png",
-    darkImg: "/assets/projects/captures/openro-v1290-dark.png",
-    alt: "OpenRO v1.29.0 three-pane workspace showing Check Types badge, Symbols & Exports outline rail, and line-gutter contract mismatch tooltips.",
+    pitch: "Three-pane Rust IDE for Roblox Studio with hardened 3-way Studio sync, prefab import, LiveOps telemetry sync, workspace Luau typechecking, symbol indexing, F12 Go to Definition, headless Lune Luau sandbox verification, WebGL2 3D viewport, Visual ScreenGui Designer, 60-min economy sims, and native .rbxlx or Rojo exports (v1.30.0).",
+    img: "/assets/projects/captures/openro-v1300-light.png",
+    darkImg: "/assets/projects/captures/openro-v1300-dark.png",
+    alt: "OpenRO v1.30.0 three-pane workspace showing Cycle 4 H1 hardening across Two-Way Studio Sync, LiveOps telemetry, and Luau workbench.",
   },
   {
     name: "OpenBell",
@@ -246,7 +246,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.29.0, OpenBell v0.9.0, Fleet v1.31.0, and Ergon v0.39.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.30.0, OpenBell v0.9.0, Fleet v1.31.0, and Ergon v0.39.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
@@ -278,18 +278,18 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Open-Ro",
     tag: "APP-01",
-    title: "Open-Ro Studio (v1.29.0)",
-    blurb: "Browser edition of the three-pane Roblox Studio IDE with Cycle 4 Wave E3 parity: workspace Luau typechecking, Symbols & Exports outline rail, F12 Go to Definition, clickable line-gutter contract mismatch tooltips, production LiveOps telemetry codegen and Open Cloud sync, Two-Way Studio Sync 3-way conflict preview, prefab model import, WebGL2 3D viewport, Visual ScreenGui Designer, 60-minute economy curves, and .rbxlx XML or Rojo .zip export.",
+    title: "Open-Ro Studio (v1.30.0)",
+    blurb: "Browser edition of the three-pane Roblox Studio IDE with Cycle 4 Wave H1 parity: hardened Two-Way Studio Sync, comment-masked static Luau auditing, monotonic request guards, workspace Luau typechecking, Symbols & Exports outline rail, F12 Go to Definition, clickable line-gutter contract mismatch tooltips, production LiveOps telemetry codegen and Open Cloud sync, prefab model import, WebGL2 3D viewport, Visual ScreenGui Designer, 60-minute economy curves, and .rbxlx XML or Rojo .zip export.",
     url: "/demos/open-ro/",
-    img: "/assets/projects/captures/openro-v1290-light.png",
-    darkImg: "/assets/projects/captures/openro-v1290-dark.png",
+    img: "/assets/projects/captures/openro-v1300-light.png",
+    darkImg: "/assets/projects/captures/openro-v1300-dark.png",
     page: "/projects/openro.html",
     repo: "https://github.com/cayleb-james2008/open-ro",
     storagePrefix: "openro",
-    action: "open Code -> Check Types to inspect Symbols & Exports, click line-gutter diagnostics (missing_export, arity_mismatch, remote_arg_mismatch, strict_type_error), and press F12 to jump across Luau modules, or explore LiveOps telemetry and 3D prefabs.",
+    action: "open Code -> Check Types to inspect Symbols & Exports, click line-gutter diagnostics, press F12 to jump across Luau modules, or test Two-Way Studio Sync and LiveOps telemetry.",
     provenance: [
-      { label: "What runs:", text: "the Open-Ro v1.29.0 React frontend compiled from cayleb-james2008/open-ro, including workspace Luau typechecking, Symbols & Exports outline, F12 Go to Definition, gutter diagnostics, Production LiveOps Telemetry codegen and Open Cloud shard sync, Live Server Errors script jump, Two-Way Studio Sync 3-way conflict resolution, Prefab Model Import with 3D model chips, Headless Luau Sandbox verifier, zero-dependency WebGL2 3D viewport, Visual ScreenGui Designer, Explorer, Economy Balance Simulator, Monetization Safety Audit, Pre-Publish Guard, and the .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
-      { label: "Local and BYOK options:", text: "stays offline in your browser by default; Settings lets you add an API key or point to a local openro-rs 1.29.0 binary on 127.0.0.1 for live WorkspaceSymbolIndex proving plus external luau-analyze checking, cross-file /luau/definition resolution, Open Cloud v2 DataStore shard sync, cursor-paginated Studio sync, binary .rbxm/XXE-guarded prefab imports, live Lune 0.11.1 execution, CWE-22/59 confined mesh-asset reads, and Roblox Studio sync via OpenRoCompanion.lua." },
+      { label: "What runs:", text: "the Open-Ro v1.30.0 React frontend compiled from cayleb-james2008/open-ro, including Cycle 4 Wave H1 hardening across Two-Way Studio Sync, LiveOps telemetry, Luau symbol request resets, and comment-masked static auditing alongside workspace Luau typechecking, Symbols & Exports outline, F12 Go to Definition, gutter diagnostics, Production LiveOps Telemetry codegen and Open Cloud shard sync, Live Server Errors script jump, Prefab Model Import with 3D model chips, Headless Luau Sandbox verifier, zero-dependency WebGL2 3D viewport, Visual ScreenGui Designer, Explorer, Economy Balance Simulator, Monetization Safety Audit, Pre-Publish Guard, and the .rbxlx / Rojo .zip exporter at /demos/open-ro/." },
+      { label: "Local and BYOK options:", text: "stays offline in your browser by default; Settings lets you add an API key or point to a local openro-rs 1.30.0 binary on 127.0.0.1 for live WorkspaceSymbolIndex proving plus external luau-analyze checking, cross-file /luau/definition resolution, SSRF-hardened Open Cloud v2 DataStore shard sync, cursor-paginated Studio sync with atomic write guards, binary .rbxm/XXE-guarded prefab imports, live Lune 0.11.1 execution, CWE-22/59 confined mesh-asset reads, and Roblox Studio sync via OpenRoCompanion.lua." },
       { label: "Why it is here:", text: "you can check cross-file Luau contracts, jump to definitions, design responsive ScreenGuis, test headless sandbox journeys, and export Studio packages directly without installing the binary." },
     ],
   },
