@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Ergon · Cayleb Alvarez-James</title>
-  <meta name="description" content="Ergon v0.37.0 is a single-binary Rust desktop and web desk for local employee agents with engagement-scoped client vaults, Client CRM and SOW controls, manual time and expense tracking, PDF/XLSX/JSON invoicing, and SHA-256 receipts.">
+  <meta name="description" content="Ergon v0.38.0 is a single-binary Rust desktop and web desk for local employee agents with SMTPS and STARTTLS email delivery, IMAP inbox polling, OAuth2 token refresh, MCP client and inbound server connectors, engagement-scoped client vaults, invoicing, and SHA-256 receipts.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/ergon.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="Ergon · Cayleb Alvarez-James">
-  <meta property="og:description" content="Single-binary Rust desktop and web desk for local employee agents with engagement-scoped client vaults, CRM and SOW drawers, manual time tracking, PDF/XLSX/JSON invoicing, and SHA-256 receipts (v0.37.0).">
+  <meta property="og:description" content="Single-binary Rust desktop and web desk for local employee agents with SMTPS/STARTTLS mail delivery, IMAP polling, OAuth2 refresh, MCP client and server connectors, client vaults, invoicing, and SHA-256 receipts (v0.38.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/ergon.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -41,16 +41,16 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Release v0.37.0 · Single-Binary Rust Desktop &amp; Web App · checked 26 November 2026</p>
+        <p class="case-hero__meta">Release v0.38.0 · Single-Binary Rust Desktop &amp; Web App · checked 26 November 2026</p>
         <h1 class="case-hero__title">Local workflows for one employee desk.</h1>
-        <p class="case-hero__out">Ergon ships as a single <code>8.48 MiB</code> cross-platform Rust binary for Linux, macOS, and Windows. Release <code>v0.37.0</code> adds engagement-scoped client vaults with strict cross-client leak blocking, Client CRM and SOW drawers, manual billable time and expense logging, and PDF 1.4, XLSX, and JSON invoicing directly from Today.</p>
+        <p class="case-hero__out">Ergon ships as a single <code>8.67 MiB</code> cross-platform Rust binary for Linux, macOS, and Windows. Release <code>v0.38.0</code> adds real <code>rustls</code> SMTPS and STARTTLS email delivery with MIME attachments, IMAP inbox polling into <code>workspace/intake/</code>, OAuth2 token refresh, and Model Context Protocol (<code>stdio</code> and <code>http_sse</code>) client and read-only inbound server support with Today approval cards.</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>Checked at 1e964e21e: 286/286 Rust tests, 104/104 gate + 6/6 graph + 20/20 replay, 16.83 ms boot, 3,501.0 req/s (9.54 ms p95), 21.62 MB peak RSS, 5/5 SSE, and 44/44 fuzz pass.</li>
-          <li><span class="chip chip--current">v0.37.0 public</span></li>
+          <li><span class="checked-dot" aria-hidden="true"></span>Checked at 28c3a7354: 291/291 Rust tests, 110/110 gate + 6/6 graph + 20/20 replay, 5.13 ms boot, 4,366.7 req/s (7.89 ms p95), 23.2 MB peak RSS, 5/5 SSE, and 44/44 fuzz pass.</li>
+          <li><span class="chip chip--current">v0.38.0 public</span></li>
         </ul>
         <div class="hero-actions">
           <a class="btn-primary" href="../demos/ergon/">Launch live web app ↗</a>
-          <a class="btn-outline" href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.37.0" target="_blank" rel="noreferrer noopener">Release v0.37.0 on GitHub ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.38.0" target="_blank" rel="noreferrer noopener">Release v0.38.0 on GitHub ↗</a>
         </div>
       </div>
     </header>
@@ -69,21 +69,21 @@
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">Ergon v0.37.0 Client Vaults, CRM/SOW Drawers &amp; Invoicing</span>
+              <span class="viz__title">Ergon v0.38.0 SMTPS/IMAP, OAuth2 &amp; MCP Connectors</span>
               <span class="viz__live">live capture</span>
               <span class="viz__note">Light and Dark inside Settings</span>
             </div>
             <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/ergon-v0370-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Ergon v0.37.0">
-                <img src="../assets/projects/captures/ergon-v0370-light.png" alt="Ergon v0.37.0 workspace in Light theme showing Client CRM and SOW controls, billable time tracking, and the Invoices and billing drawer." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-light" href="../assets/projects/captures/ergon-v0380-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Ergon v0.38.0">
+                <img src="../assets/projects/captures/ergon-v0380-light.png" alt="Ergon v0.38.0 workspace in Light theme showing the Connectors dialog MCP Tools server discovery and Today mcp_tool_call approval card." width="1440" height="900" loading="eager" decoding="async">
               </a>
-              <a class="shot-dark" href="../assets/projects/captures/ergon-v0370-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Ergon v0.37.0">
-                <img src="../assets/projects/captures/ergon-v0370-dark.png" alt="Ergon v0.37.0 workspace in Dark theme showing Client CRM and SOW controls, billable time tracking, and the Invoices and billing drawer." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-dark" href="../assets/projects/captures/ergon-v0380-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Ergon v0.38.0">
+                <img src="../assets/projects/captures/ergon-v0380-dark.png" alt="Ergon v0.38.0 workspace in Dark theme showing the Connectors dialog MCP Tools server discovery and Today mcp_tool_call approval card." width="1440" height="900" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured from Ergon <code>v0.37.0</code> at <code>1440x900</code>. The browser edition at <code>/demos/ergon/</code> runs on local IndexedDB with engagement-scoped client vaults, Client CRM and SOW drawers, time and expense tracking, PDF/XLSX/JSON invoicing, and Connectors parity.</p>
-              <p class="viz__source">Source: cayleb-james2008/ergon v0.37.0 · browser edition at /demos/ergon/</p>
+              <p class="viz__caption">Captured from Ergon <code>v0.38.0</code> at <code>1440x900</code>. The browser edition at <code>/demos/ergon/</code> runs on local IndexedDB with SMTP Relay, IMAP inbox polling, OAuth2 credentials, MCP Tools server discovery, engagement-scoped client vaults, and invoicing parity.</p>
+              <p class="viz__source">Source: cayleb-james2008/ergon v0.38.0 · browser edition at /demos/ergon/</p>
               <p class="viz__action">
                 <a class="viz__open" href="../demos/ergon/">open live web app ↗</a>
               </p>
@@ -146,19 +146,19 @@
               <p>Ergon runs employee playbooks inside one Rust binary with pre-gzipped UI chunks embedded directly in <code>.rodata</code>.</p>
               <div class="cap-grid">
                 <div class="cap-card">
-                  <span class="cap-card__tag">01 · Engagement Vault Isolation</span>
-                  <h3>Scoped search, rollups &amp; handoff</h3>
-                  <p><code>ScopeResolver</code> and <code>WorkspacePolicy.isolate_active_engagement</code> scope file reads, writes, vault search, rollups, and prompts to the active engagement prefix plus <code>shared/</code>, while <code>scan_handoff_leaks_scoped</code> returns <code>HTTP 409</code> on cross-client paths under <code>Strict Client</code>.</p>
+                  <span class="cap-card__tag">01 · SMTPS, STARTTLS &amp; IMAP</span>
+                  <h3>Signed mail &amp; inbox polling</h3>
+                  <p><code>SmtpTarget</code> sends <code>rustls</code> SMTPS and STARTTLS emails with <code>AUTH PLAIN</code>, <code>LOGIN</code>, and <code>XOAUTH2</code> plus RFC 5322 MIME attachments up to <code>10 MB</code> inside <code>sandbox_path</code>, while <code>imap_poll</code> ingests inbox messages and attachments into <code>workspace/intake/</code>.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">02 · Client CRM &amp; SOW Controls</span>
-                  <h3>Contacts, rates &amp; rollover rules</h3>
-                  <p><code>ClientRecord</code> and <code>EngagementRecord</code> add structured contacts, Markdown CRM notes, <code>tax_rate_pct</code>, <code>payment_terms</code>, <code>workspace_prefix</code>, <code>sow_rules</code>, and <code>rollover_mode</code> (<code>none</code> or <code>carry_hours</code>) via <code>PATCH /api/clients/:id</code> and <code>PATCH /api/engagements/:id</code>.</p>
+                  <span class="cap-card__tag">02 · OAuth2 Token Refresh</span>
+                  <h3>0600 credential substitution</h3>
+                  <p><code>OAuth2Config</code> (<code>oauth_config</code>) refreshes tokens into <code>0600</code> <code>connector_secrets.json</code> before <code>{{secret:oauth_access_token}}</code> substitution, backing SMTP/IMAP authentication and outbound webhooks behind Tripwire SSRF checks.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">03 · Time Tracking &amp; Invoicing</span>
-                  <h3>PDF 1.4, XLSX &amp; JSON billing</h3>
-                  <p><code>TimeExpenseEntry</code> (<code>time_entries.jsonl</code>) and <code>InvoiceRecord</code> (<code>invoices.json</code>) power <code>/api/time-entries</code> and <code>/api/invoices/generate</code>, emitting PDF, XLSX, and JSON invoices inside the engagement prefix across <code>draft</code>, <code>issued</code>, <code>paid</code>, and <code>void</code> states.</p>
+                  <span class="cap-card__tag">03 · MCP Client &amp; Inbound Server</span>
+                  <h3>stdio, http_sse &amp; approvals</h3>
+                  <p><code>src/mcp.rs</code> registers <code>stdio</code> and <code>http_sse</code> MCP servers behind <code>/api/mcp/servers</code>, routes <code>mcp.&lt;server&gt;.&lt;tool&gt;</code> calls through Today <code>mcp_tool_call</code> approval cards, and exposes a gated read-only <code>POST /api/mcp/inbound</code> JSON-RPC server.</p>
                 </div>
               </div>
             </div>
@@ -167,14 +167,14 @@
           <section id="record">
             <h2>Verification record</h2>
             <div class="project-prose__body">
-              <p>Measured against <code>cayleb-james2008/ergon</code> at release <code>v0.37.0</code> (<code>1e964e21e</code>).</p>
+              <p>Measured against <code>cayleb-james2008/ergon</code> at release <code>v0.38.0</code> (<code>28c3a7354</code>).</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Rust, Windows &amp; Clippy</th><td>286 of 286 Rust tests pass (including <code>5/5</code> <code>client_vault_invoicing_v040</code> engagement vault isolation, CRM/SOW updates, time tracking, and PDF/XLSX/JSON invoice checks), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo check --target x86_64-pc-windows-msvc</code>).</td></tr>
-                  <tr><th>Security &amp; boundaries</th><td><code>time_entries.jsonl</code>, <code>invoices.json</code>, <code>clients.json</code>, and <code>vault_index.json</code> enforced at <code>0600</code> Unix permissions, strict active-engagement prefix containment with <code>HTTP 409</code> cross-client handoff blocking, dotfile and escaping symlink exclusion, CSRF Origin enforcement, <code>budget_gate</code> spend guards, HMAC webhook replay checks, Host-403, and CWE-22/CWE-59 guards.</td></tr>
-                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>8.48 MiB release binary (<code>8,889,184 B</code>), <code>39,225 B</code> gzip initial shell (<code>171,443 B</code> raw) plus 17 pre-gzipped <code>/chunks/*</code>, 16.83 ms cold boot, 21.62 MB peak RSS under 5k-receipt + 500-file + 5-SSE load, 3,501.0 req/s (9.54 ms p95, 8,769 reqs, 0 errors), 5/5 SSE survival, and 44/44 fuzz pass.</td></tr>
-                  <tr><th>UI &amp; standalone web app</th><td>104 of 104 Playwright UI checks, 6 of 6 Work Graph probes, 20 of 20 deterministic replays, 0 FAIL / 0 WARN / 0 REFLEX Sloplint across <code>frontend/src</code> and rendered app, zero console errors across <code>1440x900</code> and <code>390x844</code> Light and Dark viewports, and standalone <code>ergon-web.html</code> (<code>1,525 kB</code>) with zero third-party requests.</td></tr>
-                  <tr><th>Cross-platform packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.37.0" target="_blank" rel="noreferrer noopener">v0.37.0 Release</a>).</td></tr>
+                  <tr><th>Rust, Windows &amp; Clippy</th><td>291 of 291 Rust tests pass (including <code>5/5</code> <code>connectors_protocols_mcp_v038</code> SMTPS, STARTTLS, IMAP intake, OAuth2 refresh, and MCP client/inbound server checks), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo check --target x86_64-pc-windows-msvc</code>).</td></tr>
+                  <tr><th>Security &amp; boundaries</th><td><code>connector_secrets.json</code>, <code>mcp_servers.json</code>, <code>time_entries.jsonl</code>, <code>invoices.json</code>, <code>clients.json</code>, and <code>vault_index.json</code> enforced at <code>0600</code> Unix permissions, SSRF blocking on private/loopback/metadata hosts across SMTP, IMAP, OAuth2, and HTTP/SSE MCP, gated read-only <code>/api/mcp/inbound</code>, non-symlink <code>10 MB</code> attachment containment, strict engagement prefix isolation with <code>HTTP 409</code> handoff checks, CSRF Origin enforcement, Host-403, and CWE-22/CWE-59 guards.</td></tr>
+                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>8.67 MiB release binary (<code>9,093,984 B</code>), <code>39,487 B</code> gzip initial shell (<code>172,449 B</code> raw) plus 17 pre-gzipped <code>/chunks/*</code>, 5.13 ms cold boot, 23.2 MB peak RSS (<code>23,752 KB</code>) under 5k-receipt + 500-file + 5-SSE load, 4,366.7 req/s (3.44 ms p50, 7.89 ms p95, 10,936 reqs, 0 errors), 5/5 SSE survival, and 44/44 fuzz pass.</td></tr>
+                  <tr><th>UI &amp; standalone web app</th><td>110 of 110 Playwright UI checks, 6 of 6 Work Graph probes, 20 of 20 deterministic replays, 0 FAIL / 0 WARN / 0 REFLEX Sloplint across <code>frontend/src</code> and rendered app, zero console errors across <code>1440x900</code> and <code>390x844</code> Light and Dark viewports, and standalone <code>ergon-web.html</code> (<code>1,604 kB</code>) with zero third-party requests.</td></tr>
+                  <tr><th>Cross-platform packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.38.0" target="_blank" rel="noreferrer noopener">v0.38.0 Release</a>).</td></tr>
                 </tbody>
               </table>
             </div>
@@ -194,10 +194,10 @@
         <h2>Evidence</h2>
         <dl class="repo-facts">
           <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/ergon">cayleb-james2008/ergon</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.37.0</b> · Single-binary Rust</dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.38.0</b> · Single-binary Rust</dd></div>
           <div class="repo-facts__row"><dt>checked</dt><dd>26 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.37.0</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/ergon/">Live web app</a> · <a href="https://github.com/cayleb-james2008/ergon">GitHub</a> · <a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.37.0">Release v0.37.0</a></dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.38.0</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/ergon/">Live web app</a> · <a href="https://github.com/cayleb-james2008/ergon">GitHub</a> · <a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.38.0">Release v0.38.0</a></dd></div>
         </dl>
         <p class="project-aside__more"><a href="../index.html">← Back to home</a></p>
       </aside>
