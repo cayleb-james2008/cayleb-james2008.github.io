@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Ergon · Cayleb Alvarez-James</title>
-  <meta name="description" content="Ergon v0.38.0 is a single-binary Rust desktop and web desk for local employee agents with SMTPS and STARTTLS email delivery, IMAP inbox polling, OAuth2 token refresh, MCP client and inbound server connectors, engagement-scoped client vaults, invoicing, and SHA-256 receipts.">
+  <meta name="description" content="Ergon v0.39.0 is a single-binary Rust desktop and web desk for local employee agents with concurrent run isolation, parallel DAG branch checkpoints, step retries and subpipelines, 5-field Cron scheduling with timezone support, SMTPS/IMAP, MCP connectors, client vaults, and SHA-256 receipts.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/ergon.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="Ergon · Cayleb Alvarez-James">
-  <meta property="og:description" content="Single-binary Rust desktop and web desk for local employee agents with SMTPS/STARTTLS mail delivery, IMAP polling, OAuth2 refresh, MCP client and server connectors, client vaults, invoicing, and SHA-256 receipts (v0.38.0).">
+  <meta property="og:description" content="Single-binary Rust desktop and web desk for local employee agents with concurrent run isolation, parallel DAG checkpoints, step retries and subpipelines, 5-field Cron with timezone, SMTPS/IMAP, MCP connectors, client vaults, and SHA-256 receipts (v0.39.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/ergon.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -41,16 +41,16 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Release v0.38.0 · Single-Binary Rust Desktop &amp; Web App · checked 26 November 2026</p>
+        <p class="case-hero__meta">Release v0.39.0 · Single-Binary Rust Desktop &amp; Web App · checked 26 November 2026</p>
         <h1 class="case-hero__title">Local workflows for one employee desk.</h1>
-        <p class="case-hero__out">Ergon ships as a single <code>8.67 MiB</code> cross-platform Rust binary for Linux, macOS, and Windows. Release <code>v0.38.0</code> adds real <code>rustls</code> SMTPS and STARTTLS email delivery with MIME attachments, IMAP inbox polling into <code>workspace/intake/</code>, OAuth2 token refresh, and Model Context Protocol (<code>stdio</code> and <code>http_sse</code>) client and read-only inbound server support with Today approval cards.</p>
+        <p class="case-hero__out">Ergon ships as a single <code>8.79 MiB</code> cross-platform Rust binary for Linux, macOS, and Windows. Release <code>v0.39.0</code> unifies the DAG pipeline engine and routine scheduler with <code>run_id</code>-keyed <code>LiveRuns</code> concurrent run isolation, parallel branch <code>pending_checkpoints[]</code> and <code>step_snapshots</code>, step retry/timeout/<code>on_error</code> policies, nested subpipelines, offline deterministic <code>steps_v2</code> routines, and 5-field Cron scheduling with timezone validation.</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>Checked at 28c3a7354: 291/291 Rust tests, 110/110 gate + 6/6 graph + 20/20 replay, 5.13 ms boot, 4,366.7 req/s (7.89 ms p95), 23.2 MB peak RSS, 5/5 SSE, and 44/44 fuzz pass.</li>
-          <li><span class="chip chip--current">v0.38.0 public</span></li>
+          <li><span class="checked-dot" aria-hidden="true"></span>Checked at 03396eba8: 296/296 Rust tests, 115/115 gate + 6/6 graph + 20/20 replay, 8.25 ms boot, 3,639.3 req/s (9.33 ms p95), 23.12 MB peak RSS, 5/5 SSE, and 44/44 fuzz pass.</li>
+          <li><span class="chip chip--current">v0.39.0 public</span></li>
         </ul>
         <div class="hero-actions">
           <a class="btn-primary" href="../demos/ergon/">Launch live web app ↗</a>
-          <a class="btn-outline" href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.38.0" target="_blank" rel="noreferrer noopener">Release v0.38.0 on GitHub ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.39.0" target="_blank" rel="noreferrer noopener">Release v0.39.0 on GitHub ↗</a>
         </div>
       </div>
     </header>
@@ -69,21 +69,21 @@
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">Ergon v0.38.0 SMTPS/IMAP, OAuth2 &amp; MCP Connectors</span>
+              <span class="viz__title">Ergon v0.39.0 Unified DAG Scheduler &amp; Concurrent Run Isolation</span>
               <span class="viz__live">live capture</span>
               <span class="viz__note">Light and Dark inside Settings</span>
             </div>
             <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/ergon-v0380-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Ergon v0.38.0">
-                <img src="../assets/projects/captures/ergon-v0380-light.png" alt="Ergon v0.38.0 workspace in Light theme showing the Connectors dialog MCP Tools server discovery and Today mcp_tool_call approval card." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-light" href="../assets/projects/captures/ergon-v0390-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Ergon v0.39.0">
+                <img src="../assets/projects/captures/ergon-v0390-light.png" alt="Ergon v0.39.0 workspace in Light theme showing the multi-run LiveRunTimeline, PipelineBuilder step retry and subpipeline controls, parallel branch CheckpointCards, and RoutinesPanel Cron timezone scheduler." width="1440" height="900" loading="eager" decoding="async">
               </a>
-              <a class="shot-dark" href="../assets/projects/captures/ergon-v0380-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Ergon v0.38.0">
-                <img src="../assets/projects/captures/ergon-v0380-dark.png" alt="Ergon v0.38.0 workspace in Dark theme showing the Connectors dialog MCP Tools server discovery and Today mcp_tool_call approval card." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-dark" href="../assets/projects/captures/ergon-v0390-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Ergon v0.39.0">
+                <img src="../assets/projects/captures/ergon-v0390-dark.png" alt="Ergon v0.39.0 workspace in Dark theme showing the multi-run LiveRunTimeline, PipelineBuilder step retry and subpipeline controls, parallel branch CheckpointCards, and RoutinesPanel Cron timezone scheduler." width="1440" height="900" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured from Ergon <code>v0.38.0</code> at <code>1440x900</code>. The browser edition at <code>/demos/ergon/</code> runs on local IndexedDB with SMTP Relay, IMAP inbox polling, OAuth2 credentials, MCP Tools server discovery, engagement-scoped client vaults, and invoicing parity.</p>
-              <p class="viz__source">Source: cayleb-james2008/ergon v0.38.0 · browser edition at /demos/ergon/</p>
+              <p class="viz__caption">Captured from Ergon <code>v0.39.0</code> at <code>1440x900</code>. The browser edition at <code>/demos/ergon/</code> runs on local IndexedDB with concurrent multi-run timeline tracking, step retry/timeout and subpipeline builder controls, parallel branch checkpoints, Cron timezone scheduling, engagement-scoped client vaults, and invoicing parity.</p>
+              <p class="viz__source">Source: cayleb-james2008/ergon v0.39.0 · browser edition at /demos/ergon/</p>
               <p class="viz__action">
                 <a class="viz__open" href="../demos/ergon/">open live web app ↗</a>
               </p>
@@ -146,19 +146,19 @@
               <p>Ergon runs employee playbooks inside one Rust binary with pre-gzipped UI chunks embedded directly in <code>.rodata</code>.</p>
               <div class="cap-grid">
                 <div class="cap-card">
-                  <span class="cap-card__tag">01 · SMTPS, STARTTLS &amp; IMAP</span>
-                  <h3>Signed mail &amp; inbox polling</h3>
-                  <p><code>SmtpTarget</code> sends <code>rustls</code> SMTPS and STARTTLS emails with <code>AUTH PLAIN</code>, <code>LOGIN</code>, and <code>XOAUTH2</code> plus RFC 5322 MIME attachments up to <code>10 MB</code> inside <code>sandbox_path</code>, while <code>imap_poll</code> ingests inbox messages and attachments into <code>workspace/intake/</code>.</p>
+                  <span class="cap-card__tag">01 · Concurrent Run Isolation</span>
+                  <h3>run_id-keyed LiveRuns</h3>
+                  <p><code>LiveRuns</code> indexes active runs by <code>run_id</code> rather than <code>person_id</code> so interactive chat, pipelines, and scheduled routines run side by side. <code>GET /api/runs/status</code> reports <code>runs[]</code> across active runs and pipelines while <code>POST /api/runs/:id/cancel</code> stops only the targeted run.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">02 · OAuth2 Token Refresh</span>
-                  <h3>0600 credential substitution</h3>
-                  <p><code>OAuth2Config</code> (<code>oauth_config</code>) refreshes tokens into <code>0600</code> <code>connector_secrets.json</code> before <code>{{secret:oauth_access_token}}</code> substitution, backing SMTP/IMAP authentication and outbound webhooks behind Tripwire SSRF checks.</p>
+                  <span class="cap-card__tag">02 · Resilient DAG &amp; Subpipelines</span>
+                  <h3>Retries, timeouts &amp; goto</h3>
+                  <p><code>PipelineStepSpec</code> adds <code>timeout_secs</code>, <code>retry_max</code>, <code>retry_backoff_ms</code>, <code>on_error</code> (<code>fail</code>, <code>continue</code>, <code>goto:&lt;step_id&gt;</code>), and depth-8 capped <code>subpipeline</code> invocation, while deterministic <code>steps_v2</code> routines run offline without a model key.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">03 · MCP Client &amp; Inbound Server</span>
-                  <h3>stdio, http_sse &amp; approvals</h3>
-                  <p><code>src/mcp.rs</code> registers <code>stdio</code> and <code>http_sse</code> MCP servers behind <code>/api/mcp/servers</code>, routes <code>mcp.&lt;server&gt;.&lt;tool&gt;</code> calls through Today <code>mcp_tool_call</code> approval cards, and exposes a gated read-only <code>POST /api/mcp/inbound</code> JSON-RPC server.</p>
+                  <span class="cap-card__tag">03 · Parallel Checkpoints &amp; Cron TZ</span>
+                  <h3>Branch snapshots &amp; schedules</h3>
+                  <p>Parallel DAG branches record independent <code>pending_checkpoints[]</code> and per-step <code>step_snapshots</code> resumed individually by <code>checkpoint_id</code>, and <code>Cadence::Cron</code> schedules 5-field Cron expressions with <code>tz</code> and <code>tz_offset_mins</code> validation.</p>
                 </div>
               </div>
             </div>
@@ -167,14 +167,14 @@
           <section id="record">
             <h2>Verification record</h2>
             <div class="project-prose__body">
-              <p>Measured against <code>cayleb-james2008/ergon</code> at release <code>v0.38.0</code> (<code>28c3a7354</code>).</p>
+              <p>Measured against <code>cayleb-james2008/ergon</code> at release <code>v0.39.0</code> (<code>03396eba8</code>).</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Rust, Windows &amp; Clippy</th><td>291 of 291 Rust tests pass (including <code>5/5</code> <code>connectors_protocols_mcp_v038</code> SMTPS, STARTTLS, IMAP intake, OAuth2 refresh, and MCP client/inbound server checks), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo check --target x86_64-pc-windows-msvc</code>).</td></tr>
+                  <tr><th>Rust, Windows &amp; Clippy</th><td>296 of 296 Rust tests pass across 18 suites (including <code>5/5</code> <code>unified_dag_scheduler_v039</code> concurrent LiveRuns, parallel checkpoints, retries, subpipelines, and Cron timezone validation), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo check --target x86_64-pc-windows-msvc</code>).</td></tr>
                   <tr><th>Security &amp; boundaries</th><td><code>connector_secrets.json</code>, <code>mcp_servers.json</code>, <code>time_entries.jsonl</code>, <code>invoices.json</code>, <code>clients.json</code>, and <code>vault_index.json</code> enforced at <code>0600</code> Unix permissions, SSRF blocking on private/loopback/metadata hosts across SMTP, IMAP, OAuth2, and HTTP/SSE MCP, gated read-only <code>/api/mcp/inbound</code>, non-symlink <code>10 MB</code> attachment containment, strict engagement prefix isolation with <code>HTTP 409</code> handoff checks, CSRF Origin enforcement, Host-403, and CWE-22/CWE-59 guards.</td></tr>
-                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>8.67 MiB release binary (<code>9,093,984 B</code>), <code>39,487 B</code> gzip initial shell (<code>172,449 B</code> raw) plus 17 pre-gzipped <code>/chunks/*</code>, 5.13 ms cold boot, 23.2 MB peak RSS (<code>23,752 KB</code>) under 5k-receipt + 500-file + 5-SSE load, 4,366.7 req/s (3.44 ms p50, 7.89 ms p95, 10,936 reqs, 0 errors), 5/5 SSE survival, and 44/44 fuzz pass.</td></tr>
-                  <tr><th>UI &amp; standalone web app</th><td>110 of 110 Playwright UI checks, 6 of 6 Work Graph probes, 20 of 20 deterministic replays, 0 FAIL / 0 WARN / 0 REFLEX Sloplint across <code>frontend/src</code> and rendered app, zero console errors across <code>1440x900</code> and <code>390x844</code> Light and Dark viewports, and standalone <code>ergon-web.html</code> (<code>1,604 kB</code>) with zero third-party requests.</td></tr>
-                  <tr><th>Cross-platform packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.38.0" target="_blank" rel="noreferrer noopener">v0.38.0 Release</a>).</td></tr>
+                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>8.79 MiB release binary (<code>9,212,768 B</code>), <code>41,167 B</code> gzip initial shell (<code>178,592 B</code> raw) plus 17 pre-gzipped <code>/chunks/*</code>, 8.25 ms cold boot, 23.12 MB peak RSS (<code>23,680 KB</code>) under 5k-receipt + 500-file + 5-SSE load, 3,639.3 req/s (4.08 ms p50, 9.33 ms p95, 9,107 reqs, 0 errors), 5/5 SSE survival, and 44/44 fuzz pass.</td></tr>
+                  <tr><th>UI &amp; standalone web app</th><td>115 of 115 Playwright UI checks, 6 of 6 Work Graph probes, 20 of 20 deterministic replays, 0 FAIL / 0 WARN / 0 REFLEX Sloplint across <code>frontend/src</code> (29 files) and rendered app, zero console errors across <code>1440x900</code> and <code>390x844</code> Light and Dark viewports, and standalone <code>ergon-web.html</code> (<code>1,600 kB</code>) with zero third-party requests.</td></tr>
+                  <tr><th>Cross-platform packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.39.0" target="_blank" rel="noreferrer noopener">v0.39.0 Release</a>).</td></tr>
                 </tbody>
               </table>
             </div>
@@ -194,10 +194,10 @@
         <h2>Evidence</h2>
         <dl class="repo-facts">
           <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/ergon">cayleb-james2008/ergon</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.38.0</b> · Single-binary Rust</dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.39.0</b> · Single-binary Rust</dd></div>
           <div class="repo-facts__row"><dt>checked</dt><dd>26 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.38.0</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/ergon/">Live web app</a> · <a href="https://github.com/cayleb-james2008/ergon">GitHub</a> · <a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.38.0">Release v0.38.0</a></dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.39.0</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/ergon/">Live web app</a> · <a href="https://github.com/cayleb-james2008/ergon">GitHub</a> · <a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.39.0">Release v0.39.0</a></dd></div>
         </dl>
         <p class="project-aside__more"><a href="../index.html">← Back to home</a></p>
       </aside>
