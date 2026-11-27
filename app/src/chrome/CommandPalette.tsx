@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ArrowUpRight, Copy, FileDown, FileText, FolderKanban, Moon, Play, Sun, Terminal } from "lucide-react";
+import { ArrowUpRight, Copy, FileDown, FileText, FolderKanban, Moon, Play, Sun } from "lucide-react";
 import { toast } from "sonner";
 import {
   Command,
@@ -22,15 +22,11 @@ type Props = {
 };
 
 const PROJECT_PAGES = [
-  { label: "Open-Ro Studio: Roblox Studio AI IDE", href: "/projects/openro.html", meta: "app" },
-  { label: "OpenBell: Kalshi v2 Trading & Quant Desk", href: "/projects/openbell.html", meta: "app" },
-  { label: "Fleet: Antigravity Swarm Sidebar Plugin", href: "/projects/fleet.html", meta: "plugin" },
-  { label: "Ergon: Employee Agent Desk", href: "/projects/ergon.html", meta: "app" },
-  { label: "Industry AI Suite: 10 Review Tools", href: "/projects/industry-ai-suite.html", meta: "suite" },
-  { label: "Sophos: Coding-Agent Desktop App", href: "/projects/sophos.html", meta: "desktop" },
-  { label: "dotz: Multi-Agent Harness Desktop", href: "/projects/dotz.html", meta: "desktop" },
-  { label: "Asmodeus: Chronological Backtesting", href: "/projects/asmodeus.html", meta: "research" },
-  { label: "All 18 Project Pages", href: "/projects/", meta: "index" },
+  { label: "Ergon", href: "/projects/ergon.html", meta: "project" },
+  { label: "OpenRO", href: "/projects/openro.html", meta: "project" },
+  { label: "Fleet", href: "/projects/fleet.html", meta: "project" },
+  { label: "OpenBell", href: "/projects/openbell.html", meta: "project" },
+  { label: "All projects", href: "/projects/", meta: "index" },
 ];
 
 export function CommandPalette({ open, onOpenChange, onOpenDemo }: Props) {
@@ -66,7 +62,7 @@ export function CommandPalette({ open, onOpenChange, onOpenDemo }: Props) {
       <DialogContent className="overflow-hidden border-hairline bg-surface p-0 text-ink shadow-lift sm:max-w-[540px] sm:rounded-[16px]">
         <DialogTitle className="sr-only">Quick jump</DialogTitle>
         <DialogDescription className="sr-only">
-          Jump to résumé sections, live browser apps, the Industry AI Suite workbench, project pages, or actions.
+          Jump to a section, an app, a project page, or an action.
         </DialogDescription>
         <Command className="bg-surface text-ink [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:font-mono [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-ink-2 [&_[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]]:border-hairline [&_[cmdk-input-wrapper]_svg]:size-4 [&_[cmdk-input-wrapper]_svg]:text-ink-2 [&_[cmdk-input]]:h-12 [&_[cmdk-input]]:text-sm [&_[cmdk-input]]:text-ink [&_[cmdk-item]]:cursor-pointer [&_[cmdk-item]]:rounded-[9px] [&_[cmdk-item]]:px-3 [&_[cmdk-item]]:py-2.5 [&_[cmdk-item]]:text-sm [&_[cmdk-item]]:text-ink [&_[cmdk-item][data-selected='true']]:bg-board [&_[cmdk-item][data-selected='true']]:text-ink">
           <CommandInput placeholder="Jump to a section, live app, product page, or action…" />
@@ -81,31 +77,15 @@ export function CommandPalette({ open, onOpenChange, onOpenDemo }: Props) {
                   onSelect={() => run(() => onOpenDemo(d.key))}
                 >
                   <Play className="size-4 text-blue" strokeWidth={1.6} aria-hidden />
-                  <span className="truncate">{d.key}: launch in frame</span>
+                  <span className="truncate">{d.key}: open in the page</span>
                   <CommandShortcut className="font-mono text-xs tracking-normal text-ink-2">{d.tag}</CommandShortcut>
                 </CommandItem>
               ))}
-              <CommandItem
-                value="Ergon employee agent desk live browser workspace /demos/ergon/"
-                onSelect={() => run(() => { window.location.assign("/demos/ergon/"); })}
-              >
-                <Play className="size-4 text-ink-2" strokeWidth={1.6} aria-hidden />
-                <span className="truncate">Ergon: live browser workspace</span>
-                <CommandShortcut className="font-mono text-xs tracking-normal text-ink-2">/demos/ergon/</CommandShortcut>
-              </CommandItem>
-              <CommandItem
-                value="Industry AI Suite lab workbench 10 review tools"
-                onSelect={() => run(() => { window.location.assign("/lab/"); })}
-              >
-                <Terminal className="size-4 text-blue" strokeWidth={1.6} aria-hidden />
-                <span className="truncate">Industry AI Suite /lab/: 10-tool review workbench</span>
-                <CommandShortcut className="font-mono text-xs tracking-normal text-ink-2">/lab/</CommandShortcut>
-              </CommandItem>
             </CommandGroup>
 
             <CommandSeparator className="my-1 bg-hairline" />
 
-            <CommandGroup heading="Product & case-study pages">
+            <CommandGroup heading="Project pages">
               {PROJECT_PAGES.map((p) => (
                 <CommandItem
                   key={p.href}
@@ -148,7 +128,7 @@ export function CommandPalette({ open, onOpenChange, onOpenDemo }: Props) {
                 })}
               >
                 <FileDown className="size-4 text-ink-2" strokeWidth={1.5} aria-hidden />
-                <span>Download Résumé PDF ({PDF.size})</span>
+                <span>Download PDF</span>
               </CommandItem>
               <CommandItem value={`copy email ${identity.email}`} onSelect={() => run(copyEmail)}>
                 <Copy className="size-4 text-ink-2" strokeWidth={1.5} aria-hidden />

@@ -35,8 +35,7 @@ function DemoFrame({ title, src }: { title: string; src: string }) {
   );
 }
 
-// Region G: interactive web apps (Open-Ro v1.18.0, OpenBell v0.9.0 sandbox, Fleet v1.20.0), paired with links to their
-// standalone full-screen routes, live captures, product pages, and GitHub repositories.
+// Region G: the browser apps (Ergon, OpenRO, Fleet), with links to the full-screen app, the project page and the repo.
 export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => void }) {
   const { theme } = useTheme();
   const [runs, setRuns] = useState<Record<string, number>>({});
@@ -65,7 +64,6 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
         <div className="grid content-start gap-2">
           <h2 id="demos-label" className="font-mono text-xs uppercase tracking-wider text-ink-2" data-answers="4">live apps</h2>
           <p className="font-mono text-xs text-ink-2">{demoWords.count}</p>
-          <p className="max-w-[28ch] text-sm text-ink-2">Browser editions running locally on your machine (Open-Ro v1.18.0, OpenBell v0.9.0, and Fleet v1.20.0) with zero external requests by default.</p>
         </div>
         <Tabs value={tab} onValueChange={(v) => onTab(String(v))}>
           <TabsList aria-label="Interactive web apps" className="max-w-full flex-wrap">
@@ -88,24 +86,24 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
                   </p>
                   <div className="grid gap-1">
                     <h3 className="text-ui font-medium text-ink">{d.title}</h3>
-                    <p className="max-w-[68ch] text-sm text-ink-2">{d.blurb}</p>
+                    {d.blurb && <p className="max-w-[68ch] text-sm text-ink-2">{d.blurb}</p>}
                   </div>
                   <DemoFrame key={runs[d.key] ?? 0} title={d.title} src={d.url} />
-                  <p className="max-w-[68ch] text-sm text-ink-2">
-                    <span className="font-mono text-xs text-ink">{demoWords.tryIt}</span> {d.action}
-                  </p>
-                  <div className="grid gap-2 rounded-[14px] border border-hairline bg-board p-4 text-sm text-ink-2">
-                    <p className="flex flex-wrap items-center gap-x-2 font-mono text-xs">
-                      <span className="text-ink">{demoWords.provenance}</span>
-                      <span>{demoWords.noCalls}</span>
+                  {d.action && (
+                    <p className="max-w-[68ch] text-sm text-ink-2">
+                      <span className="font-mono text-xs text-ink">{demoWords.tryIt}</span> {d.action}
                     </p>
-                    {d.provenance.map((l) => (
-                      <p key={l.label} className="max-w-[68ch]">
-                        <span className="font-medium text-ink">{`${l.label} `}</span>
-                        {l.text}
-                      </p>
-                    ))}
-                  </div>
+                  )}
+                  {d.provenance.length > 0 && (
+                    <div className="grid gap-2 rounded-[14px] border border-hairline bg-board p-4 text-sm text-ink-2">
+                      {d.provenance.map((l) => (
+                        <p key={l.label} className="max-w-[68ch]">
+                          <span className="font-medium text-ink">{`${l.label} `}</span>
+                          {l.text}
+                        </p>
+                      ))}
+                    </div>
+                  )}
                   <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
                     <a
                       className={`${tapTarget} w-fit rounded-[4px] font-mono text-xs text-ink-2 underline-offset-4 outline-none hover:text-ink hover:underline active:text-blue focus-visible:ring-2 focus-visible:ring-blue`}
@@ -113,21 +111,23 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
                       target="_blank"
                       rel="noreferrer noopener"
                     >
-                      Open full-screen app ↗
+                      Open full screen ↗
                     </a>
-                    <a
-                      className={`${tapTarget} w-fit rounded-[4px] font-mono text-xs text-ink-2 underline-offset-4 outline-none hover:text-ink hover:underline active:text-blue focus-visible:ring-2 focus-visible:ring-blue`}
-                      href={shot}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                    >
-                      Open live capture ↗
-                    </a>
+                    {shot && (
+                      <a
+                        className={`${tapTarget} w-fit rounded-[4px] font-mono text-xs text-ink-2 underline-offset-4 outline-none hover:text-ink hover:underline active:text-blue focus-visible:ring-2 focus-visible:ring-blue`}
+                        href={shot}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        Screenshot ↗
+                      </a>
+                    )}
                     <a
                       className={`${tapTarget} w-fit rounded-[4px] font-mono text-xs text-ink-2 underline-offset-4 outline-none hover:text-ink hover:underline active:text-blue focus-visible:ring-2 focus-visible:ring-blue`}
                       href={d.page}
                     >
-                      Product page ↗
+                      Project page ↗
                     </a>
                     <a
                       className={`${tapTarget} w-fit rounded-[4px] font-mono text-xs text-ink-2 underline-offset-4 outline-none hover:text-ink hover:underline active:text-blue focus-visible:ring-2 focus-visible:ring-blue`}
@@ -135,7 +135,7 @@ export function Demos({ tab, onTab }: { tab: string; onTab: (key: string) => voi
                       target="_blank"
                       rel="noreferrer noopener"
                     >
-                      Source on GitHub ↗
+                      GitHub ↗
                     </a>
                     <Button
                       variant="link"

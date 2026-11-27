@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Open-Ro Studio · Cayleb Alvarez-James</title>
-  <meta name="description" content="OpenRO v1.30.0 is a unified three-pane Rust AI IDE for Roblox Studio completing Cycle 4 Wave H1 hardening across Studio sync, prefab import, LiveOps telemetry, the Luau analyzer, and React workbench parity.">
+  <title>OpenRO · Cayleb Alvarez-James</title>
+  
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/openro.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
-  <meta property="og:title" content="Open-Ro Studio · Cayleb Alvarez-James">
-  <meta property="og:description" content="Unified three-pane Rust AI IDE for Roblox Studio with hardened 3-way Studio sync, prefab import, LiveOps telemetry sync, workspace Luau typechecking, symbol indexing, F12 Go to Definition, and native .rbxlx export (v1.30.0).">
+  <meta property="og:title" content="OpenRO · Cayleb Alvarez-James">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/openro.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f2f5">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e1013">
@@ -28,235 +28,27 @@
     <a class="sub-wordmark" href="../index.html" aria-label="Cayleb Alvarez-James, home">Cayleb<span class="wm-dot">.</span>AJ</a>
     <nav aria-label="Primary">
       <ul>
-        <li><a href="../index.html#summary">Résumé</a></li>
+        <li><a href="../index.html#summary">About</a></li>
         <li><a href="../index.html#experience">Experience</a></li>
         <li><a href="../index.html#projects">Projects</a></li>
-        <li><a href="../index.html#live-demos">Live apps</a></li>
+        <li><a href="../index.html#live-demos">Apps</a></li>
       </ul>
     </nav>
-    <a class="sub-resume" href="../Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf" download>Résumé PDF</a>
+    <a class="sub-resume" href="../Cayleb-Alvarez-James-Resume.pdf" download>PDF</a>
   </header>
 
   <main id="main">
     <header class="project-hero">
       <div class="wrap project-hero__main">
-        <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta"><img src="../assets/projects/openro-logo.svg" alt="OpenRO Studio geometric logo" width="20" height="20" style="vertical-align:-4px;margin-right:8px">Release v1.30.0 · Single-Binary Rust Desktop &amp; Web App · checked 26 November 2026</p>
-        <h1 class="case-hero__title">Build, sandbox, diff, and ship Roblox Studio games in one place.</h1>
-        <p class="case-hero__out">Open-Ro Studio (OpenRO) is a unified three-pane Rust IDE for Roblox Studio on Linux, macOS, and Windows. Release <code>v1.30.0</code> compiles into a <code>10.25 MiB</code> binary and hardens Cycle 4 backend and frontend paths across Studio sync, prefab import, LiveOps telemetry, the Luau analyzer, and React workbench parity. It adds symlink, <code>.git</code>/<code>.openro</code>, control-character, and <code>O_CREAT | O_EXCL</code> atomic write guards, bounded Luau parsing, expanded IPv4 and IPv6 SSRF checks, monotonic request-sequence guards, pinned <code>Two-Way Studio Sync</code> headers, and comment-masked static Luau auditing.</p>
-        <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>Checked at d187934: 380/380 Rust tests, 221/221 Playwright gate checks, 11/11 replays, 7,846.8 req/s (2.49 ms p95), 51.71 ms boot, 13.18 MB peak RSS, 10/10 Dual-SSE, and 43/43 fuzz checks pass.</li>
-          <li><span class="chip chip--current">v1.30.0 public</span></li>
+        <a class="project-back" href="./">← All projects</a>
+        <h1 class="case-hero__title">OpenRO</h1>
+        <ul class="project-status">
+          <li><a href="../demos/open-ro/">Try it in your browser</a></li>
+          <li><a href="https://github.com/cayleb-james2008/open-ro">GitHub</a></li>
+          <li><a href="https://github.com/cayleb-james2008/open-ro/releases/latest">Latest release</a></li>
         </ul>
-        <div class="hero-actions">
-          <a class="btn-primary" href="../demos/open-ro/">Launch live web app ↗</a>
-          <a class="btn-outline" href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.30.0" target="_blank" rel="noreferrer noopener">Release v1.30.0 on GitHub ↗</a>
-        </div>
       </div>
     </header>
-
-    <div class="wrap project-top">
-      <nav class="project-index" aria-label="On this page">
-        <a href="#figures">interface &amp; walkthrough</a>
-        <a href="#schematic">how a build runs</a>
-        <a href="#capabilities">what it does</a>
-        <a href="#record">verification record</a>
-        <a href="#limits">known limits</a>
-      </nav>
-
-      <section class="project-figures" id="figures" aria-labelledby="figures-h">
-        <h2 class="vis-kicker" id="figures-h">Interface captures and walkthrough</h2>
-        <div class="figure-grid">
-          <figure class="viz viz--shot">
-            <div class="viz__head viz__head--shot">
-              <span class="viz__title">OpenRO v1.30.0 Hardened Studio Sync, LiveOps &amp; Luau Workbench</span>
-              <span class="viz__live">live capture</span>
-              <span class="viz__note">Light and Dark inside Settings</span>
-            </div>
-            <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/openro-v1300-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of OpenRO v1.30.0">
-                <img src="../assets/projects/captures/openro-v1300-light.png" alt="OpenRO v1.30.0 Studio IDE in Light theme showing Cycle 4 H1 hardening across Studio sync, LiveOps telemetry, and Luau workbench." width="1440" height="900" loading="eager" decoding="async">
-              </a>
-              <a class="shot-dark" href="../assets/projects/captures/openro-v1300-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of OpenRO v1.30.0">
-                <img src="../assets/projects/captures/openro-v1300-dark.png" alt="OpenRO v1.30.0 Studio IDE in Dark theme showing Cycle 4 H1 hardening across Studio sync, LiveOps telemetry, and Luau workbench." width="1440" height="900" loading="eager" decoding="async">
-              </a>
-            </div>
-            <figcaption class="viz__cap">
-              <p class="viz__caption">Captured from OpenRO <code>v1.30.0</code> at <code>1440x900</code>. The browser edition at <code>/demos/open-ro/</code> mirrors Cycle 4 Wave H1 hardening alongside workspace Luau typechecking, the <code>Symbols &amp; Exports</code> outline rail, F12 Go to Definition, clickable gutter contract diagnostics, Production LiveOps Telemetry codegen and Open Cloud sync, Live Server Errors script jump, Two-Way Studio Sync 3-way conflict resolution, Prefab Model Import, Headless Luau Sandbox verifier (<code>browser_sim</code>), WebGL2 3D viewport, Visual ScreenGui Designer, unified Rojo workspace, Economy Balance Simulator, Monetization Audit, Pre-Publish Guard, and Rojo <code>.zip</code> export.</p>
-              <p class="viz__source">Source: cayleb-james2008/open-ro v1.30.0 · browser edition at /demos/open-ro/</p>
-              <p class="viz__action">
-                <a class="viz__open" href="../demos/open-ro/">open live web app ↗</a>
-              </p>
-            </figcaption>
-          </figure>
-
-          <figure class="viz" id="schematic">
-            <div class="viz__body">
-              <div class="sim-head">
-                <div class="sim-head__copy">
-                  <span class="sim-head__title">“Plan a coin shop with reviewable script diffs.”</span>
-                  <span class="sim-head__sub">Tool stages verified by OpenRO’s integration test suite.</span>
-                </div>
-                <button class="btn-outline" id="gate-run" type="button">Step through build</button>
-              </div>
-              <ol class="sim-steps" id="gate">
-                <li class="sim-step"><span class="sim-step__num">01</span><p>Stage edits on a shadow Place. In <code>Plan</code> or <code>Review diffs</code> mode, the copilot inspects the synced DataModel tree and writes to a shadow copy without mutating live Studio.</p></li>
-                <li class="sim-step"><span class="sim-step__num">02</span><p>Check Luau syntax and compute unified diffs. Static Luau checks block syntax errors before staging, and clean hunks render with per-file selection checkboxes in <code>Code &amp; Diff</code>.</p></li>
-                <li class="sim-step"><span class="sim-step__num">03</span><p>Apply approved changes over MCP or the Companion plugin. Accepted diffs commit via Studio MCP or <code>OpenRoCompanion.lua</code> with a <code>ChangeHistoryService:SetWaypoint</code> undo point.</p></li>
-                <li class="sim-step"><span class="sim-step__num">04</span><p>Playtest and export. OpenRO checks playtest logs for errors and writes bidirectional <code>.rbxlx</code> XML or a Rojo Ship Pack (<code>.zip</code>).</p></li>
-              </ol>
-              <p class="sim-verdict" id="gate-verdict" aria-live="polite">Ready. Press “Step through build” to trace each stage.</p>
-            </div>
-          </figure>
-
-          <figure class="viz">
-            <div class="viz__body">
-              <div class="viz__head">
-                <span class="viz__title">Recorded walkthrough (v0.10.0 baseline capture)</span>
-                <span class="viz__note">OpenMotion chapters</span>
-              </div>
-              <div style="margin-top:16px">
-                <video class="walk-video" controls preload="metadata" playsinline poster="../assets/video/openro-poster.jpg" src="../assets/video/openro.mp4">
-                  <track kind="chapters" label="Chapters" srclang="en" default src="../assets/video/openro-chapters.vtt">
-                </video>
-                <ol class="chapters">
-                  <li><button type="button" data-t="0.00"><span class="ct">0:00</span>OpenRO Intro</button></li>
-                  <li><button type="button" data-t="4.00"><span class="ct">0:04</span>Three-Pane Studio IDE and Starters</button></li>
-                  <li><button type="button" data-t="11.40"><span class="ct">0:11</span>Live Studio Sync and 13 MCP Tools</button></li>
-                  <li><button type="button" data-t="18.70"><span class="ct">0:18</span>Plan Diffs, Luau Checks, and Playtest</button></li>
-                  <li><button type="button" data-t="26.10"><span class="ct">0:26</span>Tool Library, Blender Export, and Rojo .zip</button></li>
-                  <li><button type="button" data-t="36.00"><span class="ct">0:36</span>Verified Summary</button></li>
-                </ol>
-              </div>
-            </div>
-            <figcaption class="viz__cap">
-              <p class="viz__caption">Walkthrough showing the three-pane workspace, live Studio sync over <code>OpenRoCompanion.lua</code>, unified Luau diffs, tool library checks, Blender <code>.obj</code> and <code>.wav</code> assets, and Rojo export.</p>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-    </div>
-
-    <div class="wrap project-layout">
-      <article class="project-content">
-        <div class="project-prose">
-          <section id="capabilities">
-            <h2>What it does</h2>
-            <div class="project-prose__body">
-              <p>OpenRO handles scaffolding, Luau code diffs, snapshot rollback, economy dry runs, and Studio packaging inside one workspace backed by a cross-platform Rust server.</p>
-              <div class="cap-grid">
-                <div class="cap-card">
-                  <span class="cap-card__tag">01 · Hardened Sync, Prefab &amp; SSRF Guards</span>
-                  <h3>Atomic writes, path confinement, and bounded Luau parsing</h3>
-                  <p>Adds symlink, <code>.git</code>/<code>.openro</code>, control-character, and <code>O_CREAT | O_EXCL</code> atomic write guards in Studio sync and project stores, caps Luau parsing at <code>2 MiB</code>, <code>250k</code> tokens, and depth <code>64</code>, expands IPv4/IPv6 SSRF checks in <code>validate_https_relay_url</code>, and rejects <code>%25</code> double-encoded paths.</p>
-                </div>
-                <div class="cap-card">
-                  <span class="cap-card__tag">02 · Workbench Races &amp; Comment Masking</span>
-                  <h3>Monotonic request guards and 7,846.8 req/s scale</h3>
-                  <p>Adds monotonic request-sequence guards and project-switch state resets across sync, LiveOps, and Luau fetches, pins the <code>Two-Way Studio Sync</code> dialog at <code>390x844</code> and <code>1440x900</code>, and masks comments and long brackets in <code>luauAudit.ts</code> while serving <code>7,846.8 req/s</code> (<code>51.71 ms</code> boot, <code>13.18 MB</code> peak RSS).</p>
-                </div>
-                <div class="cap-card">
-                  <span class="cap-card__tag">03 · 380 Tests, 0/0/0 Sloplint &amp; 43/43 Fuzz</span>
-                  <h3>Full browser parity across 65 clean source files</h3>
-                  <p>Mirrors hardened sync, semantic typechecking, and symbol navigation in the offline web engine, passes <code>221/221</code> Playwright gate checks and <code>0 FAIL / 0 REFLEX / 0 WARN</code> Sloplint across 65 files, and passes <code>43/43</code> raw-TCP security fuzz checks.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="record">
-            <h2>Verification record</h2>
-            <div class="project-prose__body">
-              <p>Measured against <code>cayleb-james2008/open-ro</code> at release <code>v1.30.0</code> (<code>d187934</code>).</p>
-              <table class="record-table">
-                <tbody>
-                  <tr><th>Rust, Windows &amp; Clippy</th><td>380 of 380 Rust tests pass (77 unit tests and 303 across 37 integration suites, including <code>v130_cycle4_hardening</code>, <code>v129_luau_typecheck_symbols</code>, <code>v128_liveops_telemetry_sync</code>, <code>v127_bidirectional_sync</code>, <code>v126_cycle3_hardening</code>, <code>v125_headless_sandbox</code>, <code>v124_viewport_terrain</code>, <code>v123_liveops</code>, <code>v122_cycle2_hardening</code>, <code>v121_gui_designer</code>, <code>v120_sandbox_runtime</code>, and CWE-22/59 checks), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo xwin check --target x86_64-pc-windows-msvc</code>).</td></tr>
-                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>10.25 MiB release binary (<code>10,744,760 B</code>), <code>58,111 B</code> gzip initial shell, 51.71 ms cold boot, 13.18 MB peak RSS, 7,846.8 req/s (1.93 ms p50, 2.49 ms p95, 19,624 reqs, 0 errors), 10/10 Dual-SSE survival, and 43/43 cold raw-TCP fuzz checks pass.</td></tr>
-                  <tr><th>UI &amp; standalone web app</th><td><code>check:ui</code> passed 221/221 Playwright checks, 11/11 replays, 0 FAIL / 0 REFLEX / 0 WARN Sloplint across 65 files in <code>frontend/src</code>, zero console errors across <code>1440x900</code> and <code>390x844</code>, and offline <code>web-dist</code> (<code>2,065 KiB</code>) with zero external requests.</td></tr>
-                  <tr><th>Packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.30.0" target="_blank" rel="noreferrer noopener">v1.30.0 Release</a>).</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-        </div>
-
-        <section class="project-limits" id="limits" aria-labelledby="limits-h">
-          <h2 id="limits-h">Known limits</h2>
-          <ul>
-            <li>The headless local Luau runtime sandbox uses Lune <code>0.11.1</code> with an embedded <code>DataModel</code> shim (plus <code>browser_sim</code> fallback in the standalone web edition); full 3D rendering physics, live Studio MCP streaming, and Blender mesh export still require local Roblox Studio (or Vinegar on Linux) and Blender.</li>
-            <li>No user or download numbers are published for this release.</li>
-          </ul>
-        </section>
-      </article>
-
-      <aside class="project-aside">
-        <h2>Evidence</h2>
-        <dl class="repo-facts">
-          <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/open-ro">cayleb-james2008/open-ro</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.30.0</b> · Single-binary Rust</dd></div>
-          <div class="repo-facts__row"><dt>checked</dt><dd>26 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.30.0</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/open-ro/">Live web app</a> · <a href="https://github.com/cayleb-james2008/open-ro">GitHub</a> · <a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.30.0">Release v1.30.0</a></dd></div>
-        </dl>
-        <p class="project-aside__more"><a href="../index.html">← Back to home</a></p>
-      </aside>
-    </div>
   </main>
-
-  <footer class="sub-footer">
-    <p>© 2026 Cayleb Alvarez-James.</p>
-    <ul aria-label="Elsewhere">
-      <li><a href="../index.html">Résumé</a></li>
-      <li><a href="./">All projects</a></li>
-      <li><a href="https://github.com/cayleb-james2008/open-ro">GitHub</a></li>
-      <li><a href="mailto:caylebalvarezjames@gmail.com">Email</a></li>
-    </ul>
-  </footer>
-
-  <script>
-  (function () {
-    var gate = document.getElementById("gate");
-    var btn = document.getElementById("gate-run");
-    var verdict = document.getElementById("gate-verdict");
-    if (gate && btn && verdict) {
-      var steps = gate.querySelectorAll(".sim-step");
-      var timers = [];
-      var reduced = function () { try { return matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } };
-      btn.addEventListener("click", function () {
-        timers.forEach(clearTimeout);
-        timers = [];
-        steps.forEach(function (s) { s.classList.remove("on"); });
-        if (reduced()) {
-          steps.forEach(function (s) { s.classList.add("on"); });
-          verdict.textContent = "DONE: unified Luau diffs approved, applied to Studio, playtested clean, and ready for Rojo .zip export.";
-          return;
-        }
-        verdict.textContent = "Running build trace…";
-        steps.forEach(function (s, i) {
-          timers.push(setTimeout(function () { s.classList.add("on"); }, 220 * (i + 1)));
-        });
-        timers.push(setTimeout(function () {
-          verdict.textContent = "DONE: unified Luau diffs approved, applied to Studio, playtested clean, and ready for Rojo .zip export.";
-        }, 220 * (steps.length + 1)));
-      });
-    }
-    var video = document.querySelector(".walk-video");
-    var cbtns = document.querySelectorAll(".chapters button");
-    if (video && cbtns.length) {
-      if (video.textTracks && video.textTracks.length) video.textTracks[0].mode = "hidden";
-      cbtns.forEach(function (b) {
-        b.addEventListener("click", function () {
-          video.currentTime = parseFloat(b.getAttribute("data-t"));
-          if (video.paused) video.play();
-        });
-      });
-      video.addEventListener("timeupdate", function () {
-        var t = video.currentTime, cur = null;
-        cbtns.forEach(function (b) { if (parseFloat(b.getAttribute("data-t")) <= t + 0.05) cur = b; });
-        cbtns.forEach(function (b) { b.classList.toggle("on", b === cur); });
-      });
-    }
-  })();
-  </script>
 </body>
 </html>

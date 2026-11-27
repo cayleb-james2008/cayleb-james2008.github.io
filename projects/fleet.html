@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Fleet · Cayleb Alvarez-James</title>
-  <meta name="description" content="Fleet v1.31.0 is an Antigravity sidebar plugin for multi-agent swarms with hardened JSON recovery, bounded git worktree probes, RPC timeouts with retry controls, and conflict landing.">
+  
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/fleet.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="Fleet · Cayleb Alvarez-James">
-  <meta property="og:description" content="Antigravity sidebar plugin for multi-agent swarms with hardened JSON recovery, bounded git worktree probes, RPC timeouts with retry controls, and conflict landing (v1.31.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/fleet.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f2f5">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e1013">
@@ -28,252 +28,27 @@
     <a class="sub-wordmark" href="../index.html" aria-label="Cayleb Alvarez-James, home">Cayleb<span class="wm-dot">.</span>AJ</a>
     <nav aria-label="Primary">
       <ul>
-        <li><a href="../index.html#summary">Résumé</a></li>
+        <li><a href="../index.html#summary">About</a></li>
         <li><a href="../index.html#experience">Experience</a></li>
         <li><a href="../index.html#projects">Projects</a></li>
-        <li><a href="../index.html#live-demos">Live apps</a></li>
+        <li><a href="../index.html#live-demos">Apps</a></li>
       </ul>
     </nav>
-    <a class="sub-resume" href="../Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf" download>Résumé PDF</a>
+    <a class="sub-resume" href="../Cayleb-Alvarez-James-Resume.pdf" download>PDF</a>
   </header>
 
   <main id="main">
     <header class="project-hero">
       <div class="wrap project-hero__main">
-        <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Release v1.31.0 · Antigravity Swarm Sidebar Plugin · checked 26 November 2026</p>
-        <h1 class="case-hero__title">Track the whole swarm from the side pane.</h1>
-        <p class="case-hero__out">Fleet <code>v1.31.0</code> runs inside Antigravity's auxiliary side pane (<code>SIDECAR_UI_ENTRYPOINT_AUX_PANE</code>, installed into <code>~/.gemini/config/plugins/fleet/</code> via <code>./install.sh</code>) backed by a zero-dependency Node ESM sidecar. Earlier standalone Rust releases remain tagged at <code>v0.12.0</code>. Release <code>v1.31.0</code> hardens BOM-stripped atomic JSON recovery with <code>O_NOFOLLOW</code> and size-bounded reads in <code>fleet_ops.json</code> and <code>fleet_state.json</code>, adds symlink exclusion and signature-checked <code>portfolioCache</code>, bounds concurrent git probes with <code>504</code> timeouts and unborn or detached HEAD handling, enforces strict loopback <code>Host</code> and <code>Origin</code> checks, keeps 1px button borders under <code>@layer components</code> across Light and Dark themes, and adds <code>fetchWithTimeout</code>, <code>AbortSignal</code>, and inline <code>Abort</code> and <code>Retry</code> recovery across worktree, portfolio, and checkpoint errors.</p>
-        <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>Checked at 02c0011: 52/52 sidecar tests, 74/74 UI gate checks, 8/8 replays, 30/30 live-web checks, 1,765.1 req/s (17.3 ms p95), 37.64 ms boot, 118.38 MB RSS, 5/5 SSE, and 30/30 fuzz pass.</li>
-          <li><span class="chip chip--current">v1.31.0 plugin</span></li>
+        <a class="project-back" href="./">← All projects</a>
+        <h1 class="case-hero__title">Fleet</h1>
+        <ul class="project-status">
+          <li><a href="../demos/fleet/">Try it in your browser</a></li>
+          <li><a href="https://github.com/cayleb-james2008/fleet">GitHub</a></li>
+          <li><a href="https://github.com/cayleb-james2008/fleet/releases/latest">Latest release</a></li>
         </ul>
-        <div class="hero-actions">
-          <a class="btn-primary" href="../demos/fleet/">Launch live sidebar preview ↗</a>
-          <a class="btn-outline" href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.31.0" target="_blank" rel="noreferrer noopener">Release v1.31.0 on GitHub ↗</a>
-        </div>
       </div>
     </header>
-
-    <div class="wrap project-top">
-      <nav class="project-index" aria-label="On this page">
-        <a href="#figures">interface &amp; walkthrough</a>
-        <a href="#schematic">board states</a>
-        <a href="#capabilities">how it works</a>
-        <a href="#record">what is proven</a>
-        <a href="#limits">known limits</a>
-      </nav>
-
-      <section class="project-figures" id="figures" aria-labelledby="figures-h">
-        <h2 class="vis-kicker" id="figures-h">Sidebar captures and walkthrough</h2>
-        <div class="figure-grid">
-          <figure class="viz viz--shot">
-            <div class="viz__head viz__head--shot">
-              <span class="viz__title">Fleet v1.31.0 Antigravity Sidebar</span>
-              <span class="viz__live">live capture</span>
-              <span class="viz__note">Cycle 4 Hardening · Atomic JSON, Git Probes &amp; Retry Recovery</span>
-            </div>
-            <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/fleet-v1310-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Fleet v1.31.0">
-                <img src="../assets/projects/captures/fleet-v1310-light.png" alt="Fleet v1.31.0 capture in Light theme showing hardened worktree controls, bordered Rebase and action buttons, and swarm triage recovery." width="1440" height="900" loading="eager" decoding="async">
-              </a>
-              <a class="shot-dark" href="../assets/projects/captures/fleet-v1310-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Fleet v1.31.0">
-                <img src="../assets/projects/captures/fleet-v1310-dark.png" alt="Fleet v1.31.0 capture in Dark theme showing hardened worktree controls, bordered Rebase and action buttons, and swarm triage recovery." width="1440" height="900" loading="eager" decoding="async">
-              </a>
-            </div>
-            <figcaption class="viz__cap">
-              <p class="viz__caption">Captured from Fleet <code>v1.31.0</code> in Light and Dark themes. The browser preview at <code>/demos/fleet/</code> includes hardened worktree action and pagination <code>Abort</code> and <code>Retry</code> controls, <code>@layer components</code> bordered action buttons, inline <code>Retry</code> recovery across worktree, portfolio, and checkpoint errors, elapsed wait indicators on <code>OperatorOpsStrip</code>, canonicalized swarm worktree discovery, expandable <code>Conflict diff</code> hunks, <code>PortfolioDrawer</code>, persistent triage <code>Ack</code> and <code>Snooze</code>, <code>SwarmCheckpointsSection</code>, bounded forensic transcript inspection, and sanitized archive exports.</p>
-              <p class="viz__source">Source: cayleb-james2008/fleet v1.31.0 · browser preview at /demos/fleet/</p>
-              <p class="viz__action">
-                <a class="viz__open" href="../demos/fleet/">open live web app ↗</a>
-              </p>
-            </figcaption>
-          </figure>
-
-          <figure class="viz" id="schematic">
-            <div class="viz__body">
-              <div class="sim-head">
-                <div class="sim-head__copy">
-                  <span class="sim-head__title">Three lanes, one mechanical rule</span>
-                  <span class="sim-head__sub">Dispatch two scripted sessions: one passes its test check on the committed tree, and the second lands in Needs you with the failing output.</span>
-                </div>
-                <button class="btn-outline" id="board-run" type="button">Dispatch two sessions</button>
-              </div>
-              <div class="sim-rows" id="board-rows">
-                <div class="sim-row">
-                  <span><span class="sim-row__task">Add CSV export endpoint</span> <span class="sim-row__agent">· opencode</span></span>
-                  <span class="sim-row__state">Ready to dispatch</span>
-                </div>
-                <div class="sim-row">
-                  <span><span class="sim-row__task">Fix invoice totals rounding</span> <span class="sim-row__agent">· claude</span></span>
-                  <span class="sim-row__state">Ready to dispatch</span>
-                </div>
-              </div>
-              <p class="sim-verdict" id="board-log" aria-live="polite">No sessions dispatched yet. Press “Dispatch two sessions” to trace the check gate.</p>
-            </div>
-          </figure>
-
-          <figure class="viz">
-            <div class="viz__body">
-              <div class="viz__head">
-                <span class="viz__title">Recorded walkthrough (v0.8.0 baseline capture)</span>
-                <span class="viz__note">OpenMotion chapters</span>
-              </div>
-              <div style="margin-top:16px">
-                <video class="walk-video" controls preload="metadata" playsinline poster="../assets/video/fleet-poster.jpg" src="../assets/video/fleet.mp4">
-                  <track kind="chapters" label="Chapters" srclang="en" default src="../assets/video/fleet-chapters.vtt">
-                </video>
-                <ol class="chapters">
-                  <li><button type="button" data-t="0.00"><span class="ct">0:00</span>Fleet Intro</button></li>
-                  <li><button type="button" data-t="4.00"><span class="ct">0:04</span>Board Telemetry and Multi-Wave Dispatch</button></li>
-                  <li><button type="button" data-t="13.00"><span class="ct">0:13</span>DAG Graph and Wave Dependencies</button></li>
-                  <li><button type="button" data-t="20.50"><span class="ct">0:20</span>Session Inspector, Split Diff, and PR Preview</button></li>
-                  <li><button type="button" data-t="29.70"><span class="ct">0:29</span>Worktree Inspector and Budget Guardrails</button></li>
-                  <li><button type="button" data-t="38.70"><span class="ct">0:38</span>Verified Summary</button></li>
-                </ol>
-              </div>
-            </div>
-            <figcaption class="viz__cap">
-              <p class="viz__caption">Walkthrough showing parallel board telemetry, wave dependencies, split diff inspection, confirmation-gated PR preview, worktree inspection, and Dark mode.</p>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-    </div>
-
-    <div class="wrap project-layout">
-      <article class="project-content">
-        <div class="project-prose">
-          <section id="capabilities">
-            <h2>How it works</h2>
-            <div class="project-prose__body">
-              <p>Fleet watches Antigravity's swarm board and transcript files over read-only local streams and packages the entire UI as a single pre-gzipped asset inside <code>~/.gemini/config/plugins/fleet/</code>.</p>
-              <div class="cap-grid">
-                <div class="cap-card">
-                  <span class="cap-card__tag">01 · Idle Sleep &amp; Full Swarm Archive</span>
-                  <h3>Sleep when idle and export full sanitized archives</h3>
-                  <p>The sidecar boots idle with zero background polling, pauses <code>sseTimer</code> on last disconnect, wakes on request, and exports masked <code>fleet.swarm-archive.v1</code> JSON or Markdown alongside live activity peeks.</p>
-                </div>
-                <div class="cap-card">
-                  <span class="cap-card__tag">02 · 88.59 ms --jitless &amp; 2,110.8 req/s</span>
-                  <h3>Faster cold boot and +30.5% HTTP throughput</h3>
-                  <p>Deferring heavy warmup until client arrival trims <code>--jitless</code> cold boot by <code>-23.4%</code> to <code>88.59 ms</code>, holds <code>--jitless</code> RSS at <code>68.02 MB</code>, and lifts HTTP <code>+30.5%</code> to <code>2,110.8 req/s</code> (<code>9.87 ms</code> p95).</p>
-                </div>
-                <div class="cap-card">
-                  <span class="cap-card__tag">03 · Confinement &amp; Export</span>
-                  <h3>Guarded diffs and masked logs</h3>
-                  <p>Multi-target <code>POST /api/nudge</code> bounds, path-confined <code>/api/worktrees/diff</code> checks, and <code>~/</code> home masking on board exports pass 30 raw-TCP security tests.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="record">
-            <h2>What is proven</h2>
-            <div class="project-prose__body">
-              <p>Measured against <code>cayleb-james2008/fleet</code> at release <code>v1.31.0</code> (<code>02c0011</code>).</p>
-              <table class="record-table">
-                <tbody>
-                  <tr><th>Sidecar &amp; installer suite</th><td>52 of 52 sidecar tests pass (covering BOM-stripped atomic JSON recovery with <code>O_NOFOLLOW</code> and size-bounded reads in <code>fleet_ops.json</code> and <code>fleet_state.json</code>, symlink exclusion in <code>scanSwarmIds</code>, signature-checked <code>portfolioCache</code>, concurrency-bounded git probes with <code>504</code> timeouts, unborn and detached HEAD handling, Unicode path decoding, loopback <code>Host</code>/<code>Origin</code> confinement, and <code>./install.sh --dest</code>).</td></tr>
-                  <tr><th>Scale audit (2k posts / 50k lines)</th><td><code>446,260 B</code> raw / <code>131,034 B</code> gzip UI, 37.64 ms cold boot, 118.38 MB peak RSS, 1,765.1 req/s (17.3 ms p95, 0/4,423 errors), 5/5 SSE, and 30/30 fuzz pass.</td></tr>
-                  <tr><th>UI &amp; standalone web preview</th><td>74 of 74 Playwright gate checks, 8 of 8 replays, 30 of 30 <code>test-live-web.mjs</code> checks (incl. <code>@layer components</code> 1px button borders across Light and Dark themes, <code>fetchWithTimeout</code> and <code>AbortSignal</code> RPC cancellation, <code>Abort</code> and <code>Retry</code> controls on worktree actions and 32 KiB diff pagination, inline <code>Retry</code> recovery on worktree, portfolio, and checkpoint errors, same-tick triage locks, and elapsed wait indicators on <code>OperatorOpsStrip</code>), 0 FAIL / 0 REFLEX / 0 WARN Sloplint (across 13 source files and built dist, render tier ran), zero console errors across <code>380x844</code> and <code>1440x900</code> Light and Dark, and offline <code>dist-live-web/index.html</code> (<code>696.6 kB</code>) with zero external requests.</td></tr>
-                  <tr><th>Antigravity plugin packaging</th><td><code>.tar.gz</code>, <code>.zip</code>, and <code>SHA256SUMS</code> published at <a href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.31.0" target="_blank" rel="noreferrer noopener">v1.31.0 Release</a>; local install via <code>./install.sh</code> into <code>~/.gemini/config/plugins/fleet/</code>.</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-        </div>
-
-        <section class="project-limits" id="limits" aria-labelledby="limits-h">
-          <h2 id="limits-h">Known limits</h2>
-          <ul>
-            <li>Fleet reads Antigravity <code>&lt;appData&gt;/brain/</code> swarm state read-only and never calls model APIs itself. Worker nudges stop for confirmation and route through Antigravity's bridge.</li>
-            <li><code>toggleConversation</code>, <code>toggleAuxPane</code>, and <code>agent.sendMessage</code> host hooks require Antigravity (<code>SidecarApp</code> / <code>/preload.js</code>); standalone mode and <code>/demos/fleet/</code> run the offline simulator.</li>
-          </ul>
-        </section>
-      </article>
-
-      <aside class="project-aside">
-        <h2>Evidence</h2>
-        <dl class="repo-facts">
-          <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/fleet">cayleb-james2008/fleet</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.31.0</b> · Antigravity Plugin</dd></div>
-          <div class="repo-facts__row"><dt>checked</dt><dd>26 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.31.0 plugin</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/fleet/">Live preview</a> · <a href="https://github.com/cayleb-james2008/fleet">GitHub</a> · <a href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.31.0">Release v1.31.0</a></dd></div>
-        </dl>
-        <p class="project-aside__more"><a href="../index.html">← Back to home</a></p>
-      </aside>
-    </div>
   </main>
-
-  <footer class="sub-footer">
-    <p>© 2026 Cayleb Alvarez-James.</p>
-    <ul aria-label="Elsewhere">
-      <li><a href="../index.html">Résumé</a></li>
-      <li><a href="./">All projects</a></li>
-      <li><a href="https://github.com/cayleb-james2008/fleet">GitHub</a></li>
-      <li><a href="mailto:caylebalvarezjames@gmail.com">Email</a></li>
-    </ul>
-  </footer>
-
-  <script>
-  (function () {
-    var runBtn = document.getElementById("board-run");
-    var rowsEl = document.getElementById("board-rows");
-    var logEl = document.getElementById("board-log");
-    if (runBtn && rowsEl && logEl) {
-      var SESSIONS = [
-        { task: "Add CSV export endpoint", agent: "opencode", check: "npm test", ok: true, detail: "Done · npm test: 24 passed in 3.1s" },
-        { task: "Fix invoice totals rounding", agent: "claude", check: "npm test", ok: false, detail: "Needs you · npm test: expected 41.20, got 41.19" }
-      ];
-      var renderRows = function (items) {
-        rowsEl.innerHTML = items.map(function (s) {
-          var cls = s.tone ? " sim-row--" + s.tone : "";
-          return '<div class="sim-row' + cls + '">'
-            + '<span><span class="sim-row__task">' + s.task + '</span> <span class="sim-row__agent">· ' + s.agent + '</span></span>'
-            + '<span class="sim-row__state">' + s.state + '</span></div>';
-        }).join("");
-      };
-      var reduced = function () { try { return matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } };
-      runBtn.addEventListener("click", function () {
-        if (reduced()) {
-          renderRows(SESSIONS.map(function (s) { return { task: s.task, agent: s.agent, state: s.detail, tone: s.ok ? "ok" : "warn" }; }));
-          logEl.textContent = "Result: 1 verified done with check receipt; 1 routed to Needs you with exact failure line.";
-          return;
-        }
-        runBtn.disabled = true;
-        renderRows(SESSIONS.map(function (s) { return { task: s.task, agent: s.agent, state: "Working · agent running in worktree", tone: "" }; }));
-        logEl.textContent = "Two sessions dispatched, each isolated in its own git worktree.";
-        setTimeout(function () {
-          renderRows(SESSIONS.map(function (s) { return { task: s.task, agent: s.agent, state: "Checking · Fleet running " + s.check, tone: "" }; }));
-          logEl.textContent = "Agents exited. Fleet commits each tree and runs the check command in a clean checkout.";
-        }, 550);
-        setTimeout(function () {
-          renderRows(SESSIONS.map(function (s) { return { task: s.task, agent: s.agent, state: s.detail, tone: s.ok ? "ok" : "warn" }; }));
-          logEl.textContent = "Result: 1 verified done with check receipt; 1 routed to Needs you with exact failure line.";
-          runBtn.disabled = false;
-          runBtn.textContent = "Dispatch again";
-        }, 1150);
-      });
-    }
-    var video = document.querySelector(".walk-video");
-    var cbtns = document.querySelectorAll(".chapters button");
-    if (video && cbtns.length) {
-      if (video.textTracks && video.textTracks.length) video.textTracks[0].mode = "hidden";
-      cbtns.forEach(function (b) {
-        b.addEventListener("click", function () {
-          video.currentTime = parseFloat(b.getAttribute("data-t"));
-          if (video.paused) video.play();
-        });
-      });
-      video.addEventListener("timeupdate", function () {
-        var t = video.currentTime, cur = null;
-        cbtns.forEach(function (b) { if (parseFloat(b.getAttribute("data-t")) <= t + 0.05) cur = b; });
-        cbtns.forEach(function (b) { b.classList.toggle("on", b === cur); });
-      });
-    }
-  })();
-  </script>
 </body>
 </html>

@@ -201,7 +201,7 @@ inputs; none of them built, edited or planned the site (the full records are und
   124.0.6367.219: no iOS, no real phone, no Firefox, no Safari; and playback of the video on
   Cayleb's own phone from Slack was not tried.
 - **The 15 other project pages** were gated page by page (text, rules, contrast, both widths and
-  themes) and seen by the reviewers mainly through the shared skin plus Sophos and Industry AI Suite;
+  themes) and seen by the reviewers mainly through the shared skin;
   they were not each looked at state by state.
 - **320 wide** was measured (overflow, masthead, contents line) but not looked at state by state.
 - **Performance** (largest paint, layout shift, blocking time) was not measured.

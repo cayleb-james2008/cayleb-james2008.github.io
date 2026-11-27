@@ -4,14 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Ergon · Cayleb Alvarez-James</title>
-  <meta name="description" content="Ergon v0.40.0 is a single-binary Rust desktop and web desk for local employee agents with hardened client vault isolation, CSV/XLSX formula escaping, SSRF and MCP validation, atomic DAG slot claims, SSE status reconciliation, concurrent run isolation, 5-field Cron scheduling, and SHA-256 receipts.">
+  <meta name="description" content="Ergon adapts. It learns each employee&#x27;s workflow and the tools they already use, then turns them into Ergon-native tools that every agent on Ergon can use.">
+  <meta property="og:description" content="Ergon adapts. It learns each employee&#x27;s workflow and the tools they already use, then turns them into Ergon-native tools that every agent on Ergon can use.">
+  <meta name="twitter:description" content="Ergon adapts. It learns each employee&#x27;s workflow and the tools they already use, then turns them into Ergon-native tools that every agent on Ergon can use.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/ergon.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="Ergon · Cayleb Alvarez-James">
-  <meta property="og:description" content="Single-binary Rust desktop and web desk for local employee agents with hardened client vaults, SSRF and MCP checks, atomic DAG worker slot claims, SSE reconciliation, 5-field Cron scheduling, and SHA-256 receipts (v0.40.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/ergon.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0f2f5">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e1013">
@@ -28,236 +30,30 @@
     <a class="sub-wordmark" href="../index.html" aria-label="Cayleb Alvarez-James, home">Cayleb<span class="wm-dot">.</span>AJ</a>
     <nav aria-label="Primary">
       <ul>
-        <li><a href="../index.html#summary">Résumé</a></li>
+        <li><a href="../index.html#summary">About</a></li>
         <li><a href="../index.html#experience">Experience</a></li>
         <li><a href="../index.html#projects">Projects</a></li>
-        <li><a href="../index.html#live-demos">Live apps</a></li>
+        <li><a href="../index.html#live-demos">Apps</a></li>
       </ul>
     </nav>
-    <a class="sub-resume" href="../Cayleb-Alvarez-James-Resume-Anthropic-2026-11-06.pdf" download>Résumé PDF</a>
+    <a class="sub-resume" href="../Cayleb-Alvarez-James-Resume.pdf" download>PDF</a>
   </header>
 
   <main id="main">
     <header class="project-hero">
       <div class="wrap project-hero__main">
-        <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Release v0.40.0 · Single-Binary Rust Desktop &amp; Web App · checked 27 November 2026</p>
-        <h1 class="case-hero__title">Local workflows for one employee desk.</h1>
-        <p class="case-hero__out">Ergon ships as a single <code>8.83 MiB</code> cross-platform Rust binary for Linux, macOS, and Windows. Release <code>v0.40.0</code> completes Cycle 4 Wave H1 hardening across client vaults, protocol connectors, MCP registration, DAG scheduling, and responsive workbench dialogs without adding new features.</p>
-        <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>Checked at 48fea71e4: 303/303 Rust tests across 20 suites, 118/118 gate + 6/6 graph + 20/20 replay, 6.08 ms boot, 4,009.2 req/s (8.62 ms p95), 22.19 MB peak RSS, 5/5 SSE, and 44/44 fuzz pass.</li>
-          <li><span class="chip chip--current">v0.40.0 public</span></li>
+        <a class="project-back" href="./">← All projects</a>
+        <h1 class="case-hero__title">Ergon</h1>
+        <p class="case-hero__out">Ergon adapts. It learns each employee's workflow and the tools they already use, then turns them into Ergon-native tools that every agent on Ergon can use.</p>
+        <p class="case-hero__out" style="margin-top:.9rem">Who I picture using it: an older employee, picture a grandpa with a monocle, sees a microphone button, talks to his agent, and watches it take over his computer and use all his apps. No technical effort, nothing to set up.</p>
+        <p class="case-hero__out" style="margin-top:.9rem">Ergon is still in development and has not been installed at a customer company.</p>
+        <ul class="project-status">
+          <li><a href="../demos/ergon/">Try it in your browser (a typed preview; no voice, no backend)</a></li>
+          <li><a href="https://github.com/cayleb-james2008/ergon">GitHub</a></li>
+          <li><a href="https://github.com/cayleb-james2008/ergon/releases/latest">Latest release</a></li>
         </ul>
-        <div class="hero-actions">
-          <a class="btn-primary" href="../demos/ergon/">Launch live web app ↗</a>
-          <a class="btn-outline" href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.40.0" target="_blank" rel="noreferrer noopener">Release v0.40.0 on GitHub ↗</a>
-        </div>
       </div>
     </header>
-
-    <div class="wrap project-top">
-      <nav class="project-index" aria-label="On this page">
-        <a href="#figures">interface &amp; walkthrough</a>
-        <a href="#schematic">how a task runs</a>
-        <a href="#capabilities">what it does</a>
-        <a href="#record">verification record</a>
-        <a href="#limits">known limits</a>
-      </nav>
-
-      <section class="project-figures" id="figures" aria-labelledby="figures-h">
-        <h2 class="vis-kicker" id="figures-h">Interface captures and walkthrough</h2>
-        <div class="figure-grid">
-          <figure class="viz viz--shot">
-            <div class="viz__head viz__head--shot">
-              <span class="viz__title">Ergon v0.40.0 Cycle 4 Wave H1 Hardening</span>
-              <span class="viz__live">live capture</span>
-              <span class="viz__note">Light and Dark inside Settings</span>
-            </div>
-            <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/ergon-v0400-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Ergon v0.40.0">
-                <img src="../assets/projects/captures/ergon-v0400-light.png" alt="Ergon v0.40.0 workspace in Light theme showing the Recurring routines modal with sticky header, scheduler status, and starter playbooks." width="1440" height="900" loading="eager" decoding="async">
-              </a>
-              <a class="shot-dark" href="../assets/projects/captures/ergon-v0400-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Ergon v0.40.0">
-                <img src="../assets/projects/captures/ergon-v0400-dark.png" alt="Ergon v0.40.0 workspace in Dark theme showing the Recurring routines modal with sticky header, scheduler status, and starter playbooks." width="1440" height="900" loading="eager" decoding="async">
-              </a>
-            </div>
-            <figcaption class="viz__cap">
-              <p class="viz__caption">Captured from Ergon <code>v0.40.0</code> at <code>1440x900</code>. The browser edition at <code>/demos/ergon/</code> runs on local IndexedDB with hardened modal scrolling, SSE status reconciliation, concurrent multi-run timeline tracking, parallel branch checkpoints, Cron timezone scheduling, engagement-scoped client vaults, and invoicing parity.</p>
-              <p class="viz__source">Source: cayleb-james2008/ergon v0.40.0 · browser edition at /demos/ergon/</p>
-              <p class="viz__action">
-                <a class="viz__open" href="../demos/ergon/">open live web app ↗</a>
-              </p>
-            </figcaption>
-          </figure>
-
-          <figure class="viz" id="schematic">
-            <div class="viz__body">
-              <div class="sim-head">
-                <div class="sim-head__copy">
-                  <span class="sim-head__title">“Tidy my notes into one summary.”</span>
-                  <span class="sim-head__sub">Step sequence verified by Ergon’s integration suite.</span>
-                </div>
-                <button class="btn-outline" id="gate-run" type="button">Step through run</button>
-              </div>
-              <ol class="sim-steps" id="gate">
-                <li class="sim-step"><span class="sim-step__num">01</span><p>List and read inside the sandbox. The agent reads the two note files inside its assigned folder; paths outside that folder are refused by the host layer.</p></li>
-                <li class="sim-step"><span class="sim-step__num">02</span><p>Snapshot and write via a built-in workflow. Prior versions go into <code>.history/</code> before the merged output is written to <b>Summary.md</b>.</p></li>
-                <li class="sim-step"><span class="sim-step__num">03</span><p>Update per-person memory. Formatting preferences from the run are saved in the local memory store for later runs.</p></li>
-                <li class="sim-step"><span class="sim-step__num">04</span><p>Verify completion and chain a SHA-256 receipt. Claims are checked against disk writes and appended to the Field-Book audit chain.</p></li>
-              </ol>
-              <p class="sim-verdict" id="gate-verdict" aria-live="polite">Ready. Press “Step through run” to trace each stage.</p>
-            </div>
-          </figure>
-
-          <figure class="viz">
-            <div class="viz__body">
-              <div class="viz__head">
-                <span class="viz__title">Recorded walkthrough (v0.7.0 baseline capture)</span>
-                <span class="viz__note">OpenMotion chapters</span>
-              </div>
-              <div style="margin-top:16px">
-                <video class="walk-video" controls preload="metadata" playsinline poster="../assets/video/ergon-poster.jpg" src="../assets/video/ergon.mp4">
-                  <track kind="chapters" label="Chapters" srclang="en" default src="../assets/video/ergon-chapters.vtt">
-                </video>
-                <ol class="chapters">
-                  <li><button type="button" data-t="0.00"><span class="ct">0:00</span>Ergon Operations Desk Intro</button></li>
-                  <li><button type="button" data-t="4.00"><span class="ct">0:04</span>Workspace Switcher</button></li>
-                  <li><button type="button" data-t="12.00"><span class="ct">0:12</span>Deletion Approval, Receipts, and 12 Workflows</button></li>
-                  <li><button type="button" data-t="20.00"><span class="ct">0:20</span>Routine Scheduler and .history/ Restore</button></li>
-                  <li><button type="button" data-t="28.00"><span class="ct">0:28</span>Audit Bundle Export and Dark Mode</button></li>
-                  <li><button type="button" data-t="36.00"><span class="ct">0:36</span>Verified Summary</button></li>
-                </ol>
-              </div>
-            </div>
-            <figcaption class="viz__cap">
-              <p class="viz__caption">Walkthrough showing workspace switching, human deletion approval, SHA-256 receipts, routine pause/resume, <code>.history/</code> restore, and audit bundle export.</p>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-    </div>
-
-    <div class="wrap project-layout">
-      <article class="project-content">
-        <div class="project-prose">
-          <section id="capabilities">
-            <h2>What it does</h2>
-            <div class="project-prose__body">
-              <p>Ergon runs employee playbooks inside one Rust binary with pre-gzipped UI chunks embedded directly in <code>.rodata</code>.</p>
-              <div class="cap-grid">
-                <div class="cap-card">
-                  <span class="cap-card__tag">01 · Vaults &amp; Store Recovery</span>
-                  <h3>Isolation &amp; safe exports</h3>
-                  <p>CSV and XLSX exports neutralize formula injection in <code>escape_formula_cell</code> while leaving negative numbers alone. Built-in workflows enforce active engagement isolation alongside <code>GET /api/files</code>, and <code>time_entries.jsonl</code> plus <code>invoices.json</code> recover valid rows into <code>.json.bak</code> backups on corrupt inputs.</p>
-                </div>
-                <div class="cap-card">
-                  <span class="cap-card__tag">02 · SSRF, Mail &amp; MCP Guards</span>
-                  <h3>Strict egress &amp; redaction</h3>
-                  <p>SSRF checks block NAT64, 6to4, Teredo, non-standard IPv4 notations, and redirect hops into private ranges. SMTP and IMAP sessions bound line lengths and wall-clock timeouts, OAuth2 refresh errors scrub credentials, and stdio MCP registration rejects flag-like commands and secret placeholders.</p>
-                </div>
-                <div class="cap-card">
-                  <span class="cap-card__tag">03 · DAG Slots &amp; Mobile UI</span>
-                  <h3>Atomic claims &amp; SSE sync</h3>
-                  <p>Worker slot claims prevent duplicate execution across <code>/resume</code> and <code>/retry</code>, subpipeline cancels cascade to child runs, and <code>next_run_ms</code> handles leap-day and century bounds. Workbench dialogs keep sticky headers at <code>390x844</code> while SSE reconciles status after reconnects.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="record">
-            <h2>Verification record</h2>
-            <div class="project-prose__body">
-              <p>Measured against <code>cayleb-james2008/ergon</code> at release <code>v0.40.0</code> (<code>48fea71e4</code>).</p>
-              <table class="record-table">
-                <tbody>
-                  <tr><th>Rust, Windows &amp; Clippy</th><td>303 of 303 Rust tests pass across 20 suites (including <code>7/7</code> <code>hardening_c4h1</code> client vault, SSRF, MCP, DAG slot claim, and cron boundary checks), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo xwin check --target x86_64-pc-windows-msvc</code>).</td></tr>
-                  <tr><th>Security &amp; boundaries</th><td><code>escape_formula_cell</code> CSV/XLSX neutralization, engagement prefix isolation across <code>GET /api/files</code> and built-in workflows, <code>.json.bak</code> corrupt-store recovery, NAT64/6to4/Teredo/non-standard-IPv4 and redirect SSRF blocking, OAuth2 secret scrubbing, strict stdio MCP validation, CSRF Origin checks, Host-403, and CWE-22/CWE-59 guards.</td></tr>
-                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>8.83 MiB release binary (<code>9,257,832 B</code>), <code>42,306 B</code> gzip initial shell (<code>184,037 B</code> raw) plus 17 pre-gzipped <code>/chunks/*</code>, 6.08 ms cold boot, 22.19 MB peak RSS (<code>22,724 KB</code>) under 5k-receipt + 500-file + 5-SSE load, 4,009.2 req/s (3.84 ms p50, 8.62 ms p95, 10,036 reqs, 0 errors), 5/5 SSE survival, and 44/44 fuzz pass.</td></tr>
-                  <tr><th>UI &amp; standalone web app</th><td>118 of 118 Playwright UI checks, 6 of 6 Work Graph probes, 20 of 20 deterministic replays, 0 FAIL / 0 WARN / 0 REFLEX Sloplint across <code>frontend/src</code> (29 files) and rendered app, sticky modal headers with <code>0px</code> horizontal overflow across <code>1440x900</code> and <code>390x844</code> Light and Dark viewports, and standalone <code>ergon-web.html</code> (<code>1,616 KiB</code>) with zero third-party requests.</td></tr>
-                  <tr><th>Cross-platform packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.40.0" target="_blank" rel="noreferrer noopener">v0.40.0 Release</a>).</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-        </div>
-
-        <section class="project-limits" id="limits" aria-labelledby="limits-h">
-          <h2 id="limits-h">Known limits</h2>
-          <ul>
-            <li>Ergon is still in development and is not installed at any customer company; no pricing or adoption figures are claimed.</li>
-            <li>The app connects to running local OpenAI-compatible gateways on loopback or a provider configured in Settings. When no gateway or API key is available, it fails closed rather than making up output.</li>
-          </ul>
-        </section>
-      </article>
-
-      <aside class="project-aside">
-        <h2>Evidence</h2>
-        <dl class="repo-facts">
-          <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/ergon">cayleb-james2008/ergon</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v0.40.0</b> · Single-binary Rust</dd></div>
-          <div class="repo-facts__row"><dt>checked</dt><dd>27 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v0.40.0</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/ergon/">Live web app</a> · <a href="https://github.com/cayleb-james2008/ergon">GitHub</a> · <a href="https://github.com/cayleb-james2008/ergon/releases/tag/v0.40.0">Release v0.40.0</a></dd></div>
-        </dl>
-        <p class="project-aside__more"><a href="../index.html">← Back to home</a></p>
-      </aside>
-    </div>
   </main>
-
-  <footer class="sub-footer">
-    <p>© 2026 Cayleb Alvarez-James.</p>
-    <ul aria-label="Elsewhere">
-      <li><a href="../index.html">Résumé</a></li>
-      <li><a href="./">All projects</a></li>
-      <li><a href="https://github.com/cayleb-james2008/ergon">GitHub</a></li>
-      <li><a href="mailto:caylebalvarezjames@gmail.com">Email</a></li>
-    </ul>
-  </footer>
-
-  <script>
-  (function () {
-    var gate = document.getElementById("gate");
-    var btn = document.getElementById("gate-run");
-    var verdict = document.getElementById("gate-verdict");
-    if (gate && btn && verdict) {
-      var steps = gate.querySelectorAll(".sim-step");
-      var timers = [];
-      var reduced = function () { try { return matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } };
-      btn.addEventListener("click", function () {
-        timers.forEach(clearTimeout);
-        timers = [];
-        steps.forEach(function (s) { s.classList.remove("on"); });
-        if (reduced()) {
-          steps.forEach(function (s) { s.classList.add("on"); });
-          verdict.textContent = "DONE: Summary.md written, .history/ version recorded, memory updated, and SHA-256 receipt chained.";
-          return;
-        }
-        verdict.textContent = "Running trace…";
-        steps.forEach(function (s, i) {
-          timers.push(setTimeout(function () { s.classList.add("on"); }, 220 * (i + 1)));
-        });
-        timers.push(setTimeout(function () {
-          verdict.textContent = "DONE: Summary.md written, .history/ version recorded, memory updated, and SHA-256 receipt chained.";
-        }, 220 * (steps.length + 1)));
-      });
-    }
-    var video = document.querySelector(".walk-video");
-    var cbtns = document.querySelectorAll(".chapters button");
-    if (video && cbtns.length) {
-      if (video.textTracks && video.textTracks.length) video.textTracks[0].mode = "hidden";
-      cbtns.forEach(function (b) {
-        b.addEventListener("click", function () {
-          video.currentTime = parseFloat(b.getAttribute("data-t"));
-          if (video.paused) video.play();
-        });
-      });
-      video.addEventListener("timeupdate", function () {
-        var t = video.currentTime, cur = null;
-        cbtns.forEach(function (b) { if (parseFloat(b.getAttribute("data-t")) <= t + 0.05) cur = b; });
-        cbtns.forEach(function (b) { b.classList.toggle("on", b === cur); });
-      });
-    }
-  })();
-  </script>
 </body>
 </html>
