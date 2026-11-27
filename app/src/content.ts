@@ -44,7 +44,7 @@ export const experience = [
     org: "Founder · Independent AI Agent Systems",
     bullets: [
       "Built Ergon (v0.39.0) as a single-binary Rust desk for local employee agents. Unifies the DAG pipeline engine and routine scheduler with `run_id`-keyed `LiveRuns` concurrent run isolation (`GET /api/runs/status` `runs[]` and targeted `POST /api/runs/:id/cancel`), parallel branch `pending_checkpoints[]` with per-step `step_snapshots`, step `timeout_secs`, `retry_max`, `retry_backoff_ms`, `on_error` (`fail`, `continue`, `goto:<step_id>`), depth-capped nested `subpipeline` steps, offline deterministic `steps_v2` routines, and 5-field Cron scheduling with `tz` and `tz_offset_mins` validation alongside SMTPS/STARTTLS email delivery, IMAP intake, OAuth2 refresh, MCP connectors, engagement-scoped client vaults, billable invoicing, and full-vault chunked hybrid search (296/296 Rust tests, 115/115 gate checks, 3,639 req/s, 44/44 fuzz checks). Ergon is still in development and has not been installed at a customer company.",
-      "Built Fleet (v1.30.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. Adds canonicalized swarm worktree root discovery (resolveGitRepoRoot deduplication and swarmOwner badges on GET /api/worktrees), expandable mode=conflict hunks with <= 32 KiB paginated diffs and Send conflict to @owner routing, and confirmation-gated squash_merge and merge_commit actions with automatic 409 conflict abort and reset alongside the multi-swarm portfolio drawer, persistent triage ack and snooze state, server-synced pins, and swarm checkpoints (49/49 backend tests, 72/72 gate checks, 30/30 live-web, 30/30 fuzz).",
+      "Built Fleet (v1.31.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. Hardens BOM-stripped atomic JSON recovery with O_NOFOLLOW and size-bounded reads in fleet_ops.json and fleet_state.json, symlink exclusion and signature-checked portfolioCache, concurrency-bounded git probes with 504 timeouts, unborn and detached HEAD handling, strict loopback Host and Origin checks, @layer components button borders, fetchWithTimeout and AbortSignal RPC controls, and inline Abort and Retry recovery across worktree, portfolio, and checkpoint errors alongside canonicalized swarm worktree discovery, conflict hunks, portfolio drawer, and swarm checkpoints (52/52 backend tests, 74/74 gate checks, 30/30 live-web, 30/30 fuzz).",
       "Built OpenRO (v1.29.0), a unified three-pane Rust IDE for Roblox Studio adding workspace-wide Luau symbol indexing (`GET /api/projects/:id/luau/symbols`), cross-file contract proving and optional `luau-analyze` typechecking (`POST /api/projects/:id/luau/typecheck`), F12 and Go to Definition lookup (`GET /api/projects/:id/luau/definition`), clickable line-gutter mismatch tooltips, and a filterable `Symbols & Exports` outline rail alongside production LiveOps telemetry codegen and Open Cloud shard sync, bidirectional 3-way Studio sync, prefab model import, headless Lune `0.11.1` sandbox verification, ScreenGui Designer, 13 MCP tools, and 60-minute economy curves (`374/374` Rust tests, `6,356 req/s`, `43/43` fuzz).",
     ],
   },
@@ -192,10 +192,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Fleet",
     href: "/projects/fleet.html",
-    pitch: "Antigravity sidebar plugin for multi-agent swarms with swarm-linked worktree discovery, conflict hunk inspection, paginated diffs, squash and merge landing, a portfolio drawer, and checkpoints (v1.30.0).",
-    img: "/assets/projects/captures/fleet-v1300-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1300-dark.png",
-    alt: "Fleet v1.30.0 Antigravity sidebar showing swarm-linked git worktrees, expandable conflict diff hunks, and Squash Merge and Merge Commit confirmation controls.",
+    pitch: "Antigravity sidebar plugin for multi-agent swarms with atomic JSON recovery, bounded git worktree probes, RPC timeout and retry controls, conflict hunk inspection, a portfolio drawer, and checkpoints (v1.31.0).",
+    img: "/assets/projects/captures/fleet-v1310-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1310-dark.png",
+    alt: "Fleet v1.31.0 Antigravity sidebar showing hardened worktree controls, bordered Rebase and action buttons, and swarm triage recovery.",
   },
 ];
 
@@ -246,7 +246,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.29.0, OpenBell v0.9.0, Fleet v1.30.0, and Ergon v0.39.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.29.0, OpenBell v0.9.0, Fleet v1.31.0, and Ergon v0.39.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
@@ -314,18 +314,18 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Fleet",
     tag: "APP-03",
-    title: "Fleet (v1.30.0 Antigravity Swarm Sidebar)",
-    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Open Worktrees to inspect swarm-linked git worktrees, expand mode=conflict hunks with 32 KiB paginated diffs, run Squash Merge or Merge Commit confirmation drawers, open the Portfolio Command Drawer, or create Swarm Checkpoints.",
+    title: "Fleet (v1.31.0 Antigravity Swarm Sidebar)",
+    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Open Worktrees to inspect swarm-linked git worktrees, expand mode=conflict hunks with 32 KiB paginated diffs and Abort or Retry controls, run Squash Merge or Merge Commit drawers, open the Portfolio Command Drawer, or create Swarm Checkpoints.",
     url: "/demos/fleet/",
-    img: "/assets/projects/captures/fleet-v1300-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1300-dark.png",
+    img: "/assets/projects/captures/fleet-v1310-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1310-dark.png",
     page: "/projects/fleet.html",
     repo: "https://github.com/cayleb-james2008/fleet",
     storagePrefix: "fleet",
-    action: "open Worktrees to inspect swarmOwner badges, expand Conflict diff hunks with Load next 32 KiB pagination, test Squash Merge or Merge Commit confirmation drawers, or route conflicts to @owner.",
+    action: "open Worktrees to inspect swarmOwner badges, expand Conflict diff hunks with Load next 32 KiB and Abort or Retry recovery, test Squash Merge or Merge Commit drawers, or inspect inline Retry and wait timers in Triage.",
     provenance: [
-      { label: "What runs:", text: "the single-file Fleet v1.30.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying canonicalized swarm worktree root discovery (GET /api/worktrees), paginated mode=conflict hunk inspection (GET /api/worktrees/diff), confirmation-gated squash_merge and merge_commit actions with 409 conflict abort and @owner recovery, the LRU=64 portfolio index and PortfolioDrawer, persistent fleet_state.json triage Ack/Snooze/Unack and server-synced pins, SwarmCheckpointsSection, the closed-loop fleet_ops.json operator command ledger, and Full Swarm Archive Export at /demos/fleet/." },
-      { label: "Local Antigravity install:", text: "the browser copy stays offline; running ./install.sh in a local clone installs the sidecar plugin into ~/.gemini/config/plugins/fleet/ with bounded <= 512 KiB transcript scanning and secret scrubbing on GET /api/transcript, GET /api/swarm/delta long-poll wakeups, content-hash plan ETags, CWE-59 git probes, zero-client idle sleep, and live SSE ping frames." },
+      { label: "What runs:", text: "the single-file Fleet v1.31.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying RPC timeout and AbortSignal cancellation controls, Abort and Retry recovery on worktree actions and 32 KiB conflict diff pagination, inline Retry for portfolio and checkpoint errors, same-tick triage locks, elapsed wait indicators on OperatorOpsStrip, canonicalized swarm worktree discovery, SwarmCheckpointsSection, and Full Swarm Archive Export at /demos/fleet/." },
+      { label: "Local Antigravity install:", text: "the browser copy stays offline; running ./install.sh in a local clone installs the sidecar plugin into ~/.gemini/config/plugins/fleet/ with BOM-stripped atomic JSON recovery and O_NOFOLLOW bounds on fleet_ops.json and fleet_state.json, symlink exclusion in scanSwarmIds, signature-checked portfolioCache, concurrency-bounded git probes with 504 timeouts, unborn and detached HEAD handling, strict loopback Host and Origin checks, and live SSE ping frames." },
       { label: "Why it is here:", text: "you can step through live swarm triage, forensic transcript inspection, native plan editing, and the multi-agent release gate checklist inside a narrow auxiliary pane layout." },
     ],
   },
