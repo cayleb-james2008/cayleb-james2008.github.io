@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Fleet · Cayleb Alvarez-James</title>
-  <meta name="description" content="Fleet v1.29.0 is an Antigravity sidebar plugin for multi-agent swarms with a multi-swarm Portfolio Command Drawer, persistent triage ack and snooze state, server-synced pins, and swarm checkpoints.">
+  <meta name="description" content="Fleet v1.30.0 is an Antigravity sidebar plugin for multi-agent swarms with swarm-linked worktree discovery, conflict hunk inspection, paginated diffs, and confirmation-gated squash and merge landing.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/fleet.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="Fleet · Cayleb Alvarez-James">
-  <meta property="og:description" content="Antigravity sidebar plugin for multi-agent swarms with a multi-swarm Portfolio Command Drawer, persistent triage ack and snooze state, server-synced pins, and swarm checkpoints (v1.29.0).">
+  <meta property="og:description" content="Antigravity sidebar plugin for multi-agent swarms with swarm-linked worktree discovery, conflict hunk inspection, paginated diffs, and squash and merge landing (v1.30.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/fleet.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -41,16 +41,16 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta">Release v1.29.0 · Antigravity Swarm Sidebar Plugin · checked 26 November 2026</p>
+        <p class="case-hero__meta">Release v1.30.0 · Antigravity Swarm Sidebar Plugin · checked 26 November 2026</p>
         <h1 class="case-hero__title">Track the whole swarm from the side pane.</h1>
-        <p class="case-hero__out">Fleet <code>v1.29.0</code> runs inside Antigravity's auxiliary side pane (<code>SIDECAR_UI_ENTRYPOINT_AUX_PANE</code>, installed into <code>~/.gemini/config/plugins/fleet/</code> via <code>./install.sh</code>) backed by a zero-dependency Node ESM sidecar. Earlier standalone Rust releases remain tagged at <code>v0.12.0</code>. Release <code>v1.29.0</code> adds a multi-swarm <code>LRU=64</code> portfolio index and <code>PortfolioDrawer</code> (<code>GET /api/portfolio</code> aggregating USD spend, urgent cross-swarm triage items, <code>Jump to swarm</code>, and archive toggles), persistent <code>brain/</code>-confined <code>fleet_state.json</code> triage state (<code>Ack</code>, <code>Snooze</code>, <code>Unack</code>, <code>Show acked</code>, and server-synced pins via <code>POST /api/triage/ack</code> and <code>POST /api/pins</code>), and <code>SwarmCheckpointsSection</code> (<code>GET/POST /api/checkpoints</code> with worktree HEAD snapshots, <code>Compare vs live</code>, CAS <code>plan</code> restore, and <code>Resume prompt</code>).</p>
+        <p class="case-hero__out">Fleet <code>v1.30.0</code> runs inside Antigravity's auxiliary side pane (<code>SIDECAR_UI_ENTRYPOINT_AUX_PANE</code>, installed into <code>~/.gemini/config/plugins/fleet/</code> via <code>./install.sh</code>) backed by a zero-dependency Node ESM sidecar. Earlier standalone Rust releases remain tagged at <code>v0.12.0</code>. Release <code>v1.30.0</code> adds canonicalized swarm worktree discovery (<code>GET /api/worktrees</code> resolving and deduplicating explicit and swarm-discovered repo roots via <code>resolveGitRepoRoot</code> and tagging each worktree with <code>swarmOwner</code>), expandable <code>mode=conflict</code> hunks on <code>GET /api/worktrees/diff</code> with <code>&lt;= 32 KiB</code> byte-offset pagination and <code>Send conflict to @owner</code> recovery routing, and confirmation-gated <code>squash_merge</code> and <code>merge_commit</code> actions on <code>POST /api/worktrees/action</code> with automatic <code>409</code> conflict abort and reset.</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>Checked at ae5513a: 47/47 sidecar tests, 72/72 UI gate checks, 8/8 replays, 30/30 live-web checks, 1,584.9 req/s (14.81 ms p95), 52.36 ms boot, 109.61 MB RSS, 5/5 SSE, and 30/30 fuzz pass.</li>
-          <li><span class="chip chip--current">v1.29.0 plugin</span></li>
+          <li><span class="checked-dot" aria-hidden="true"></span>Checked at 3807e2b: 49/49 sidecar tests, 72/72 UI gate checks, 8/8 replays, 30/30 live-web checks, 1,776.7 req/s (12.95 ms p95), 49.11 ms boot, 115.29 MB RSS, 5/5 SSE, and 30/30 fuzz pass.</li>
+          <li><span class="chip chip--current">v1.30.0 plugin</span></li>
         </ul>
         <div class="hero-actions">
           <a class="btn-primary" href="../demos/fleet/">Launch live sidebar preview ↗</a>
-          <a class="btn-outline" href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.29.0" target="_blank" rel="noreferrer noopener">Release v1.29.0 on GitHub ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.30.0" target="_blank" rel="noreferrer noopener">Release v1.30.0 on GitHub ↗</a>
         </div>
       </div>
     </header>
@@ -69,21 +69,21 @@
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">Fleet v1.29.0 Antigravity Sidebar</span>
+              <span class="viz__title">Fleet v1.30.0 Antigravity Sidebar</span>
               <span class="viz__live">live capture</span>
-              <span class="viz__note">Cycle 4 Portfolio · Triage Ack &amp; Checkpoints</span>
+              <span class="viz__note">Cycle 4 Worktrees · Conflict Hunks &amp; Landing</span>
             </div>
             <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/fleet-v1290-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Fleet v1.29.0">
-                <img src="../assets/projects/captures/fleet-v1290-light.png" alt="Fleet v1.29.0 capture in Light theme showing the Portfolio Command Drawer, Triage Ack and Snooze controls, and Swarm Checkpoints." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-light" href="../assets/projects/captures/fleet-v1300-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of Fleet v1.30.0">
+                <img src="../assets/projects/captures/fleet-v1300-light.png" alt="Fleet v1.30.0 capture in Light theme showing swarm-linked git worktrees, expandable conflict hunks, and Squash Merge and Merge Commit confirmation controls." width="1440" height="900" loading="eager" decoding="async">
               </a>
-              <a class="shot-dark" href="../assets/projects/captures/fleet-v1290-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Fleet v1.29.0">
-                <img src="../assets/projects/captures/fleet-v1290-dark.png" alt="Fleet v1.29.0 capture in Dark theme showing the Portfolio Command Drawer, Triage Ack and Snooze controls, and Swarm Checkpoints." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-dark" href="../assets/projects/captures/fleet-v1300-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of Fleet v1.30.0">
+                <img src="../assets/projects/captures/fleet-v1300-dark.png" alt="Fleet v1.30.0 capture in Dark theme showing swarm-linked git worktrees, expandable conflict hunks, and Squash Merge and Merge Commit confirmation controls." width="1440" height="900" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured from Fleet <code>v1.29.0</code> in Light and Dark themes. The browser preview at <code>/demos/fleet/</code> includes the multi-swarm <code>PortfolioDrawer</code> (cross-swarm USD spend, urgent triage queue, <code>Jump to swarm</code>, and archive toggles), persistent triage <code>Ack</code>, <code>Snooze</code>, <code>Unack</code>, and server-synced pins, <code>SwarmCheckpointsSection</code> (<code>Create checkpoint</code>, <code>Compare vs live</code>, <code>Restore plan</code>, and <code>Resume prompt</code>), the closed-loop <code>OperatorOpsStrip</code> command queue, working-worker Switch Model <code>409 worker_not_waiting</code> confirmation guards, hardened Cycle 3 delta sync, bounded forensic transcript inspection, 1M context ceilings, 3-way <code>409</code> plan merge recovery, and sanitized archive exports.</p>
-              <p class="viz__source">Source: cayleb-james2008/fleet v1.29.0 · browser preview at /demos/fleet/</p>
+              <p class="viz__caption">Captured from Fleet <code>v1.30.0</code> in Light and Dark themes. The browser preview at <code>/demos/fleet/</code> includes canonicalized swarm worktree discovery with <code>swarmOwner</code> badges, expandable <code>Conflict diff</code> (<code>mode=conflict</code>) hunks with <code>Load next 32 KiB</code> pagination, <code>Squash Merge</code> and <code>Merge Commit</code> confirmation drawers with <code>409</code> conflict abort and <code>Send conflict to @owner</code> recovery, the multi-swarm <code>PortfolioDrawer</code>, persistent triage <code>Ack</code> and <code>Snooze</code>, <code>SwarmCheckpointsSection</code>, the closed-loop <code>OperatorOpsStrip</code> command queue, bounded forensic transcript inspection, and sanitized archive exports.</p>
+              <p class="viz__source">Source: cayleb-james2008/fleet v1.30.0 · browser preview at /demos/fleet/</p>
               <p class="viz__action">
                 <a class="viz__open" href="../demos/fleet/">open live web app ↗</a>
               </p>
@@ -171,13 +171,13 @@
           <section id="record">
             <h2>What is proven</h2>
             <div class="project-prose__body">
-              <p>Measured against <code>cayleb-james2008/fleet</code> at release <code>v1.29.0</code> (<code>ae5513a</code>).</p>
+              <p>Measured against <code>cayleb-james2008/fleet</code> at release <code>v1.30.0</code> (<code>3807e2b</code>).</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Sidecar &amp; installer suite</th><td>47 of 47 sidecar tests pass (covering the <code>LRU=64</code> portfolio index, <code>brain/</code>-confined atomic <code>fleet_state.json</code> persistence, <code>GET /api/portfolio</code>, <code>POST /api/triage/ack</code>, <code>POST /api/pins</code>, <code>POST /api/swarm/archive</code>, <code>GET/POST /api/checkpoints</code> with worktree HEADs, <code>POST /api/checkpoints/restore</code> CAS plan restore and resume prompts, the 64-entry <code>fleet_ops.json</code> command ledger, <code>409 worker_not_waiting</code> guards, and <code>./install.sh --dest</code>).</td></tr>
-                  <tr><th>Scale audit (2k posts / 50k lines)</th><td><code>429,110 B</code> raw / <code>127,122 B</code> gzip UI, 52.36 ms cold boot, 109.61 MB peak RSS, 1,584.9 req/s (14.81 ms p95, 0/3,975 errors), 5/5 SSE, and 30/30 fuzz pass.</td></tr>
-                  <tr><th>UI &amp; standalone web preview</th><td>72 of 72 Playwright gate checks, 8 of 8 replays, 30 of 30 <code>test-live-web.mjs</code> checks (incl. <code>PortfolioDrawer</code> cross-swarm spend and urgent triage jumps, persistent Triage <code>Ack</code>/<code>Snooze</code>/<code>Unack</code> and server-synced pins, <code>SwarmCheckpointsSection</code> create/compare/restore/resume, <code>OperatorOpsStrip</code> queue actions, Switch Model <code>409</code> guard, forensic transcript drawer, and 409 3-way plan merge), 0 FAIL / 0 REFLEX / 0 WARN Sloplint (across 13 source files and built dist, render tier ran), zero console errors across <code>380x844</code> and <code>1440x900</code> Light and Dark, and offline <code>dist-live-web/index.html</code> (<code>674.9 kB</code>) with zero external requests.</td></tr>
-                  <tr><th>Antigravity plugin packaging</th><td><code>.tar.gz</code>, <code>.zip</code>, and <code>SHA256SUMS</code> published at <a href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.29.0" target="_blank" rel="noreferrer noopener">v1.29.0 Release</a>; local install via <code>./install.sh</code> into <code>~/.gemini/config/plugins/fleet/</code>.</td></tr>
+                  <tr><th>Sidecar &amp; installer suite</th><td>49 of 49 sidecar tests pass (covering <code>resolveGitRepoRoot</code> multi-root worktree deduplication and <code>swarmOwner</code> correlation, <code>GET /api/worktrees/diff?mode=conflict</code> with <code>&lt;= 32 KiB</code> byte-offset pagination, confirmation-gated <code>squash_merge</code> and <code>merge_commit</code> with automatic <code>409</code> abort and reset, the <code>LRU=64</code> portfolio index, <code>fleet_state.json</code> persistence, swarm checkpoints, the <code>fleet_ops.json</code> command ledger, and <code>./install.sh --dest</code>).</td></tr>
+                  <tr><th>Scale audit (2k posts / 50k lines)</th><td><code>435,483 B</code> raw / <code>128,851 B</code> gzip UI, 49.11 ms cold boot, 115.29 MB peak RSS, 1,776.7 req/s (12.95 ms p95, 0/4,449 errors), 5/5 SSE, and 30/30 fuzz pass.</td></tr>
+                  <tr><th>UI &amp; standalone web preview</th><td>72 of 72 Playwright gate checks, 8 of 8 replays, 30 of 30 <code>test-live-web.mjs</code> checks (incl. <code>swarmOwner</code> worktree badges, paginated <code>mode=conflict</code> hunks, <code>Squash Merge</code> and <code>Merge Commit</code> drawers, <code>Send conflict to @owner</code> routing, <code>PortfolioDrawer</code>, persistent Triage <code>Ack</code>/<code>Snooze</code>/<code>Unack</code>, <code>SwarmCheckpointsSection</code>, <code>OperatorOpsStrip</code>, and 409 3-way plan merge), 0 FAIL / 0 REFLEX / 0 WARN Sloplint (across 13 source files and built dist, render tier ran), zero console errors across <code>380x844</code> and <code>1440x900</code> Light and Dark, and offline <code>dist-live-web/index.html</code> (<code>686.1 kB</code>) with zero external requests.</td></tr>
+                  <tr><th>Antigravity plugin packaging</th><td><code>.tar.gz</code>, <code>.zip</code>, and <code>SHA256SUMS</code> published at <a href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.30.0" target="_blank" rel="noreferrer noopener">v1.30.0 Release</a>; local install via <code>./install.sh</code> into <code>~/.gemini/config/plugins/fleet/</code>.</td></tr>
                 </tbody>
               </table>
             </div>
@@ -197,10 +197,10 @@
         <h2>Evidence</h2>
         <dl class="repo-facts">
           <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/fleet">cayleb-james2008/fleet</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.29.0</b> · Antigravity Plugin</dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.30.0</b> · Antigravity Plugin</dd></div>
           <div class="repo-facts__row"><dt>checked</dt><dd>26 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.29.0 plugin</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/fleet/">Live preview</a> · <a href="https://github.com/cayleb-james2008/fleet">GitHub</a> · <a href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.29.0">Release v1.29.0</a></dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.30.0 plugin</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/fleet/">Live preview</a> · <a href="https://github.com/cayleb-james2008/fleet">GitHub</a> · <a href="https://github.com/cayleb-james2008/fleet/releases/tag/v1.30.0">Release v1.30.0</a></dd></div>
         </dl>
         <p class="project-aside__more"><a href="../index.html">← Back to home</a></p>
       </aside>

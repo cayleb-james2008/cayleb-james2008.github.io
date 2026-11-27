@@ -44,7 +44,7 @@ export const experience = [
     org: "Founder · Independent AI Agent Systems",
     bullets: [
       "Built Ergon (v0.38.0) as a single-binary Rust desk for local employee agents. Adds real `rustls` SMTPS and STARTTLS outbound email delivery with MIME attachments up to 10 MB (`SmtpTarget`), IMAP inbox polling into `workspace/intake/` (`imap_poll`), OAuth2 token refresh (`OAuth2Config`) into `0600` `connector_secrets.json`, and Model Context Protocol (`stdio` and `http_sse`) client and gated read-only inbound server support (`src/mcp.rs`, `/api/mcp/servers`, `POST /api/mcp/inbound`, and Today `mcp_tool_call` approvals) alongside engagement-scoped client vaults, CRM and SOW drawers, billable time and expense invoicing, parallel DAG pipelines, and full-vault chunked hybrid search (291/291 Rust tests, 110/110 gate checks, 4,366 req/s, 44/44 fuzz checks). Ergon is still in development and has not been installed at a customer company.",
-      "Built Fleet (v1.29.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. Adds a multi-swarm LRU=64 portfolio index and PortfolioDrawer (GET /api/portfolio with cross-swarm USD spend, urgent triage queue, Jump to swarm, and archive toggles), persistent brain/-confined fleet_state.json triage Ack/Snooze/Unack and server-synced pins (POST /api/triage/ack, POST /api/pins), and SwarmCheckpointsSection (GET/POST /api/checkpoints with worktree HEAD snapshots, Compare vs live, CAS plan restore, and Resume prompt) alongside the closed-loop operator command ledger, Switch Model working guard, and hardened Cycle 3 delta sync (47/47 backend tests, 72/72 gate checks, 30/30 live-web, 30/30 fuzz).",
+      "Built Fleet (v1.30.0) as a sidebar plugin inside Antigravity for coordinating multi-agent swarms. Adds canonicalized swarm worktree root discovery (resolveGitRepoRoot deduplication and swarmOwner badges on GET /api/worktrees), expandable mode=conflict hunks with <= 32 KiB paginated diffs and Send conflict to @owner routing, and confirmation-gated squash_merge and merge_commit actions with automatic 409 conflict abort and reset alongside the multi-swarm portfolio drawer, persistent triage ack and snooze state, server-synced pins, and swarm checkpoints (49/49 backend tests, 72/72 gate checks, 30/30 live-web, 30/30 fuzz).",
       "Built OpenRO (v1.28.0), a unified three-pane Rust IDE for Roblox Studio adding production LiveOps telemetry codegen (`src/shared/LiveTelemetry.luau` and `src/server/LiveTelemetryFlush.server.luau` supporting `opencloud_datastore` and HTTPS SSRF-guarded `webhook_relay`), idempotent Open Cloud v2 DataStore shard sync with `.openro/liveops/telemetry-sync-state.json` cursor deduplication, `Live Production` versus `Headless Sandbox` source filtering, and `Live Server Errors` aggregation with one-click script jump alongside bidirectional 3-way Studio sync, prefab model import, headless Lune `0.11.1` sandbox verification, ScreenGui Designer, 13 MCP tools, and 60-minute economy curves (`369/369` Rust tests, `7,620 req/s`, `43/43` fuzz).",
     ],
   },
@@ -192,10 +192,10 @@ export const productPages: ProductPage[] = [
   {
     name: "Fleet",
     href: "/projects/fleet.html",
-    pitch: "Antigravity sidebar plugin for multi-agent swarms with a Portfolio Command Drawer, persistent triage ack and snooze, server-synced pins, swarm checkpoints, and closed-loop operator command tracking (v1.29.0).",
-    img: "/assets/projects/captures/fleet-v1290-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1290-dark.png",
-    alt: "Fleet v1.29.0 Antigravity sidebar showing the Portfolio Command Drawer, Triage Ack and Snooze controls, and Swarm Checkpoints.",
+    pitch: "Antigravity sidebar plugin for multi-agent swarms with swarm-linked worktree discovery, conflict hunk inspection, paginated diffs, squash and merge landing, a portfolio drawer, and checkpoints (v1.30.0).",
+    img: "/assets/projects/captures/fleet-v1300-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1300-dark.png",
+    alt: "Fleet v1.30.0 Antigravity sidebar showing swarm-linked git worktrees, expandable conflict diff hunks, and Squash Merge and Merge Commit confirmation controls.",
   },
 ];
 
@@ -246,7 +246,7 @@ export const education = {
 };
 
 export const colophon = {
-  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.28.0, OpenBell v0.9.0, Fleet v1.29.0, and Ergon v0.38.0 directly in your browser below with zero external network calls.",
+  line: "The plain PDF is the submission copy. Press Cmd+K to jump between sections, or try Open-Ro v1.28.0, OpenBell v0.9.0, Fleet v1.30.0, and Ergon v0.38.0 directly in your browser below with zero external network calls.",
 };
 
 export type LiveDemo = {
@@ -314,17 +314,17 @@ export const liveDemos: LiveDemo[] = [
   {
     key: "Fleet",
     tag: "APP-03",
-    title: "Fleet (v1.29.0 Antigravity Swarm Sidebar)",
-    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Open the header Portfolio Command Drawer for cross-swarm USD spend and urgent triage jumps, Ack or Snooze triage alerts, create Swarm Checkpoints with live diff comparison and CAS plan restore, inspect OperatorOpsStrip command queues, and test Switch Model 409 guards.",
+    title: "Fleet (v1.30.0 Antigravity Swarm Sidebar)",
+    blurb: "Offline preview of the Antigravity swarm sidebar plugin. Open Worktrees to inspect swarm-linked git worktrees, expand mode=conflict hunks with 32 KiB paginated diffs, run Squash Merge or Merge Commit confirmation drawers, open the Portfolio Command Drawer, or create Swarm Checkpoints.",
     url: "/demos/fleet/",
-    img: "/assets/projects/captures/fleet-v1290-light.png",
-    darkImg: "/assets/projects/captures/fleet-v1290-dark.png",
+    img: "/assets/projects/captures/fleet-v1300-light.png",
+    darkImg: "/assets/projects/captures/fleet-v1300-dark.png",
     page: "/projects/fleet.html",
     repo: "https://github.com/cayleb-james2008/fleet",
     storagePrefix: "fleet",
-    action: "open the Portfolio pill to jump across swarms, Ack or Snooze triage rows in Triage, create and compare a Swarm Checkpoint against live state, or inspect OperatorOpsStrip command queue tracking in Roster and Board.",
+    action: "open Worktrees to inspect swarmOwner badges, expand Conflict diff hunks with Load next 32 KiB pagination, test Squash Merge or Merge Commit confirmation drawers, or route conflicts to @owner.",
     provenance: [
-      { label: "What runs:", text: "the single-file Fleet v1.29.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying the LRU=64 portfolio index (GET /api/portfolio), PortfolioDrawer cross-swarm spend and urgent triage jumps, persistent fleet_state.json triage Ack/Snooze/Unack and server-synced pins (POST /api/triage/ack, POST /api/pins), SwarmCheckpointsSection create/compare/restore/resume flows (GET/POST /api/checkpoints, POST /api/checkpoints/restore), the closed-loop fleet_ops.json operator command ledger, working-worker 409 worker_not_waiting Switch Model guards, hardened Cycle 3 delta sync, bounded forensic transcript inspection, and Full Swarm Archive Export at /demos/fleet/." },
+      { label: "What runs:", text: "the single-file Fleet v1.30.0 browser simulator built from cayleb-james2008/fleet (dist-live-web/index.html), replaying canonicalized swarm worktree root discovery (GET /api/worktrees), paginated mode=conflict hunk inspection (GET /api/worktrees/diff), confirmation-gated squash_merge and merge_commit actions with 409 conflict abort and @owner recovery, the LRU=64 portfolio index and PortfolioDrawer, persistent fleet_state.json triage Ack/Snooze/Unack and server-synced pins, SwarmCheckpointsSection, the closed-loop fleet_ops.json operator command ledger, and Full Swarm Archive Export at /demos/fleet/." },
       { label: "Local Antigravity install:", text: "the browser copy stays offline; running ./install.sh in a local clone installs the sidecar plugin into ~/.gemini/config/plugins/fleet/ with bounded <= 512 KiB transcript scanning and secret scrubbing on GET /api/transcript, GET /api/swarm/delta long-poll wakeups, content-hash plan ETags, CWE-59 git probes, zero-client idle sleep, and live SSE ping frames." },
       { label: "Why it is here:", text: "you can step through live swarm triage, forensic transcript inspection, native plan editing, and the multi-agent release gate checklist inside a narrow auxiliary pane layout." },
     ],
