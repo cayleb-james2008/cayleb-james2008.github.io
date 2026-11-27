@@ -204,10 +204,10 @@ export const skills = [
     group: "AI & agents",
     items: [
       "multi-harness agent operations",
-      "autonomous role learning",
+      "agents that learn a person's role (early, in Ergon)",
       "continual personalisation",
       "dynamic-swarm orchestration",
-      "recursive self-improvement systems",
+      "self-improving agent loops",
       "distributed agent infrastructure",
       "bring-your-own-agent coordination",
       "evaluation design",
@@ -218,7 +218,7 @@ export const skills = [
   {
     group: "Models & data",
     items: [
-      "weight-space model construction",
+      "weight-space model editing (research)",
       "linear/LDA specialists",
       "chronological backtesting",
       "experiment design",
