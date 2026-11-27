@@ -3,7 +3,6 @@ import { Toaster } from "sonner";
 import { CommandPalette } from "@/chrome/CommandPalette";
 import { ThemeProvider, useTheme } from "@/chrome/theme";
 import { Masthead } from "@/sections/Masthead";
-import { Ledger } from "@/sections/Ledger";
 import { Index } from "@/sections/Index";
 import { Summary, Experience, Background } from "@/sections/Record";
 import { Projects } from "@/sections/Projects";
@@ -13,7 +12,7 @@ import { Footer } from "@/sections/Footer";
 import { liveDemos } from "@/content";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 
-// The apex page. Regions in reading order (DESIGN-PLAN.md): B1 name row, B2 test ledger, C index, D..J the record.
+// The apex page. Regions in reading order (DESIGN-PLAN.md): B1 name row, C index, D..J the record.
 function Shell() {
   const { theme } = useTheme();
   // On a phone the notices sit at the top: at the bottom they cover the Contact sheet's Close button for the few seconds a notice stays.
@@ -31,7 +30,6 @@ function Shell() {
         <Masthead />
         <div className="mt-8 flex flex-col gap-6">
           <Index onOpenPalette={() => setPaletteOpen(true)} />
-          <Ledger />
         </div>
         <main className="mt-6 flex flex-col">
           <Summary />

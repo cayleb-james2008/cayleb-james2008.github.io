@@ -4,18 +4,28 @@ import { Expandable, ExpandableContent, ExpandableTrigger } from "@/components/u
 import { InView } from "@/components/ui/in-view";
 import { cn } from "@/lib/utils";
 import { dur } from "@/motion";
-import { additional, education, experience, summary } from "@/content";
+import { additional, education, experience, qa } from "@/content";
 
-// The prose record: summary, experience, the additional experience and education. Copied, never reworded.
+// The record: the about Q&A (Cayleb's own answers, frozen; see COPY-RULES.md), experience, additional experience and education.
 export function Summary() {
   return (
     <InView>
       <section id="summary" aria-labelledby="summary-label" className="scroll-mt-6 grid gap-4 border-t border-hairline py-12 grid-cols-1 md:grid-cols-[12rem_1fr] md:gap-10">
-        <h2 id="summary-label" className="font-mono text-xs uppercase tracking-wider text-ink-2">summary</h2>
-        <div className="max-w-[68ch] space-y-4 text-base leading-relaxed text-ink">
-          <p>{summary[0]}</p>
-          <p className="text-ink-2">{summary[1]}</p>
-        </div>
+        <h2 id="summary-label" className="font-mono text-xs uppercase tracking-wider text-ink-2" data-answers="3">about</h2>
+        <dl className="grid max-w-[68ch] gap-6">
+          {qa.map((item) => (
+            <div key={item.q} className="grid gap-1.5">
+              <dt className="text-sm text-ink-2">{item.q}</dt>
+              {item.a.map((line) => (
+                <dd key={line} className="text-base leading-relaxed text-ink">
+                  {item.link ? (
+                    <a href={item.link.href} className="underline underline-offset-4 hover:text-blue active:text-blue">{line}</a>
+                  ) : line}
+                </dd>
+              ))}
+            </div>
+          ))}
+        </dl>
       </section>
     </InView>
   );

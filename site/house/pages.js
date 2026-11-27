@@ -30,22 +30,15 @@
   var inProjects = /\/projects\//.test(location.pathname || "");
   var rootPrefix = inProjects ? "../" : "./";
   var ITEMS = [
-    { group: "Live web apps", title: "Open-Ro Studio — Roblox Studio AI IDE", meta: "/demos/open-ro/", href: rootPrefix + "demos/open-ro/" },
-    { group: "Live web apps", title: "OpenBell — Kalshi v2 risk-rails & quant sandbox", meta: "/demos/openbell/", href: rootPrefix + "demos/openbell/" },
-    { group: "Live web apps", title: "Fleet — parallel worktree & DAG board", meta: "/demos/fleet/", href: rootPrefix + "demos/fleet/" },
-    { group: "Live web apps", title: "Ergon — live browser workspace", meta: "/demos/ergon/", href: rootPrefix + "demos/ergon/" },
-    { group: "Live web apps", title: "Industry AI Suite /lab/ — 10-tool workbench", meta: "/lab/", href: rootPrefix + "lab/" },
-    { group: "Pages", title: "Interactive Résumé Home", meta: "/", href: rootPrefix + "index.html" },
-    { group: "Pages", title: "All 18 Project Pages", meta: "/projects/", href: rootPrefix + "projects/" },
-    { group: "Pages", title: "Open-Ro Studio Product Page", meta: "flagship", href: rootPrefix + "projects/openro.html" },
-    { group: "Pages", title: "OpenBell Product Page", meta: "flagship", href: rootPrefix + "projects/openbell.html" },
-    { group: "Pages", title: "Fleet Product Page", meta: "flagship", href: rootPrefix + "projects/fleet.html" },
-    { group: "Pages", title: "Ergon Product Page", meta: "product", href: rootPrefix + "projects/ergon.html" },
-    { group: "Pages", title: "Industry AI Suite Overview", meta: "suite", href: rootPrefix + "projects/industry-ai-suite.html" },
-    { group: "Pages", title: "Sophos — Coding-Agent Desktop App", meta: "desktop", href: rootPrefix + "projects/sophos.html" },
-    { group: "Pages", title: "dotz — Multi-Agent Harness Desktop", meta: "desktop", href: rootPrefix + "projects/dotz.html" },
-    { group: "Pages", title: "Asmodeus — Chronological Backtesting", meta: "research", href: rootPrefix + "projects/asmodeus.html" },
-    { group: "Pages", title: "Plain HTML Résumé", meta: "/resume.html", href: rootPrefix + "resume.html" },
+    { group: "Apps", title: "Ergon (typed preview in your browser)", meta: "/demos/ergon/", href: rootPrefix + "demos/ergon/" },
+    { group: "Apps", title: "OpenRO", meta: "/demos/open-ro/", href: rootPrefix + "demos/open-ro/" },
+    { group: "Apps", title: "Fleet", meta: "/demos/fleet/", href: rootPrefix + "demos/fleet/" },
+    { group: "Pages", title: "Home", meta: "/", href: rootPrefix + "index.html" },
+    { group: "Pages", title: "All projects", meta: "/projects/", href: rootPrefix + "projects/" },
+    { group: "Pages", title: "Ergon", meta: "project", href: rootPrefix + "projects/ergon.html" },
+    { group: "Pages", title: "OpenRO", meta: "project", href: rootPrefix + "projects/openro.html" },
+    { group: "Pages", title: "Fleet", meta: "project", href: rootPrefix + "projects/fleet.html" },
+    { group: "Pages", title: "OpenBell", meta: "project", href: rootPrefix + "projects/openbell.html" },
   ];
 
   var backdrop = null, input = null, list = null, activeIdx = 0, filtered = ITEMS.slice(), prevFocus = null;
