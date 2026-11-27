@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Open-Ro Studio · Cayleb Alvarez-James</title>
-  <meta name="description" content="OpenRO v1.27.0 is a unified three-pane Rust AI IDE for Roblox Studio with bidirectional 3-way Studio sync, cursor-paginated snapshots, .model.json script overlays, and prefab .rbxmx/.rbxm/.rbxlx model import into 3D scenes.">
+  <meta name="description" content="OpenRO v1.28.0 is a unified three-pane Rust AI IDE for Roblox Studio adding production LiveOps telemetry codegen, idempotent Open Cloud v2 DataStore shard sync, Live Production vs Headless Sandbox filtering, and Live Server Errors aggregation.">
   <link rel="canonical" href="https://cayleb-james2008.github.io/projects/openro.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cayleb Alvarez-James">
   <meta property="og:title" content="Open-Ro Studio · Cayleb Alvarez-James">
-  <meta property="og:description" content="Unified three-pane Rust AI IDE for Roblox Studio with bidirectional 3-way Studio sync, prefab .rbxmx/.rbxm/.rbxlx model import, headless Lune Luau sandbox recovery, WebGL2 viewport, and native .rbxlx export (v1.27.0).">
+  <meta property="og:description" content="Unified three-pane Rust AI IDE for Roblox Studio with production LiveOps telemetry codegen, Open Cloud shard sync, live server error aggregation, 3-way Studio sync, prefab model import, and native .rbxlx export (v1.28.0).">
   <meta property="og:url" content="https://cayleb-james2008.github.io/projects/openro.html">
   <meta property="og:image" content="https://cayleb-james2008.github.io/assets/og/card.png">
   <meta name="color-scheme" content="light dark">
@@ -41,16 +41,16 @@
     <header class="project-hero">
       <div class="wrap project-hero__main">
         <a class="project-back" href="./">← All project pages</a>
-        <p class="case-hero__meta"><img src="../assets/projects/openro-logo.svg" alt="OpenRO Studio geometric logo" width="20" height="20" style="vertical-align:-4px;margin-right:8px">Release v1.27.0 · Single-Binary Rust Desktop &amp; Web App · checked 26 November 2026</p>
+        <p class="case-hero__meta"><img src="../assets/projects/openro-logo.svg" alt="OpenRO Studio geometric logo" width="20" height="20" style="vertical-align:-4px;margin-right:8px">Release v1.28.0 · Single-Binary Rust Desktop &amp; Web App · checked 26 November 2026</p>
         <h1 class="case-hero__title">Build, sandbox, diff, and ship Roblox Studio games in one place.</h1>
-        <p class="case-hero__out">Open-Ro Studio (OpenRO) is a unified three-pane Rust IDE for Roblox Studio on Linux, macOS, and Windows. Release <code>v1.27.0</code> compiles into a <code>10.04 MiB</code> binary and adds bidirectional 3-way Studio sync (cursor-paginated snapshots, <code>.openro/sync-baseline.json</code> drift tracking, <code>HTTP 409</code> overwrite guards, <code>.model.json</code> script overlays, and the Two-Way Studio Sync dialog) alongside prefab model import for <code>.rbxmx</code>, binary <code>.rbxm</code>, and <code>.rbxlx</code> payloads decomposed into <code>scene/models/&lt;slug&gt;.model.json</code> and extracted <code>.luau</code> scripts with clickable 3D viewport model chips.</p>
+        <p class="case-hero__out">Open-Ro Studio (OpenRO) is a unified three-pane Rust IDE for Roblox Studio on Linux, macOS, and Windows. Release <code>v1.28.0</code> compiles into a <code>10.10 MiB</code> binary and adds production LiveOps telemetry codegen (<code>src/shared/LiveTelemetry.luau</code> and <code>src/server/LiveTelemetryFlush.server.luau</code> supporting <code>opencloud_datastore</code> and HTTPS SSRF-guarded <code>webhook_relay</code>), idempotent Open Cloud v2 DataStore shard sync with <code>.openro/liveops/telemetry-sync-state.json</code> cursor deduplication, <code>Live Production</code> versus <code>Headless Sandbox</code> telemetry source filtering, and <code>Live Server Errors</code> aggregation with one-click script jump.</p>
         <ul class="project-status" aria-label="Verification">
-          <li><span class="checked-dot" aria-hidden="true"></span>Checked at 91e92b3: 365/365 Rust tests, 180/180 Playwright gate checks, 11/11 replays, 6,845 req/s (2.74 ms p95), 21.31 ms boot, 13.4 MB peak RSS, 10/10 Dual-SSE, and 43/43 fuzz checks pass.</li>
-          <li><span class="chip chip--current">v1.27.0 public</span></li>
+          <li><span class="checked-dot" aria-hidden="true"></span>Checked at 303291d: 369/369 Rust tests, 184/184 Playwright gate checks, 11/11 replays, 7,620 req/s (2.56 ms p95), 25.71 ms boot, 13.38 MB peak RSS, 10/10 Dual-SSE, and 43/43 fuzz checks pass.</li>
+          <li><span class="chip chip--current">v1.28.0 public</span></li>
         </ul>
         <div class="hero-actions">
           <a class="btn-primary" href="../demos/open-ro/">Launch live web app ↗</a>
-          <a class="btn-outline" href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.27.0" target="_blank" rel="noreferrer noopener">Release v1.27.0 on GitHub ↗</a>
+          <a class="btn-outline" href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.28.0" target="_blank" rel="noreferrer noopener">Release v1.28.0 on GitHub ↗</a>
         </div>
       </div>
     </header>
@@ -69,21 +69,21 @@
         <div class="figure-grid">
           <figure class="viz viz--shot">
             <div class="viz__head viz__head--shot">
-              <span class="viz__title">OpenRO v1.27.0 Two-Way Studio Sync &amp; 3D Prefab Import</span>
+              <span class="viz__title">OpenRO v1.28.0 Production LiveOps Telemetry &amp; Live Errors</span>
               <span class="viz__live">live capture</span>
               <span class="viz__note">Light and Dark inside Settings</span>
             </div>
             <div class="viz__media">
-              <a class="shot-light" href="../assets/projects/captures/openro-v1270-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of OpenRO v1.27.0">
-                <img src="../assets/projects/captures/openro-v1270-light.png" alt="OpenRO v1.27.0 Studio IDE in Light theme showing imported GateTower prefab in Explorer, WebGL2 3D viewport with gatetower model chip, and properties inspector." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-light" href="../assets/projects/captures/openro-v1280-light.png" target="_blank" rel="noopener" aria-label="Open full-resolution light capture of OpenRO v1.28.0">
+                <img src="../assets/projects/captures/openro-v1280-light.png" alt="OpenRO v1.28.0 Studio IDE in Light theme showing LiveOps Telemetry Source filtering, Open Cloud DataStore shard sync, and Live Telemetry Collector codegen." width="1440" height="900" loading="eager" decoding="async">
               </a>
-              <a class="shot-dark" href="../assets/projects/captures/openro-v1270-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of OpenRO v1.27.0">
-                <img src="../assets/projects/captures/openro-v1270-dark.png" alt="OpenRO v1.27.0 Studio IDE in Dark theme showing imported GateTower prefab in Explorer, WebGL2 3D viewport with gatetower model chip, and properties inspector." width="1440" height="900" loading="eager" decoding="async">
+              <a class="shot-dark" href="../assets/projects/captures/openro-v1280-dark.png" target="_blank" rel="noopener" aria-label="Open full-resolution dark capture of OpenRO v1.28.0">
+                <img src="../assets/projects/captures/openro-v1280-dark.png" alt="OpenRO v1.28.0 Studio IDE in Dark theme showing LiveOps Telemetry Source filtering, Open Cloud DataStore shard sync, and Live Telemetry Collector codegen." width="1440" height="900" loading="eager" decoding="async">
               </a>
             </div>
             <figcaption class="viz__cap">
-              <p class="viz__caption">Captured from OpenRO <code>v1.27.0</code> at <code>1440x900</code> (<a href="../assets/projects/captures/openro-v1270-sync-light.png" target="_blank" rel="noopener">Two-Way Studio Sync Light ↗</a> · <a href="../assets/projects/captures/openro-v1270-sync-dark.png" target="_blank" rel="noopener">Dark ↗</a>). The browser edition at <code>/demos/open-ro/</code> mirrors Two-Way Studio Sync 3-way conflict resolution, Prefab Model Import with 3D model chips, the Headless Luau Sandbox verifier and persisted run history (<code>browser_sim</code>), WebGL2 3D viewport, LiveOps control plane, Visual ScreenGui Designer, unified Rojo workspace, Explorer, Economy Balance Simulator, Monetization Audit, Pre-Publish Guard, Sync Conflict Resolver, Snapshot Rollback, and Rojo <code>.zip</code> export.</p>
-              <p class="viz__source">Source: cayleb-james2008/open-ro v1.27.0 · browser edition at /demos/open-ro/</p>
+              <p class="viz__caption">Captured from OpenRO <code>v1.28.0</code> at <code>1440x900</code> (<a href="../assets/projects/captures/openro-v1280-errors-light.png" target="_blank" rel="noopener">Live Server Errors Light ↗</a> · <a href="../assets/projects/captures/openro-v1280-errors-dark.png" target="_blank" rel="noopener">Dark ↗</a>). The browser edition at <code>/demos/open-ro/</code> mirrors Production LiveOps Telemetry codegen, Open Cloud sync cursor controls, Telemetry Source filtering, Live Server Errors script jump, Two-Way Studio Sync 3-way conflict resolution, Prefab Model Import with 3D model chips, the Headless Luau Sandbox verifier and persisted run history (<code>browser_sim</code>), WebGL2 3D viewport, Visual ScreenGui Designer, unified Rojo workspace, Explorer, Economy Balance Simulator, Monetization Audit, Pre-Publish Guard, Snapshot Rollback, and Rojo <code>.zip</code> export.</p>
+              <p class="viz__source">Source: cayleb-james2008/open-ro v1.28.0 · browser edition at /demos/open-ro/</p>
               <p class="viz__action">
                 <a class="viz__open" href="../demos/open-ro/">open live web app ↗</a>
               </p>
@@ -146,19 +146,19 @@
               <p>OpenRO handles scaffolding, Luau code diffs, snapshot rollback, economy dry runs, and Studio packaging inside one workspace backed by a cross-platform Rust server.</p>
               <div class="cap-grid">
                 <div class="cap-card">
-                  <span class="cap-card__tag">01 · Bidirectional 3-Way Studio Sync</span>
-                  <h3>Cursor-paginated snapshots, conflict guards, and overlays</h3>
-                  <p><code>get_place_snapshot</code> streams Studio scripts and rich instances over cursor pagination, <code>/sync/pull-diff</code> and <code>/sync/pull</code> classify changes against <code>.openro/sync-baseline.json</code> with <code>HTTP 409</code> overwrite guards, and <code>.model.json</code> script overlays keep nested part parents intact.</p>
+                  <span class="cap-card__tag">01 · Production Telemetry Codegen</span>
+                  <h3>Strict Luau ring buffer, DataStore flush, and SSRF guards</h3>
+                  <p><code>POST /api/projects/:id/liveops/telemetry/codegen</code> generates <code>--!strict</code> <code>src/shared/LiveTelemetry.luau</code> and <code>src/server/LiveTelemetryFlush.server.luau</code> for <code>opencloud_datastore</code> or HTTPS SSRF-guarded <code>webhook_relay</code> targets with bounded intervals and zero hardcoded secrets.</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">02 · Prefab Import &amp; 6,845 req/s</span>
-                  <h3>.rbxmx, binary .rbxm, and .rbxlx models inside 3D scenes</h3>
-                  <p><code>POST /api/projects/:id/import-model</code> decomposes up to 16 MiB prefabs into <code>scene/models/&lt;slug&gt;.model.json</code> and extracted <code>.luau</code> scripts with XXE/CWE-22/CWE-59 guards and clickable 3D viewport chips, serving <code>6,845.1 req/s</code> (<code>21.31 ms</code> boot, <code>13.4 MB</code> peak RSS).</p>
+                  <span class="cap-card__tag">02 · Open Cloud Sync &amp; 7,620 req/s</span>
+                  <h3>Idempotent shard ingestion and Live Server Errors</h3>
+                  <p><code>POST /api/projects/:id/liveops/telemetry/sync</code> pulls Open Cloud v2 DataStore shards into <code>telemetry.jsonl</code> with <code>.openro/liveops/telemetry-sync-state.json</code> deduplication and feeds <code>GET /liveops/errors</code> with one-click script jump, serving <code>7,620.5 req/s</code> (<code>25.71 ms</code> boot, <code>13.38 MB</code> peak RSS).</p>
                 </div>
                 <div class="cap-card">
-                  <span class="cap-card__tag">03 · 365 Tests, 0/0/0 Sloplint &amp; 43/43 Fuzz</span>
-                  <h3>Two-Way Sync dialog, 65 clean source files, and strict security</h3>
-                  <p>Adds the Two-Way Studio Sync dialog with unified hunk diffs and strategy selection, passes <code>180/180</code> Playwright gate checks and <code>0 FAIL / 0 REFLEX / 0 WARN</code> Sloplint across 65 files, and passes <code>43/43</code> raw-TCP security fuzz checks.</p>
+                  <span class="cap-card__tag">03 · 369 Tests, 0/0/0 Sloplint &amp; 43/43 Fuzz</span>
+                  <h3>Source-filtered telemetry, 65 clean source files, and strict security</h3>
+                  <p>Separates <code>Live Production</code> and <code>Headless Sandbox</code> telemetry cleanly, passes <code>184/184</code> Playwright gate checks and <code>0 FAIL / 0 REFLEX / 0 WARN</code> Sloplint across 65 files, and passes <code>43/43</code> raw-TCP security fuzz checks.</p>
                 </div>
               </div>
             </div>
@@ -167,13 +167,13 @@
           <section id="record">
             <h2>Verification record</h2>
             <div class="project-prose__body">
-              <p>Measured against <code>cayleb-james2008/open-ro</code> at release <code>v1.27.0</code> (<code>91e92b3</code>).</p>
+              <p>Measured against <code>cayleb-james2008/open-ro</code> at release <code>v1.28.0</code> (<code>303291d</code>).</p>
               <table class="record-table">
                 <tbody>
-                  <tr><th>Rust, Windows &amp; Clippy</th><td>365 of 365 Rust tests pass across 39 suites (including <code>5/5</code> <code>v127_bidirectional_sync</code> tests, <code>v126_cycle3_hardening</code>, <code>v125_headless_sandbox</code>, <code>v124_viewport_terrain</code>, <code>v123_liveops</code>, <code>v122_cycle2_hardening</code>, <code>v121_gui_designer</code>, <code>v120_sandbox_runtime</code>, and CWE-22/59 checks), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo xwin check --target x86_64-pc-windows-msvc</code>).</td></tr>
-                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>10.04 MiB release binary (<code>10,523,536 B</code>), <code>57,813 B</code> gzip initial shell, 21.31 ms cold boot, 13.4 MB peak RSS, 6,845.1 req/s (2.32 ms p50, 2.74 ms p95, 17,121 reqs, 0 errors), 10/10 Dual-SSE survival, and 43/43 cold raw-TCP fuzz checks pass.</td></tr>
-                  <tr><th>UI &amp; standalone web app</th><td><code>check:ui</code> passed 180/180 Playwright checks, 11/11 replays, 0 FAIL / 0 REFLEX / 0 WARN Sloplint across 65 files in <code>frontend/src</code>, zero console errors across <code>1440x900</code> and <code>390x844</code>, and offline <code>web-dist</code> (<code>1,986 KiB</code>) with zero external requests.</td></tr>
-                  <tr><th>Packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.27.0" target="_blank" rel="noreferrer noopener">v1.27.0 Release</a>).</td></tr>
+                  <tr><th>Rust, Windows &amp; Clippy</th><td>369 of 369 Rust tests pass across 40 suites (including <code>3/3</code> <code>v128_liveops_telemetry_sync</code> tests, <code>v127_bidirectional_sync</code>, <code>v126_cycle3_hardening</code>, <code>v125_headless_sandbox</code>, <code>v124_viewport_terrain</code>, <code>v123_liveops</code>, <code>v122_cycle2_hardening</code>, <code>v121_gui_designer</code>, <code>v120_sandbox_runtime</code>, and CWE-22/59 checks), 0 Clippy warnings (<code>-D warnings</code>), and 0 Windows cross-check errors (<code>cargo xwin check --target x86_64-pc-windows-msvc</code>).</td></tr>
+                  <tr><th>Binary &amp; HTTP scale (16w pinned)</th><td>10.10 MiB release binary (<code>10,593,168 B</code>), <code>57,823 B</code> gzip initial shell, 25.71 ms cold boot, 13.38 MB peak RSS, 7,620.5 req/s (2.05 ms p50, 2.56 ms p95, 19,061 reqs, 0 errors), 10/10 Dual-SSE survival, and 43/43 cold raw-TCP fuzz checks pass.</td></tr>
+                  <tr><th>UI &amp; standalone web app</th><td><code>check:ui</code> passed 184/184 Playwright checks, 11/11 replays, 0 FAIL / 0 REFLEX / 0 WARN Sloplint across 65 files in <code>frontend/src</code>, zero console errors across <code>1440x900</code> and <code>390x844</code>, and offline <code>web-dist</code> (<code>2,007 KiB</code>) with zero external requests.</td></tr>
+                  <tr><th>Packaging</th><td>Single Rust binary plus chromeless <code>--app</code> launch across Linux x86_64/arm64, macOS arm64, and Windows x86_64 <code>.exe</code> with <code>SHA256SUMS</code> (<a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.28.0" target="_blank" rel="noreferrer noopener">v1.28.0 Release</a>).</td></tr>
                 </tbody>
               </table>
             </div>
@@ -193,10 +193,10 @@
         <h2>Evidence</h2>
         <dl class="repo-facts">
           <div class="repo-facts__row"><dt>repo</dt><dd><a href="https://github.com/cayleb-james2008/open-ro">cayleb-james2008/open-ro</a> <span>(public)</span></dd></div>
-          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.27.0</b> · Single-binary Rust</dd></div>
+          <div class="repo-facts__row"><dt>release</dt><dd><b>v1.28.0</b> · Single-binary Rust</dd></div>
           <div class="repo-facts__row"><dt>checked</dt><dd>26 Nov 2026</dd></div>
-          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.27.0</span></dd></div>
-          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/open-ro/">Live web app</a> · <a href="https://github.com/cayleb-james2008/open-ro">GitHub</a> · <a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.27.0">Release v1.27.0</a></dd></div>
+          <div class="repo-facts__row"><dt>status</dt><dd><span class="chip chip--current">v1.28.0</span></dd></div>
+          <div class="repo-facts__row"><dt>links</dt><dd><a href="../demos/open-ro/">Live web app</a> · <a href="https://github.com/cayleb-james2008/open-ro">GitHub</a> · <a href="https://github.com/cayleb-james2008/open-ro/releases/tag/v1.28.0">Release v1.28.0</a></dd></div>
         </dl>
         <p class="project-aside__more"><a href="../index.html">← Back to home</a></p>
       </aside>
